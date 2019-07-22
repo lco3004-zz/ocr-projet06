@@ -2,15 +2,15 @@
   Created by IntelliJ IDEA.
   User: laurent
   Date: 22/07/2019
-  Time: 17:32
+  Time: 18:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
+<head>
+    <title>Title</title>
+</head>
 <body>
-<p>
-    ${developpers.developper.name} -  ${developpers.developper.organization}
-</p>
+
 </body>
 </html>

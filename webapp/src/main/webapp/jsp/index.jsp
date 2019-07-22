@@ -1,5 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+    <a href="/home">
+    <a href="about.jsp">
 </body>
 </html>
