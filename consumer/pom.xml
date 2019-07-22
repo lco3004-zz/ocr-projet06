@@ -37,7 +37,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>App</mainClass>
+                                <mainClass>fr.ocr.prj06.App</mainClass>
                                 <addClasspath>true</addClasspath>
                             </manifest>
                         </archive>
