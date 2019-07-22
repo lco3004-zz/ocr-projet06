@@ -11,7 +11,7 @@
     </parent>
 
 	<artifactId>business</artifactId>
-    <version>${project.parent.version}</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 	<name>business</name>
 
