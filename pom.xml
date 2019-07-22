@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.ocr.prj06</groupId>
+  <artifactId>projet06</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  
+  <modules>
+      <module>business</module>
+      <module>consumer</module>
+      <module>model</module>
+      <module>batch</module>
+  </modules>
+  
+  <packaging>pom</packaging>
+
+  <name>projet06</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
+    <maven.compiler.source>12</maven.compiler.source>
+    <maven.compiler.target>12</maven.compiler.target>
+    <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+    <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+  </properties>
+
+  <!-- =============================================================== -->
+  <!-- Profils -->
+  <!-- =============================================================== -->
+  <profiles>
+    <!-- Profil pour l'environnement de développement -->
+    <!-- active par defaut -->
+    <profile>
+      <id>target-dev</id>
+      <activation>
+        <property>
+          <name>choix-env</name>
+          <value>dev</value>
+        </property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <finalName>${project.artifactId}-dev-${project.version}</finalName>
+        <resources>
+          <resource>
+            <directory>src/main/resources/conf-dev</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+
+    <!-- Profil pour l'environnement de test -->
+    <profile>
+      <id>target-test</id>
+      <activation>
+        <property>
+          <name>choix-env</name>
+          <value>test</value>
+        </property>
+      </activation>
+      <build>
+        <finalName>${project.artifactId}-test-${project.version}</finalName>
+        <resources>
+          <resource>
+            <directory>src/main/resources/conf-test</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+
+    <!-- Profil pour l'environnement de production-->
+    <profile>
+      <id>target-prod</id>
+      <activation>
+        <property>
+          <name>choix-env</name>
+          <value>prod</value>
+        </property>
+      </activation>
+      <build>
+        <finalName>${project.artifactId}-prod-${project.version}</finalName>
+        <resources>
+          <resource>
+            <directory>src/main/resources/conf-prod</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+  </profiles>
+
+
+  <!-- =============================================================== -->
+  <!-- Gestion des dépendances -->
+  <!-- =============================================================== -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- ===== Modules ===== -->
+      <dependency>
+        <groupId>fr.ocr.prj06</groupId>
+        <artifactId>batch</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>fr.ocr.prj06</groupId>
+        <artifactId>business</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>fr.ocr.prj06</groupId>
+        <artifactId>consumer</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>fr.ocr.prj06</groupId>
+        <artifactId>model</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <!-- ===== Bibliothèques tierces ===== -->
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>1.4.1</version>
+          <executions>
+            <execution>
+              <!-- je choisis un nom unique pour définir cette exécution -->
+              <id>enforce-profile-target</id>
+              <!-- je branche l'exécution à la phase "validate" -->
+              <phase>validate</phase>
+              <!-- cette exécution lancera le goal "enforce" -->
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <!-- La configuration du plugin propre à cette exécution -->
+              <configuration>
+                <rules>
+                  <requireActiveProfile>
+                    <profiles>target-dev,target-test,target-prod</profiles>
+                    <all>false</all>
+                  </requireActiveProfile>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+		
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>3.0.2</version>
+        </plugin>
+		
+        <plugin>
+  		  <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+          </configuration>
+        </plugin>
+		
+        <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+		
+        <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.2.3</version>
+        </plugin>
+
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.7.1</version>
+        </plugin>
+        <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

@@ -1,0 +1,10 @@
+*.iml
+.idea/*
+webapp/target/*
+batch/target/*
+consumer/target/*
+business/target/*
+model/target/*
+.m2/*
+logProjet06/*
+dependency-reduced-pom.xml
