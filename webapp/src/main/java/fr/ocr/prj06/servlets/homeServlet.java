@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//hello
+
 import static fr.ocr.prj06.msghtml.MessageDeBase.*;
 
 public class homeServlet extends HttpServlet {
