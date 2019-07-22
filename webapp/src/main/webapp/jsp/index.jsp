@@ -1,6 +1,7 @@
 <html>
 <body>
-    <a href="/home">
-    <a href="about.jsp">
+Hop
+<a href="/home"> Home </a>
+<a href="about.jsp"> about</a>
 </body>
 </html>

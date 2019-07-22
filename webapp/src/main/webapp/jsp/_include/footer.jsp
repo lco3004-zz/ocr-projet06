@@ -10,7 +10,7 @@
 
 <body>
 <p>
-    ${developpers.developper.name} -  ${developpers.developper.organization}
+ footer -   ${developper.name} -  ${developper.organization}
 </p>
 </body>
 </html>
