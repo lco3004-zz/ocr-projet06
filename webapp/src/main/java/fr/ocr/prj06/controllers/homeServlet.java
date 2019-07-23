@@ -1,4 +1,4 @@
-package fr.ocr.prj06.jsp;
+package fr.ocr.prj06.controllers;
 
 import fr.ocr.prj06.msghtml.MessageDeBase;
 
@@ -16,7 +16,7 @@ public class homeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         /* Transmission de la paire d'objets request/response à notre JSP */
-        RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/classes/jsp/about.jsp");
+        RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/classes/views/about.views");
         if (requestDispatcher != null) {
             requestDispatcher.forward( request, response );
         } else  {

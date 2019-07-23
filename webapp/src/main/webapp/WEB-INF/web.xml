@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>homeServlet</servlet-name>
-        <servlet-class>fr.ocr.prj06.jsp.homeServlet</servlet-class>
+        <servlet-class>fr.ocr.prj06.controllers.homeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>homeServlet</servlet-name>
