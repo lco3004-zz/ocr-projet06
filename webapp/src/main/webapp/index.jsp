@@ -1,11 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
 <body>
-<h2>
-    Projet 0RT
-</h2>
-<br>
-<a href="/welcome"> Home </a>
-<br>
-<a href="about.jsp"> about</a>
+<a href="home"> Go  </a>
 </body>
 </html>

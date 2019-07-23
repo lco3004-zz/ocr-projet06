@@ -6,16 +6,15 @@
   <display-name>Archetype Created Web Application</display-name>
 
     <servlet>
-        <servlet-name>welcomeServlet</servlet-name>
-        <servlet-class>fr.ocr.prj06.servlets.welcomeServlet</servlet-class>
+        <servlet-name>homeServlet</servlet-name>
+        <servlet-class>fr.ocr.prj06.jsp.homeServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name >welcomeServlet</servlet-name>
+        <servlet-name>homeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
-<error-page>
+    <error-page>
     <error-code>404</error-code>
     <location>/error404.html</location>
 </error-page>

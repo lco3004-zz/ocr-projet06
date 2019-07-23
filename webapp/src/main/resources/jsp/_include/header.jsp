@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html>
 <body>
-<p> Header - ${maven.build.timestamp}</p>
+<p> _include/Header.jsp - Build :  ${project.build.finalName} </p>
 </body>
 </html>

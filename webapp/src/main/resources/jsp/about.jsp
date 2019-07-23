@@ -8,14 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${application.name}</title>
+    <title>About - ${project.description}</title>
 </head>
 <body>
 <%@include file="_include/header.jsp"%>
     <ul>
-        <li> Application : ${application.name} </li>
+        <li> Application : ${project.description} </li>
         <li> Version :  ${project.version}</li>
-        <li> Date du build : ${maven.build.timestamp}</li>
+        <li> Date du build : ${build.timestamp}</li>
+
     </ul>
 <%@include file="_include/footer.jsp"%>
 </body>

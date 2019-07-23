@@ -18,12 +18,6 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
-    <application.name>ChocEtChic</application.name>
-    <maven.build.timestamp.format>dd/mm/yyyy</maven.build.timestamp.format>
-    <build.timestamp>${maven.build.timestamp}</build.timestamp>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>fr.ocr.prj06</groupId>

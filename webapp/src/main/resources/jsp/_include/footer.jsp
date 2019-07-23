@@ -10,7 +10,7 @@
 
 <body>
 <p>
- footer -   ${developper.name} -  ${developper.organization}
+ _include/footer.jsp - Organisation :  ${project.organization.name}
 </p>
 </body>
 </html>

@@ -43,6 +43,14 @@
       <module>webapp</module>
   </modules>
 
+  <organization>
+    <name>LaurentMaison</name>
+  </organization>
+
+  <description>
+    Front Office Projet06
+  </description>
+
   <!-- =============================================================== -->
   <!-- Propietes -->
   <!-- =============================================================== -->
@@ -53,6 +61,8 @@
     <maven.compiler.target>12</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+    <maven.build.timestamp.format>dd/mm/yyyy</maven.build.timestamp.format>
+    <build.timestamp>${maven.build.timestamp}</build.timestamp>
   </properties>
 
   <!-- =============================================================== -->
