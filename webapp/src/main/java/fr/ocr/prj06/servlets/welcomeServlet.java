@@ -14,7 +14,6 @@ import static fr.ocr.prj06.msghtml.MessageDeBase.*;
 
 //@WebServlet(name = "homeServlet", urlPatterns = { "/home" })
 
-@WebServlet(name = "welcomeServlet", urlPatterns = { "/home" ,"/welcome"})
 public class welcomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
