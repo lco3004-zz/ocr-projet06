@@ -4,9 +4,23 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- =============================================================== -->
+  <!-- Les identifiants de l'application -->
+  <!-- =============================================================== -->
   <groupId>fr.ocr.prj06</groupId>
   <artifactId>projet06</artifactId>
   <version>1.0</version>
+
+  <!-- =============================================================== -->
+  <!-- Parent Pom et nom application -->
+  <!-- =============================================================== -->
+  <packaging>pom</packaging>
+  <name>projet06</name>
+
+
+  <!-- =============================================================== -->
+  <!-- information generales application -->
+  <!-- =============================================================== -->
   <developers>
     <developer>
       <name>Laurent</name>
@@ -18,18 +32,20 @@
     </developer>
   </developers>
 
+  <!-- =============================================================== -->
+  <!-- modules gérés par  parent Pom -->
+  <!-- =============================================================== -->
   <modules>
       <module>business</module>
       <module>consumer</module>
       <module>model</module>
       <module>batch</module>
-    <module>webapp</module>
+      <module>webapp</module>
   </modules>
-  
-  <packaging>pom</packaging>
 
-  <name>projet06</name>
-
+  <!-- =============================================================== -->
+  <!-- Propietes -->
+  <!-- =============================================================== -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
@@ -58,7 +74,7 @@
         <finalName>${project.artifactId}-dev</finalName>
         <resources>
           <resource>
-            <directory>src/main/resources/conf-dev</directory>
+            <directory>src/main/resources</directory>
             <filtering>true</filtering>
           </resource>
         </resources>
@@ -78,7 +94,7 @@
         <finalName>${project.artifactId}-test</finalName>
         <resources>
           <resource>
-            <directory>src/main/resources/conf-test</directory>
+            <directory>src/main/resources</directory>
             <filtering>true</filtering>
           </resource>
         </resources>
@@ -98,14 +114,13 @@
         <finalName>${project.artifactId}-prod</finalName>
         <resources>
           <resource>
-            <directory>src/main/resources/conf-prod</directory>
+            <directory>src/main/resources</directory>
             <filtering>true</filtering>
           </resource>
         </resources>
        </build>
     </profile>
   </profiles>
-
 
   <!-- =============================================================== -->
   <!-- Gestion des dépendances -->
@@ -116,27 +131,27 @@
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>batch</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>business</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>consumer</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>model</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>webapp</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
       </dependency>
       <!-- ===== Bibliothèques tierces ===== -->
 

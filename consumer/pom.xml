@@ -21,6 +21,7 @@
         <dependency>
             <groupId>fr.ocr.prj06</groupId>
             <artifactId>model</artifactId>
+            <version>1.0</version>
         </dependency>
 
         <dependency>
