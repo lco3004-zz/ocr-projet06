@@ -31,6 +31,14 @@
     </developer>
   </developers>
 
+  <organization>
+    <name>LaurentMaison</name>
+  </organization>
+
+  <description>
+    Projet06
+  </description>
+
   <!-- =============================================================== -->
   <!-- modules gérés par  parent Pom -->
   <!-- =============================================================== -->
@@ -42,17 +50,9 @@
       <module>webapp</module>
   </modules>
 
-  <organization>
-    <name>LaurentMaison</name>
-  </organization>
-
-  <description>
-    Projet06
-  </description>
-
-  <!-- =============================================================== -->
+   <!-- =============================================================== -->
   <!-- Propietes -->
-  <!-- =============================================================== -->
+  <!-- ================================================================ -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
@@ -90,6 +90,7 @@
       </build>
     </profile>
     <!-- Profil pour l'environnement de production-->
+    <!-- pas de snapshot en production-->
     <profile>
       <id>prod</id>
       <activation>
@@ -108,6 +109,7 @@
           </resource>
         </resources>
         <plugins>
+          <!--  enforcer sur controle que les versions ne sont pas snapshot  -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-enforcer-plugin</artifactId>
@@ -136,6 +138,7 @@
        </build>
     </profile>
   </profiles>
+
   <!-- =============================================================== -->
   <!-- Gestion des dépendances -->
   <!-- =============================================================== -->
@@ -182,7 +185,9 @@
   <!-- =============================================================== -->
 
   <build>
-    <!-- To define the plugin version in your parent POM -->
+    <!-- =============================================================== -->
+    <!-- gestion centrale versions plugins -->
+    <!-- ================================================================ -->
     <pluginManagement>
       <plugins>
         <plugin>
@@ -209,31 +214,26 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.3</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
@@ -251,7 +251,9 @@
         </plugin>
       </plugins>
     </pluginManagement>
-
+    <!-- =============================================================== -->
+    <!-- activation des  plugins (uniquement ceux dans la section plugins ci -dessous)  -->
+    <!-- ================================================================ -->
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -261,6 +263,10 @@
           <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
+      <!-- =============================================================== -->
+      <!-- Endorser sur "il faut un profil actif" est en "skip" car -->
+      <!-- ne fonctionne pas (juillet 2019)-->
+      <!-- ================================================================ -->
         <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
