@@ -16,7 +16,7 @@ public class homeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         /* Transmission de la paire d'objets request/response à notre JSP */
-        RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/classes/views/about.views");
+        RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/jsp/about.jsp");
         if (requestDispatcher != null) {
             requestDispatcher.forward( request, response );
         } else  {
@@ -29,7 +29,5 @@ public class homeServlet extends HttpServlet {
                 out.flush();
             }
         }
-
-
     }
 }
