@@ -30,11 +30,9 @@
       </roles>
     </developer>
   </developers>
-
   <organization>
     <name>LaurentMaison</name>
   </organization>
-
   <description>
     Projet06
   </description>
@@ -50,7 +48,7 @@
       <module>webapp</module>
   </modules>
 
-   <!-- =============================================================== -->
+  <!-- =============================================================== -->
   <!-- Propietes -->
   <!-- ================================================================ -->
   <properties>
@@ -60,7 +58,7 @@
     <maven.compiler.target>12</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
-    <maven.build.timestamp.format>dd/mm/yyyy</maven.build.timestamp.format>
+    <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
   </properties>
 
@@ -148,7 +146,7 @@
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>batch</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>fr.ocr.prj06</groupId>
@@ -249,6 +247,11 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>3.2.1</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <!-- =============================================================== -->
@@ -264,7 +267,7 @@
         </configuration>
       </plugin>
       <!-- =============================================================== -->
-      <!-- Endorser sur "il faut un profil actif" est en "skip" car -->
+      <!-- enforcer sur "il faut un profil actif" est en "skip" car -->
       <!-- ne fonctionne pas (juillet 2019)-->
       <!-- ================================================================ -->
         <plugin>
