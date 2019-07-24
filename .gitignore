@@ -6,6 +6,6 @@ consumer/target/*
 business/target/*
 model/target/*
 .m2/*
-lib/
+lib/*
 logProjet06/*
 dependency-reduced-pom.xml
