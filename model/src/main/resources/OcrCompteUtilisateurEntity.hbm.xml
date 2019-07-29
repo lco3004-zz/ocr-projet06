@@ -15,7 +15,7 @@
             <column name="ocr_compte_utilisateur_login_id" sql-type="varchar(45)" length="45"/>
         </property>
         <property name="ocrCompteUtilisateurDroits">
-            <column name="ocr_compte_utilisateur_droits" sql-type="enum('r', 'w', 'd', 'p', 'a')"/>
+            <column name="ocr_compte_utilisateur_droits" sql-type="varchar(4)" length="4"/>
         </property>
     </class>
 </hibernate-mapping>

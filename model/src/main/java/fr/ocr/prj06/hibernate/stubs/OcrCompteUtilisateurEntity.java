@@ -9,7 +9,7 @@ public class OcrCompteUtilisateurEntity {
     private int idocrCompteUtilisateur;
     private String ocrCompteUtilisateurMdp;
     private String ocrCompteUtilisateurLoginId;
-    private Object ocrCompteUtilisateurDroits;
+    private String ocrCompteUtilisateurDroits;
 
     @Id
     @Column(name = "idocr_compte_utilisateur", nullable = false)
@@ -43,11 +43,11 @@ public class OcrCompteUtilisateurEntity {
 
     @Basic
     @Column(name = "ocr_compte_utilisateur_droits", nullable = false)
-    public Object getOcrCompteUtilisateurDroits() {
-        return ocrCompteUtilisateurDroits;
+    public String getOcrCompteUtilisateurDroits() {
+         return ocrCompteUtilisateurDroits ;
     }
 
-    public void setOcrCompteUtilisateurDroits(Object ocrCompteUtilisateurDroits) {
+    public void setOcrCompteUtilisateurDroits(String ocrCompteUtilisateurDroits) {
         this.ocrCompteUtilisateurDroits = ocrCompteUtilisateurDroits;
     }
 
@@ -64,6 +64,9 @@ public class OcrCompteUtilisateurEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idocrCompteUtilisateur, ocrCompteUtilisateurMdp, ocrCompteUtilisateurLoginId, ocrCompteUtilisateurDroits);
+        return Objects.hash(idocrCompteUtilisateur,
+                ocrCompteUtilisateurMdp,
+                ocrCompteUtilisateurLoginId,
+                ocrCompteUtilisateurDroits);
     }
 }

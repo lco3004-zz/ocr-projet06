@@ -22,12 +22,13 @@ public class App {
         Properties properties = new Properties();
 
         //creation objet logger (singleton)
-        getInstance(App.class.getSimpleName());
+        //getInstance(App.class.getSimpleName());
+
         try (InputStream inputStream = App.class.getResourceAsStream("/info.properties")) {
             properties.load(inputStream);
         }
 
-        logger.info(String.format("%s Version= %s", LANCEMENT_APPLICATION.getMessageInfos(), properties.getProperty("version")));
+        //logger.info(String.format("%s Version= %s", LANCEMENT_APPLICATION.getMessageInfos(), properties.getProperty("version")));
 
         try {
             System.out.println("querying all the managed entities...");
