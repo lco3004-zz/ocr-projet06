@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="fr.ocr.prj06.hibernate.stubs.OcrTopoEntity" table="ocr_topo" schema="ocr_projet06">
+        <id name="idocrTopo">
+            <column name="idocr_topo" sql-type="int(11)"/>
+        </id>
+        <property name="ocrTopoNom">
+            <column name="ocr_topo_nom" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="ocrTopoEstDispo">
+            <column name="ocr_topo_est_dispo" sql-type="tinyint(4)"/>
+        </property>
+        <many-to-one name="ocrPratiquantByOcrPratiquantIdocrPratiquant" class="fr.ocr.prj06.hibernate.stubs.OcrPratiquantEntity">
+            <column name="ocr_pratiquant_idocr_pratiquant"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -38,8 +38,8 @@
 
     <!-- ===== Artifact tiers ===== -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
     </dependency>
       <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
       <dependency>
@@ -108,7 +108,7 @@
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>
-                    <Main-Class>${app.main.class}</Main-Class>
+                    <App-Class>${app.main.class}</App-Class>
                     <Build-Number>${project.version} </Build-Number>
                   </manifestEntries>
                 </transformer>

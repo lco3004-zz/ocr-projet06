@@ -15,26 +15,79 @@
 	<packaging>jar</packaging>
     <name>model</name>
 
+	<properties>
+		<app.main.class> App </app.main.class>
+	</properties>
+
 	<dependencies>
     <!-- ===== Artifact tiers ===== -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			</dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		  <plugins>
-			<plugin>
-			  <artifactId>maven-jar-plugin</artifactId>
-			  <configuration>
-				<archive>
-				  <manifest>
-					<mainClass>fr.ocr.prj06.App</mainClass>
-					<addClasspath>true</addClasspath>
-				  </manifest>
-				</archive>
-			  </configuration>
-			</plugin>
+			  <!--<plugin>
+               <artifactId>maven-jar-plugin</artifactId>
+               <configuration>
+                 <archive>
+                   <manifest>
+                     <mainClass>App</mainClass>
+                     <addClasspath>true</addClasspath>
+                   </manifest>
+                 </archive>
+               </configuration>
+             </plugin>
+              -->
+			 <plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-shade-plugin</artifactId>
+			   <executions>
+				 <execution>
+				   <phase>package</phase>
+				   <goals>
+					 <goal>shade</goal>
+				   </goals>
+				   <configuration>
+					 <transformers>
+					   <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+						 <manifestEntries>
+						   <Main-Class>${app.main.class}</Main-Class>
+						   <Build-Number>${project.version} </Build-Number>
+						 </manifestEntries>
+					   </transformer>
+					 </transformers>
+				   </configuration>
+				 </execution>
+			   </executions>
+			 </plugin>
 		  </plugins>
 	</build>
 </project>

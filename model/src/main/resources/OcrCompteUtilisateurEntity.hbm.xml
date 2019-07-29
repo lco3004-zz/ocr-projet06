@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="fr.ocr.prj06.hibernate.stubs.OcrCompteUtilisateurEntity" table="ocr_compte_utilisateur" schema="ocr_projet06">
+        <id name="idocrCompteUtilisateur">
+            <column name="idocr_compte_utilisateur" sql-type="int(11)"/>
+        </id>
+        <property name="ocrCompteUtilisateurMdp">
+            <column name="ocr_compte_utilisateur_mdp" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="ocrCompteUtilisateurLoginId">
+            <column name="ocr_compte_utilisateur_login_id" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="ocrCompteUtilisateurDroits">
+            <column name="ocr_compte_utilisateur_droits" sql-type="enum('r', 'w', 'd', 'p', 'a')"/>
+        </property>
+    </class>
+</hibernate-mapping>
