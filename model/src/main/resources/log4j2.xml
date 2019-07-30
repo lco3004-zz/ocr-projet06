@@ -12,8 +12,8 @@
         </File>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout>
-                <MarkerPatternSelector defaultPattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n %sn. : Logger=%logger%n">
-                    <PatternMatch key="CLASS" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n %sn. : Class=%class%n"/>
+                <MarkerPatternSelector defaultPattern="%sn. %d{HH:mm:ss.SSS} [%t] %-5level %logger{64} - %msg : Logger=%logger%n">
+                    <PatternMatch key="CLASS" pattern="%sn. %d{HH:mm:ss.SSS} [%t] %-5level %logger{64} - %msg : Class=%class%n"/>
                 </MarkerPatternSelector>
             </PatternLayout>
         </Console>
