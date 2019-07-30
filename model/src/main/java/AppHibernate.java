@@ -1,30 +1,31 @@
-import org.hibernate.HibernateException;
+
+import fr.ocr.prj06.hibernate.logs.LogsProjet;
+import org.apache.logging.log4j.*;
 import org.hibernate.Metamodel;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.metamodel.EntityType;
 
 import java.io.InputStream;
+import java.util.Optional;
 import java.util.Properties;
 
+import static fr.ocr.prj06.hibernate.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.hibernate.tools.HibernateUtil.getSession;
-import static fr.ocr.prj06.hibernate.tools.Logs.logger;
-import static fr.ocr.prj06.hibernate.tools.Logs.getInstance;
-import static fr.ocr.prj06.hibernate.tools.Messages.InfosMessages.LANCEMENT_APPLICATION;
 
-public class App {
+public class AppHibernate {
 
     public static void main(final String[] args) throws Exception {
-        final Session session = getSession();
+        //
+        LogsProjet.geLogsInstance(AppHibernate.class).maTrace(Level.INFO,"Hello from ");
+        //
+
         Properties properties = new Properties();
 
-        //creation objet logger (singleton)
-        //getInstance(App.class.getSimpleName());
+        final Session session = getSession();
 
-        try (InputStream inputStream = App.class.getResourceAsStream("/info.properties")) {
+        try (InputStream inputStream = AppHibernate.class.getResourceAsStream("/info.properties")) {
             properties.load(inputStream);
         }
 

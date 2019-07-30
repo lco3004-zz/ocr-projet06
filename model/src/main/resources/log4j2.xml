@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Configuration monitorInterval="60">
+<Configuration status="INFO">
     <Properties>
-        <Property name="log-path">./logProjet06</Property>
-        <Property name="archive">${log-path}/archive</Property>
+        <Property name="filename">./logsappli/projet06.log</Property>
     </Properties>
+
     <Appenders>
-        <RollingFile name="RollingFile-Appender"
-                     fileName="${log-path}/ocr_Projet06.log"
-                     filePattern="${archive}/projet06.log.%d{yyyy-MM-dd-hh}.gz">
-            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd} [%F %L] %c{1} - %msg%n"/>
-            <Policies>
-                <TimeBasedTriggeringPolicy/>
-                <SizeBasedTriggeringPolicy size="30 MB"/>
-            </Policies>
-            <DefaultRolloverStrategy max="30"/>
-        </RollingFile>
-         
+        <File name="File" fileName="${filename}">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+        </File>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <MarkerPatternSelector defaultPattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n %sn. : Logger=%logger%n">
+                    <PatternMatch key="CLASS" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n %sn. : Class=%class%n"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+        </Console>
     </Appenders>
     <Loggers>
-        <Logger name="ocr_Projet06" level="info" additivity="false">
-            <AppenderRef ref="RollingFile-Appender" level="info"/>
+        <Logger name="fr.ocr.prj06.hibernate.logs.LogsProjet" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
         </Logger>
-        <Root level="info">
-            <AppenderRef ref="RollingFile-Appender"/>
+        <Root level="INFO">
+            <AppenderRef ref="Console" />
         </Root>
     </Loggers>
 </Configuration>
-
 

@@ -13,7 +13,8 @@ public class OcrCompteUtilisateurEntity {
 
     @Id
     @Column(name = "idocr_compte_utilisateur", nullable = false)
-    public int getIdocrCompteUtilisateur() {
+    public int getIdocrCompteUtilisateur()
+    {
         return idocrCompteUtilisateur;
     }
 
@@ -24,6 +25,7 @@ public class OcrCompteUtilisateurEntity {
     @Basic
     @Column(name = "ocr_compte_utilisateur_mdp", nullable = false, length = 45)
     public String getOcrCompteUtilisateurMdp() {
+
         return ocrCompteUtilisateurMdp;
     }
 
@@ -34,6 +36,7 @@ public class OcrCompteUtilisateurEntity {
     @Basic
     @Column(name = "ocr_compte_utilisateur_login_id", nullable = false, length = 45)
     public String getOcrCompteUtilisateurLoginId() {
+
         return ocrCompteUtilisateurLoginId;
     }
 
