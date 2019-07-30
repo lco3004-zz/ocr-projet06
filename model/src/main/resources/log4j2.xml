@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration status="WARN" monitorInterval="30" name="OCR-Projet06">
     <Properties>
         <Property name="filename">./logsappli/projet06.log</Property>
     </Properties>
@@ -7,7 +7,9 @@
     <Appenders>
         <File name="File" fileName="${filename}">
             <PatternLayout>
-                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+                <MarkerPatternSelector defaultPattern="%sn. %d{HH:mm:ss.SSS} [%t] %-5level %logger{64} - %msg : Logger=%logger%n">
+                    <PatternMatch key="CLASS" pattern="%sn. %d{HH:mm:ss.SSS} [%t] %-5level %logger{64} - %msg : Class=%class%n"/>
+                </MarkerPatternSelector>
             </PatternLayout>
         </File>
         <Console name="Console" target="SYSTEM_OUT">
@@ -19,11 +21,15 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="fr.ocr.prj06.hibernate.logs.LogsProjet" level="trace" additivity="false">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Root level="INFO">
+    <Logger name="fr.ocr.prj06.hibernate.logs.LogsProjet" level="TRACE" additivity="false">
+            <AppenderRef ref="File" />
             <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.hibernate" level="DEBUG" additivity="false">
+            <AppenderRef ref="File" />
+        </Logger>
+        <Root level="WARN" >
+            <AppenderRef ref="File" />
         </Root>
     </Loggers>
 </Configuration>
