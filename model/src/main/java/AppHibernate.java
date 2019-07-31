@@ -1,5 +1,6 @@
 
 import fr.ocr.prj06.hibernate.logs.LogsProjet;
+import fr.ocr.prj06.hibernate.stubs.OcrPratiquantEntity;
 import org.apache.logging.log4j.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
@@ -29,6 +30,10 @@ public class AppHibernate {
                 Session session = getSession();
                 try {
                     session.beginTransaction();
+                    OcrPratiquantEntity x =null;
+                    x  = session.get(OcrPratiquantEntity.class,1);
+                    System.out.println("-> email :" +x.getOcrPratiquantEmail()+" nom :"+x.getOcrPratiquantNom());
+                    x.setOcrPratiquantNom(x.getOcrPratiquantNom()+" moi !!");
                     session.getTransaction().commit();
                 }catch (HibernateException ex1) {
                     logs.maTrace(Level.ERROR,"Exception Hibernate :"+ex1.getLocalizedMessage());
