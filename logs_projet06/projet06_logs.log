@@ -1,0 +1,4 @@
+1. 15:18:56.313 [main] INFO  fr.ocr.prj06.hibernate.logs.LogsProjet - Hello from  <-> AppHibernate : Class=fr.ocr.prj06.hibernate.logs.LogsProjet
+2. 15:18:56.321 [main] DEBUG fr.ocr.prj06.hibernate.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.hibernate.logs.LogsProjet
+5. 15:18:59.393 [main] DEBUG fr.ocr.prj06.hibernate.logs.LogsProjet - sessionFactory a été créée  <-> AppHibernate : Class=fr.ocr.prj06.hibernate.logs.LogsProjet
+6. 15:18:59.393 [main] DEBUG fr.ocr.prj06.hibernate.logs.LogsProjet - Ouverture Session   <-> AppHibernate : Class=fr.ocr.prj06.hibernate.logs.LogsProjet

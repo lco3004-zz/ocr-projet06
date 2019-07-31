@@ -7,7 +7,7 @@ import java.util.Optional;
 /**
  *
  */
-public class LogsProjet {
+public class LogsProjet implements AutoCloseable{
 
     // The name of this Logger will be "org.apache.logging.LogsUtil"
     private   Logger logger;
@@ -22,7 +22,7 @@ public class LogsProjet {
     }
 
     public void maTrace(Level level, String msg) {
-        logger.log(level,(Marker)null,msg+" <-> "+aClass.getSimpleName());
+        logger.log(level,marker,msg+" <-> "+aClass.getSimpleName());
     }
 
     public static LogsProjet geLogsInstance(Class x) {
@@ -31,7 +31,11 @@ public class LogsProjet {
         return ourInstance;
     }
 
-
+    @Override
+    public void close() throws Exception {
+        maTrace(Level.DEBUG,"Close : Shutdown LogManager ! Bye !");
+        LogManager.shutdown();
+    }
 }
 
 
