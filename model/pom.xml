@@ -11,18 +11,12 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>consumer</artifactId>
+    <artifactId>model</artifactId>
     <version>1.0</version>
 	<packaging>jar</packaging>
-    <name>consumer</name>
+    <name>model</name>
 
     <dependencies>
-        <!-- ===== Modules ===== -->
-        <dependency>
-            <groupId>fr.ocr.prj06</groupId>
-            <artifactId>model</artifactId>
-            <version>1.0</version>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
         <dependency>

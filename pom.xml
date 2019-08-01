@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <!-- =============================================================== -->
@@ -41,12 +41,12 @@
   <!-- modules gérés par  parent Pom -->
   <!-- =============================================================== -->
   <modules>
-      <module>business</module>
-      <module>consumer</module>
-      <module>model</module>
-      <module>batch</module>
-      <module>webapp</module>
-      <module>technical</module>
+    <module>business</module>
+    <module>consumer</module>
+    <module>model</module>
+    <module>batch</module>
+    <module>webapp</module>
+    <module>technical</module>
   </modules>
 
   <!-- =============================================================== -->
@@ -134,7 +134,7 @@
             </executions>
           </plugin>
         </plugins>
-       </build>
+      </build>
     </profile>
   </profiles>
 
@@ -371,7 +371,7 @@
       <!-- enforcer sur "il faut un profil actif" est en "skip" car -->
       <!-- ne fonctionne pas (juillet 2019)-->
       <!-- ================================================================ -->
-        <plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
@@ -383,16 +383,17 @@
             </goals>
             <configuration>
               <rules>
-                  <requireActiveProfile>
-                    <profiles>dev,prod</profiles>
-                    <all>false</all>
-                  </requireActiveProfile>
+                <requireActiveProfile>
+                  <profiles>dev,prod</profiles>
+                  <all>false</all>
+                </requireActiveProfile>
               </rules>
               <skip>true</skip>
             </configuration>
           </execution>
         </executions>
-        </plugin>
-      </plugins>
+      </plugin>
+    </plugins>
   </build>
 </project>
+

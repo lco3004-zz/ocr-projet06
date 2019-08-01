@@ -10,16 +10,22 @@
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>model</artifactId>
+	<artifactId>consumer</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
-    <name>model</name>
+    <name>consumer</name>
 
 	<properties>
 		<app.main.class>AppHibernate </app.main.class>
 	</properties>
 
 	<dependencies>
+		<!-- ===== Modules ===== -->
+		<dependency>
+			<groupId>fr.ocr.prj06</groupId>
+			<artifactId>model</artifactId>
+			<version>1.0</version>
+		</dependency>
 	<!-- =====Artifact du projet ===== -->
 		<dependency>
 			<groupId>fr.ocr.prj06</groupId>
