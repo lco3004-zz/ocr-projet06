@@ -1,22 +1,16 @@
 
-import fr.ocr.prj06.hibernate.logs.LogsProjet;
 import fr.ocr.prj06.hibernate.stubs.OcrPratiquantEntity;
+import fr.ocr.prj06.logs.LogsProjet;
 import org.apache.logging.log4j.*;
 import org.hibernate.HibernateException;
-import org.hibernate.Metamodel;
-import org.hibernate.query.Query;
 import org.hibernate.Session;
 
-import javax.persistence.metamodel.EntityType;
-
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Optional;
 import java.util.Properties;
 
-import static fr.ocr.prj06.hibernate.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.hibernate.tools.HibernateUtil.getSession;
 import static fr.ocr.prj06.hibernate.tools.Messages.InfosMessages.LANCEMENT_APPLICATION;
+import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 
 public class AppHibernate {
 

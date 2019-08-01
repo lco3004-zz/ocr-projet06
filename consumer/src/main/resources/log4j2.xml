@@ -29,7 +29,7 @@
         </Console>
     </Appenders>
     <Loggers>
-    <Logger name="fr.ocr.prj06.hibernate.logs.LogsProjet" level="DEBUG" additivity="false">
+    <Logger name="fr.ocr.prj06.logs.LogsProjet" level="DEBUG" additivity="false">
             <AppenderRef ref="FileAppli" />
         </Logger>
         <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">

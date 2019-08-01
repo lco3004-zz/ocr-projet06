@@ -1,8 +1,6 @@
-package fr.ocr.prj06.hibernate.logs;
+package fr.ocr.prj06.logs;
 
 import org.apache.logging.log4j.*;
-
-import java.util.Optional;
 
 /**
  *

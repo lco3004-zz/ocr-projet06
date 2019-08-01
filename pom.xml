@@ -46,6 +46,7 @@
       <module>model</module>
       <module>batch</module>
       <module>webapp</module>
+      <module>technical</module>
   </modules>
 
   <!-- =============================================================== -->
@@ -142,6 +143,13 @@
   <!-- =============================================================== -->
   <dependencyManagement>
     <dependencies>
+      <!-- =====Artifact du projet ===== -->
+      <dependency>
+        <groupId>fr.ocr.prj06</groupId>
+        <artifactId>technical</artifactId>
+        <version>1.0</version>
+        <scope>compile</scope>
+      </dependency>
       <!-- ===== Modules ===== -->
       <dependency>
         <groupId>fr.ocr.prj06</groupId>

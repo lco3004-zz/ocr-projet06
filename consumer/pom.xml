@@ -1,89 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<artifactId>projet06</artifactId>
+		<groupId>fr.ocr.prj06</groupId>
+		<version>1.0</version>
+	</parent>
 
-    <parent>
-        <artifactId>projet06</artifactId>
-        <groupId>fr.ocr.prj06</groupId>
-        <version>1.0</version>
-    </parent>
-
-    <artifactId>consumer</artifactId>
-    <version>1.0</version>
+	<artifactId>model</artifactId>
+	<version>1.0</version>
 	<packaging>jar</packaging>
-    <name>consumer</name>
+    <name>model</name>
 
-    <dependencies>
-        <!-- ===== Modules ===== -->
-        <dependency>
-            <groupId>fr.ocr.prj06</groupId>
-            <artifactId>model</artifactId>
-            <version>1.0</version>
-        </dependency>
+	<properties>
+		<app.main.class>AppHibernate </app.main.class>
+	</properties>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>
+	<dependencies>
+	<!-- =====Artifact du projet ===== -->
+		<dependency>
+			<groupId>fr.ocr.prj06</groupId>
+			<artifactId>technical</artifactId>
+		</dependency>
+    <!-- ===== Artifact tiers ===== -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+		</dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-        </dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.glassfish.hk2.external/javax.inject -->
-        <dependency>
-            <groupId>org.glassfish.hk2.external</groupId>
-            <artifactId>javax.inject</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-        </dependency>
-    </dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
 
-    <build>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <mainClass>fr.ocr.prj06.App</mainClass>
-                                <addClasspath>true</addClasspath>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-            </plugins>
-    </build>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		  <plugins>
+			  <!--<plugin>
+               <artifactId>maven-jar-plugin</artifactId>
+               <configuration>
+                 <archive>
+                   <manifest>
+                     <mainClass>App</mainClass>
+                     <addClasspath>true</addClasspath>
+                   </manifest>
+                 </archive>
+               </configuration>
+             </plugin>
+              -->
+			 <plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-shade-plugin</artifactId>
+			   <executions>
+				 <execution>
+				   <phase>package</phase>
+				   <goals>
+					 <goal>shade</goal>
+				   </goals>
+				   <configuration>
+					 <transformers>
+					   <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+						 <manifestEntries>
+						   <Main-Class>${app.main.class}</Main-Class>
+						   <Build-Number>${project.version} </Build-Number>
+							 <Multi-Release>true</Multi-Release>
+						 </manifestEntries>
+					   </transformer>
+					 </transformers>
+				   </configuration>
+				 </execution>
+			   </executions>
+			 </plugin>
+		  </plugins>
+	</build>
 </project>

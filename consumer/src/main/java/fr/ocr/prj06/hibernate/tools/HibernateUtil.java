@@ -1,6 +1,6 @@
 package fr.ocr.prj06.hibernate.tools;
 
-import fr.ocr.prj06.hibernate.logs.LogsProjet;
+import fr.ocr.prj06.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

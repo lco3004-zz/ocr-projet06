@@ -19,6 +19,13 @@
   <url>http://www.example.com</url>
 
   <dependencies>
+    <!-- =====Artifact du projet ===== -->
+    <dependency>
+      <groupId>fr.ocr.prj06</groupId>
+      <artifactId>technical</artifactId>
+      <version>1.0</version>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>fr.ocr.prj06</groupId>
       <artifactId>business</artifactId>
@@ -29,7 +36,7 @@
       <artifactId>model</artifactId>
       <version>1.0</version>
     </dependency>
-
+    <!-- ===== Artifact tiers ===== -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -67,7 +74,6 @@
   </dependencies>
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
@@ -87,6 +93,5 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>
   </build>
 </project>
