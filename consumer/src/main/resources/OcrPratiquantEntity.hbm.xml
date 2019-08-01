@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="fr.ocr.prj06.hibernate.stubs.OcrPratiquantEntity" table="ocr_pratiquant" schema="ocr_projet06">
+    <class name="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrPratiquantEntity" table="ocr_pratiquant" schema="ocr_projet06">
         <id name="idocrPratiquant">
             <column name="idocr_pratiquant" sql-type="int(11)"/>
         </id>
@@ -15,7 +15,7 @@
             <column name="ocr_pratiquant_email" sql-type="varchar(45)" length="45"/>
         </property>
         <many-to-one name="ocrCompteUtilisateurByFkOcrCompteUtilisateurId"
-                     class="fr.ocr.prj06.hibernate.stubs.OcrCompteUtilisateurEntity">
+                     class="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrCompteUtilisateurEntity">
             <column name="fk_ocr_compte_utilisateur_id"/>
         </many-to-one>
     </class>

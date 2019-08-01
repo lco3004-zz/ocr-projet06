@@ -1,4 +1,4 @@
-package fr.ocr.prj06.hibernate.tools;
+package fr.ocr.prj06.dao.implementation.hibernate.tools;
 
 import fr.ocr.prj06.logs.LogsProjet;
 import org.apache.logging.log4j.Level;

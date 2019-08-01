@@ -1,5 +1,6 @@
+package fr.ocr.prj06.dao.implementation.hibernate;
 
-import fr.ocr.prj06.hibernate.stubs.OcrPratiquantEntity;
+import fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrPratiquantEntity;
 import fr.ocr.prj06.logs.LogsProjet;
 import org.apache.logging.log4j.*;
 import org.hibernate.HibernateException;
@@ -8,8 +9,8 @@ import org.hibernate.Session;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.prj06.hibernate.tools.HibernateUtil.getSession;
-import static fr.ocr.prj06.hibernate.tools.Messages.InfosMessages.LANCEMENT_APPLICATION;
+import static fr.ocr.prj06.dao.implementation.hibernate.tools.HibernateUtil.getSession;
+import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 
 public class AppHibernate {

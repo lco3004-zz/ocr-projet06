@@ -1,4 +1,4 @@
-package fr.ocr.prj06.hibernate.tools;
+package fr.ocr.prj06.dao.implementation.hibernate.tools;
 
 import org.hibernate.Metamodel;
 import org.hibernate.Session;

@@ -18,11 +18,11 @@
         <property name="format_sql">true</property>
 
         <mapping resource="OcrCompteUtilisateurEntity.hbm.xml"/>
-        <mapping class="fr.ocr.prj06.hibernate.stubs.OcrCompteUtilisateurEntity"/>
+        <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrCompteUtilisateurEntity"/>
         <mapping resource="OcrPratiquantEntity.hbm.xml"/>
-        <mapping class="fr.ocr.prj06.hibernate.stubs.OcrPratiquantEntity"/>
+        <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrPratiquantEntity"/>
         <mapping resource="OcrTopoEntity.hbm.xml"/>
-        <mapping class="fr.ocr.prj06.hibernate.stubs.OcrTopoEntity"/>
+        <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrTopoEntity"/>
 
     </session-factory>
 </hibernate-configuration>

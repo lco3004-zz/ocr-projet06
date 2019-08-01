@@ -1,0 +1,19 @@
+6. 14:39:17.835 [main] DEBUG org.hibernate.SQL - 
+    select
+        ocrpratiqu0_.idocr_pratiquant as idocr_pr1_1_0_,
+        ocrpratiqu0_.ocr_pratiquant_nom as ocr_prat2_1_0_,
+        ocrpratiqu0_.ocr_pratiquant_email as ocr_prat3_1_0_,
+        ocrpratiqu0_.fk_ocr_compte_utilisateur_id as fk_ocr_c4_1_0_ 
+    from
+        ocr_pratiquant ocrpratiqu0_ 
+    where
+        ocrpratiqu0_.idocr_pratiquant=? : Logger=org.hibernate.SQL
+7. 14:39:17.905 [main] DEBUG org.hibernate.SQL - 
+    update
+        ocr_pratiquant 
+    set
+        ocr_pratiquant_nom=?,
+        ocr_pratiquant_email=?,
+        fk_ocr_compte_utilisateur_id=? 
+    where
+        idocr_pratiquant=? : Logger=org.hibernate.SQL

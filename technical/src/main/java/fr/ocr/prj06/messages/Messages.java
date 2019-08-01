@@ -1,4 +1,4 @@
-package fr.ocr.prj06.hibernate.tools;
+package fr.ocr.prj06.messages;
 
 /**
  * <p>

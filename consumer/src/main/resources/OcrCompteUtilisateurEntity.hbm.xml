@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="fr.ocr.prj06.hibernate.stubs.OcrCompteUtilisateurEntity" table="ocr_compte_utilisateur" schema="ocr_projet06">
+    <class name="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrCompteUtilisateurEntity" table="ocr_compte_utilisateur" schema="ocr_projet06">
         <id name="idocrCompteUtilisateur">
             <column name="idocr_compte_utilisateur" sql-type="int(11)"/>
         </id>

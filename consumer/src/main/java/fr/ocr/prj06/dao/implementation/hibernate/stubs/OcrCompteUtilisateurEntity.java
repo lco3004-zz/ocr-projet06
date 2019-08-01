@@ -1,4 +1,4 @@
-package fr.ocr.prj06.hibernate.stubs;
+package fr.ocr.prj06.dao.implementation.hibernate.stubs;
 
 import javax.persistence.*;
 import java.util.Objects;

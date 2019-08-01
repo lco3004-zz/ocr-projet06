@@ -61,6 +61,7 @@
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
+    <spring.version>5.1.8.RELEASE</spring.version>
   </properties>
 
   <!-- =============================================================== -->
@@ -148,7 +149,6 @@
         <groupId>fr.ocr.prj06</groupId>
         <artifactId>technical</artifactId>
         <version>1.0</version>
-        <scope>compile</scope>
       </dependency>
       <!-- ===== Modules ===== -->
       <dependency>
@@ -177,24 +177,15 @@
         <version>1.0</version>
       </dependency>
       <!-- ===== Bibliothèques tierces ===== -->
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-framework-bom -->
       <dependency>
         <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>5.1.8.RELEASE</version>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>${spring.version}</version>
+        <type>pom</type>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>5.1.8.RELEASE</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-beans</artifactId>
-        <version>5.1.8.RELEASE</version>
-      </dependency>
+
       <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>
@@ -262,19 +253,6 @@
         <version>3.25.0-GA</version>
         <scope>runtime</scope>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
-      <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-commons</artifactId>
-        <version>2.1.9.RELEASE</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
-      <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-jpa</artifactId>
-        <version>2.1.9.RELEASE</version>
-      </dependency>
-
 
     </dependencies>
   </dependencyManagement>

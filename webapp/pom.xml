@@ -24,7 +24,6 @@
       <groupId>fr.ocr.prj06</groupId>
       <artifactId>technical</artifactId>
       <version>1.0</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>fr.ocr.prj06</groupId>
