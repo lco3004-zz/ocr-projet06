@@ -5,6 +5,7 @@ batch/target/*
 consumer/target/*
 business/target/*
 model/target/*
+technical/target/*
 .m2/*
 lib/*
 logProjet06/*
