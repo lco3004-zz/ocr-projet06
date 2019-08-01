@@ -1,5 +1,5 @@
-1. 14:39:14.197 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
-2. 14:39:14.207 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
-4. 14:39:17.715 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - sessionFactory a été créée  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
-5. 14:39:17.715 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Ouverture Session   <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
-8. 14:39:17.932 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1. 18:44:36.495 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+2. 18:44:36.505 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+674. 18:44:39.457 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - sessionFactory a été créée  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+675. 18:44:39.457 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Ouverture Session   <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+775. 18:44:39.633 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet

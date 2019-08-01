@@ -40,12 +40,11 @@
       <artifactId>technical</artifactId>
       <version>1.0</version>
     </dependency>
-
-
-    <!-- ===== Artifact tiers ===== -->
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
     </dependency>
    </dependencies>
 
@@ -77,7 +76,7 @@
             <manifest>
               <mainClass>fr.ocr.prj06.App</mainClass>
               <addClasspath>true</addClasspath>
-              <classpathPrefix></classpathPrefix>
+              <classpathPrefix>/</classpathPrefix>
             </manifest>
           </archive>
         </configuration>

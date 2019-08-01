@@ -32,7 +32,7 @@
     <Logger name="fr.ocr.prj06.logs.LogsProjet" level="DEBUG" additivity="false">
             <AppenderRef ref="FileAppli" />
         </Logger>
-        <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+        <Logger name="org.hibernate" level="TRACE" additivity="false">
             <AppenderRef ref="FileSql" />
         </Logger>
         <Root level="WARN" >
