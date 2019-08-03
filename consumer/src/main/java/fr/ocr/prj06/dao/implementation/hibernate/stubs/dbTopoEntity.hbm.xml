@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbTopoEntity" table="topo" schema="ocr_projet06">
+        <id name="idTopo">
+            <column name="id_topo" sql-type="int(11)"/>
+        </id>
+        <property name="nom">
+            <column name="nom" sql-type="varchar(256)" length="256"/>
+        </property>
+        <property name="estPublie">
+            <column name="est_publie" sql-type="tinyint(4)"/>
+        </property>
+        <property name="estDisponible">
+            <column name="est_disponible" sql-type="tinyint(4)"/>
+        </property>
+        <property name="resume">
+            <column name="resume" sql-type="varchar(256)" length="256" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbSpotEntity" table="spot" schema="ocr_projet06">
+        <id name="idspot">
+            <column name="idspot" sql-type="int(11)"/>
+        </id>
+        <property name="nom">
+            <column name="nom" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="localisation">
+            <column name="localisation" sql-type="varchar(45)" length="45"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -33,20 +33,18 @@
   <organization>
     <name>LaurentMaison</name>
   </organization>
-  <description>
-    Projet06
-  </description>
+  <description>  Projet06 </description>
 
   <!-- =============================================================== -->
   <!-- modules gérés par  parent Pom -->
   <!-- =============================================================== -->
   <modules>
-    <module>business</module>
-    <module>consumer</module>
-    <module>model</module>
-    <module>batch</module>
-    <module>webapp</module>
-    <module>technical</module>
+      <module>business</module>
+      <module>consumer</module>
+      <module>model</module>
+      <module>batch</module>
+      <module>webapp</module>
+      <module>technical</module>
   </modules>
 
   <!-- =============================================================== -->

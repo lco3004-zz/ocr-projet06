@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbCompteUtilisateurEntity" table="compte_utilisateur"
+           schema="ocr_projet06">
+        <id name="idCompte">
+            <column name="id_compte" sql-type="int(11)"/>
+        </id>
+        <property name="mdp">
+            <column name="mdp" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="login">
+            <column name="login" sql-type="varchar(64)" length="64"/>
+        </property>
+        <property name="droits">
+            <column name="droits" sql-type="char(1)" length="1"/>
+        </property>
+    </class>
+</hibernate-mapping>

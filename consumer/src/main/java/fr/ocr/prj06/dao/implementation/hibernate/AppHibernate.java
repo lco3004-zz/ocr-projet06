@@ -1,6 +1,6 @@
 package fr.ocr.prj06.dao.implementation.hibernate;
 
-import fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrPratiquantEntity;
+import fr.ocr.prj06.dao.implementation.hibernate.stubs.dbUtilisateurEntity;
 import fr.ocr.prj06.logs.LogsProjet;
 import org.apache.logging.log4j.*;
 import org.hibernate.HibernateException;
@@ -25,11 +25,13 @@ public class AppHibernate {
                 Session session = getSession();
                 try {
                     session.beginTransaction();
-                    OcrPratiquantEntity x =null;
-                    x  = session.get(OcrPratiquantEntity.class,1);
-                    System.out.println("-> email :" +x.getOcrPratiquantEmail()+" nom :"+x.getOcrPratiquantNom());
-                    x.setOcrPratiquantNom(x.getOcrPratiquantNom()+" moi !!");
+                    dbUtilisateurEntity x =null;
+                    x  = session.get(dbUtilisateurEntity.class,1);
+
+                    System.out.println("-> email :" +x.getEmail()+" nom :"+x.getNom());
+                    x.setNom(x.getNom()+" moi !!");
                     session.getTransaction().commit();
+
                 }catch (HibernateException ex1) {
                     logs.maTrace(Level.ERROR,"Exception Hibernate :"+ex1.getLocalizedMessage());
                     if (session != null) {
