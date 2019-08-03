@@ -23,6 +23,5 @@
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrPratiquantEntity"/>
         <mapping resource="OcrTopoEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.OcrTopoEntity"/>
-
     </session-factory>
 </hibernate-configuration>
