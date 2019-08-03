@@ -16,27 +16,22 @@
         <property name="dialect"> org.hibernate.dialect.MySQL8Dialect </property>
         <property name="current_session_context_class">thread</property>
         <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
+        <property name="format_sql">false</property>
 
 
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbCompteUtilisateurEntity"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbCompteUtilisateurEntity.hbm.xml"/>
+        <mapping resource="hibernate_entities/dbCompteUtilisateurEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbLongueurEntity"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbLongueurEntity.hbm.xml"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbSecteurEntity.hbm.xml"/>
+        <mapping resource="hibernate_entities/dbLongueurEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbSecteurEntity"/>
+        <mapping resource="hibernate_entities/dbSecteurEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbSpotEntity"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbSpotEntity.hbm.xml"/>
+        <mapping resource="/hibernate_entities/dbSpotEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbTopoEntity"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbTopoEntity.hbm.xml"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbUtilisateurEntity.hbm.xml"/>
+        <mapping resource="/hibernate_entities/dbTopoEntity.hbm.xml"/>
+        <mapping resource="/hibernate_entities/dbUtilisateurEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbUtilisateurEntity"/>
-        <mapping resource="fr/ocr/prj06/dao/implementation/hibernate/stubs/dbVoieEntity.hbm.xml"/>
+        <mapping resource="/hibernate_entities/dbVoieEntity.hbm.xml"/>
         <mapping class="fr.ocr.prj06.dao.implementation.hibernate.stubs.dbVoieEntity"/>
-        <!-- <property name="connection.username"/> -->
-        <!-- <property name="connection.password"/> -->
-
-        <!-- DB schema will be updated if needed -->
-        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

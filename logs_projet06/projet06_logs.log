@@ -7,3 +7,25 @@
 2. 16:58:15.902 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
 646. 16:58:19.352 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible ouvrir session Hibernate :Schema-validation: missing table [ocr_projet06.ocr_compte_utilisateur] <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
 647. 16:58:19.352 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1. 18:50:21.837 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+2. 18:50:21.846 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+232. 18:50:22.672 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible ouvrir session Hibernate :Mapping (RESOURCE) not found : fr/ocr/prj06/dao/implementation/hibernate/stubs/dbCompteUtilisateurEntity.hbm.xml : origin(fr/ocr/prj06/dao/implementation/hibernate/stubs/dbCompteUtilisateurEntity.hbm.xml) <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+233. 18:50:22.672 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1. 19:35:19.429 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+2. 19:35:19.438 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+232. 19:35:20.291 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible ouvrir session Hibernate :Mapping (RESOURCE) not found : fr/ocr/prj06/dao/implementation/hibernate/stubs/dbCompteUtilisateurEntity.hbm.xml : origin(fr/ocr/prj06/dao/implementation/hibernate/stubs/dbCompteUtilisateurEntity.hbm.xml) <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+233. 19:35:20.292 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1. 19:37:03.262 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+2. 19:37:03.271 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+247. 19:37:05.135 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible ouvrir session Hibernate :Mapping (RESOURCE) not found : /fr/ocr/prj06/dao/implementation/hibernate/stubs/dbSpotEntity.hbm.xml : origin(/fr/ocr/prj06/dao/implementation/hibernate/stubs/dbSpotEntity.hbm.xml) <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+248. 19:37:05.135 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1. 19:39:42.396 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+2. 19:39:42.405 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1045. 19:39:45.542 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - sessionFactory a été créée  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1046. 19:39:45.542 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Ouverture Session   <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1364. 19:39:45.867 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1. 19:42:08.823 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+2. 19:42:08.832 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation sessionFactory  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1045. 19:42:12.458 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - sessionFactory a été créée  <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1046. 19:42:12.458 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Ouverture Session   <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
+1364. 19:42:12.768 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> AppHibernate : Class=fr.ocr.prj06.logs.LogsProjet
