@@ -1,12 +1,7 @@
-1. 04/08 - 18:08:21.229 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-2. 04/08 - 18:08:21.229 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-7. 04/08 - 18:08:21.271 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible ouvrir session Hibernate :No Persistence provider for EntityManager named projet_06 <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-8. 04/08 - 18:08:21.271 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-1. 04/08 - 18:20:08.009 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-2. 04/08 - 18:20:20.085 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-1. 04/08 - 18:23:19.443 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-2. 04/08 - 18:23:25.128 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-1. 04/08 - 18:26:02.604 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-2. 04/08 - 18:26:02.604 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-131. 04/08 - 18:26:03.693 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible ouvrir session Hibernate :Unable to resolve explicitly named mapping-file : ../../java/fr/ocr/prj06/tstdao/dbSpotEntity.xml : origin(../../java/fr/ocr/prj06/tstdao/dbSpotEntity.xml) <-> App : Class=fr.ocr.prj06.logs.LogsProjet
-132. 04/08 - 18:26:03.693 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+1. 04/08 - 18:37:39.600 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+2. 04/08 - 18:37:39.600 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+648. 04/08 - 18:37:41.838 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+649. 04/08 - 18:37:41.838 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+650. 04/08 - 18:37:41.838 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+656. 04/08 - 18:37:41.863 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été fermée  <-> App : Class=fr.ocr.prj06.logs.LogsProjet
+657. 04/08 - 18:37:41.863 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> App : Class=fr.ocr.prj06.logs.LogsProjet

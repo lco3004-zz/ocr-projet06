@@ -9,7 +9,7 @@ public class dbCompteUtilisateurEntity {
     private int idCompte;
     private String mdp;
     private String login;
-    private String droits;
+    private Character droits;
 
     @Id
     @Column(name = "id_compte", nullable = false)
@@ -43,11 +43,11 @@ public class dbCompteUtilisateurEntity {
 
     @Basic
     @Column(name = "droits", nullable = false, length = 1)
-    public String getDroits() {
+    public Character getDroits() {
         return droits;
     }
 
-    public void setDroits(String droits) {
+    public void setDroits(Character droits) {
         this.droits = droits;
     }
 
