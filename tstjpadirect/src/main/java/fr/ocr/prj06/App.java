@@ -17,8 +17,7 @@ import javax.persistence.EntityManagerFactory;
 
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
-import static fr.ocr.prj06.tools.Jpa_HibernateUtil.getEmf;
-import static fr.ocr.prj06.tools.Jpa_HibernateUtil.getInstanceJpa_HibernateUtil;
+import static fr.ocr.prj06.tools.Jpa_HibernateUtil.*;
 
 
 /**
@@ -37,7 +36,9 @@ public class App
                 logs.maTrace(org.apache.logging.log4j.Level.INFO,String.format("%s Version= %s",LANCEMENT_APPLICATION.getMessageInfos(),properties.getProperty("version")));
 
                 try (Jpa_HibernateUtil jpa_hibernateUtil = getInstanceJpa_HibernateUtil()) {
-                    getEmf();
+                    getEt().begin();
+
+                    getEt().commit();
                 }
             }
         }
