@@ -45,6 +45,7 @@
       <module>batch</module>
       <module>webapp</module>
       <module>technical</module>
+    <module>tstjpadirect</module>
   </modules>
 
   <!-- =============================================================== -->

@@ -1,4 +1,4 @@
-package fr.ocr.prj06.dao.implementation.hibernate.stubs;
+package fr.ocr.prj06.tstdao;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -9,7 +9,6 @@ public class dbVoieEntity {
     private int idvoie;
     private String nom;
     private dbSecteurEntity secteurBySecteurIdsecteur;
-
     @Id
     @Column(name = "idvoie", nullable = false)
     public int getIdvoie() {

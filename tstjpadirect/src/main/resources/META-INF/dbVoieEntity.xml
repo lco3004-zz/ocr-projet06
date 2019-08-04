@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="fr.ocr.prj06.tstdao.dbVoieEntity">
+        <table name="voie" schema="ocr_projet06" catalog=""/>
+        <attributes>
+            <id name="idvoie">
+                <column name="idvoie" precision="11"/>
+            </id>
+            <basic name="nom">
+                <column name="nom" length="45"/>
+            </basic>
+            <many-to-one name="secteurBySecteurIdsecteur" optional="true"
+                         target-entity="fr.ocr.prj06.tstdao.dbSecteurEntity">
+                <join-column name="secteur_idsecteur" referenced-column-name="idsecteur"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>
