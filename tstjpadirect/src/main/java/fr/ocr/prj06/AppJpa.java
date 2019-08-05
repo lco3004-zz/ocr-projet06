@@ -2,18 +2,9 @@ package fr.ocr.prj06;
 
 import fr.ocr.prj06.logs.LogsProjet;
 import fr.ocr.prj06.tools.Jpa_HibernateUtil;
-import fr.ocr.prj06.tstdao.dbLongueurEntity;
-import fr.ocr.prj06.tstdao.dbUtilisateurEntity;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 
 import java.io.InputStream;
-import java.util.List;
 import java.util.Properties;
-
-import org.apache.logging.log4j.Level;
-
-import javax.persistence.EntityManagerFactory;
 
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
@@ -24,13 +15,13 @@ import static fr.ocr.prj06.tools.Jpa_HibernateUtil.*;
  * Hello world!
  *
  */
-public class App 
+public class AppJpa
 {
     public static void main(final String[] args) throws Exception {
         //
-        try (LogsProjet logs = geLogsInstance(App.class))  {
+        try (LogsProjet logs = geLogsInstance(AppJpa.class))  {
             Properties properties = new Properties();
-            try (InputStream inputStream = App.class.getResourceAsStream("/info.properties")) {
+            try (InputStream inputStream = AppJpa.class.getResourceAsStream("/info.properties")) {
                 properties.load(inputStream);
 
                 logs.maTrace(org.apache.logging.log4j.Level.INFO,String.format("%s Version= %s",LANCEMENT_APPLICATION.getMessageInfos(),properties.getProperty("version")));

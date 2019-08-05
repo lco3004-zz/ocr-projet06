@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
- * Unit test for simple App.
+ * Unit test for simple AppJpa.
  */
-public class AppTest 
+public class AppJpaTest
 {
     /**
      * Rigorous Test :-)

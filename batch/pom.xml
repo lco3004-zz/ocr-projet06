@@ -20,7 +20,7 @@
 
 
   <properties>
-    <app.main.class> fr.ocr.prj06.App </app.main.class>
+    <app.main.class> fr.ocr.prj06.AppJpa </app.main.class>
   </properties>
 
   <dependencies>
@@ -74,7 +74,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>fr.ocr.prj06.App</mainClass>
+              <mainClass>fr.ocr.prj06.AppJpa</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>/</classpathPrefix>
             </manifest>

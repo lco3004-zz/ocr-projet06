@@ -828,3 +828,839 @@
 653. 04/08 - 18:37:41.863 [main] DEBUG org.hibernate.service.internal.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries : Logger=org.hibernate.service.internal.AbstractServiceRegistryImpl
 654. 04/08 - 18:37:41.863 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling
 655. 04/08 - 18:37:41.863 [main] DEBUG org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries : Logger=org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl
+7. 05/08 - 17:33:55.183 [main] DEBUG org.hibernate.jpa.HibernatePersistenceProvider - Located and parsed 1 persistence units; checking each : Logger=org.hibernate.jpa.HibernatePersistenceProvider
+8. 05/08 - 17:33:55.184 [main] DEBUG org.hibernate.jpa.HibernatePersistenceProvider - Checking persistence-unit [name=projet_06, explicit-provider=org.hibernate.jpa.HibernatePersistenceProvider] against incoming persistence unit name [projet_06] : Logger=org.hibernate.jpa.HibernatePersistenceProvider
+9. 05/08 - 17:33:55.185 [main] DEBUG org.hibernate.jpa.boot.spi.ProviderChecker - Persistence-unit [projet_06] requested PersistenceProvider [org.hibernate.jpa.HibernatePersistenceProvider] : Logger=org.hibernate.jpa.boot.spi.ProviderChecker
+10. 05/08 - 17:33:55.191 [main] DEBUG org.hibernate.jpa.internal.util.LogHelper - PersistenceUnitInfo [
+	name: projet_06
+	persistence provider classname: org.hibernate.jpa.HibernatePersistenceProvider
+	classloader: null
+	excludeUnlistedClasses: false
+	JTA datasource: null
+	Non JTA datasource: null
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/D:/OpenClassRooms/ocr-projet06/tstjpadirect/target/tstjpadirect-dev.jar
+	Shared Cache Mode: null
+	Validation Mode: null
+	Jar files URLs []
+	Managed classes names [
+		fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity
+		fr.ocr.prj06.tstdao.dbLongueurEntity
+		fr.ocr.prj06.tstdao.dbSecteurEntity
+		fr.ocr.prj06.tstdao.dbSpotEntity
+		fr.ocr.prj06.tstdao.dbTopoEntity
+		fr.ocr.prj06.tstdao.dbUtilisateurEntity
+		fr.ocr.prj06.tstdao.dbVoieEntity]
+	Mapping files names [
+		META-INF/dbCompteUtilisateurEntity.xml
+		META-INF/dbLongueurEntity.xml
+		META-INF/dbSecteurEntity.xml
+		META-INF/dbSpotEntity.xml
+		META-INF/dbTopoEntity.xml
+		META-INF/dbUtilisateurEntity.xml
+		META-INF/dbVoieEntity.xml]
+	Properties [
+		hibernate.connection.username: projet06
+		hibernate.connection.password: projet06
+		hibernate.show_sql: true
+		hibernate.connection.url: jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC
+		hibernate.archive.autodetection: class
+		hibernate.connection.driver_class: com.mysql.cj.jdbc.Driver
+		hibernate.hbm2ddl.auto: validate
+		hibernate.format_sql: true] : Logger=org.hibernate.jpa.internal.util.LogHelper
+11. 05/08 - 17:33:55.196 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator]. : Logger=org.hibernate.integrator.internal.IntegratorServiceImpl
+12. 05/08 - 17:33:55.198 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator]. : Logger=org.hibernate.integrator.internal.IntegratorServiceImpl
+13. 05/08 - 17:33:55.203 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator]. : Logger=org.hibernate.integrator.internal.IntegratorServiceImpl
+14. 05/08 - 17:33:55.278 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {[WORKING]} : Logger=org.hibernate.Version
+15. 05/08 - 17:33:55.279 [main] DEBUG org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found : Logger=org.hibernate.cfg.Environment
+16. 05/08 - 17:33:55.410 [main] DEBUG org.hibernate.service.spi.ServiceBinding - Overriding existing service binding [org.hibernate.secure.spi.JaccService] : Logger=org.hibernate.service.spi.ServiceBinding
+17. 05/08 - 17:33:55.438 [main] DEBUG org.hibernate.cache.internal.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered : Logger=org.hibernate.cache.internal.RegionFactoryInitiator
+18. 05/08 - 17:33:55.440 [main] DEBUG org.hibernate.cache.internal.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory : Logger=org.hibernate.cache.internal.RegionFactoryInitiator
+19. 05/08 - 17:33:55.461 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger=org.hibernate.annotations.common.Version
+20. 05/08 - 17:33:55.495 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@66ce957f : Logger=org.hibernate.type.BasicTypeRegistry
+21. 05/08 - 17:33:55.495 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@66ce957f : Logger=org.hibernate.type.BasicTypeRegistry
+22. 05/08 - 17:33:55.496 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@66ce957f : Logger=org.hibernate.type.BasicTypeRegistry
+23. 05/08 - 17:33:55.497 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@749c877b : Logger=org.hibernate.type.BasicTypeRegistry
+24. 05/08 - 17:33:55.498 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@2b95e48b : Logger=org.hibernate.type.BasicTypeRegistry
+25. 05/08 - 17:33:55.499 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@12bfd80d : Logger=org.hibernate.type.BasicTypeRegistry
+26. 05/08 - 17:33:55.500 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@13c3c1e1 : Logger=org.hibernate.type.BasicTypeRegistry
+27. 05/08 - 17:33:55.500 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@13c3c1e1 : Logger=org.hibernate.type.BasicTypeRegistry
+28. 05/08 - 17:33:55.501 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@13c3c1e1 : Logger=org.hibernate.type.BasicTypeRegistry
+29. 05/08 - 17:33:55.502 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@3918c187 : Logger=org.hibernate.type.BasicTypeRegistry
+30. 05/08 - 17:33:55.502 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@3918c187 : Logger=org.hibernate.type.BasicTypeRegistry
+31. 05/08 - 17:33:55.502 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@3918c187 : Logger=org.hibernate.type.BasicTypeRegistry
+32. 05/08 - 17:33:55.504 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@7894f09b : Logger=org.hibernate.type.BasicTypeRegistry
+33. 05/08 - 17:33:55.504 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@7894f09b : Logger=org.hibernate.type.BasicTypeRegistry
+34. 05/08 - 17:33:55.504 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@7894f09b : Logger=org.hibernate.type.BasicTypeRegistry
+35. 05/08 - 17:33:55.506 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@60f7cc1d : Logger=org.hibernate.type.BasicTypeRegistry
+36. 05/08 - 17:33:55.506 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@60f7cc1d : Logger=org.hibernate.type.BasicTypeRegistry
+37. 05/08 - 17:33:55.506 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@60f7cc1d : Logger=org.hibernate.type.BasicTypeRegistry
+38. 05/08 - 17:33:55.507 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@62dae540 : Logger=org.hibernate.type.BasicTypeRegistry
+39. 05/08 - 17:33:55.508 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@62dae540 : Logger=org.hibernate.type.BasicTypeRegistry
+40. 05/08 - 17:33:55.508 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@62dae540 : Logger=org.hibernate.type.BasicTypeRegistry
+41. 05/08 - 17:33:55.509 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@14f5da2c : Logger=org.hibernate.type.BasicTypeRegistry
+42. 05/08 - 17:33:55.509 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@14f5da2c : Logger=org.hibernate.type.BasicTypeRegistry
+43. 05/08 - 17:33:55.509 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@14f5da2c : Logger=org.hibernate.type.BasicTypeRegistry
+44. 05/08 - 17:33:55.511 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@5b7ea70d : Logger=org.hibernate.type.BasicTypeRegistry
+45. 05/08 - 17:33:55.511 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@5b7ea70d : Logger=org.hibernate.type.BasicTypeRegistry
+46. 05/08 - 17:33:55.511 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@5b7ea70d : Logger=org.hibernate.type.BasicTypeRegistry
+47. 05/08 - 17:33:55.512 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@53f48368 : Logger=org.hibernate.type.BasicTypeRegistry
+48. 05/08 - 17:33:55.512 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@53f48368 : Logger=org.hibernate.type.BasicTypeRegistry
+49. 05/08 - 17:33:55.514 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@150ab4ed : Logger=org.hibernate.type.BasicTypeRegistry
+50. 05/08 - 17:33:55.514 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@150ab4ed : Logger=org.hibernate.type.BasicTypeRegistry
+51. 05/08 - 17:33:55.515 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@546ccad7 : Logger=org.hibernate.type.BasicTypeRegistry
+52. 05/08 - 17:33:55.515 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@546ccad7 : Logger=org.hibernate.type.BasicTypeRegistry
+53. 05/08 - 17:33:55.516 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@485a3466 : Logger=org.hibernate.type.BasicTypeRegistry
+54. 05/08 - 17:33:55.517 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@5b04476e : Logger=org.hibernate.type.BasicTypeRegistry
+55. 05/08 - 17:33:55.518 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@4a335fa8 : Logger=org.hibernate.type.BasicTypeRegistry
+56. 05/08 - 17:33:55.518 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@4a335fa8 : Logger=org.hibernate.type.BasicTypeRegistry
+57. 05/08 - 17:33:55.519 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@30990c1b : Logger=org.hibernate.type.BasicTypeRegistry
+58. 05/08 - 17:33:55.520 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@30990c1b : Logger=org.hibernate.type.BasicTypeRegistry
+59. 05/08 - 17:33:55.525 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@339bf286 : Logger=org.hibernate.type.BasicTypeRegistry
+60. 05/08 - 17:33:55.525 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@339bf286 : Logger=org.hibernate.type.BasicTypeRegistry
+61. 05/08 - 17:33:55.527 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@40e10ff8 : Logger=org.hibernate.type.BasicTypeRegistry
+62. 05/08 - 17:33:55.527 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@40e10ff8 : Logger=org.hibernate.type.BasicTypeRegistry
+63. 05/08 - 17:33:55.528 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@a5b0b86 : Logger=org.hibernate.type.BasicTypeRegistry
+64. 05/08 - 17:33:55.529 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@a5b0b86 : Logger=org.hibernate.type.BasicTypeRegistry
+65. 05/08 - 17:33:55.530 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@2611b9a3 : Logger=org.hibernate.type.BasicTypeRegistry
+66. 05/08 - 17:33:55.530 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@2611b9a3 : Logger=org.hibernate.type.BasicTypeRegistry
+67. 05/08 - 17:33:55.532 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@5b64c4b7 : Logger=org.hibernate.type.BasicTypeRegistry
+68. 05/08 - 17:33:55.532 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@5b64c4b7 : Logger=org.hibernate.type.BasicTypeRegistry
+69. 05/08 - 17:33:55.534 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@1252b961 : Logger=org.hibernate.type.BasicTypeRegistry
+70. 05/08 - 17:33:55.534 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@1252b961 : Logger=org.hibernate.type.BasicTypeRegistry
+71. 05/08 - 17:33:55.535 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4d098f9b : Logger=org.hibernate.type.BasicTypeRegistry
+72. 05/08 - 17:33:55.536 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4d098f9b : Logger=org.hibernate.type.BasicTypeRegistry
+73. 05/08 - 17:33:55.538 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@2e54db99 : Logger=org.hibernate.type.BasicTypeRegistry
+74. 05/08 - 17:33:55.538 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@2e54db99 : Logger=org.hibernate.type.BasicTypeRegistry
+75. 05/08 - 17:33:55.540 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@4c51bb7 : Logger=org.hibernate.type.BasicTypeRegistry
+76. 05/08 - 17:33:55.540 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@4c51bb7 : Logger=org.hibernate.type.BasicTypeRegistry
+77. 05/08 - 17:33:55.541 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@6f603e89 : Logger=org.hibernate.type.BasicTypeRegistry
+78. 05/08 - 17:33:55.542 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@6f603e89 : Logger=org.hibernate.type.BasicTypeRegistry
+79. 05/08 - 17:33:55.542 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@6f603e89 : Logger=org.hibernate.type.BasicTypeRegistry
+80. 05/08 - 17:33:55.544 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@71984c3 : Logger=org.hibernate.type.BasicTypeRegistry
+81. 05/08 - 17:33:55.545 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@292d1c71 : Logger=org.hibernate.type.BasicTypeRegistry
+82. 05/08 - 17:33:55.545 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@292d1c71 : Logger=org.hibernate.type.BasicTypeRegistry
+83. 05/08 - 17:33:55.545 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@292d1c71 : Logger=org.hibernate.type.BasicTypeRegistry
+84. 05/08 - 17:33:55.546 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@3e8f7922 : Logger=org.hibernate.type.BasicTypeRegistry
+85. 05/08 - 17:33:55.547 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@6ca0256d : Logger=org.hibernate.type.BasicTypeRegistry
+86. 05/08 - 17:33:55.547 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@6ca0256d : Logger=org.hibernate.type.BasicTypeRegistry
+87. 05/08 - 17:33:55.549 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@e260766 : Logger=org.hibernate.type.BasicTypeRegistry
+88. 05/08 - 17:33:55.549 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@e260766 : Logger=org.hibernate.type.BasicTypeRegistry
+89. 05/08 - 17:33:55.550 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@2cac4385 : Logger=org.hibernate.type.BasicTypeRegistry
+90. 05/08 - 17:33:55.550 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@2cac4385 : Logger=org.hibernate.type.BasicTypeRegistry
+91. 05/08 - 17:33:55.552 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@71ae31b0 : Logger=org.hibernate.type.BasicTypeRegistry
+92. 05/08 - 17:33:55.552 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@71ae31b0 : Logger=org.hibernate.type.BasicTypeRegistry
+93. 05/08 - 17:33:55.553 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@6a66a204 : Logger=org.hibernate.type.BasicTypeRegistry
+94. 05/08 - 17:33:55.553 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@6a66a204 : Logger=org.hibernate.type.BasicTypeRegistry
+95. 05/08 - 17:33:55.554 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@1ddae9b5 : Logger=org.hibernate.type.BasicTypeRegistry
+96. 05/08 - 17:33:55.555 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@419a20a6 : Logger=org.hibernate.type.BasicTypeRegistry
+97. 05/08 - 17:33:55.555 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@419a20a6 : Logger=org.hibernate.type.BasicTypeRegistry
+98. 05/08 - 17:33:55.555 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@419a20a6 : Logger=org.hibernate.type.BasicTypeRegistry
+99. 05/08 - 17:33:55.557 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@4bf3798b : Logger=org.hibernate.type.BasicTypeRegistry
+100. 05/08 - 17:33:55.557 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@4bf3798b : Logger=org.hibernate.type.BasicTypeRegistry
+101. 05/08 - 17:33:55.557 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@4bf3798b : Logger=org.hibernate.type.BasicTypeRegistry
+102. 05/08 - 17:33:55.558 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@f6c03cb : Logger=org.hibernate.type.BasicTypeRegistry
+103. 05/08 - 17:33:55.559 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@768ccdc5 : Logger=org.hibernate.type.BasicTypeRegistry
+104. 05/08 - 17:33:55.560 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@55787112 : Logger=org.hibernate.type.BasicTypeRegistry
+105. 05/08 - 17:33:55.560 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@55787112 : Logger=org.hibernate.type.BasicTypeRegistry
+106. 05/08 - 17:33:55.561 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@55787112 : Logger=org.hibernate.type.BasicTypeRegistry
+107. 05/08 - 17:33:55.562 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@31e3250d : Logger=org.hibernate.type.BasicTypeRegistry
+108. 05/08 - 17:33:55.562 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@31e3250d : Logger=org.hibernate.type.BasicTypeRegistry
+109. 05/08 - 17:33:55.562 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@31e3250d : Logger=org.hibernate.type.BasicTypeRegistry
+110. 05/08 - 17:33:55.563 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@7383eae2 : Logger=org.hibernate.type.BasicTypeRegistry
+111. 05/08 - 17:33:55.563 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@48c35007 : Logger=org.hibernate.type.BasicTypeRegistry
+112. 05/08 - 17:33:55.565 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@631e06ab : Logger=org.hibernate.type.BasicTypeRegistry
+113. 05/08 - 17:33:55.566 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@631e06ab : Logger=org.hibernate.type.BasicTypeRegistry
+114. 05/08 - 17:33:55.566 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@107ed6fc : Logger=org.hibernate.type.BasicTypeRegistry
+115. 05/08 - 17:33:55.568 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@267f474e : Logger=org.hibernate.type.BasicTypeRegistry
+116. 05/08 - 17:33:55.568 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@267f474e : Logger=org.hibernate.type.BasicTypeRegistry
+117. 05/08 - 17:33:55.570 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@45be7cd5 : Logger=org.hibernate.type.BasicTypeRegistry
+118. 05/08 - 17:33:55.570 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@45be7cd5 : Logger=org.hibernate.type.BasicTypeRegistry
+119. 05/08 - 17:33:55.571 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@5b58ed3c : Logger=org.hibernate.type.BasicTypeRegistry
+120. 05/08 - 17:33:55.572 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@7813cb11 : Logger=org.hibernate.type.BasicTypeRegistry
+121. 05/08 - 17:33:55.573 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@61526469 : Logger=org.hibernate.type.BasicTypeRegistry
+122. 05/08 - 17:33:55.578 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@25ddbbbb : Logger=org.hibernate.type.BasicTypeRegistry
+123. 05/08 - 17:33:55.578 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@25ddbbbb : Logger=org.hibernate.type.BasicTypeRegistry
+124. 05/08 - 17:33:55.579 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@6256ac4f : Logger=org.hibernate.type.BasicTypeRegistry
+125. 05/08 - 17:33:55.579 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@44c79f32 : Logger=org.hibernate.type.BasicTypeRegistry
+126. 05/08 - 17:33:55.579 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7fcbe147 : Logger=org.hibernate.type.BasicTypeRegistry
+127. 05/08 - 17:33:55.580 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@235f4c10 : Logger=org.hibernate.type.BasicTypeRegistry
+128. 05/08 - 17:33:55.580 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@743cb8e0 : Logger=org.hibernate.type.BasicTypeRegistry
+129. 05/08 - 17:33:55.580 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@c7a975a : Logger=org.hibernate.type.BasicTypeRegistry
+130. 05/08 - 17:33:55.580 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@2c1b9e4b : Logger=org.hibernate.type.BasicTypeRegistry
+131. 05/08 - 17:33:55.580 [main] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@757d6814 : Logger=org.hibernate.type.BasicTypeRegistry
+132. 05/08 - 17:33:55.591 [main] DEBUG org.hibernate.boot.internal.BootstrapContextImpl - Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@70dd7e15] into BootstrapContext; was [null] : Logger=org.hibernate.boot.internal.BootstrapContextImpl
+133. 05/08 - 17:33:55.592 [main] DEBUG org.hibernate.boot.internal.BootstrapContextImpl - Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@4a9f80d3] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@35beb15e] : Logger=org.hibernate.boot.internal.BootstrapContextImpl
+134. 05/08 - 17:33:57.637 [main] DEBUG org.hibernate.boot.internal.BootstrapContextImpl - Injecting JPA temp ClassLoader [null] into BootstrapContext; was [null] : Logger=org.hibernate.boot.internal.BootstrapContextImpl
+135. 05/08 - 17:33:57.637 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - ClassLoaderAccessImpl#injectTempClassLoader(null) [was null] : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+136. 05/08 - 17:33:57.650 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+137. 05/08 - 17:33:57.650 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+138. 05/08 - 17:33:57.651 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+139. 05/08 - 17:33:57.651 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+140. 05/08 - 17:33:57.652 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+141. 05/08 - 17:33:57.653 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+142. 05/08 - 17:33:57.654 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+143. 05/08 - 17:33:57.655 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+144. 05/08 - 17:33:57.656 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+145. 05/08 - 17:33:57.657 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+146. 05/08 - 17:33:57.657 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+147. 05/08 - 17:33:57.658 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+148. 05/08 - 17:33:57.658 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+149. 05/08 - 17:33:57.659 [main] DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator] : Logger=org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory
+150. 05/08 - 17:33:57.664 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!) : Logger=org.hibernate.orm.connections.pooling
+151. 05/08 - 17:33:57.674 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling
+152. 05/08 - 17:33:57.674 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=projet06, user=projet06} : Logger=org.hibernate.orm.connections.pooling
+153. 05/08 - 17:33:57.674 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false : Logger=org.hibernate.orm.connections.pooling
+154. 05/08 - 17:33:57.678 [main] DEBUG org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - Initializing Connection pool with 1 Connections : Logger=org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl
+155. 05/08 - 17:33:57.678 [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1) : Logger=org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl
+156. 05/08 - 17:33:58.254 [main] DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - Database ->
+       name : MySQL
+    version : 8.0.16
+      major : 8
+      minor : 0 : Logger=org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator
+157. 05/08 - 17:33:58.255 [main] DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - Driver ->
+       name : MySQL Connector/J
+    version : mysql-connector-java-8.0.17 (Revision: 16a712ddb3f826a1933ab42b0039f7fb9eebc6ec)
+      major : 8
+      minor : 0 : Logger=org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator
+158. 05/08 - 17:33:58.255 [main] DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - JDBC version : 4.2 : Logger=org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator
+159. 05/08 - 17:33:58.277 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger=org.hibernate.dialect.Dialect
+160. 05/08 - 17:33:58.297 [main] DEBUG org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in more than one case : Logger=org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder
+161. 05/08 - 17:33:58.333 [main] DEBUG org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [LOWER]; that will likely lead to problems in schema update and validation if using quoted identifiers : Logger=org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder
+162. 05/08 - 17:33:58.375 [main] DEBUG org.hibernate.boot.model.relational.Namespace - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}] : Logger=org.hibernate.boot.model.relational.Namespace
+163. 05/08 - 17:33:58.378 [main] DEBUG org.hibernate.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@6919a8a] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@23c0fcf0] : Logger=org.hibernate.type.spi.TypeConfiguration$Scope
+164. 05/08 - 17:33:58.414 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbLongueurEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+165. 05/08 - 17:33:58.414 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+166. 05/08 - 17:33:58.418 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbTopoEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+167. 05/08 - 17:33:58.419 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+168. 05/08 - 17:33:58.419 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbUtilisateurEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+169. 05/08 - 17:33:58.420 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+170. 05/08 - 17:33:58.420 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+171. 05/08 - 17:33:58.420 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+172. 05/08 - 17:33:58.421 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+173. 05/08 - 17:33:58.421 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+174. 05/08 - 17:33:58.422 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbVoieEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+175. 05/08 - 17:33:58.422 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+176. 05/08 - 17:33:58.423 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for fr.ocr.prj06.tstdao.dbSpotEntity : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+177. 05/08 - 17:33:58.423 [main] DEBUG org.hibernate.cfg.annotations.reflection.XMLContext - Adding XML overriding information for listeners: [] : Logger=org.hibernate.cfg.annotations.reflection.XMLContext
+178. 05/08 - 17:33:58.452 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbTopoEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+179. 05/08 - 17:33:58.453 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbTopoEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+180. 05/08 - 17:33:58.455 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbVoieEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+181. 05/08 - 17:33:58.455 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbVoieEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+182. 05/08 - 17:33:58.455 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSpotEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+183. 05/08 - 17:33:58.456 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSpotEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+184. 05/08 - 17:33:58.456 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+185. 05/08 - 17:33:58.456 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+186. 05/08 - 17:33:58.457 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbLongueurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+187. 05/08 - 17:33:58.457 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbLongueurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+188. 05/08 - 17:33:58.458 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSecteurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+189. 05/08 - 17:33:58.458 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+190. 05/08 - 17:33:58.458 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+191. 05/08 - 17:33:58.459 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+192. 05/08 - 17:33:58.491 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbLongueurEntity : Logger=org.hibernate.cfg.AnnotationBinder
+193. 05/08 - 17:33:58.513 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+194. 05/08 - 17:33:58.519 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbLongueurEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+195. 05/08 - 17:33:58.520 [main] DEBUG org.hibernate.boot.model.relational.Namespace - Created database namespace [logicalName=Name{catalog=null, schema=ocr_projet06}, physicalName=Name{catalog=null, schema=ocr_projet06}] : Logger=org.hibernate.boot.model.relational.Namespace
+196. 05/08 - 17:33:58.522 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbLongueurEntity on table longueur : Logger=org.hibernate.cfg.annotations.EntityBinder
+197. 05/08 - 17:33:58.551 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.longueur), mappingColumn=idlongueur, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+198. 05/08 - 17:33:58.554 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [int] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+199. 05/08 - 17:33:58.555 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : int : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+200. 05/08 - 17:33:58.555 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idlongueur with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+201. 05/08 - 17:33:58.557 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbLongueurEntity:idlongueur] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+202. 05/08 - 17:33:58.560 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idlongueur : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+203. 05/08 - 17:33:58.563 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idlongueur : Logger=org.hibernate.cfg.annotations.PropertyBinder
+204. 05/08 - 17:33:58.565 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(idlongueur)]), idlongueur, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+205. 05/08 - 17:33:58.566 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.longueur), mappingColumn=cotation, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+206. 05/08 - 17:33:58.567 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property cotation with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+207. 05/08 - 17:33:58.567 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbLongueurEntity:cotation] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+208. 05/08 - 17:33:58.567 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for cotation : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+209. 05/08 - 17:33:58.567 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property cotation : Logger=org.hibernate.cfg.annotations.PropertyBinder
+210. 05/08 - 17:33:58.567 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.longueur), mappingColumn=nom, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+211. 05/08 - 17:33:58.568 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nom with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+212. 05/08 - 17:33:58.568 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbLongueurEntity:nom] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+213. 05/08 - 17:33:58.568 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+214. 05/08 - 17:33:58.568 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nom : Logger=org.hibernate.cfg.annotations.PropertyBinder
+215. 05/08 - 17:33:58.568 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.longueur), mappingColumn=nombre_de_spits, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+216. 05/08 - 17:33:58.568 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nombreDeSpits with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+217. 05/08 - 17:33:58.569 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbLongueurEntity:nombreDeSpits] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+218. 05/08 - 17:33:58.569 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nombreDeSpits : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+219. 05/08 - 17:33:58.569 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nombreDeSpits : Logger=org.hibernate.cfg.annotations.PropertyBinder
+220. 05/08 - 17:33:58.570 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbTopoEntity : Logger=org.hibernate.cfg.AnnotationBinder
+221. 05/08 - 17:33:58.571 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+222. 05/08 - 17:33:58.571 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbTopoEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+223. 05/08 - 17:33:58.571 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbTopoEntity on table topo : Logger=org.hibernate.cfg.annotations.EntityBinder
+224. 05/08 - 17:33:58.576 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.topo), mappingColumn=id_topo, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+225. 05/08 - 17:33:58.576 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idTopo with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+226. 05/08 - 17:33:58.576 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbTopoEntity:idTopo] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+227. 05/08 - 17:33:58.576 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idTopo : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+228. 05/08 - 17:33:58.576 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idTopo : Logger=org.hibernate.cfg.annotations.PropertyBinder
+229. 05/08 - 17:33:58.576 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id_topo)]), idTopo, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+230. 05/08 - 17:33:58.577 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.topo), mappingColumn=est_disponible, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+231. 05/08 - 17:33:58.577 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [byte] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+232. 05/08 - 17:33:58.577 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : byte : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+233. 05/08 - 17:33:58.577 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property estDisponible with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+234. 05/08 - 17:33:58.577 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbTopoEntity:estDisponible] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+235. 05/08 - 17:33:58.578 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for estDisponible : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+236. 05/08 - 17:33:58.578 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property estDisponible : Logger=org.hibernate.cfg.annotations.PropertyBinder
+237. 05/08 - 17:33:58.578 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.topo), mappingColumn=est_publie, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+238. 05/08 - 17:33:58.578 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property estPublie with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+239. 05/08 - 17:33:58.578 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbTopoEntity:estPublie] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+240. 05/08 - 17:33:58.579 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for estPublie : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+241. 05/08 - 17:33:58.579 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property estPublie : Logger=org.hibernate.cfg.annotations.PropertyBinder
+242. 05/08 - 17:33:58.579 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.topo), mappingColumn=nom, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+243. 05/08 - 17:33:58.579 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nom with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+244. 05/08 - 17:33:58.579 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbTopoEntity:nom] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+245. 05/08 - 17:33:58.579 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+246. 05/08 - 17:33:58.580 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nom : Logger=org.hibernate.cfg.annotations.PropertyBinder
+247. 05/08 - 17:33:58.580 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.topo), mappingColumn=resume, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+248. 05/08 - 17:33:58.580 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property resume with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+249. 05/08 - 17:33:58.580 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbTopoEntity:resume] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+250. 05/08 - 17:33:58.580 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for resume : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+251. 05/08 - 17:33:58.580 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property resume : Logger=org.hibernate.cfg.annotations.PropertyBinder
+252. 05/08 - 17:33:58.581 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbUtilisateurEntity : Logger=org.hibernate.cfg.AnnotationBinder
+253. 05/08 - 17:33:58.581 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+254. 05/08 - 17:33:58.581 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbUtilisateurEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+255. 05/08 - 17:33:58.581 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbUtilisateurEntity on table utilisateur : Logger=org.hibernate.cfg.annotations.EntityBinder
+256. 05/08 - 17:33:58.583 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+257. 05/08 - 17:33:58.583 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+258. 05/08 - 17:33:58.590 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+259. 05/08 - 17:33:58.590 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+260. 05/08 - 17:33:58.591 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.utilisateur), mappingColumn=id_utilsateur, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+261. 05/08 - 17:33:58.591 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idUtilsateur with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+262. 05/08 - 17:33:58.591 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbUtilisateurEntity:idUtilsateur] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+263. 05/08 - 17:33:58.591 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idUtilsateur : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+264. 05/08 - 17:33:58.591 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idUtilsateur : Logger=org.hibernate.cfg.annotations.PropertyBinder
+265. 05/08 - 17:33:58.591 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id_utilsateur)]), idUtilsateur, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+266. 05/08 - 17:33:58.593 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='fk_compte_utilisateur_id', referencedColumn='id_compte', mappedBy=''} : Logger=org.hibernate.cfg.Ejb3Column
+267. 05/08 - 17:33:58.595 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.utilisateur), mappingColumn=compteUtilisateurByFkCompteUtilisateurId, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+268. 05/08 - 17:33:58.599 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property compteUtilisateurByFkCompteUtilisateurId : Logger=org.hibernate.cfg.annotations.PropertyBinder
+269. 05/08 - 17:33:58.600 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.utilisateur), mappingColumn=email, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+270. 05/08 - 17:33:58.600 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property email with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+271. 05/08 - 17:33:58.600 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbUtilisateurEntity:email] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+272. 05/08 - 17:33:58.600 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for email : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+273. 05/08 - 17:33:58.600 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property email : Logger=org.hibernate.cfg.annotations.PropertyBinder
+274. 05/08 - 17:33:58.601 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.utilisateur), mappingColumn=nom, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+275. 05/08 - 17:33:58.601 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nom with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+276. 05/08 - 17:33:58.601 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbUtilisateurEntity:nom] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+277. 05/08 - 17:33:58.601 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+278. 05/08 - 17:33:58.601 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nom : Logger=org.hibernate.cfg.annotations.PropertyBinder
+279. 05/08 - 17:33:58.602 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.cfg.AnnotationBinder
+280. 05/08 - 17:33:58.602 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+281. 05/08 - 17:33:58.602 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbCompteUtilisateurEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+282. 05/08 - 17:33:58.602 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity on table compte_utilisateur : Logger=org.hibernate.cfg.annotations.EntityBinder
+283. 05/08 - 17:33:58.604 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.compte_utilisateur), mappingColumn=id_compte, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+284. 05/08 - 17:33:58.605 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idCompte with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+285. 05/08 - 17:33:58.605 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity:idCompte] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+286. 05/08 - 17:33:58.605 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idCompte : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+287. 05/08 - 17:33:58.605 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idCompte : Logger=org.hibernate.cfg.annotations.PropertyBinder
+288. 05/08 - 17:33:58.606 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id_compte)]), idCompte, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+289. 05/08 - 17:33:58.606 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.compte_utilisateur), mappingColumn=droits, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+290. 05/08 - 17:33:58.606 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property droits with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+291. 05/08 - 17:33:58.606 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity:droits] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+292. 05/08 - 17:33:58.606 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for droits : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+293. 05/08 - 17:33:58.606 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property droits : Logger=org.hibernate.cfg.annotations.PropertyBinder
+294. 05/08 - 17:33:58.607 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.compte_utilisateur), mappingColumn=login, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+295. 05/08 - 17:33:58.607 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property login with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+296. 05/08 - 17:33:58.607 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity:login] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+297. 05/08 - 17:33:58.607 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for login : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+298. 05/08 - 17:33:58.607 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property login : Logger=org.hibernate.cfg.annotations.PropertyBinder
+299. 05/08 - 17:33:58.607 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.compte_utilisateur), mappingColumn=mdp, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+300. 05/08 - 17:33:58.608 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property mdp with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+301. 05/08 - 17:33:58.608 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity:mdp] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+302. 05/08 - 17:33:58.608 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for mdp : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+303. 05/08 - 17:33:58.608 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property mdp : Logger=org.hibernate.cfg.annotations.PropertyBinder
+304. 05/08 - 17:33:58.608 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.cfg.AnnotationBinder
+305. 05/08 - 17:33:58.609 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+306. 05/08 - 17:33:58.609 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbSecteurEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+307. 05/08 - 17:33:58.609 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbSecteurEntity on table secteur : Logger=org.hibernate.cfg.annotations.EntityBinder
+308. 05/08 - 17:33:58.610 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.secteur), mappingColumn=idsecteur, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+309. 05/08 - 17:33:58.611 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idsecteur with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+310. 05/08 - 17:33:58.611 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbSecteurEntity:idsecteur] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+311. 05/08 - 17:33:58.611 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idsecteur : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+312. 05/08 - 17:33:58.611 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idsecteur : Logger=org.hibernate.cfg.annotations.PropertyBinder
+313. 05/08 - 17:33:58.611 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(idsecteur)]), idsecteur, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+314. 05/08 - 17:33:58.612 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.secteur), mappingColumn=nom, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+315. 05/08 - 17:33:58.612 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nom with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+316. 05/08 - 17:33:58.612 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbSecteurEntity:nom] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+317. 05/08 - 17:33:58.612 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+318. 05/08 - 17:33:58.612 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nom : Logger=org.hibernate.cfg.annotations.PropertyBinder
+319. 05/08 - 17:33:58.612 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbVoieEntity : Logger=org.hibernate.cfg.AnnotationBinder
+320. 05/08 - 17:33:58.613 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+321. 05/08 - 17:33:58.613 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbVoieEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+322. 05/08 - 17:33:58.613 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbVoieEntity on table voie : Logger=org.hibernate.cfg.annotations.EntityBinder
+323. 05/08 - 17:33:58.614 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSecteurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+324. 05/08 - 17:33:58.614 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+325. 05/08 - 17:33:58.615 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSecteurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+326. 05/08 - 17:33:58.615 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+327. 05/08 - 17:33:58.617 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.voie), mappingColumn=idvoie, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+328. 05/08 - 17:33:58.617 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idvoie with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+329. 05/08 - 17:33:58.617 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbVoieEntity:idvoie] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+330. 05/08 - 17:33:58.618 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idvoie : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+331. 05/08 - 17:33:58.618 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idvoie : Logger=org.hibernate.cfg.annotations.PropertyBinder
+332. 05/08 - 17:33:58.618 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(idvoie)]), idvoie, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+333. 05/08 - 17:33:58.618 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.voie), mappingColumn=nom, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+334. 05/08 - 17:33:58.618 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nom with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+335. 05/08 - 17:33:58.619 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbVoieEntity:nom] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+336. 05/08 - 17:33:58.619 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+337. 05/08 - 17:33:58.619 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nom : Logger=org.hibernate.cfg.annotations.PropertyBinder
+338. 05/08 - 17:33:58.619 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='secteur_idsecteur', referencedColumn='idsecteur', mappedBy=''} : Logger=org.hibernate.cfg.Ejb3Column
+339. 05/08 - 17:33:58.619 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.voie), mappingColumn=secteurBySecteurIdsecteur, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+340. 05/08 - 17:33:58.620 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property secteurBySecteurIdsecteur : Logger=org.hibernate.cfg.annotations.PropertyBinder
+341. 05/08 - 17:33:58.620 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: fr.ocr.prj06.tstdao.dbSpotEntity : Logger=org.hibernate.cfg.AnnotationBinder
+342. 05/08 - 17:33:58.620 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'} : Logger=org.hibernate.cfg.Ejb3Column
+343. 05/08 - 17:33:58.620 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Import with entity name dbSpotEntity : Logger=org.hibernate.cfg.annotations.EntityBinder
+344. 05/08 - 17:33:58.620 [main] DEBUG org.hibernate.cfg.annotations.EntityBinder - Bind entity fr.ocr.prj06.tstdao.dbSpotEntity on table spot : Logger=org.hibernate.cfg.annotations.EntityBinder
+345. 05/08 - 17:33:58.623 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.spot), mappingColumn=idspot, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+346. 05/08 - 17:33:58.623 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property idspot with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+347. 05/08 - 17:33:58.623 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbSpotEntity:idspot] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+348. 05/08 - 17:33:58.623 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for idspot : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+349. 05/08 - 17:33:58.624 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property idspot : Logger=org.hibernate.cfg.annotations.PropertyBinder
+350. 05/08 - 17:33:58.624 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(idspot)]), idspot, assigned, , ...) : Logger=org.hibernate.cfg.BinderHelper
+351. 05/08 - 17:33:58.624 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.spot), mappingColumn=localisation, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+352. 05/08 - 17:33:58.625 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property localisation with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+353. 05/08 - 17:33:58.625 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbSpotEntity:localisation] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+354. 05/08 - 17:33:58.625 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for localisation : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+355. 05/08 - 17:33:58.625 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property localisation : Logger=org.hibernate.cfg.annotations.PropertyBinder
+356. 05/08 - 17:33:58.625 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ocr_projet06.spot), mappingColumn=nom, insertable=true, updatable=true, unique=false} : Logger=org.hibernate.cfg.Ejb3Column
+357. 05/08 - 17:33:58.626 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property nom with lazy=false : Logger=org.hibernate.cfg.annotations.PropertyBinder
+358. 05/08 - 17:33:58.626 [main] DEBUG org.hibernate.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [fr.ocr.prj06.tstdao.dbSpotEntity:nom] : Logger=org.hibernate.cfg.AbstractPropertyHolder
+359. 05/08 - 17:33:58.626 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+360. 05/08 - 17:33:58.626 [main] DEBUG org.hibernate.cfg.annotations.PropertyBinder - Building property nom : Logger=org.hibernate.cfg.annotations.PropertyBinder
+361. 05/08 - 17:33:58.628 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idlongueur : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+362. 05/08 - 17:33:58.628 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for cotation : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+363. 05/08 - 17:33:58.628 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+364. 05/08 - 17:33:58.628 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nombreDeSpits : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+365. 05/08 - 17:33:58.628 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idTopo : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+366. 05/08 - 17:33:58.628 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for estDisponible : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+367. 05/08 - 17:33:58.629 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for estPublie : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+368. 05/08 - 17:33:58.629 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+369. 05/08 - 17:33:58.629 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for resume : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+370. 05/08 - 17:33:58.629 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idUtilsateur : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+371. 05/08 - 17:33:58.629 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for email : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+372. 05/08 - 17:33:58.629 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+373. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idCompte : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+374. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for droits : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+375. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for login : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+376. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for mdp : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+377. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idsecteur : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+378. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+379. 05/08 - 17:33:58.630 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idvoie : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+380. 05/08 - 17:33:58.631 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+381. 05/08 - 17:33:58.631 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for idspot : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+382. 05/08 - 17:33:58.631 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for localisation : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+383. 05/08 - 17:33:58.631 [main] DEBUG org.hibernate.cfg.annotations.SimpleValueBinder - Starting fillSimpleValue for nom : Logger=org.hibernate.cfg.annotations.SimpleValueBinder
+384. 05/08 - 17:33:58.638 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idlongueur] to be non-null as it is part of the primary key for table [longueur] : Logger=org.hibernate.mapping.PrimaryKey
+385. 05/08 - 17:33:58.639 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id_topo] to be non-null as it is part of the primary key for table [topo] : Logger=org.hibernate.mapping.PrimaryKey
+386. 05/08 - 17:33:58.639 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id_utilsateur] to be non-null as it is part of the primary key for table [utilisateur] : Logger=org.hibernate.mapping.PrimaryKey
+387. 05/08 - 17:33:58.639 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id_compte] to be non-null as it is part of the primary key for table [compte_utilisateur] : Logger=org.hibernate.mapping.PrimaryKey
+388. 05/08 - 17:33:58.639 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idsecteur] to be non-null as it is part of the primary key for table [secteur] : Logger=org.hibernate.mapping.PrimaryKey
+389. 05/08 - 17:33:58.639 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idvoie] to be non-null as it is part of the primary key for table [voie] : Logger=org.hibernate.mapping.PrimaryKey
+390. 05/08 - 17:33:58.640 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idspot] to be non-null as it is part of the primary key for table [spot] : Logger=org.hibernate.mapping.PrimaryKey
+391. 05/08 - 17:33:58.640 [main] DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl - Resolving reference to class: fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.InFlightMetadataCollectorImpl
+392. 05/08 - 17:33:58.643 [main] DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl - Resolving reference to class: fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.InFlightMetadataCollectorImpl
+393. 05/08 - 17:33:58.644 [main] DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl - Resolving reference to class: fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.InFlightMetadataCollectorImpl
+394. 05/08 - 17:33:58.645 [main] DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl - Resolving reference to class: fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.InFlightMetadataCollectorImpl
+395. 05/08 - 17:33:58.688 [main] DEBUG org.hibernate.internal.SessionFactoryImpl - Building session factory : Logger=org.hibernate.internal.SessionFactoryImpl
+396. 05/08 - 17:33:58.691 [main] DEBUG org.hibernate.cfg.Settings - SessionFactory name : null : Logger=org.hibernate.cfg.Settings
+397. 05/08 - 17:33:58.691 [main] DEBUG org.hibernate.cfg.Settings - Automatic flush during beforeCompletion(): enabled : Logger=org.hibernate.cfg.Settings
+398. 05/08 - 17:33:58.691 [main] DEBUG org.hibernate.cfg.Settings - Automatic session close at end of transaction: disabled : Logger=org.hibernate.cfg.Settings
+399. 05/08 - 17:33:58.691 [main] DEBUG org.hibernate.cfg.Settings - Statistics: disabled : Logger=org.hibernate.cfg.Settings
+400. 05/08 - 17:33:58.691 [main] DEBUG org.hibernate.cfg.Settings - Deleted entity synthetic identifier rollback: disabled : Logger=org.hibernate.cfg.Settings
+401. 05/08 - 17:33:58.691 [main] DEBUG org.hibernate.cfg.Settings - Default entity-mode: pojo : Logger=org.hibernate.cfg.Settings
+402. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Check Nullability in Core (should be disabled when Bean Validation is on): enabled : Logger=org.hibernate.cfg.Settings
+403. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Allow initialization of lazy state outside session : disabled : Logger=org.hibernate.cfg.Settings
+404. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Using BatchFetchStyle : LEGACY : Logger=org.hibernate.cfg.Settings
+405. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Default batch fetch size: -1 : Logger=org.hibernate.cfg.Settings
+406. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Maximum outer join fetch depth: 2 : Logger=org.hibernate.cfg.Settings
+407. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Default null ordering: NONE : Logger=org.hibernate.cfg.Settings
+408. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Order SQL updates by primary key: disabled : Logger=org.hibernate.cfg.Settings
+409. 05/08 - 17:33:58.692 [main] DEBUG org.hibernate.cfg.Settings - Order SQL inserts for batching: disabled : Logger=org.hibernate.cfg.Settings
+410. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - multi-tenancy strategy : NONE : Logger=org.hibernate.cfg.Settings
+411. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - JTA Track by Thread: enabled : Logger=org.hibernate.cfg.Settings
+412. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Query language substitutions: {} : Logger=org.hibernate.cfg.Settings
+413. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Named query checking : enabled : Logger=org.hibernate.cfg.Settings
+414. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Second-level cache: disabled : Logger=org.hibernate.cfg.Settings
+415. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Second-level query cache: disabled : Logger=org.hibernate.cfg.Settings
+416. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Second-level query cache factory: null : Logger=org.hibernate.cfg.Settings
+417. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Second-level cache region prefix: null : Logger=org.hibernate.cfg.Settings
+418. 05/08 - 17:33:58.693 [main] DEBUG org.hibernate.cfg.Settings - Optimize second-level cache for minimal puts: disabled : Logger=org.hibernate.cfg.Settings
+419. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - Structured second-level cache entries: disabled : Logger=org.hibernate.cfg.Settings
+420. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - Second-level cache direct-reference entries: disabled : Logger=org.hibernate.cfg.Settings
+421. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - Automatic eviction of collection cache: disabled : Logger=org.hibernate.cfg.Settings
+422. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - JDBC batch size: 15 : Logger=org.hibernate.cfg.Settings
+423. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - JDBC batch updates for versioned data: enabled : Logger=org.hibernate.cfg.Settings
+424. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - Scrollable result sets: enabled : Logger=org.hibernate.cfg.Settings
+425. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - Wrap result sets: disabled : Logger=org.hibernate.cfg.Settings
+426. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - JDBC3 getGeneratedKeys(): enabled : Logger=org.hibernate.cfg.Settings
+427. 05/08 - 17:33:58.694 [main] DEBUG org.hibernate.cfg.Settings - JDBC result set fetch size: null : Logger=org.hibernate.cfg.Settings
+428. 05/08 - 17:33:58.695 [main] DEBUG org.hibernate.cfg.Settings - Connection release mode: AFTER_TRANSACTION : Logger=org.hibernate.cfg.Settings
+429. 05/08 - 17:33:58.695 [main] DEBUG org.hibernate.cfg.Settings - Generate SQL with comments: disabled : Logger=org.hibernate.cfg.Settings
+430. 05/08 - 17:33:58.695 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - query :  : Logger=org.hibernate.cfg.Settings
+431. 05/08 - 17:33:58.695 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - closed-handling :  : Logger=org.hibernate.cfg.Settings
+432. 05/08 - 17:33:58.695 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - lists :  : Logger=org.hibernate.cfg.Settings
+433. 05/08 - 17:33:58.695 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - transactions :  : Logger=org.hibernate.cfg.Settings
+434. 05/08 - 17:33:58.775 [main] DEBUG org.hibernate.internal.SessionFactoryImpl - Session factory constructed with filter configurations : {} : Logger=org.hibernate.internal.SessionFactoryImpl
+435. 05/08 - 17:33:58.776 [main] DEBUG org.hibernate.internal.SessionFactoryImpl - Instantiating session factory with properties: {sun.desktop=windows, awt.toolkit=sun.awt.windows.WToolkit, hibernate.format_sql=true, java.specification.version=12, sun.cpu.isalist=amd64, sun.jnu.encoding=Cp1252, java.class.path=D:\OpenClassRooms\ocr-projet06\tstjpadirect\target\tstjpadirect-dev.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, user.variant=, java.vendor.url=https://java.oracle.com/, user.timezone=Europe/Paris, org.apache.logging.log4j.assignedSequences=9699, java.vm.specification.version=12, os.name=Windows 10, sun.java.launcher=SUN_STANDARD, user.country=FR, sun.boot.library.path=C:\Program Files\Java\jdk-12.0.1\bin, sun.java.command=D:\OpenClassRooms\ocr-projet06\tstjpadirect\target\tstjpadirect-dev.jar, jdk.debug=release, sun.cpu.endian=little, user.home=C:\Users\laure, user.language=fr, java.specification.vendor=Oracle Corporation, java.version.date=2019-04-16, java.home=C:\Program Files\Java\jdk-12.0.1, file.separator=\, java.vm.compressedOopsMode=Zero based, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, hibernate.hbm2ddl.auto=validate, user.script=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=12.0.1+12, user.name=laurent, path.separator=;, hibernate.connection.username=****, os.version=10.0, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.archive.autodetection=class, hibernate.connection.url=jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC, file.encoding=windows-1252, hibernate.ejb.persistenceUnitName=projet_06, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.show_sql=true, hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, java.vendor.url.bug=https://bugreport.java.com/bugreport/, java.io.tmpdir=C:\Users\laure\AppData\Local\Temp\, java.version=12.0.1, user.dir=D:\OpenClassRooms\ocr-projet06, os.arch=amd64, java.vm.specification.name=Java Virtual Machine Specification, hibernate.connection.password=****, sun.os.patch.level=, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@943d0c2, java.library.path=C:\Program Files\Java\jdk-12.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\laure\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\192.5728.98\jbr\\bin;C:\Users\laure\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\192.5728.98\jbr\\bin\server;C:\Users\laure\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\192.5728.98\jbr\\bin;C:\Users\laure\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\192.5728.98\jbr\\bin\server;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-12.0.1\bin;C:\Program Files\apache-maven-3.6.1\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.3\bin;C:\Users\laure\AppData\Local\GitHubDesktop\bin;C:\Users\laure\AppData\Local\Programs\Microsoft VS Code\bin;., java.vendor=Oracle Corporation, java.vm.info=mixed mode, sharing, java.vm.version=12.0.1+12, hibernate.bytecode.use_reflection_optimizer=false, sun.io.unicode.encoding=UnicodeLittle, java.class.version=56.0} : Logger=org.hibernate.internal.SessionFactoryImpl
+436. 05/08 - 17:33:58.792 [main] DEBUG org.hibernate.secure.spi.JaccIntegrator - Skipping JACC integration as it was not enabled : Logger=org.hibernate.secure.spi.JaccIntegrator
+437. 05/08 - 17:33:58.793 [main] DEBUG org.hibernate.internal.SessionFactoryImpl - Instantiated session factory : Logger=org.hibernate.internal.SessionFactoryImpl
+438. 05/08 - 17:33:58.794 [main] DEBUG org.hibernate.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@6919a8a] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@4f6f7a86] : Logger=org.hibernate.type.spi.TypeConfiguration$Scope
+439. 05/08 - 17:33:58.843 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbTopoEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+440. 05/08 - 17:33:58.843 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbTopoEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+441. 05/08 - 17:33:58.863 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbTopoEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+442. 05/08 - 17:33:58.863 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbTopoEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+443. 05/08 - 17:33:59.115 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbVoieEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+444. 05/08 - 17:33:59.115 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbVoieEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+445. 05/08 - 17:33:59.117 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbVoieEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+446. 05/08 - 17:33:59.117 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbVoieEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+447. 05/08 - 17:33:59.129 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSpotEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+448. 05/08 - 17:33:59.129 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSpotEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+449. 05/08 - 17:33:59.129 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSpotEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+450. 05/08 - 17:33:59.129 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSpotEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+451. 05/08 - 17:33:59.141 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbLongueurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+452. 05/08 - 17:33:59.141 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbLongueurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+453. 05/08 - 17:33:59.142 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbLongueurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+454. 05/08 - 17:33:59.142 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbLongueurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+455. 05/08 - 17:33:59.153 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+456. 05/08 - 17:33:59.153 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+457. 05/08 - 17:33:59.153 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+458. 05/08 - 17:33:59.154 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+459. 05/08 - 17:33:59.164 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+460. 05/08 - 17:33:59.164 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+461. 05/08 - 17:33:59.164 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+462. 05/08 - 17:33:59.164 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+463. 05/08 - 17:33:59.174 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSecteurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+464. 05/08 - 17:33:59.174 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+465. 05/08 - 17:33:59.174 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - Not known whether passed class name [fr.ocr.prj06.tstdao.dbSecteurEntity] is safe : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+466. 05/08 - 17:33:59.174 [main] DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.boot.internal.ClassLoaderAccessImpl
+467. 05/08 - 17:33:59.187 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbTopoEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+468. 05/08 - 17:33:59.187 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select id_topo from topo where id_topo =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+469. 05/08 - 17:33:59.187 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dbtopoenti_.id_topo, dbtopoenti_.est_disponible as est_disp2_4_, dbtopoenti_.est_publie as est_publ3_4_, dbtopoenti_.nom as nom4_4_, dbtopoenti_.resume as resume5_4_ from topo dbtopoenti_ where dbtopoenti_.id_topo=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+470. 05/08 - 17:33:59.187 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into topo (est_disponible, est_publie, nom, resume, id_topo) values (?, ?, ?, ?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+471. 05/08 - 17:33:59.187 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update topo set est_disponible=?, est_publie=?, nom=?, resume=? where id_topo=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+472. 05/08 - 17:33:59.187 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from topo where id_topo=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+473. 05/08 - 17:33:59.210 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3f60ba06] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+474. 05/08 - 17:33:59.211 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : estDisponible : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+475. 05/08 - 17:33:59.211 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : estPublie : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+476. 05/08 - 17:33:59.211 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+477. 05/08 - 17:33:59.211 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : resume : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+478. 05/08 - 17:33:59.212 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+479. 05/08 - 17:33:59.224 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+480. 05/08 - 17:33:59.229 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbTopoEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbTopoEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbTopoEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbTopoEntity)
+          - SQL table alias mapping - dbtopoenti0_
+          - alias suffix - 0_
+          - suffixed key columns - {id_topo1_4_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+481. 05/08 - 17:33:59.231 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbTopoEntity [NONE]: select dbtopoenti0_.id_topo as id_topo1_4_0_, dbtopoenti0_.est_disponible as est_disp2_4_0_, dbtopoenti0_.est_publie as est_publ3_4_0_, dbtopoenti0_.nom as nom4_4_0_, dbtopoenti0_.resume as resume5_4_0_ from topo dbtopoenti0_ where dbtopoenti0_.id_topo=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+482. 05/08 - 17:33:59.231 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@47de4dce] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+483. 05/08 - 17:33:59.232 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : estDisponible : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+484. 05/08 - 17:33:59.232 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : estPublie : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+485. 05/08 - 17:33:59.232 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+486. 05/08 - 17:33:59.232 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : resume : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+487. 05/08 - 17:33:59.232 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+488. 05/08 - 17:33:59.232 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+489. 05/08 - 17:33:59.233 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbTopoEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbTopoEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbTopoEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbTopoEntity)
+          - SQL table alias mapping - dbtopoenti0_
+          - alias suffix - 0_
+          - suffixed key columns - {id_topo1_4_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+490. 05/08 - 17:33:59.233 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbTopoEntity [READ]: select dbtopoenti0_.id_topo as id_topo1_4_0_, dbtopoenti0_.est_disponible as est_disp2_4_0_, dbtopoenti0_.est_publie as est_publ3_4_0_, dbtopoenti0_.nom as nom4_4_0_, dbtopoenti0_.resume as resume5_4_0_ from topo dbtopoenti0_ where dbtopoenti0_.id_topo=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+491. 05/08 - 17:33:59.245 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbTopoEntity: select dbtopoenti0_.id_topo as id_topo1_4_0_, dbtopoenti0_.est_disponible as est_disp2_4_0_, dbtopoenti0_.est_publie as est_publ3_4_0_, dbtopoenti0_.nom as nom4_4_0_, dbtopoenti0_.resume as resume5_4_0_ from topo dbtopoenti0_ where dbtopoenti0_.id_topo=? : Logger=org.hibernate.loader.Loader
+492. 05/08 - 17:33:59.246 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbTopoEntity: select dbtopoenti0_.id_topo as id_topo1_4_0_, dbtopoenti0_.est_disponible as est_disp2_4_0_, dbtopoenti0_.est_publie as est_publ3_4_0_, dbtopoenti0_.nom as nom4_4_0_, dbtopoenti0_.resume as resume5_4_0_ from topo dbtopoenti0_ where dbtopoenti0_.id_topo=? : Logger=org.hibernate.loader.Loader
+493. 05/08 - 17:33:59.246 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbVoieEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+494. 05/08 - 17:33:59.246 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select idvoie from voie where idvoie =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+495. 05/08 - 17:33:59.246 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dbvoieenti_.idvoie, dbvoieenti_.nom as nom2_6_, dbvoieenti_.secteur_idsecteur as secteur_3_6_ from voie dbvoieenti_ where dbvoieenti_.idvoie=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+496. 05/08 - 17:33:59.246 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into voie (nom, secteur_idsecteur, idvoie) values (?, ?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+497. 05/08 - 17:33:59.247 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update voie set nom=?, secteur_idsecteur=? where idvoie=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+498. 05/08 - 17:33:59.247 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from voie where idvoie=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+499. 05/08 - 17:33:59.247 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@35427786] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+500. 05/08 - 17:33:59.247 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+501. 05/08 - 17:33:59.247 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : secteurBySecteurIdsecteur : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+502. 05/08 - 17:33:59.251 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@561e8bab] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+503. 05/08 - 17:33:59.253 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : secteurBySecteurIdsecteur.nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+504. 05/08 - 17:33:59.253 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+505. 05/08 - 17:33:59.253 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+506. 05/08 - 17:33:59.254 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbVoieEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbVoieEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbVoieEntity)
+          - EntityAttributeFetchImpl(entity=fr.ocr.prj06.tstdao.dbSecteurEntity, querySpaceUid=<gen:1>, path=fr.ocr.prj06.tstdao.dbVoieEntity.secteurBySecteurIdsecteur)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbVoieEntity)
+          - SQL table alias mapping - dbvoieenti0_
+          - alias suffix - 0_
+          - suffixed key columns - {idvoie1_6_0_}
+          - JOIN (JoinDefinedByMetadata(secteurBySecteurIdsecteur)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=fr.ocr.prj06.tstdao.dbSecteurEntity)
+                - SQL table alias mapping - dbsecteure1_
+                - alias suffix - 1_
+                - suffixed key columns - {idsecteu1_2_1_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+507. 05/08 - 17:33:59.255 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbVoieEntity [NONE]: select dbvoieenti0_.idvoie as idvoie1_6_0_, dbvoieenti0_.nom as nom2_6_0_, dbvoieenti0_.secteur_idsecteur as secteur_3_6_0_, dbsecteure1_.idsecteur as idsecteu1_2_1_, dbsecteure1_.nom as nom2_2_1_ from voie dbvoieenti0_ left outer join secteur dbsecteure1_ on dbvoieenti0_.secteur_idsecteur=dbsecteure1_.idsecteur where dbvoieenti0_.idvoie=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+508. 05/08 - 17:33:59.255 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7f0977d6] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+509. 05/08 - 17:33:59.255 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+510. 05/08 - 17:33:59.255 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : secteurBySecteurIdsecteur : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+511. 05/08 - 17:33:59.256 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1f4dce67] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+512. 05/08 - 17:33:59.256 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : secteurBySecteurIdsecteur.nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+513. 05/08 - 17:33:59.256 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+514. 05/08 - 17:33:59.257 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+515. 05/08 - 17:33:59.257 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbVoieEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbVoieEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbVoieEntity)
+          - EntityAttributeFetchImpl(entity=fr.ocr.prj06.tstdao.dbSecteurEntity, querySpaceUid=<gen:1>, path=fr.ocr.prj06.tstdao.dbVoieEntity.secteurBySecteurIdsecteur)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbVoieEntity)
+          - SQL table alias mapping - dbvoieenti0_
+          - alias suffix - 0_
+          - suffixed key columns - {idvoie1_6_0_}
+          - JOIN (JoinDefinedByMetadata(secteurBySecteurIdsecteur)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=fr.ocr.prj06.tstdao.dbSecteurEntity)
+                - SQL table alias mapping - dbsecteure1_
+                - alias suffix - 1_
+                - suffixed key columns - {idsecteu1_2_1_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+516. 05/08 - 17:33:59.257 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbVoieEntity [READ]: select dbvoieenti0_.idvoie as idvoie1_6_0_, dbvoieenti0_.nom as nom2_6_0_, dbvoieenti0_.secteur_idsecteur as secteur_3_6_0_, dbsecteure1_.idsecteur as idsecteu1_2_1_, dbsecteure1_.nom as nom2_2_1_ from voie dbvoieenti0_ left outer join secteur dbsecteure1_ on dbvoieenti0_.secteur_idsecteur=dbsecteure1_.idsecteur where dbvoieenti0_.idvoie=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+517. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbVoieEntity: select dbvoieenti0_.idvoie as idvoie1_6_0_, dbvoieenti0_.nom as nom2_6_0_, dbvoieenti0_.secteur_idsecteur as secteur_3_6_0_ from voie dbvoieenti0_ where dbvoieenti0_.idvoie=? : Logger=org.hibernate.loader.Loader
+518. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbVoieEntity: select dbvoieenti0_.idvoie as idvoie1_6_0_, dbvoieenti0_.nom as nom2_6_0_, dbvoieenti0_.secteur_idsecteur as secteur_3_6_0_ from voie dbvoieenti0_ where dbvoieenti0_.idvoie=? : Logger=org.hibernate.loader.Loader
+519. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbSpotEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+520. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select idspot from spot where idspot =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+521. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dbspotenti_.idspot, dbspotenti_.localisation as localisa2_3_, dbspotenti_.nom as nom3_3_ from spot dbspotenti_ where dbspotenti_.idspot=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+522. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into spot (localisation, nom, idspot) values (?, ?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+523. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update spot set localisation=?, nom=? where idspot=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+524. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from spot where idspot=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+525. 05/08 - 17:33:59.258 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@35f34ccc] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+526. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : localisation : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+527. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+528. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+529. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+530. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbSpotEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbSpotEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbSpotEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbSpotEntity)
+          - SQL table alias mapping - dbspotenti0_
+          - alias suffix - 0_
+          - suffixed key columns - {idspot1_3_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+531. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbSpotEntity [NONE]: select dbspotenti0_.idspot as idspot1_3_0_, dbspotenti0_.localisation as localisa2_3_0_, dbspotenti0_.nom as nom3_3_0_ from spot dbspotenti0_ where dbspotenti0_.idspot=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+532. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@62a5e4c7] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+533. 05/08 - 17:33:59.259 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : localisation : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+534. 05/08 - 17:33:59.260 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+535. 05/08 - 17:33:59.260 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+536. 05/08 - 17:33:59.260 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+537. 05/08 - 17:33:59.260 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbSpotEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbSpotEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbSpotEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbSpotEntity)
+          - SQL table alias mapping - dbspotenti0_
+          - alias suffix - 0_
+          - suffixed key columns - {idspot1_3_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+538. 05/08 - 17:33:59.260 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbSpotEntity [READ]: select dbspotenti0_.idspot as idspot1_3_0_, dbspotenti0_.localisation as localisa2_3_0_, dbspotenti0_.nom as nom3_3_0_ from spot dbspotenti0_ where dbspotenti0_.idspot=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+539. 05/08 - 17:33:59.260 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbSpotEntity: select dbspotenti0_.idspot as idspot1_3_0_, dbspotenti0_.localisation as localisa2_3_0_, dbspotenti0_.nom as nom3_3_0_ from spot dbspotenti0_ where dbspotenti0_.idspot=? : Logger=org.hibernate.loader.Loader
+540. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbSpotEntity: select dbspotenti0_.idspot as idspot1_3_0_, dbspotenti0_.localisation as localisa2_3_0_, dbspotenti0_.nom as nom3_3_0_ from spot dbspotenti0_ where dbspotenti0_.idspot=? : Logger=org.hibernate.loader.Loader
+541. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbLongueurEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+542. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select idlongueur from longueur where idlongueur =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+543. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dblongueur_.idlongueur, dblongueur_.cotation as cotation2_1_, dblongueur_.nom as nom3_1_, dblongueur_.nombre_de_spits as nombre_d4_1_ from longueur dblongueur_ where dblongueur_.idlongueur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+544. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into longueur (cotation, nom, nombre_de_spits, idlongueur) values (?, ?, ?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+545. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update longueur set cotation=?, nom=?, nombre_de_spits=? where idlongueur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+546. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from longueur where idlongueur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+547. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4d08fee2] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+548. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : cotation : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+549. 05/08 - 17:33:59.261 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+550. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nombreDeSpits : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+551. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+552. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+553. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbLongueurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbLongueurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbLongueurEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbLongueurEntity)
+          - SQL table alias mapping - dblongueur0_
+          - alias suffix - 0_
+          - suffixed key columns - {idlongue1_1_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+554. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbLongueurEntity [NONE]: select dblongueur0_.idlongueur as idlongue1_1_0_, dblongueur0_.cotation as cotation2_1_0_, dblongueur0_.nom as nom3_1_0_, dblongueur0_.nombre_de_spits as nombre_d4_1_0_ from longueur dblongueur0_ where dblongueur0_.idlongueur=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+555. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@421f447f] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+556. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : cotation : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+557. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+558. 05/08 - 17:33:59.262 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nombreDeSpits : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+559. 05/08 - 17:33:59.263 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+560. 05/08 - 17:33:59.263 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+561. 05/08 - 17:33:59.263 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbLongueurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbLongueurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbLongueurEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbLongueurEntity)
+          - SQL table alias mapping - dblongueur0_
+          - alias suffix - 0_
+          - suffixed key columns - {idlongue1_1_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+562. 05/08 - 17:33:59.263 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbLongueurEntity [READ]: select dblongueur0_.idlongueur as idlongue1_1_0_, dblongueur0_.cotation as cotation2_1_0_, dblongueur0_.nom as nom3_1_0_, dblongueur0_.nombre_de_spits as nombre_d4_1_0_ from longueur dblongueur0_ where dblongueur0_.idlongueur=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+563. 05/08 - 17:33:59.263 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbLongueurEntity: select dblongueur0_.idlongueur as idlongue1_1_0_, dblongueur0_.cotation as cotation2_1_0_, dblongueur0_.nom as nom3_1_0_, dblongueur0_.nombre_de_spits as nombre_d4_1_0_ from longueur dblongueur0_ where dblongueur0_.idlongueur=? : Logger=org.hibernate.loader.Loader
+564. 05/08 - 17:33:59.263 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbLongueurEntity: select dblongueur0_.idlongueur as idlongue1_1_0_, dblongueur0_.cotation as cotation2_1_0_, dblongueur0_.nom as nom3_1_0_, dblongueur0_.nombre_de_spits as nombre_d4_1_0_ from longueur dblongueur0_ where dblongueur0_.idlongueur=? : Logger=org.hibernate.loader.Loader
+565. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbUtilisateurEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+566. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select id_utilsateur from utilisateur where id_utilsateur =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+567. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dbutilisat_.id_utilsateur, dbutilisat_.fk_compte_utilisateur_id as fk_compt4_5_, dbutilisat_.email as email2_5_, dbutilisat_.nom as nom3_5_ from utilisateur dbutilisat_ where dbutilisat_.id_utilsateur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+568. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into utilisateur (fk_compte_utilisateur_id, email, nom, id_utilsateur) values (?, ?, ?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+569. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update utilisateur set fk_compte_utilisateur_id=?, email=?, nom=? where id_utilsateur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+570. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from utilisateur where id_utilsateur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+571. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3872c85f] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+572. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+573. 05/08 - 17:33:59.264 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@774b798] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+574. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId.droits : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+575. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId.login : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+576. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId.mdp : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+577. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : email : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+578. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+579. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+580. 05/08 - 17:33:59.265 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+581. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbUtilisateurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbUtilisateurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbUtilisateurEntity)
+          - EntityAttributeFetchImpl(entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity, querySpaceUid=<gen:1>, path=fr.ocr.prj06.tstdao.dbUtilisateurEntity.compteUtilisateurByFkCompteUtilisateurId)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbUtilisateurEntity)
+          - SQL table alias mapping - dbutilisat0_
+          - alias suffix - 0_
+          - suffixed key columns - {id_utils1_5_0_}
+          - JOIN (JoinDefinedByMetadata(compteUtilisateurByFkCompteUtilisateurId)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+                - SQL table alias mapping - dbcompteut1_
+                - alias suffix - 1_
+                - suffixed key columns - {id_compt1_0_1_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+582. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbUtilisateurEntity [NONE]: select dbutilisat0_.id_utilsateur as id_utils1_5_0_, dbutilisat0_.fk_compte_utilisateur_id as fk_compt4_5_0_, dbutilisat0_.email as email2_5_0_, dbutilisat0_.nom as nom3_5_0_, dbcompteut1_.id_compte as id_compt1_0_1_, dbcompteut1_.droits as droits2_0_1_, dbcompteut1_.login as login3_0_1_, dbcompteut1_.mdp as mdp4_0_1_ from utilisateur dbutilisat0_ left outer join compte_utilisateur dbcompteut1_ on dbutilisat0_.fk_compte_utilisateur_id=dbcompteut1_.id_compte where dbutilisat0_.id_utilsateur=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+583. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@25198ead] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+584. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+585. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@39384ba6] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+586. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId.droits : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+587. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId.login : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+588. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compteUtilisateurByFkCompteUtilisateurId.mdp : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+589. 05/08 - 17:33:59.266 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : email : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+590. 05/08 - 17:33:59.267 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+591. 05/08 - 17:33:59.267 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+592. 05/08 - 17:33:59.267 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+593. 05/08 - 17:33:59.267 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbUtilisateurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbUtilisateurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbUtilisateurEntity)
+          - EntityAttributeFetchImpl(entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity, querySpaceUid=<gen:1>, path=fr.ocr.prj06.tstdao.dbUtilisateurEntity.compteUtilisateurByFkCompteUtilisateurId)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbUtilisateurEntity)
+          - SQL table alias mapping - dbutilisat0_
+          - alias suffix - 0_
+          - suffixed key columns - {id_utils1_5_0_}
+          - JOIN (JoinDefinedByMetadata(compteUtilisateurByFkCompteUtilisateurId)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+                - SQL table alias mapping - dbcompteut1_
+                - alias suffix - 1_
+                - suffixed key columns - {id_compt1_0_1_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+594. 05/08 - 17:33:59.267 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbUtilisateurEntity [READ]: select dbutilisat0_.id_utilsateur as id_utils1_5_0_, dbutilisat0_.fk_compte_utilisateur_id as fk_compt4_5_0_, dbutilisat0_.email as email2_5_0_, dbutilisat0_.nom as nom3_5_0_, dbcompteut1_.id_compte as id_compt1_0_1_, dbcompteut1_.droits as droits2_0_1_, dbcompteut1_.login as login3_0_1_, dbcompteut1_.mdp as mdp4_0_1_ from utilisateur dbutilisat0_ left outer join compte_utilisateur dbcompteut1_ on dbutilisat0_.fk_compte_utilisateur_id=dbcompteut1_.id_compte where dbutilisat0_.id_utilsateur=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+595. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbUtilisateurEntity: select dbutilisat0_.id_utilsateur as id_utils1_5_0_, dbutilisat0_.fk_compte_utilisateur_id as fk_compt4_5_0_, dbutilisat0_.email as email2_5_0_, dbutilisat0_.nom as nom3_5_0_ from utilisateur dbutilisat0_ where dbutilisat0_.id_utilsateur=? : Logger=org.hibernate.loader.Loader
+596. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbUtilisateurEntity: select dbutilisat0_.id_utilsateur as id_utils1_5_0_, dbutilisat0_.fk_compte_utilisateur_id as fk_compt4_5_0_, dbutilisat0_.email as email2_5_0_, dbutilisat0_.nom as nom3_5_0_ from utilisateur dbutilisat0_ where dbutilisat0_.id_utilsateur=? : Logger=org.hibernate.loader.Loader
+597. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+598. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select id_compte from compte_utilisateur where id_compte =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+599. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dbcompteut_.id_compte, dbcompteut_.droits as droits2_0_, dbcompteut_.login as login3_0_, dbcompteut_.mdp as mdp4_0_ from compte_utilisateur dbcompteut_ where dbcompteut_.id_compte=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+600. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into compte_utilisateur (droits, login, mdp, id_compte) values (?, ?, ?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+601. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update compte_utilisateur set droits=?, login=?, mdp=? where id_compte=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+602. 05/08 - 17:33:59.268 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from compte_utilisateur where id_compte=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+603. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6770a229] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+604. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : droits : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+605. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : login : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+606. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : mdp : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+607. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+608. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+609. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+          - SQL table alias mapping - dbcompteut0_
+          - alias suffix - 0_
+          - suffixed key columns - {id_compt1_0_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+610. 05/08 - 17:33:59.269 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity [NONE]: select dbcompteut0_.id_compte as id_compt1_0_0_, dbcompteut0_.droits as droits2_0_0_, dbcompteut0_.login as login3_0_0_, dbcompteut0_.mdp as mdp4_0_0_ from compte_utilisateur dbcompteut0_ where dbcompteut0_.id_compte=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+611. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1009a9b4] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+612. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : droits : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+613. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : login : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+614. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : mdp : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+615. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+616. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+617. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity)
+          - SQL table alias mapping - dbcompteut0_
+          - alias suffix - 0_
+          - suffixed key columns - {id_compt1_0_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+618. 05/08 - 17:33:59.270 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity [READ]: select dbcompteut0_.id_compte as id_compt1_0_0_, dbcompteut0_.droits as droits2_0_0_, dbcompteut0_.login as login3_0_0_, dbcompteut0_.mdp as mdp4_0_0_ from compte_utilisateur dbcompteut0_ where dbcompteut0_.id_compte=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+619. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity: select dbcompteut0_.id_compte as id_compt1_0_0_, dbcompteut0_.droits as droits2_0_0_, dbcompteut0_.login as login3_0_0_, dbcompteut0_.mdp as mdp4_0_0_ from compte_utilisateur dbcompteut0_ where dbcompteut0_.id_compte=? : Logger=org.hibernate.loader.Loader
+620. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbCompteUtilisateurEntity: select dbcompteut0_.id_compte as id_compt1_0_0_, dbcompteut0_.droits as droits2_0_0_, dbcompteut0_.login as login3_0_0_, dbcompteut0_.mdp as mdp4_0_0_ from compte_utilisateur dbcompteut0_ where dbcompteut0_.id_compte=? : Logger=org.hibernate.loader.Loader
+621. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: fr.ocr.prj06.tstdao.dbSecteurEntity : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+622. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select idsecteur from secteur where idsecteur =? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+623. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select dbsecteure_.idsecteur, dbsecteure_.nom as nom2_2_ from secteur dbsecteure_ where dbsecteure_.idsecteur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+624. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into secteur (nom, idsecteur) values (?, ?) : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+625. 05/08 - 17:33:59.271 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update secteur set nom=? where idsecteur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+626. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from secteur where idsecteur=? : Logger=org.hibernate.persister.entity.AbstractEntityPersister
+627. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@55154761] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+628. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+629. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+630. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+631. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbSecteurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbSecteurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbSecteurEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbSecteurEntity)
+          - SQL table alias mapping - dbsecteure0_
+          - alias suffix - 0_
+          - suffixed key columns - {idsecteu1_2_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+632. 05/08 - 17:33:59.272 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbSecteurEntity [NONE]: select dbsecteure0_.idsecteur as idsecteu1_2_0_, dbsecteure0_.nom as nom2_2_0_ from secteur dbsecteure0_ where dbsecteure0_.idsecteur=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+633. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5e9db5e7] : Logger=org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl
+634. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom : Logger=org.hibernate.persister.walking.spi.MetamodelGraphWalker
+635. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan... : Logger=org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy
+636. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0> : Logger=org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor
+637. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=fr.ocr.prj06.tstdao.dbSecteurEntity)
+    - Returns
+       - EntityReturnImpl(entity=fr.ocr.prj06.tstdao.dbSecteurEntity, querySpaceUid=<gen:0>, path=fr.ocr.prj06.tstdao.dbSecteurEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=fr.ocr.prj06.tstdao.dbSecteurEntity)
+          - SQL table alias mapping - dbsecteure0_
+          - alias suffix - 0_
+          - suffixed key columns - {idsecteu1_2_0_}
+ : Logger=org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter
+638. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.loader.entity.plan.EntityLoader - Static select for entity fr.ocr.prj06.tstdao.dbSecteurEntity [READ]: select dbsecteure0_.idsecteur as idsecteu1_2_0_, dbsecteure0_.nom as nom2_2_0_ from secteur dbsecteure0_ where dbsecteure0_.idsecteur=? : Logger=org.hibernate.loader.entity.plan.EntityLoader
+639. 05/08 - 17:33:59.273 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity fr.ocr.prj06.tstdao.dbSecteurEntity: select dbsecteure0_.idsecteur as idsecteu1_2_0_, dbsecteure0_.nom as nom2_2_0_ from secteur dbsecteure0_ where dbsecteure0_.idsecteur=? : Logger=org.hibernate.loader.Loader
+640. 05/08 - 17:33:59.274 [main] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity fr.ocr.prj06.tstdao.dbSecteurEntity: select dbsecteure0_.idsecteur as idsecteu1_2_0_, dbsecteure0_.nom as nom2_2_0_ from secteur dbsecteure0_ where dbsecteure0_.idsecteur=? : Logger=org.hibernate.loader.Loader
+641. 05/08 - 17:33:59.318 [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6d985720] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode. : Logger=org.hibernate.orm.connections.access
+642. 05/08 - 17:33:59.360 [main] DEBUG org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - No JtaPlatform was specified, checking resolver : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator
+643. 05/08 - 17:33:59.361 [main] DEBUG org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver] : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformResolverInitiator
+644. 05/08 - 17:33:59.363 [main] DEBUG org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver - Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger=org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver
+645. 05/08 - 17:33:59.364 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator
+646. 05/08 - 17:33:59.377 [main] DEBUG org.hibernate.query.spi.NamedQueryRepository - Checking 0 named HQL queries : Logger=org.hibernate.query.spi.NamedQueryRepository
+647. 05/08 - 17:33:59.377 [main] DEBUG org.hibernate.query.spi.NamedQueryRepository - Checking 0 named SQL queries : Logger=org.hibernate.query.spi.NamedQueryRepository
+648. 05/08 - 17:33:59.379 [main] DEBUG org.hibernate.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@26c84006 : Logger=org.hibernate.internal.SessionFactoryRegistry
+649. 05/08 - 17:33:59.381 [main] DEBUG org.hibernate.internal.SessionFactoryRegistry - Registering SessionFactory: 45e9d194-26f7-45b0-8284-7a730d290a2f (<unnamed>) : Logger=org.hibernate.internal.SessionFactoryRegistry
+650. 05/08 - 17:33:59.381 [main] DEBUG org.hibernate.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured : Logger=org.hibernate.internal.SessionFactoryRegistry
+652. 05/08 - 17:33:59.470 [main] DEBUG org.hibernate.stat.internal.StatisticsInitiator - Statistics initialized [enabled=false] : Logger=org.hibernate.stat.internal.StatisticsInitiator
+654. 05/08 - 17:33:59.482 [main] DEBUG org.hibernate.engine.transaction.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false : Logger=org.hibernate.engine.transaction.internal.TransactionImpl
+656. 05/08 - 17:33:59.482 [main] DEBUG org.hibernate.engine.transaction.internal.TransactionImpl - begin : Logger=org.hibernate.engine.transaction.internal.TransactionImpl
+663. 05/08 - 17:33:59.486 [main] DEBUG org.hibernate.engine.transaction.internal.TransactionImpl - committing : Logger=org.hibernate.engine.transaction.internal.TransactionImpl
+664. 05/08 - 17:33:59.487 [main] DEBUG org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction : Logger=org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl
+665. 05/08 - 17:33:59.488 [main] DEBUG org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction : Logger=org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl
+666. 05/08 - 17:33:59.488 [main] DEBUG org.hibernate.internal.SessionFactoryImpl - HHH000031: Closing : Logger=org.hibernate.internal.SessionFactoryImpl
+667. 05/08 - 17:33:59.488 [main] DEBUG org.hibernate.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@466fb9be] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@4f6f7a86] : Logger=org.hibernate.type.spi.TypeConfiguration$Scope
+668. 05/08 - 17:33:59.489 [main] DEBUG org.hibernate.service.internal.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries : Logger=org.hibernate.service.internal.AbstractServiceRegistryImpl
+669. 05/08 - 17:33:59.489 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling
+670. 05/08 - 17:33:59.493 [main] DEBUG org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries : Logger=org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl

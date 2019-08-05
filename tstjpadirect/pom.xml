@@ -19,7 +19,7 @@
 
 
   <properties>
-    <app.main.class>fr.ocr.prj06.App </app.main.class>
+    <app.main.class>fr.ocr.prj06.AppJpa</app.main.class>
   </properties>
 
   <dependencies>
