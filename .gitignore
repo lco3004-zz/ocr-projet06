@@ -1,11 +1,10 @@
 *.iml
 .idea/*
 webapp/target/*
-batch/target/*
-consumer/target/*
+model/target/*
 business/target/*
 model/target/*
-technical/target/*
+tools/target/*
 .m2/*
 lib/*
 logProjet06/*
