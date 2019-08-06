@@ -16,7 +16,7 @@
   <name>tools</name>
 
   <properties>
-    <app.main.class>LogsProjet</app.main.class>
+    <app.main.class>fr.ocr.prj06.logs.LogsProjet</app.main.class>
   </properties>
 
   <dependencies>
