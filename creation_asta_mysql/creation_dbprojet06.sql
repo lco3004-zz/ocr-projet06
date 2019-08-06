@@ -24,11 +24,11 @@ USE `ocr_projet06` ;
 DROP TABLE IF EXISTS `ocr_projet06`.`compte_utilisateur` ;
 
 CREATE TABLE IF NOT EXISTS `ocr_projet06`.`compte_utilisateur` (
-  `id_compte` INT NOT NULL AUTO_INCREMENT,
-  `mdp` VARCHAR(45) NOT NULL DEFAULT 'password',
-  `login` VARCHAR(64) NOT NULL DEFAULT 'user',
-  `droits` CHAR(1) NOT NULL DEFAULT 'R',
-  PRIMARY KEY (`id_compte`))
+                                                                   `id_compte` INT         NOT NULL AUTO_INCREMENT,
+                                                                   `mdp`       VARCHAR(45) NOT NULL DEFAULT 'password',
+                                                                   `login`     VARCHAR(64) NOT NULL DEFAULT 'user',
+                                                                   `droits`    VARCHAR(1)  NOT NULL DEFAULT 'R',
+                                                                   PRIMARY KEY (`id_compte`))
 ENGINE = InnoDB;
 
 
@@ -52,7 +52,6 @@ ENGINE = InnoDB;
 
 CREATE INDEX `fk_ocr_pratiquant_ocr_compte_utilisateur_idx` ON `ocr_projet06`.`utilisateur` (`fk_compte_utilisateur_id` ASC) VISIBLE;
 
-
 -- -----------------------------------------------------
 -- Table `ocr_projet06`.`topo`
 -- -----------------------------------------------------
@@ -75,7 +74,6 @@ ENGINE = InnoDB;
 
 CREATE INDEX `fk_ocr_topo_ocr_pratiquant1_idx` ON `ocr_projet06`.`topo` (`utilisateur_id` ASC) VISIBLE;
 
-
 -- -----------------------------------------------------
 -- Table `ocr_projet06`.`spot`
 -- -----------------------------------------------------
@@ -87,7 +85,6 @@ CREATE TABLE IF NOT EXISTS `ocr_projet06`.`spot` (
   `localisation` VARCHAR(45) NOT NULL DEFAULT 'localisatiion_spot_s',
   PRIMARY KEY (`idspot`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `ocr_projet06`.`secteur`
@@ -107,7 +104,6 @@ CREATE TABLE IF NOT EXISTS `ocr_projet06`.`secteur` (
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_secteur_spot1_idx` ON `ocr_projet06`.`secteur` (`spot_idspot` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `ocr_projet06`.`voie`
