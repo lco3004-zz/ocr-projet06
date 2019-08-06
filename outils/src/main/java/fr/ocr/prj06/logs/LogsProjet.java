@@ -30,7 +30,7 @@ public class LogsProjet implements AutoCloseable{
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         maTrace(Level.DEBUG,"Close : Shutdown LogManager ! Bye !");
         LogManager.shutdown();
     }
