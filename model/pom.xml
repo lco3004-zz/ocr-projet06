@@ -48,6 +48,7 @@
 
     <build>
         <plugins>
+            <!--
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
@@ -58,7 +59,34 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin> -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>${app.main.class}</Main-Class>
+                                        <Build-Number>${project.version}</Build-Number>
+                                        <Multi-Release>true</Multi-Release>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
+
+
         </plugins>
     </build>
 </project>
