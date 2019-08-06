@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Unit test for simple methods.
+ * Unit test for simple Methods.
  */
-public class methodsTest {
+class methodsTest {
     /**
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue() {
+    void shouldAnswerWithTrue() {
         assertTrue(true);
     }
 }

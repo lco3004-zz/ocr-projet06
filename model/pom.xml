@@ -17,7 +17,7 @@
     <name>model</name>
 
     <properties>
-        <app.main.class>fr.ocr.prj06.methods</app.main.class>
+        <app.main.class>fr.ocr.prj06.Methods</app.main.class>
     </properties>
 
     <dependencies>
