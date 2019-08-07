@@ -10,6 +10,7 @@ public class dbSpotEntity {
     private String nom;
     private String localisation;
 
+
     @Id
     @Column(name = "idspot", nullable = false)
     public int getIdspot() {
