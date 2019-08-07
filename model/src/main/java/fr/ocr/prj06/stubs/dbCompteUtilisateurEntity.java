@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "compte_utilisateur", schema = "ocr_projet06", catalog = "")
+@Table(name = "compte_utilisateur", schema = "ocr_projet06")
 public class dbCompteUtilisateurEntity {
     private int idCompte;
     private String mdp;
