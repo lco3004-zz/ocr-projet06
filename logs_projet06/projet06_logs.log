@@ -15,3 +15,20 @@
 27. 06/08 - 18:09:33.216 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
 28. 06/08 - 18:09:33.216 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
 29. 06/08 - 18:09:33.216 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 06/08 - 18:16:11.107 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 06/08 - 18:16:11.112 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 06/08 - 18:16:11.113 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 06/08 - 18:16:11.113 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 06/08 - 18:16:11.113 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+17. 06/08 - 18:16:13.064 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+18. 06/08 - 18:16:13.114 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+19. 06/08 - 18:16:13.116 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+20. 06/08 - 18:16:13.118 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+21. 06/08 - 18:16:13.118 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+22. 06/08 - 18:16:13.118 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+23. 06/08 - 18:16:13.119 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+24. 06/08 - 18:16:13.119 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+25. 06/08 - 18:16:13.119 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+27. 06/08 - 18:16:13.125 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+28. 06/08 - 18:16:13.125 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+29. 06/08 - 18:16:13.125 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
