@@ -10,6 +10,7 @@
         <class>fr.ocr.prj06.stubs.dbTopoEntity</class>
         <class>fr.ocr.prj06.stubs.dbUtilisateurEntity</class>
         <class>fr.ocr.prj06.stubs.dbVoieEntity</class>
+        <class>fr.ocr.prj06.stubs.dbCommentaireEntity</class>
         <properties>
             <property name="hibernate.connection.url"
                       value="jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC"/>

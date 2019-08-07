@@ -10,6 +10,7 @@ public class dbCompteUtilisateurEntity {
     private String mdp;
     private String login;
     private String droits;
+    private dbUtilisateurEntity utilisateursByIdCompte;
 
     @Id
     @Column(name = "id_compte", nullable = false)
@@ -65,5 +66,14 @@ public class dbCompteUtilisateurEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idCompte, mdp, login, droits);
+    }
+
+    @OneToOne(mappedBy = "compteUtilisateurByCompteUtilisateurIdCompte")
+    public dbUtilisateurEntity getUtilisateursByIdCompte() {
+        return utilisateursByIdCompte;
+    }
+
+    public void setUtilisateursByIdCompte(dbUtilisateurEntity utilisateursByIdCompte) {
+        this.utilisateursByIdCompte = utilisateursByIdCompte;
     }
 }

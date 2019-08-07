@@ -2,12 +2,15 @@ package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "voie", schema = "ocr_projet06")
 public class dbVoieEntity {
     private int idvoie;
+    private int secteurIdsecteur;
     private String nom;
+    private Set<dbLongueurEntity> longueursByIdvoie;
     private dbSecteurEntity secteurBySecteurIdsecteur;
 
     @Id
@@ -18,6 +21,16 @@ public class dbVoieEntity {
 
     public void setIdvoie(int idvoie) {
         this.idvoie = idvoie;
+    }
+
+    @Basic
+    @Column(name = "secteur_idsecteur", nullable = false)
+    public int getSecteurIdsecteur() {
+        return secteurIdsecteur;
+    }
+
+    public void setSecteurIdsecteur(int secteurIdsecteur) {
+        this.secteurIdsecteur = secteurIdsecteur;
     }
 
     @Basic
@@ -36,12 +49,22 @@ public class dbVoieEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbVoieEntity that = (dbVoieEntity) o;
         return idvoie == that.idvoie &&
+                secteurIdsecteur == that.secteurIdsecteur &&
                 Objects.equals(nom, that.nom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idvoie, nom);
+        return Objects.hash(idvoie, secteurIdsecteur, nom);
+    }
+
+    @OneToMany(mappedBy = "voieByVoieIdvoie")
+    public Set<dbLongueurEntity> getLongueursByIdvoie() {
+        return longueursByIdvoie;
+    }
+
+    public void setLongueursByIdvoie(Set<dbLongueurEntity> longueursByIdvoie) {
+        this.longueursByIdvoie = longueursByIdvoie;
     }
 
     @ManyToOne

@@ -2,14 +2,18 @@ package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "utilisateur", schema = "ocr_projet06")
 public class dbUtilisateurEntity {
     private int idUtilsateur;
+    private int compteUtilisateurIdCompte;
     private String nom;
     private String email;
-    private dbCompteUtilisateurEntity compteUtilisateurByFkCompteUtilisateurId;
+    private Set<dbSpotEntity> spotsByIdUtilsateur;
+    private Set<dbTopoEntity> toposByIdUtilsateur;
+    private dbCompteUtilisateurEntity compteUtilisateurByCompteUtilisateurIdCompte;
 
     @Id
     @Column(name = "id_utilsateur", nullable = false)
@@ -19,6 +23,16 @@ public class dbUtilisateurEntity {
 
     public void setIdUtilsateur(int idUtilsateur) {
         this.idUtilsateur = idUtilsateur;
+    }
+
+    @Basic
+    @Column(name = "compte_utilisateur_id_compte", nullable = false)
+    public int getCompteUtilisateurIdCompte() {
+        return compteUtilisateurIdCompte;
+    }
+
+    public void setCompteUtilisateurIdCompte(int compteUtilisateurIdCompte) {
+        this.compteUtilisateurIdCompte = compteUtilisateurIdCompte;
     }
 
     @Basic
@@ -47,22 +61,41 @@ public class dbUtilisateurEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbUtilisateurEntity that = (dbUtilisateurEntity) o;
         return idUtilsateur == that.idUtilsateur &&
+                compteUtilisateurIdCompte == that.compteUtilisateurIdCompte &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUtilsateur, nom, email);
+        return Objects.hash(idUtilsateur, compteUtilisateurIdCompte, nom, email);
     }
 
-    @ManyToOne
-    @JoinColumn(name = "fk_compte_utilisateur_id", referencedColumnName = "id_compte", nullable = false)
-    public dbCompteUtilisateurEntity getCompteUtilisateurByFkCompteUtilisateurId() {
-        return compteUtilisateurByFkCompteUtilisateurId;
+    @OneToMany(mappedBy = "utilisateurByUtilisateurIdUtilsateur")
+    public Set<dbSpotEntity> getSpotsByIdUtilsateur() {
+        return spotsByIdUtilsateur;
     }
 
-    public void setCompteUtilisateurByFkCompteUtilisateurId(dbCompteUtilisateurEntity compteUtilisateurByFkCompteUtilisateurId) {
-        this.compteUtilisateurByFkCompteUtilisateurId = compteUtilisateurByFkCompteUtilisateurId;
+    public void setSpotsByIdUtilsateur(Set<dbSpotEntity> spotsByIdUtilsateur) {
+        this.spotsByIdUtilsateur = spotsByIdUtilsateur;
+    }
+
+    @OneToMany(mappedBy = "utilisateurByUtilisateurIdUtilsateur")
+    public Set<dbTopoEntity> getToposByIdUtilsateur() {
+        return toposByIdUtilsateur;
+    }
+
+    public void setToposByIdUtilsateur(Set<dbTopoEntity> toposByIdUtilsateur) {
+        this.toposByIdUtilsateur = toposByIdUtilsateur;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "compte_utilisateur_id_compte", referencedColumnName = "id_compte", nullable = false)
+    public dbCompteUtilisateurEntity getCompteUtilisateurByCompteUtilisateurIdCompte() {
+        return compteUtilisateurByCompteUtilisateurIdCompte;
+    }
+
+    public void setCompteUtilisateurByCompteUtilisateurIdCompte(dbCompteUtilisateurEntity compteUtilisateurByCompteUtilisateurIdCompte) {
+        this.compteUtilisateurByCompteUtilisateurIdCompte = compteUtilisateurByCompteUtilisateurIdCompte;
     }
 }

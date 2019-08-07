@@ -7,10 +7,12 @@ import java.util.Objects;
 @Table(name = "topo", schema = "ocr_projet06")
 public class dbTopoEntity {
     private int idTopo;
+    private int utilisateurIdUtilsateur;
     private String nom;
     private byte estPublie;
     private byte estDisponible;
     private String resume;
+    private dbUtilisateurEntity utilisateurByUtilisateurIdUtilsateur;
 
     @Id
     @Column(name = "id_topo", nullable = false)
@@ -20,6 +22,16 @@ public class dbTopoEntity {
 
     public void setIdTopo(int idTopo) {
         this.idTopo = idTopo;
+    }
+
+    @Basic
+    @Column(name = "utilisateur_id_utilsateur", nullable = false)
+    public int getUtilisateurIdUtilsateur() {
+        return utilisateurIdUtilsateur;
+    }
+
+    public void setUtilisateurIdUtilsateur(int utilisateurIdUtilsateur) {
+        this.utilisateurIdUtilsateur = utilisateurIdUtilsateur;
     }
 
     @Basic
@@ -68,6 +80,7 @@ public class dbTopoEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbTopoEntity that = (dbTopoEntity) o;
         return idTopo == that.idTopo &&
+                utilisateurIdUtilsateur == that.utilisateurIdUtilsateur &&
                 estPublie == that.estPublie &&
                 estDisponible == that.estDisponible &&
                 Objects.equals(nom, that.nom) &&
@@ -76,6 +89,16 @@ public class dbTopoEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idTopo, nom, estPublie, estDisponible, resume);
+        return Objects.hash(idTopo, utilisateurIdUtilsateur, nom, estPublie, estDisponible, resume);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id_utilsateur", referencedColumnName = "id_utilsateur", nullable = false)
+    public dbUtilisateurEntity getUtilisateurByUtilisateurIdUtilsateur() {
+        return utilisateurByUtilisateurIdUtilsateur;
+    }
+
+    public void setUtilisateurByUtilisateurIdUtilsateur(dbUtilisateurEntity utilisateurByUtilisateurIdUtilsateur) {
+        this.utilisateurByUtilisateurIdUtilsateur = utilisateurByUtilisateurIdUtilsateur;
     }
 }

@@ -2,6 +2,7 @@ package fr.ocr.prj06;
 
 import fr.ocr.prj06.commons.JpaHibernateCommons;
 import fr.ocr.prj06.logs.LogsProjet;
+import org.apache.logging.log4j.Level;
 
 import java.io.InputStream;
 import java.util.Properties;
@@ -28,6 +29,9 @@ public class Methods {
                     getEt().begin();
 
                     getEt().commit();
+                }catch (Exception ecp1) {
+                    logs.maTrace(Level.ERROR,"Rollback "+ecp1.getLocalizedMessage() );
+
                 }
             }
         } catch (Exception ecp) {

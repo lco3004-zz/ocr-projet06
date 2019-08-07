@@ -42,8 +42,6 @@
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
-    <spring.version>5.1.8.RELEASE</spring.version>
-
   </properties>
 
   <!-- =============================================================== -->
