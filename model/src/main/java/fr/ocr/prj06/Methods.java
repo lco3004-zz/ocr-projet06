@@ -2,13 +2,17 @@ package fr.ocr.prj06;
 
 import fr.ocr.prj06.commons.JpaHibernateCommons;
 import fr.ocr.prj06.logs.LogsProjet;
+import fr.ocr.prj06.stubs.dbCommentaireEntity;
+import fr.ocr.prj06.stubs.dbSpotEntity;
 import org.apache.logging.log4j.Level;
 
+import javax.persistence.EntityManager;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
-import static fr.ocr.prj06.commons.JpaHibernateCommons.getEt;
-import static fr.ocr.prj06.commons.JpaHibernateCommons.getInstance;
+import static fr.ocr.prj06.commons.JpaHibernateCommons.*;
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
 
@@ -25,10 +29,12 @@ public class Methods {
 
                 logs.maTrace(org.apache.logging.log4j.Level.INFO, String.format("%s Version= %s", LANCEMENT_APPLICATION.getMessageInfos(), properties.getProperty("version")));
 
-                try (JpaHibernateCommons jpaHibernateCommons = getInstance()) {
-                    getEt().begin();
+                try (JpaHibernateCommons jpa = getInstance()) {
+                    jpa.getEt().begin();
+                    dbSpotEntity spot = (dbSpotEntity)jpa.getEm().find(dbSpotEntity.class, (Integer)1 );
 
-                    getEt().commit();
+                     Set<dbCommentaireEntity> x = spot.getCommentairesByIdspot();
+                    jpa.getEt().commit();
                 }catch (Exception ecp1) {
                     logs.maTrace(Level.ERROR,"Rollback "+ecp1.getLocalizedMessage() );
 

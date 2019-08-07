@@ -11,19 +11,19 @@ import javax.persistence.Persistence;
 
 public class JpaHibernateCommons implements AutoCloseable {
 
-    private static EntityManagerFactory emf = null;
+    private  EntityManagerFactory emf = null;
 
-    private static EntityManager em = null;
+    private  EntityManager em = null;
 
-    private static EntityTransaction et = null;
+    private  EntityTransaction et = null;
 
-    private static JpaHibernateCommons jpaHibernateCommons = null;
+    private  static JpaHibernateCommons jpaHibernateCommons = null;
 
     private JpaHibernateCommons() {
         LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "Creation singleton = " + this.getClass().getSimpleName());
     }
 
-    public static EntityTransaction getEt() {
+    public  EntityTransaction getEt() {
         try {
             LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "Creation EntityTransaction ");
             getEm();
@@ -39,7 +39,7 @@ public class JpaHibernateCommons implements AutoCloseable {
     }
 
 
-    private static EntityManager getEm() {
+    public  EntityManager getEm() {
         try {
             LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "Creation EntityManager ");
             getEmf();
@@ -54,7 +54,7 @@ public class JpaHibernateCommons implements AutoCloseable {
         return em;
     }
 
-    private static EntityManagerFactory getEmf() throws ExceptionInInitializerError {
+    public  EntityManagerFactory getEmf() throws ExceptionInInitializerError {
         try {
             LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "Creation EntityManagerFactory ");
             if (emf == null) {
