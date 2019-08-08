@@ -1,19 +1,18 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "spot", schema = "ocr_projet06")
 public class dbSpotEntity {
     private int idspot;
-    private int utilisateurIdUtilsateur;
     private String nom;
     private String localisation;
-    private Set<dbCommentaireEntity> commentairesByIdspot;
-    private Set<dbSecteurEntity> secteursByIdspot;
-    private dbUtilisateurEntity utilisateurByUtilisateurIdUtilsateur;
+    private Collection<dbCommentaireEntity> commentairesByIdspot;
+    private Collection<dbSecteurEntity> secteursByIdspot;
+    private dbUserEntity userByUserIduser;
 
     @Id
     @Column(name = "idspot", nullable = false)
@@ -23,16 +22,6 @@ public class dbSpotEntity {
 
     public void setIdspot(int idspot) {
         this.idspot = idspot;
-    }
-
-    @Basic
-    @Column(name = "utilisateur_id_utilsateur", nullable = false)
-    public int getUtilisateurIdUtilsateur() {
-        return utilisateurIdUtilsateur;
-    }
-
-    public void setUtilisateurIdUtilsateur(int utilisateurIdUtilsateur) {
-        this.utilisateurIdUtilsateur = utilisateurIdUtilsateur;
     }
 
     @Basic
@@ -61,41 +50,40 @@ public class dbSpotEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbSpotEntity that = (dbSpotEntity) o;
         return idspot == that.idspot &&
-                utilisateurIdUtilsateur == that.utilisateurIdUtilsateur &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(localisation, that.localisation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idspot, utilisateurIdUtilsateur, nom, localisation);
+        return Objects.hash(idspot, nom, localisation);
     }
 
     @OneToMany(mappedBy = "spotBySpotIdspot")
-    public Set<dbCommentaireEntity> getCommentairesByIdspot() {
+    public Collection<dbCommentaireEntity> getCommentairesByIdspot() {
         return commentairesByIdspot;
     }
 
-    public void setCommentairesByIdspot(Set<dbCommentaireEntity> commentairesByIdspot) {
+    public void setCommentairesByIdspot(Collection<dbCommentaireEntity> commentairesByIdspot) {
         this.commentairesByIdspot = commentairesByIdspot;
     }
 
     @OneToMany(mappedBy = "spotBySpotIdspot")
-    public Set<dbSecteurEntity> getSecteursByIdspot() {
+    public Collection<dbSecteurEntity> getSecteursByIdspot() {
         return secteursByIdspot;
     }
 
-    public void setSecteursByIdspot(Set<dbSecteurEntity> secteursByIdspot) {
+    public void setSecteursByIdspot(Collection<dbSecteurEntity> secteursByIdspot) {
         this.secteursByIdspot = secteursByIdspot;
     }
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur_id_utilsateur", referencedColumnName = "id_utilsateur", nullable = false)
-    public dbUtilisateurEntity getUtilisateurByUtilisateurIdUtilsateur() {
-        return utilisateurByUtilisateurIdUtilsateur;
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
+    public dbUserEntity getUserByUserIduser() {
+        return userByUserIduser;
     }
 
-    public void setUtilisateurByUtilisateurIdUtilsateur(dbUtilisateurEntity utilisateurByUtilisateurIdUtilsateur) {
-        this.utilisateurByUtilisateurIdUtilsateur = utilisateurByUtilisateurIdUtilsateur;
+    public void setUserByUserIduser(dbUserEntity userByUserIduser) {
+        this.userByUserIduser = userByUserIduser;
     }
 }

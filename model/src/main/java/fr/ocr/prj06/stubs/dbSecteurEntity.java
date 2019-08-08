@@ -1,17 +1,16 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "secteur", schema = "ocr_projet06")
 public class dbSecteurEntity {
     private int idsecteur;
-    private int spotIdspot;
     private String nom;
     private dbSpotEntity spotBySpotIdspot;
-    private Set<dbVoieEntity> voiesByIdsecteur;
+    private Collection<dbVoieEntity> voiesByIdsecteur;
 
     @Id
     @Column(name = "idsecteur", nullable = false)
@@ -21,16 +20,6 @@ public class dbSecteurEntity {
 
     public void setIdsecteur(int idsecteur) {
         this.idsecteur = idsecteur;
-    }
-
-    @Basic
-    @Column(name = "spot_idspot", nullable = false)
-    public int getSpotIdspot() {
-        return spotIdspot;
-    }
-
-    public void setSpotIdspot(int spotIdspot) {
-        this.spotIdspot = spotIdspot;
     }
 
     @Basic
@@ -49,13 +38,12 @@ public class dbSecteurEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbSecteurEntity that = (dbSecteurEntity) o;
         return idsecteur == that.idsecteur &&
-                spotIdspot == that.spotIdspot &&
                 Objects.equals(nom, that.nom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idsecteur, spotIdspot, nom);
+        return Objects.hash(idsecteur, nom);
     }
 
     @ManyToOne
@@ -69,11 +57,11 @@ public class dbSecteurEntity {
     }
 
     @OneToMany(mappedBy = "secteurBySecteurIdsecteur")
-    public Set<dbVoieEntity> getVoiesByIdsecteur() {
+    public Collection<dbVoieEntity> getVoiesByIdsecteur() {
         return voiesByIdsecteur;
     }
 
-    public void setVoiesByIdsecteur(Set<dbVoieEntity> voiesByIdsecteur) {
+    public void setVoiesByIdsecteur(Collection<dbVoieEntity> voiesByIdsecteur) {
         this.voiesByIdsecteur = voiesByIdsecteur;
     }
 }

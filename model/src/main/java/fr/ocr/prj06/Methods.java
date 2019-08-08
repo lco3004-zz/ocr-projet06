@@ -6,11 +6,9 @@ import fr.ocr.prj06.stubs.dbCommentaireEntity;
 import fr.ocr.prj06.stubs.dbSpotEntity;
 import org.apache.logging.log4j.Level;
 
-import javax.persistence.EntityManager;
 import java.io.InputStream;
-import java.util.List;
+import java.util.Collection;
 import java.util.Properties;
-import java.util.Set;
 
 import static fr.ocr.prj06.commons.JpaHibernateCommons.*;
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
@@ -31,9 +29,9 @@ public class Methods {
 
                 try (JpaHibernateCommons jpa = getInstance()) {
                     jpa.getEt().begin();
-                    dbSpotEntity spot = (dbSpotEntity)jpa.getEm().find(dbSpotEntity.class, (Integer)1 );
+                    dbSpotEntity spot = jpa.getEm().find(dbSpotEntity.class, 1 );
 
-                     Set<dbCommentaireEntity> x = spot.getCommentairesByIdspot();
+                     Collection<dbCommentaireEntity> x = spot.getCommentairesByIdspot();
                     jpa.getEt().commit();
                 }catch (Exception ecp1) {
                     logs.maTrace(Level.ERROR,"Rollback "+ecp1.getLocalizedMessage() );

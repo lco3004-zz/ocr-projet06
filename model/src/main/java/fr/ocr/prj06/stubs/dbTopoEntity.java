@@ -6,32 +6,21 @@ import java.util.Objects;
 @Entity
 @Table(name = "topo", schema = "ocr_projet06")
 public class dbTopoEntity {
-    private int idTopo;
-    private int utilisateurIdUtilsateur;
+    private int idtopo;
     private String nom;
     private byte estPublie;
     private byte estDisponible;
     private String resume;
-    private dbUtilisateurEntity utilisateurByUtilisateurIdUtilsateur;
+    private dbUserEntity userByUserIduser;
 
     @Id
-    @Column(name = "id_topo", nullable = false)
-    public int getIdTopo() {
-        return idTopo;
+    @Column(name = "idtopo", nullable = false)
+    public int getIdtopo() {
+        return idtopo;
     }
 
-    public void setIdTopo(int idTopo) {
-        this.idTopo = idTopo;
-    }
-
-    @Basic
-    @Column(name = "utilisateur_id_utilsateur", nullable = false)
-    public int getUtilisateurIdUtilsateur() {
-        return utilisateurIdUtilsateur;
-    }
-
-    public void setUtilisateurIdUtilsateur(int utilisateurIdUtilsateur) {
-        this.utilisateurIdUtilsateur = utilisateurIdUtilsateur;
+    public void setIdtopo(int idtopo) {
+        this.idtopo = idtopo;
     }
 
     @Basic
@@ -79,8 +68,7 @@ public class dbTopoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         dbTopoEntity that = (dbTopoEntity) o;
-        return idTopo == that.idTopo &&
-                utilisateurIdUtilsateur == that.utilisateurIdUtilsateur &&
+        return idtopo == that.idtopo &&
                 estPublie == that.estPublie &&
                 estDisponible == that.estDisponible &&
                 Objects.equals(nom, that.nom) &&
@@ -89,16 +77,16 @@ public class dbTopoEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idTopo, utilisateurIdUtilsateur, nom, estPublie, estDisponible, resume);
+        return Objects.hash(idtopo, nom, estPublie, estDisponible, resume);
     }
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur_id_utilsateur", referencedColumnName = "id_utilsateur", nullable = false)
-    public dbUtilisateurEntity getUtilisateurByUtilisateurIdUtilsateur() {
-        return utilisateurByUtilisateurIdUtilsateur;
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
+    public dbUserEntity getUserByUserIduser() {
+        return userByUserIduser;
     }
 
-    public void setUtilisateurByUtilisateurIdUtilsateur(dbUtilisateurEntity utilisateurByUtilisateurIdUtilsateur) {
-        this.utilisateurByUtilisateurIdUtilsateur = utilisateurByUtilisateurIdUtilsateur;
+    public void setUserByUserIduser(dbUserEntity userByUserIduser) {
+        this.userByUserIduser = userByUserIduser;
     }
 }

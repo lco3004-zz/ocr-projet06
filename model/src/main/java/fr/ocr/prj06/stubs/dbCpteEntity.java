@@ -4,22 +4,22 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "compte_utilisateur", schema = "ocr_projet06")
-public class dbCompteUtilisateurEntity {
-    private int idCompte;
+@Table(name = "cpte", schema = "ocr_projet06")
+public class dbCpteEntity {
+    private int userIduser;
     private String mdp;
     private String login;
     private String droits;
-    private dbUtilisateurEntity utilisateursByIdCompte;
+    private dbUserEntity userByUserIduser;
 
     @Id
-    @Column(name = "id_compte", nullable = false)
-    public int getIdCompte() {
-        return idCompte;
+    @Column(name = "user_iduser", nullable = false)
+    public int getUserIduser() {
+        return userIduser;
     }
 
-    public void setIdCompte(int idCompte) {
-        this.idCompte = idCompte;
+    public void setUserIduser(int userIduser) {
+        this.userIduser = userIduser;
     }
 
     @Basic
@@ -43,7 +43,7 @@ public class dbCompteUtilisateurEntity {
     }
 
     @Basic
-    @Column(name = "droits", nullable = false, length = 1)
+    @Column(name = "droits", nullable = false, length = 2)
     public String getDroits() {
         return droits;
     }
@@ -56,8 +56,8 @@ public class dbCompteUtilisateurEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbCompteUtilisateurEntity that = (dbCompteUtilisateurEntity) o;
-        return idCompte == that.idCompte &&
+        dbCpteEntity that = (dbCpteEntity) o;
+        return userIduser == that.userIduser &&
                 Objects.equals(mdp, that.mdp) &&
                 Objects.equals(login, that.login) &&
                 Objects.equals(droits, that.droits);
@@ -65,15 +65,16 @@ public class dbCompteUtilisateurEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCompte, mdp, login, droits);
+        return Objects.hash(userIduser, mdp, login, droits);
     }
 
-    @OneToOne(mappedBy = "compteUtilisateurByCompteUtilisateurIdCompte")
-    public dbUtilisateurEntity getUtilisateursByIdCompte() {
-        return utilisateursByIdCompte;
+    @OneToOne
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
+    public dbUserEntity getUserByUserIduser() {
+        return userByUserIduser;
     }
 
-    public void setUtilisateursByIdCompte(dbUtilisateurEntity utilisateursByIdCompte) {
-        this.utilisateursByIdCompte = utilisateursByIdCompte;
+    public void setUserByUserIduser(dbUserEntity userByUserIduser) {
+        this.userByUserIduser = userByUserIduser;
     }
 }

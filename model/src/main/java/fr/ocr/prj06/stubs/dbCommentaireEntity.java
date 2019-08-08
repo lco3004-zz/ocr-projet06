@@ -7,10 +7,10 @@ import java.util.Objects;
 @Table(name = "commentaire", schema = "ocr_projet06")
 public class dbCommentaireEntity {
     private int idcommentaire;
-    private int spotIdspot;
     private String texte;
     private byte estVisible;
     private dbSpotEntity spotBySpotIdspot;
+    private dbUserEntity userByUserIduser;
 
     @Id
     @Column(name = "idcommentaire", nullable = false)
@@ -20,16 +20,6 @@ public class dbCommentaireEntity {
 
     public void setIdcommentaire(int idcommentaire) {
         this.idcommentaire = idcommentaire;
-    }
-
-    @Basic
-    @Column(name = "spot_idspot", nullable = false)
-    public int getSpotIdspot() {
-        return spotIdspot;
-    }
-
-    public void setSpotIdspot(int spotIdspot) {
-        this.spotIdspot = spotIdspot;
     }
 
     @Basic
@@ -58,14 +48,13 @@ public class dbCommentaireEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbCommentaireEntity that = (dbCommentaireEntity) o;
         return idcommentaire == that.idcommentaire &&
-                spotIdspot == that.spotIdspot &&
                 estVisible == that.estVisible &&
                 Objects.equals(texte, that.texte);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idcommentaire, spotIdspot, texte, estVisible);
+        return Objects.hash(idcommentaire, texte, estVisible);
     }
 
     @ManyToOne
@@ -76,5 +65,15 @@ public class dbCommentaireEntity {
 
     public void setSpotBySpotIdspot(dbSpotEntity spotBySpotIdspot) {
         this.spotBySpotIdspot = spotBySpotIdspot;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
+    public dbUserEntity getUserByUserIduser() {
+        return userByUserIduser;
+    }
+
+    public void setUserByUserIduser(dbUserEntity userByUserIduser) {
+        this.userByUserIduser = userByUserIduser;
     }
 }

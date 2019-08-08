@@ -7,7 +7,6 @@ import java.util.Objects;
 @Table(name = "longueur", schema = "ocr_projet06")
 public class dbLongueurEntity {
     private int idlongueur;
-    private int voieIdvoie;
     private String nom;
     private String cotation;
     private Integer nombreDeSpits;
@@ -21,16 +20,6 @@ public class dbLongueurEntity {
 
     public void setIdlongueur(int idlongueur) {
         this.idlongueur = idlongueur;
-    }
-
-    @Basic
-    @Column(name = "voie_idvoie", nullable = false)
-    public int getVoieIdvoie() {
-        return voieIdvoie;
-    }
-
-    public void setVoieIdvoie(int voieIdvoie) {
-        this.voieIdvoie = voieIdvoie;
     }
 
     @Basic
@@ -69,7 +58,6 @@ public class dbLongueurEntity {
         if (o == null || getClass() != o.getClass()) return false;
         dbLongueurEntity that = (dbLongueurEntity) o;
         return idlongueur == that.idlongueur &&
-                voieIdvoie == that.voieIdvoie &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(cotation, that.cotation) &&
                 Objects.equals(nombreDeSpits, that.nombreDeSpits);
@@ -77,7 +65,7 @@ public class dbLongueurEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idlongueur, voieIdvoie, nom, cotation, nombreDeSpits);
+        return Objects.hash(idlongueur, nom, cotation, nombreDeSpits);
     }
 
     @ManyToOne
