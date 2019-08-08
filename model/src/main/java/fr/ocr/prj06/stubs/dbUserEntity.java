@@ -1,12 +1,13 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "user", schema = "ocr_projet06")
-public class dbUserEntity {
+public class dbUserEntity implements Serializable {
     private int iduser;
     private String nom;
     private String email;
@@ -69,7 +70,7 @@ public class dbUserEntity {
         this.commentairesByIduser = commentairesByIduser;
     }
 
-    @OneToOne(mappedBy = "userByUserIduser")
+    @OneToOne(mappedBy = "userByUserIduser", fetch = FetchType.LAZY)
     public dbCpteEntity getCpteByIduser() {
         return cpteByIduser;
     }

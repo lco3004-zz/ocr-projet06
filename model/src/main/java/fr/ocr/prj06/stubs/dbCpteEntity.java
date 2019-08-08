@@ -1,11 +1,13 @@
 package fr.ocr.prj06.stubs;
 
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "cpte", schema = "ocr_projet06")
-public class dbCpteEntity {
+public class dbCpteEntity implements Serializable {
     private int userIduser;
     private String mdp;
     private String login;
@@ -68,7 +70,8 @@ public class dbCpteEntity {
         return Objects.hash(userIduser, mdp, login, droits);
     }
 
-    @OneToOne
+
+    @OneToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
     public dbUserEntity getUserByUserIduser() {
         return userByUserIduser;

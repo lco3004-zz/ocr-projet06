@@ -1,63 +1,63 @@
-1. 08/08 - 12:31:45.546 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-2. 08/08 - 12:31:45.555 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-3. 08/08 - 12:31:45.556 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-4. 08/08 - 12:31:45.556 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-5. 08/08 - 12:31:45.557 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-17. 08/08 - 12:31:49.700 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-18. 08/08 - 12:31:49.794 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-19. 08/08 - 12:31:49.797 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-20. 08/08 - 12:31:49.800 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-21. 08/08 - 12:31:49.800 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-22. 08/08 - 12:31:49.800 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-23. 08/08 - 12:31:49.801 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-24. 08/08 - 12:31:49.842 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-25. 08/08 - 12:31:49.842 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-26. 08/08 - 12:31:49.842 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-27. 08/08 - 12:31:49.843 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-28. 08/08 - 12:31:49.843 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-29. 08/08 - 12:31:49.843 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-31. 08/08 - 12:31:49.860 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-32. 08/08 - 12:31:49.860 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-33. 08/08 - 12:31:49.860 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-1. 08/08 - 12:32:33.510 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-2. 08/08 - 12:32:34.972 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-3. 08/08 - 12:32:48.601 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-4. 08/08 - 12:32:53.235 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-5. 08/08 - 12:32:56.864 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-17. 08/08 - 12:34:44.731 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-18. 08/08 - 12:34:56.323 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-19. 08/08 - 12:35:03.418 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-20. 08/08 - 12:35:13.860 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-21. 08/08 - 12:35:13.863 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-22. 08/08 - 12:35:13.865 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-23. 08/08 - 12:35:13.867 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-24. 08/08 - 12:36:11.655 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-25. 08/08 - 12:36:11.658 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-26. 08/08 - 12:36:11.662 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-27. 08/08 - 12:36:11.665 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-28. 08/08 - 12:36:11.667 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-29. 08/08 - 12:36:11.670 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-31. 08/08 - 12:36:11.768 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-32. 08/08 - 12:36:11.770 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-33. 08/08 - 12:36:11.773 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-1. 08/08 - 12:39:05.407 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-2. 08/08 - 12:39:05.421 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-3. 08/08 - 12:39:05.422 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-4. 08/08 - 12:39:05.422 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-5. 08/08 - 12:39:05.423 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-17. 08/08 - 12:39:09.557 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-18. 08/08 - 12:39:09.652 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-19. 08/08 - 12:39:09.655 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-20. 08/08 - 12:39:09.658 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-21. 08/08 - 12:39:09.658 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-22. 08/08 - 12:39:09.658 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-23. 08/08 - 12:39:09.659 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-24. 08/08 - 12:39:21.453 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-25. 08/08 - 12:39:21.454 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-26. 08/08 - 12:39:21.454 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-27. 08/08 - 12:39:21.454 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-28. 08/08 - 12:39:21.455 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-29. 08/08 - 12:39:21.455 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityTransaction a été créée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-31. 08/08 - 12:39:21.481 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManagerFactory a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-32. 08/08 - 12:39:21.481 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - EntityManager a été fermée  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
-33. 08/08 - 12:39:21.481 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 16:33:13.104 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 16:33:13.114 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 16:33:13.114 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 16:33:13.115 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 16:33:13.115 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 16:33:13.555 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 16:33:13.555 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 16:33:13.556 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 16:33:13.556 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 16:36:29.082 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 16:36:29.092 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 16:36:29.092 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 16:36:29.093 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 16:36:29.093 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 16:36:29.552 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 16:36:29.552 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 16:36:29.553 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 16:36:29.553 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 16:50:03.350 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 16:50:03.360 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 16:50:03.360 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 16:50:03.361 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 16:50:03.361 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 16:50:04.306 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 16:50:04.307 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 16:50:04.308 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 16:50:04.308 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 16:54:37.423 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 16:54:37.433 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 16:54:37.434 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 16:54:37.434 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 16:54:37.435 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 16:54:37.881 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 16:54:37.882 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 16:54:37.883 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 16:54:37.884 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 17:01:05.049 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 17:01:05.058 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 17:01:05.059 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 17:01:05.059 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 17:01:05.059 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 17:01:05.488 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 17:01:05.489 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 17:01:05.489 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 17:01:05.490 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 17:03:05.530 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 17:03:05.539 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 17:03:05.540 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 17:03:05.541 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 17:03:05.541 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 17:03:05.964 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 17:03:05.965 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 17:03:05.965 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 17:03:05.965 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+1. 08/08 - 17:04:37.610 [main] INFO  fr.ocr.prj06.logs.LogsProjet - Lancement Application  Version= 1.0 <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+2. 08/08 - 17:04:37.620 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation singleton = JpaHibernateCommons <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+3. 08/08 - 17:04:37.620 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityTransaction  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+4. 08/08 - 17:04:37.620 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManager  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+5. 08/08 - 17:04:37.621 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Creation EntityManagerFactory  <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+8. 08/08 - 17:04:38.076 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManagerFactory :Unable to create requested service [org.hibernate.cache.spi.RegionFactory] <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+9. 08/08 - 17:04:38.077 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityManager :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+10. 08/08 - 17:04:38.077 [main] FATAL fr.ocr.prj06.logs.LogsProjet - Impossible creé EntityTransaction :null <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet
+11. 08/08 - 17:04:38.078 [main] DEBUG fr.ocr.prj06.logs.LogsProjet - Close : Shutdown LogManager ! Bye ! <-> Methods : Class=fr.ocr.prj06.logs.LogsProjet

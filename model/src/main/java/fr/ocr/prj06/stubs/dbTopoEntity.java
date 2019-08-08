@@ -1,11 +1,13 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Cacheable
 @Table(name = "topo", schema = "ocr_projet06")
-public class dbTopoEntity {
+public class dbTopoEntity implements Serializable {
     private int idtopo;
     private String nom;
     private byte estPublie;
@@ -80,7 +82,7 @@ public class dbTopoEntity {
         return Objects.hash(idtopo, nom, estPublie, estDisponible, resume);
     }
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
     public dbUserEntity getUserByUserIduser() {
         return userByUserIduser;

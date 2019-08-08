@@ -1,11 +1,13 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Cacheable
 @Table(name = "commentaire", schema = "ocr_projet06")
-public class dbCommentaireEntity {
+public class dbCommentaireEntity implements Serializable {
     private int idcommentaire;
     private String texte;
     private byte estVisible;
@@ -57,7 +59,7 @@ public class dbCommentaireEntity {
         return Objects.hash(idcommentaire, texte, estVisible);
     }
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
     public dbSpotEntity getSpotBySpotIdspot() {
         return spotBySpotIdspot;
@@ -67,7 +69,7 @@ public class dbCommentaireEntity {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
     public dbUserEntity getUserByUserIduser() {
         return userByUserIduser;

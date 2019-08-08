@@ -1,12 +1,14 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@Cacheable
 @Table(name = "spot", schema = "ocr_projet06")
-public class dbSpotEntity {
+public class dbSpotEntity implements Serializable {
     private int idspot;
     private String nom;
     private String localisation;
@@ -77,7 +79,7 @@ public class dbSpotEntity {
         this.secteursByIdspot = secteursByIdspot;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
     public dbUserEntity getUserByUserIduser() {
         return userByUserIduser;

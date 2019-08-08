@@ -1,11 +1,14 @@
 package fr.ocr.prj06.stubs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
+
 @Entity
+@Cacheable
 @Table(name = "longueur", schema = "ocr_projet06")
-public class dbLongueurEntity {
+public class dbLongueurEntity implements Serializable {
     private int idlongueur;
     private String nom;
     private String cotation;
@@ -68,7 +71,7 @@ public class dbLongueurEntity {
         return Objects.hash(idlongueur, nom, cotation, nombreDeSpits);
     }
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie", nullable = false)
     public dbVoieEntity getVoieByVoieIdvoie() {
         return voieByVoieIdvoie;
