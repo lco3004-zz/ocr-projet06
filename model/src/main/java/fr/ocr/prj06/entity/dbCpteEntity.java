@@ -1,4 +1,4 @@
-package fr.ocr.prj06.stubs;
+package fr.ocr.prj06.entity;
 
 
 import javax.persistence.*;

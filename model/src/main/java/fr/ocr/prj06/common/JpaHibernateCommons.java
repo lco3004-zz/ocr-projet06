@@ -1,4 +1,4 @@
-package fr.ocr.prj06.commons;
+package fr.ocr.prj06.common;
 
 import fr.ocr.prj06.logs.LogsProjet;
 import org.apache.logging.log4j.Level;

@@ -1,16 +1,16 @@
 package fr.ocr.prj06;
 
-import fr.ocr.prj06.commons.JpaHibernateCommons;
+import fr.ocr.prj06.common.JpaHibernateCommons;
+import fr.ocr.prj06.entity.dbCommentaireEntity;
+import fr.ocr.prj06.entity.dbSpotEntity;
 import fr.ocr.prj06.logs.LogsProjet;
-import fr.ocr.prj06.stubs.dbCommentaireEntity;
-import fr.ocr.prj06.stubs.dbSpotEntity;
 import org.apache.logging.log4j.Level;
 
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Properties;
 
-import static fr.ocr.prj06.commons.JpaHibernateCommons.*;
+import static fr.ocr.prj06.common.JpaHibernateCommons.getInstance;
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
 
@@ -35,7 +35,6 @@ public class Methods {
                     jpa.getEt().commit();
                 }catch (Exception ecp1) {
                     logs.maTrace(Level.ERROR,"Rollback "+ecp1.getLocalizedMessage() );
-
                 }
             }
         } catch (Exception ecp) {
