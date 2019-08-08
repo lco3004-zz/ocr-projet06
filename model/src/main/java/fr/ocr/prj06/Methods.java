@@ -27,7 +27,7 @@ public class Methods {
 
                 logs.maTrace(org.apache.logging.log4j.Level.INFO, String.format("%s Version= %s", LANCEMENT_APPLICATION.getMessageInfos(), properties.getProperty("version")));
 
-                try (JpaHibernateCommons jpa = getInstance()) {
+                try (JpaHibernateCommons jpa = getInstance(properties.getProperty("persistenceUnitName"))) {
                     jpa.getEt().begin();
                     dbSpotEntity spot = jpa.getEm().find(dbSpotEntity.class, 1 );
 

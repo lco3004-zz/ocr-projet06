@@ -19,8 +19,11 @@ public class JpaHibernateCommons implements AutoCloseable {
 
     private  static JpaHibernateCommons jpaHibernateCommons = null;
 
-    private JpaHibernateCommons() {
+    private  String persistenceUnitName;
+
+    private JpaHibernateCommons(String p_persistenceUnitName) {
         LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "Creation singleton = " + this.getClass().getSimpleName());
+        this.persistenceUnitName = p_persistenceUnitName;
     }
 
     public  EntityTransaction getEt() {
@@ -58,7 +61,7 @@ public class JpaHibernateCommons implements AutoCloseable {
         try {
             LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "Creation EntityManagerFactory ");
             if (emf == null) {
-                emf = Persistence.createEntityManagerFactory("projet_06");
+                emf = Persistence.createEntityManagerFactory(persistenceUnitName);
             }
             LogsProjet.geLogsInstance(JpaHibernateCommons.class).maTrace(Level.DEBUG, "EntityManagerFactory a été créée ");
         } catch (Throwable ex) {
@@ -68,9 +71,9 @@ public class JpaHibernateCommons implements AutoCloseable {
         return emf;
     }
 
-    public static JpaHibernateCommons getInstance() {
+    public static JpaHibernateCommons getInstance(String p_persistenceUnitName) {
         if (jpaHibernateCommons == null)
-            jpaHibernateCommons = new JpaHibernateCommons();
+            jpaHibernateCommons = new JpaHibernateCommons(p_persistenceUnitName);
         return jpaHibernateCommons;
 
     }

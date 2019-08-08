@@ -42,6 +42,7 @@
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
+    <persistenceUnitName>projet-06</persistenceUnitName>
   </properties>
 
   <!-- =============================================================== -->
@@ -146,18 +147,7 @@
         <artifactId>hibernate-core</artifactId>
         <version>5.4.3.Final</version>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-ehcache</artifactId>
-        <version>5.4.4.Final</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-c3p0</artifactId>
-        <version>5.4.1.Final</version>
-      </dependency>
+
 
       <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
       <dependency>
