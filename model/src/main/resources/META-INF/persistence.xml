@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="${persistenceUnitName}" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
         <class>fr.ocr.prj06.stubs.dbCommentaireEntity</class>
         <class>fr.ocr.prj06.stubs.dbCpteEntity</class>
         <class>fr.ocr.prj06.stubs.dbLongueurEntity</class>
@@ -23,7 +24,7 @@
             <property name="hibernate.connection.password" value="projet06"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
             <property name="hibernate.hbm2ddl.auto" value="validate"/>
 
             <!-- Cache de second niveau
@@ -31,11 +32,8 @@
             <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
             <property name="hibernate.cache.default_cache_concurrency_strategy" value="read-only"/>
             <property name="net.sf.ehcache.configurationResourceName" value="META-INF/ehcache.xml"/>
-
-            MARCHE PAS !
-
+            marche pas
             -->
-
             <!-- Pool de connexion -->
             <property name="hibernate.c3p0.min_size" value = "5"/>
             <property name="hibernate.c3p0.max_size" value="20"/>
