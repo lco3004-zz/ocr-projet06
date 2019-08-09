@@ -10,6 +10,14 @@
   <groupId>fr.ocr.prj06</groupId>
   <artifactId>projet06</artifactId>
   <version>1.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>2.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 
   <!-- =============================================================== -->
   <!-- Parent Pom et nom application -->
@@ -26,8 +34,9 @@
   <!-- modules gérés par  parent Pom -->
   <!-- =============================================================== -->
   <modules>
-    <module>tools</module>
+    <module>tool</module>
     <module>model</module>
+      <module>view</module>
   </modules>
 
   <!-- =============================================================== -->

@@ -1,6 +1,6 @@
 package fr.ocr.prj06;
 
-import fr.ocr.prj06.common.JpaHibernateCommons;
+import fr.ocr.prj06.common.JpaHibernateUtility;
 import fr.ocr.prj06.entity.dbCommentaireEntity;
 import fr.ocr.prj06.entity.dbSpotEntity;
 import fr.ocr.prj06.logs.LogsProjet;
@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.Properties;
 
-import static fr.ocr.prj06.common.JpaHibernateCommons.getInstance;
+import static fr.ocr.prj06.common.JpaHibernateUtility.getInstance;
 import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
 import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
 
@@ -27,7 +27,7 @@ public class Methods {
 
                 logs.maTrace(org.apache.logging.log4j.Level.INFO, String.format("%s Version= %s", LANCEMENT_APPLICATION.getMessageInfos(), properties.getProperty("version")));
 
-                try (JpaHibernateCommons jpa = getInstance(properties.getProperty("persistenceUnitName"))) {
+                try (JpaHibernateUtility jpa = getInstance(properties.getProperty("persistenceUnitName"))) {
                     jpa.getEt().begin();
                     dbSpotEntity spot = jpa.getEm().find(dbSpotEntity.class, 1 );
 

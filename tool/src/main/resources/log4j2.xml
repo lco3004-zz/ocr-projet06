@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" monitorInterval="30" name="OCR-Projet06" >
     <Properties>
-        <Property name="framework_logs">./logs_projet06/frameworks_logs.log</Property>
-        <Property name="projet06_logs">./logs_projet06/projet06_logs.log</Property>
+        <Property name="framework_logs">./logs/frameworks.log</Property>
+        <Property name="projet06_logs">./logs/project.log</Property>
     </Properties>
 
     <Appenders>
