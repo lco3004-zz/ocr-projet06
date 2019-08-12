@@ -14,6 +14,8 @@ public class dbCpteEntity implements Serializable {
     private String droits;
     private dbUserEntity userByUserIduser;
 
+    private static final long serialVersionUID=2L;
+
     @Id
     @Column(name = "user_iduser", nullable = false)
     public int getUserIduser() {
@@ -70,6 +72,10 @@ public class dbCpteEntity implements Serializable {
         return Objects.hash(userIduser, mdp, login, droits);
     }
 
+    @PrePersist
+    public  void  avantSauvegarde(){
+        this.userIduser = userByUserIduser.getIduser();
+    }
 
     @OneToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)

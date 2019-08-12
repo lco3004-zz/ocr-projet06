@@ -15,6 +15,8 @@ public class dbSecteurEntity implements Serializable {
     private dbSpotEntity spotBySpotIdspot;
     private Collection<dbVoieEntity> voiesByIdsecteur;
 
+    private static final long serialVersionUID=4L;
+
     @Id
     @Column(name = "idsecteur", nullable = false)
     public int getIdsecteur() {

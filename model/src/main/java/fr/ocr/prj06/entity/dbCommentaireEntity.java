@@ -14,6 +14,8 @@ public class dbCommentaireEntity implements Serializable {
     private dbSpotEntity spotBySpotIdspot;
     private dbUserEntity userByUserIduser;
 
+    private static final long serialVersionUID=1L;
+
     @Id
     @Column(name = "idcommentaire", nullable = false)
     public int getIdcommentaire() {

@@ -15,6 +15,8 @@ public class dbLongueurEntity implements Serializable {
     private Integer nombreDeSpits;
     private dbVoieEntity voieByVoieIdvoie;
 
+    private static final long serialVersionUID=3L;
+
     @Id
     @Column(name = "idlongueur", nullable = false)
     public int getIdlongueur() {

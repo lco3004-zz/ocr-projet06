@@ -16,6 +16,8 @@ public class dbSpotEntity implements Serializable {
     private Collection<dbSecteurEntity> secteursByIdspot;
     private dbUserEntity userByUserIduser;
 
+    private static final long serialVersionUID=5L;
+
     @Id
     @Column(name = "idspot", nullable = false)
     public int getIdspot() {

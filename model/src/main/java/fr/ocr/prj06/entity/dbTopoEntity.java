@@ -15,6 +15,8 @@ public class dbTopoEntity implements Serializable {
     private String resume;
     private dbUserEntity userByUserIduser;
 
+    private static final long serialVersionUID=6L;
+
     @Id
     @Column(name = "idtopo", nullable = false)
     public int getIdtopo() {

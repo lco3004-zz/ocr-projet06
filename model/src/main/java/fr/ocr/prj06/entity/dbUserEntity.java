@@ -16,6 +16,8 @@ public class dbUserEntity implements Serializable {
     private Collection<dbSpotEntity> spotsByIduser;
     private Collection<dbTopoEntity> toposByIduser;
 
+    private static final long serialVersionUID=7L;
+
     @Id
     @Column(name = "iduser", nullable = false)
     public int getIduser() {
@@ -70,7 +72,7 @@ public class dbUserEntity implements Serializable {
         this.commentairesByIduser = commentairesByIduser;
     }
 
-    @OneToOne(mappedBy = "userByUserIduser", fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userByUserIduser", fetch = FetchType.LAZY)
     public dbCpteEntity getCpteByIduser() {
         return cpteByIduser;
     }
