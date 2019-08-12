@@ -58,6 +58,7 @@ public class PersonneControleur implements Serializable {
             }
             personne.setPersonneAdresseList(attachedPersonneAdresseList);
             em.persist(personne);
+
             for (Telephone telephoneListTelephone : personne.getTelephoneList()) {
                 Personne oldIdPersonneOfTelephoneListTelephone = telephoneListTelephone.getIdPersonne();
                 telephoneListTelephone.setIdPersonne(personne);

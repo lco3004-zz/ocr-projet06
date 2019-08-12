@@ -8,7 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-
+/**
+ * @author Laurent
+ * <p>
+ * Singleton pour gestion centrale des 3 classes : Transaction, Manager, Factory de JPA (implémentation Hibernate)
+ */
 public class JpaHibernateUtility implements AutoCloseable {
 
     private  EntityManagerFactory emf = null;
@@ -21,11 +25,34 @@ public class JpaHibernateUtility implements AutoCloseable {
 
     private  String persistenceUnitName;
 
+    /**
+     * Constructeur qui attend en parametre, le nom l'unité de persistence
+     * qui est nommée dans persistence.xml
+     * @param p_persistenceUnitName  - String
+     */
     private JpaHibernateUtility(String p_persistenceUnitName) {
         LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "Creation singleton = " + this.getClass().getSimpleName());
         this.persistenceUnitName = p_persistenceUnitName;
     }
 
+    /**
+     * renvoie instance du singleton - permet d'utiliser l'autocloseable try() {} ce qui ferme
+     * l'entitymanager (mais pas le factory qui doit être fermé avec un closeEmFactory
+     *
+     * @param p_persistenceUnitName
+     * @return jpaHibernateUtility  - le signleton
+     */
+    public static JpaHibernateUtility getInstance(String p_persistenceUnitName) {
+        if (jpaHibernateUtility == null)
+            jpaHibernateUtility = new JpaHibernateUtility(p_persistenceUnitName);
+        return jpaHibernateUtility;
+
+    }
+
+    /**
+     * Renvoie (ou crée et renvoi) une référence à un objet transaction
+     * @return et - objet EntityTransaction
+     */
     public synchronized EntityTransaction getEt() {
         try {
             LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "Creation EntityTransaction ");
@@ -41,7 +68,10 @@ public class JpaHibernateUtility implements AutoCloseable {
         return et;
     }
 
-
+    /**
+     * creation d'un EntityManagerFactory ou si existe déja retourne le membre "emf
+     * @return em - objet EntityManager
+     */
     public synchronized EntityManager getEm() {
         try {
             LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "Creation EntityManager ");
@@ -57,6 +87,11 @@ public class JpaHibernateUtility implements AutoCloseable {
         return em;
     }
 
+    /**
+     * creation d'un EntityManagerFactory ou si existe déja retourne le membre "emf
+     * @return emf - objet EntityManagerFactory
+     * @throws ExceptionInInitializerError
+     */
     public synchronized EntityManagerFactory getEmf() throws ExceptionInInitializerError {
         try {
             LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "Creation EntityManagerFactory ");
@@ -71,26 +106,36 @@ public class JpaHibernateUtility implements AutoCloseable {
         return emf;
     }
 
-    public static JpaHibernateUtility getInstance(String p_persistenceUnitName) {
-        if (jpaHibernateUtility == null)
-            jpaHibernateUtility = new JpaHibernateUtility(p_persistenceUnitName);
-        return jpaHibernateUtility;
-
-    }
-
-    @Override
-    public synchronized void close() throws ExceptionInInitializerError {
+    /**
+     * fermeture EntityMangerFactory (n'entre pas dans le closeable - doit être appelelé à la main)
+     * si EntityManager non fermé, le ferme aussi
+     */
+    public synchronized void closeEmFactory() {
         try {
+            close();
             if (emf != null) {
                 emf.close();
                 emf = null;
-                LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "EntityManagerFactory a été fermée ");
             }
+            LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "EntityManagerFactory a été fermée ");
+        } catch (Throwable ex) {
+            LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.FATAL, "Impossible fermer  E.M.Factory :" + ex.getLocalizedMessage());
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
+
+    /**
+     * ne ferme que l'entity manager  - closeable sur un try() {}
+     * @throws ExceptionInInitializerError
+     */
+    @Override
+    public synchronized void close() throws ExceptionInInitializerError {
+        try {
             if (em != null) {
                 em.close();
                 em = null;
-                LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "EntityManager a été fermée ");
             }
+            LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.DEBUG, "EntityManager a été fermée ");
         } catch (Throwable ex) {
             LogsProjet.geLogsInstance(JpaHibernateUtility.class).maTrace(Level.FATAL, "Impossible fermer EntityManager et/ou E.M.Factory :" + ex.getLocalizedMessage());
             throw new ExceptionInInitializerError(ex);
