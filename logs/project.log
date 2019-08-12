@@ -1,10 +1,15 @@
-1. 12/08 - 16:20:58.018 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation singleton = JpaUtility <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-2. 12/08 - 16:20:58.027 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-3. 12/08 - 16:20:58.027 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-14. 12/08 - 16:21:02.481 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-15. 12/08 - 16:21:02.591 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-16. 12/08 - 16:21:02.613 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-17. 12/08 - 16:21:02.613 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-18. 12/08 - 16:21:02.614 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-19. 12/08 - 16:21:02.614 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
-20. 12/08 - 16:21:02.800 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été fermée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+1. 12/08 - 17:24:55.642 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - ****Business ******  Debut Main  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+2. 12/08 - 17:24:55.652 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Appel Controlleur dbUserEntity <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+3. 12/08 - 17:24:55.657 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation singleton = JpaUtility <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+4. 12/08 - 17:24:55.658 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+5. 12/08 - 17:24:55.658 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+16. 12/08 - 17:25:01.570 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+17. 12/08 - 17:25:01.696 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+18. 12/08 - 17:25:01.719 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+19. 12/08 - 17:25:01.720 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+20. 12/08 - 17:25:01.720 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+21. 12/08 - 17:25:01.720 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+22. 12/08 - 17:25:01.937 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été fermée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+23. 12/08 - 17:25:01.948 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - --> Liste User : rang : 1 ,  Nom : user_01 eMail :user_01@mail.fr <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+24. 12/08 - 17:25:01.949 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - --> Liste User : rang : 2 ,  Nom : user_02 eMail :user_02@mail.fr <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+25. 12/08 - 17:25:01.949 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - ****Business ****** Fin Main  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
