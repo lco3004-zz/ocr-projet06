@@ -1,0 +1,10 @@
+1. 12/08 - 16:20:58.018 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation singleton = JpaUtility <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+2. 12/08 - 16:20:58.027 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+3. 12/08 - 16:20:58.027 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+14. 12/08 - 16:21:02.481 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+15. 12/08 - 16:21:02.591 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+16. 12/08 - 16:21:02.613 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+17. 12/08 - 16:21:02.613 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+18. 12/08 - 16:21:02.614 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+19. 12/08 - 16:21:02.614 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet
+20. 12/08 - 16:21:02.800 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été fermée  <-> UserJpaController : Class=fr.ocr.prj06.utility.logs.LogsProjet

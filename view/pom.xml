@@ -18,7 +18,7 @@
   <name>presentation</name>
 
   <properties>
-    <app.main.class>fr.ocr.prj06.Methods</app.main.class>
+      <app.main.class>fr.ocr.prj06.entity.Methods</app.main.class>
   </properties>
 
   <dependencies>

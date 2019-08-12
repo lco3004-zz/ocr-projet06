@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
     <parent>
         <artifactId>projet06</artifactId>
         <groupId>fr.ocr.prj06</groupId>
@@ -17,7 +16,7 @@
     <name>model</name>
 
     <properties>
-        <app.main.class>fr.ocr.prj06.Methods</app.main.class>
+        <app.main.class>fr.ocr.prj06.entity.Methods</app.main.class>
     </properties>
 
     <dependencies>
@@ -58,7 +57,6 @@
 
     <build>
         <plugins>
-            <!--
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
@@ -69,34 +67,7 @@
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin> -->
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <manifestEntries>
-                                        <Main-Class>${app.main.class}</Main-Class>
-                                        <Build-Number>${project.version}</Build-Number>
-                                        <Multi-Release>true</Multi-Release>
-                                    </manifestEntries>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
-
-
         </plugins>
     </build>
 </project>

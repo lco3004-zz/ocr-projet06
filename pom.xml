@@ -36,7 +36,8 @@
   <modules>
     <module>core</module>
     <module>model</module>
-      <module>view</module>
+    <module>view</module>
+    <module>business</module>
   </modules>
 
   <!-- =============================================================== -->
