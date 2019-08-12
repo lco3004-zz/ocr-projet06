@@ -34,7 +34,7 @@
   <!-- modules gérés par  parent Pom -->
   <!-- =============================================================== -->
   <modules>
-    <module>tool</module>
+    <module>core</module>
     <module>model</module>
       <module>view</module>
   </modules>

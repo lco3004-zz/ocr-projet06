@@ -1,18 +1,18 @@
 package fr.ocr.prj06;
 
-import fr.ocr.prj06.common.JpaHibernateUtility;
-import fr.ocr.prj06.entity.dbCommentaireEntity;
-import fr.ocr.prj06.entity.dbSpotEntity;
-import fr.ocr.prj06.logs.LogsProjet;
+import fr.ocr.prj06.entity.common.JpaHibernateUtility;
+import fr.ocr.prj06.entity.stub.dbCommentaireEntity;
+import fr.ocr.prj06.entity.stub.dbSpotEntity;
+import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Properties;
 
-import static fr.ocr.prj06.common.JpaHibernateUtility.getInstance;
-import static fr.ocr.prj06.logs.LogsProjet.geLogsInstance;
-import static fr.ocr.prj06.messages.Messages.InfosMessages.LANCEMENT_APPLICATION;
+import static fr.ocr.prj06.entity.common.JpaHibernateUtility.getInstance;
+import static fr.ocr.prj06.utility.constante.Messages.InfosMessages.LANCEMENT_APPLICATION;
+import static fr.ocr.prj06.utility.logs.LogsProjet.geLogsInstance;
 
 /**
  * Hello jPA World!

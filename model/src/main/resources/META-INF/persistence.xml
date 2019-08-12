@@ -4,14 +4,14 @@
     <persistence-unit name="${persistenceUnitName}" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>fr.ocr.prj06.entity.dbCommentaireEntity</class>
-        <class>fr.ocr.prj06.entity.dbCpteEntity</class>
-        <class>fr.ocr.prj06.entity.dbLongueurEntity</class>
-        <class>fr.ocr.prj06.entity.dbSecteurEntity</class>
-        <class>fr.ocr.prj06.entity.dbSpotEntity</class>
-        <class>fr.ocr.prj06.entity.dbTopoEntity</class>
-        <class>fr.ocr.prj06.entity.dbUserEntity</class>
-        <class>fr.ocr.prj06.entity.dbVoieEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbCommentaireEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbCpteEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbLongueurEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbSecteurEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbSpotEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbTopoEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbUserEntity</class>
+        <class>fr.ocr.prj06.entity.stub.dbVoieEntity</class>
 
         <!-- Cache JPA -->
         <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
