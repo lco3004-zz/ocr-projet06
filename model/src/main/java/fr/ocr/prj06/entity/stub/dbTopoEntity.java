@@ -4,18 +4,22 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+//import java.util.Date;
+
 @Entity
 @Cacheable
 @Table(name = "topo", schema = "ocr_projet06")
 public class dbTopoEntity implements Serializable {
+    private static final long serialVersionUID = 6L;
+
     private int idtopo;
     private String nom;
     private byte estPublie;
     private byte estDisponible;
     private String resume;
+    private String lieu;
+    private java.util.Date dateDeParution;
     private dbUserEntity userByUserIduser;
-
-    private static final long serialVersionUID=6L;
 
     @Id
     @Column(name = "idtopo", nullable = false)
@@ -67,6 +71,26 @@ public class dbTopoEntity implements Serializable {
         this.resume = resume;
     }
 
+    @Basic
+    @Column(name = "lieu", nullable = false, length = 45)
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "date_de_parution", nullable = false)
+    public java.util.Date getDateDeParution() {
+        return dateDeParution;
+    }
+
+    public void setDateDeParution(java.util.Date dateDeParution) {
+        this.dateDeParution = dateDeParution;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,12 +100,14 @@ public class dbTopoEntity implements Serializable {
                 estPublie == that.estPublie &&
                 estDisponible == that.estDisponible &&
                 Objects.equals(nom, that.nom) &&
-                Objects.equals(resume, that.resume);
+                Objects.equals(resume, that.resume) &&
+                Objects.equals(lieu, that.lieu) &&
+                Objects.equals(dateDeParution, that.dateDeParution);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idtopo, nom, estPublie, estDisponible, resume);
+        return Objects.hash(idtopo, nom, estPublie, estDisponible, resume, lieu, dateDeParution);
     }
 
     @ManyToOne (fetch = FetchType.LAZY)

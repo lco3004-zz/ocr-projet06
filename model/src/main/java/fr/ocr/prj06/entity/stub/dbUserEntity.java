@@ -8,15 +8,16 @@ import java.util.Objects;
 @Entity
 @Table(name = "user", schema = "ocr_projet06")
 public class dbUserEntity implements Serializable {
+    private static final long serialVersionUID = 7L;
+
     private int iduser;
     private String nom;
     private String email;
+    private String mdp;
+    private String profil;
     private Collection<dbCommentaireEntity> commentairesByIduser;
-    private dbCpteEntity cpteByIduser;
     private Collection<dbSpotEntity> spotsByIduser;
     private Collection<dbTopoEntity> toposByIduser;
-
-    private static final long serialVersionUID=7L;
 
     @Id
     @Column(name = "iduser", nullable = false)
@@ -29,7 +30,7 @@ public class dbUserEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = false, length = 45)
+    @Column(name = "nom", nullable = true, length = 256)
     public String getNom() {
         return nom;
     }
@@ -39,13 +40,33 @@ public class dbUserEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "email", nullable = false, length = 45)
+    @Column(name = "email", nullable = false, length = 256)
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Basic
+    @Column(name = "mdp", nullable = false, length = 16)
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    @Basic
+    @Column(name = "profil", nullable = false, length = 2)
+    public String getProfil() {
+        return profil;
+    }
+
+    public void setProfil(String profil) {
+        this.profil = profil;
     }
 
     @Override
@@ -55,12 +76,14 @@ public class dbUserEntity implements Serializable {
         dbUserEntity that = (dbUserEntity) o;
         return iduser == that.iduser &&
                 Objects.equals(nom, that.nom) &&
-                Objects.equals(email, that.email);
+                Objects.equals(email, that.email) &&
+                Objects.equals(mdp, that.mdp) &&
+                Objects.equals(profil, that.profil);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(iduser, nom, email);
+        return Objects.hash(iduser, nom, email, mdp, profil);
     }
 
     @OneToMany(mappedBy = "userByUserIduser")
@@ -70,15 +93,6 @@ public class dbUserEntity implements Serializable {
 
     public void setCommentairesByIduser(Collection<dbCommentaireEntity> commentairesByIduser) {
         this.commentairesByIduser = commentairesByIduser;
-    }
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userByUserIduser", fetch = FetchType.LAZY)
-    public dbCpteEntity getCpteByIduser() {
-        return cpteByIduser;
-    }
-
-    public void setCpteByIduser(dbCpteEntity cpteByIduser) {
-        this.cpteByIduser = cpteByIduser;
     }
 
     @OneToMany(mappedBy = "userByUserIduser")

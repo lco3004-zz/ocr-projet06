@@ -1,20 +1,10 @@
-6. 12/08 - 16:49:56.614 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger=org.hibernate.jpa.internal.util.LogHelper
-7. 12/08 - 16:49:56.724 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {[WORKING]} : Logger=org.hibernate.Version
-8. 12/08 - 16:49:56.914 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger=org.hibernate.annotations.common.Version
-9. 12/08 - 16:49:58.921 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-10. 12/08 - 16:49:58.922 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH10001001: Connection properties: {password=****, user=projet06} : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-11. 12/08 - 16:49:58.922 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH10001003: Autocommit mode: false : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-12. 12/08 - 16:49:59.041 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown> : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-13. 12/08 - 16:49:59.720 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger=org.hibernate.dialect.Dialect
-14. 12/08 - 16:50:00.800 [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4c19b0a8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode. : Logger=org.hibernate.orm.connections.access
-15. 12/08 - 16:50:00.864 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator
-6. 12/08 - 17:24:55.875 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger=org.hibernate.jpa.internal.util.LogHelper
-7. 12/08 - 17:24:56.015 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {[WORKING]} : Logger=org.hibernate.Version
-8. 12/08 - 17:24:56.264 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger=org.hibernate.annotations.common.Version
-9. 12/08 - 17:24:59.101 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-10. 12/08 - 17:24:59.101 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH10001001: Connection properties: {password=****, user=projet06} : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-11. 12/08 - 17:24:59.101 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH10001003: Autocommit mode: false : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-12. 12/08 - 17:24:59.279 [main] INFO  org.hibernate.c3p0.internal.C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown> : Logger=org.hibernate.c3p0.internal.C3P0ConnectionProvider
-13. 12/08 - 17:25:00.172 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger=org.hibernate.dialect.Dialect
-14. 12/08 - 17:25:01.501 [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4c19b0a8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode. : Logger=org.hibernate.orm.connections.access
-15. 12/08 - 17:25:01.566 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator
+3. 14/08 - 19:17:25.602 [main] INFO  - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger
+4. 14/08 - 19:17:25.711 [main] INFO  - HHH000412: Hibernate Core {[WORKING]} : Logger
+5. 14/08 - 19:17:25.896 [main] INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger
+6. 14/08 - 19:17:27.980 [main] INFO  - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC : Logger
+7. 14/08 - 19:17:27.981 [main] INFO  - HHH10001001: Connection properties: {password=****, user=projet06} : Logger
+8. 14/08 - 19:17:27.981 [main] INFO  - HHH10001003: Autocommit mode: false : Logger
+9. 14/08 - 19:17:28.104 [main] INFO  - HHH10001007: JDBC isolation level: <unknown> : Logger
+10. 14/08 - 19:17:28.791 [main] INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger
+11. 14/08 - 19:17:29.800 [main] INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@69a61267] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode. : Logger
+12. 14/08 - 19:17:29.867 [main] INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger

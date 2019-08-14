@@ -38,9 +38,9 @@ public enum Messages {
     }
 
     public enum ErreurMessages {
-        CONTROLLER_JPA_FIND_USER("findDbUserEntities - Erreur : "),
-        CONTROLLER_JPA_USER_COUNT("getdbUserEntityCount - Erreur : "),
-        CONTROLLER_JPA_USER_CONSTRUCTEUR("UserJpaController : echec constructeur : "),
+        CONTROLLER_JPA_FIND_ENTITY("findDbEntities - Erreur : "),
+        CONTROLLER_JPA_ENTITY_COUNT("getdbEntityCount - Erreur : "),
+        CONTROLLER_JPA_ENTITY_CONSTRUCTEUR("Constructeur EntityCtrl - Erreur"),
         ERREUR_GENERIC("Ne doit pas etre utilisée!");
 
         private String messageErreur;

@@ -1,15 +1,15 @@
-1. 12/08 - 17:24:55.642 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - ****Business ******  Debut Main  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-2. 12/08 - 17:24:55.652 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Appel Controlleur dbUserEntity <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-3. 12/08 - 17:24:55.657 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation singleton = JpaUtility <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-4. 12/08 - 17:24:55.658 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-5. 12/08 - 17:24:55.658 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-16. 12/08 - 17:25:01.570 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-17. 12/08 - 17:25:01.696 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-18. 12/08 - 17:25:01.719 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManager  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-19. 12/08 - 17:25:01.720 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - Creation EntityManagerFactory  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-20. 12/08 - 17:25:01.720 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManagerFactory a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-21. 12/08 - 17:25:01.720 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été créée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-22. 12/08 - 17:25:01.937 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - EntityManager a été fermée  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-23. 12/08 - 17:25:01.948 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - --> Liste User : rang : 1 ,  Nom : user_01 eMail :user_01@mail.fr <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-24. 12/08 - 17:25:01.949 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - --> Liste User : rang : 2 ,  Nom : user_02 eMail :user_02@mail.fr <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
-25. 12/08 - 17:25:01.949 [main] DEBUG fr.ocr.prj06.utility.logs.LogsProjet - ****Business ****** Fin Main  <-> App : Class=fr.ocr.prj06.utility.logs.LogsProjet
+1. 14/08 - 19:17:25.425 [main] DEBUG - ****Business ******  Debut Main  
+2. 14/08 - 19:17:25.428 [main] DEBUG - Appel Controlleur dbUserEntity 
+13. 14/08 - 19:17:29.872 [main] DEBUG - Creation  : EntityManagerFactory  
+14. 14/08 - 19:17:29.966 [main] DEBUG - Creation EntityManager :  SessionImpl(1669512255<open>)  
+15. 14/08 - 19:17:30.147 [main] DEBUG - Fermeture EntityManager :  SessionImpl(1669512255<open>)  
+16. 14/08 - 19:17:30.158 [main] DEBUG - --> Liste User : rang : 1 , Nom : grimpeur_01 , eMail :grimpeur_01@mail.fr 
+17. 14/08 - 19:17:30.158 [main] DEBUG - --> Liste User : rang : 2 , Nom : grimpeur_02 , eMail :grimpeur_02@mail.fr 
+18. 14/08 - 19:17:30.159 [main] DEBUG - --> Liste User : rang : 3 , Nom : membre_01 , eMail :membre_01@mail.fr 
+19. 14/08 - 19:17:30.160 [main] DEBUG - Creation EntityManager :  SessionImpl(689946057<open>)  
+20. 14/08 - 19:17:30.178 [main] DEBUG - Fermeture EntityManager :  SessionImpl(689946057<open>)  
+21. 14/08 - 19:17:30.188 [main] DEBUG - --> Liste Topos : rang: 1 , Nom: topo_01 , Lieu: lieu_01 , Resume: resume_topo_01 , DateParution 2019-10-21 
+22. 14/08 - 19:17:30.188 [main] DEBUG - --> Liste Topos : rang: 2 , Nom: topo_02 , Lieu: lieu_02 , Resume: resume_topo_02 , DateParution 2018-11-22 
+23. 14/08 - 19:17:30.188 [main] DEBUG - --> Liste Topos : rang: 3 , Nom: topo_03 , Lieu: lieu_03 , Resume: resume_topo_03 , DateParution 2017-12-23 
+24. 14/08 - 19:17:30.194 [main] DEBUG - Fermeture  : EntityManagerFactory  
+25. 14/08 - 19:17:30.194 [main] DEBUG - ****Business ****** Fin Main  
