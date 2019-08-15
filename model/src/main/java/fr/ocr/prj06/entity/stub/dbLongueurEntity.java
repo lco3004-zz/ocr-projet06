@@ -19,6 +19,7 @@ public class dbLongueurEntity implements Serializable {
 
     @Id
     @Column(name = "idlongueur", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdlongueur() {
         return idlongueur;
     }
@@ -73,7 +74,7 @@ public class dbLongueurEntity implements Serializable {
         return Objects.hash(idlongueur, nom, cotation, nombreDeSpits);
     }
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie", nullable = false)
     public dbVoieEntity getVoieByVoieIdvoie() {
         return voieByVoieIdvoie;

@@ -1,14 +1,14 @@
-package fr.ocr.prj06.entity.controller;
+package fr.ocr.prj06.controller;
 
 import fr.ocr.prj06.entity.common.JpaCtrl;
-import fr.ocr.prj06.entity.stub.dbSpotEntity;
+import fr.ocr.prj06.entity.stub.dbUserEntity;
 
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
-public class SpotJpaCtrl extends JpaCtrl {
+public class UserJpaCtrl extends JpaCtrl {
 
-    public SpotJpaCtrl() throws Exception {
-        super(dbSpotEntity.class);
+    public UserJpaCtrl() throws Exception {
+        super(dbUserEntity.class);
         setLogs();
     }
 

@@ -1,5 +1,7 @@
 package fr.ocr.prj06.entity.stub;
 
+import fr.ocr.prj06.entity.common.JpaConverterBooleanToInt;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,14 +12,17 @@ import java.util.Objects;
 public class dbCommentaireEntity implements Serializable {
     private int idcommentaire;
     private String texte;
-    private byte estVisible;
+
+    @Convert(converter = JpaConverterBooleanToInt.class)
+    private Boolean estVisible;
+
     private dbSpotEntity spotBySpotIdspot;
-    private dbUserEntity userByUserIduser;
 
     private static final long serialVersionUID=1L;
 
     @Id
     @Column(name = "idcommentaire", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdcommentaire() {
         return idcommentaire;
     }
@@ -38,11 +43,11 @@ public class dbCommentaireEntity implements Serializable {
 
     @Basic
     @Column(name = "est_visible", nullable = false)
-    public byte getEstVisible() {
+    public Boolean getEstVisible() {
         return estVisible;
     }
 
-    public void setEstVisible(byte estVisible) {
+    public void setEstVisible(Boolean estVisible) {
         this.estVisible = estVisible;
     }
 
@@ -61,7 +66,7 @@ public class dbCommentaireEntity implements Serializable {
         return Objects.hash(idcommentaire, texte, estVisible);
     }
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
     public dbSpotEntity getSpotBySpotIdspot() {
         return spotBySpotIdspot;
@@ -71,13 +76,4 @@ public class dbCommentaireEntity implements Serializable {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
-    public dbUserEntity getUserByUserIduser() {
-        return userByUserIduser;
-    }
-
-    public void setUserByUserIduser(dbUserEntity userByUserIduser) {
-        this.userByUserIduser = userByUserIduser;
-    }
 }

@@ -20,9 +20,9 @@ public class JpaEmUtility implements AutoCloseable {
      *
      * @return em - objet EntityManager
      */
-    protected synchronized EntityManager getEm() throws ExceptionInInitializerError {
+    public synchronized EntityManager getEm() throws ExceptionInInitializerError {
         try {
-            JpaEMFUtility jpa = JpaEMFUtility.getInstanceEMF();
+            JpaEmfUtility jpa = JpaEmfUtility.getInstanceEMF();
             if (em == null) {
                 em = jpa.getEmf().createEntityManager();
                 logs.maTrace(Level.DEBUG, String.format("%s %s ", "Creation EntityManager : ", em.toString()));
@@ -37,7 +37,7 @@ public class JpaEmUtility implements AutoCloseable {
     /**
      * ne ferme que l'entity manager
      *
-     * @throws ExceptionInInitializerError
+     * @throws Exception
      */
     @Override
     public synchronized void close() throws Exception {
@@ -49,7 +49,7 @@ public class JpaEmUtility implements AutoCloseable {
             }
         } catch (Throwable ex) {
             logs.maTrace(Level.FATAL, "Impossible fermer EntityManager et/ou E.M.Factory :" + ex.getLocalizedMessage());
-            throw new ExceptionInInitializerError(ex);
+            throw new Exception(ex);
         }
     }
 }

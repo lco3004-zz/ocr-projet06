@@ -15,12 +15,12 @@ public class dbUserEntity implements Serializable {
     private String email;
     private String mdp;
     private String profil;
-    private Collection<dbCommentaireEntity> commentairesByIduser;
     private Collection<dbSpotEntity> spotsByIduser;
     private Collection<dbTopoEntity> toposByIduser;
 
     @Id
     @Column(name = "iduser", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIduser() {
         return iduser;
     }
@@ -84,15 +84,6 @@ public class dbUserEntity implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(iduser, nom, email, mdp, profil);
-    }
-
-    @OneToMany(mappedBy = "userByUserIduser")
-    public Collection<dbCommentaireEntity> getCommentairesByIduser() {
-        return commentairesByIduser;
-    }
-
-    public void setCommentairesByIduser(Collection<dbCommentaireEntity> commentairesByIduser) {
-        this.commentairesByIduser = commentairesByIduser;
     }
 
     @OneToMany(mappedBy = "userByUserIduser")

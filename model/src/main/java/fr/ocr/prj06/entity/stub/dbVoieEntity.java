@@ -18,6 +18,7 @@ public class dbVoieEntity implements Serializable {
 
     @Id
     @Column(name = "idvoie", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdvoie() {
         return idvoie;
     }
@@ -59,7 +60,7 @@ public class dbVoieEntity implements Serializable {
         this.longueursByIdvoie = longueursByIdvoie;
     }
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur", nullable = false)
     public dbSecteurEntity getSecteurBySecteurIdsecteur() {
         return secteurBySecteurIdsecteur;

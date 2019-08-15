@@ -1,6 +1,6 @@
 package fr.ocr.prj06.business.businessCtrl;
 
-import fr.ocr.prj06.entity.controller.TopoJpaCtrl;
+import fr.ocr.prj06.controller.TopoJpaCtrl;
 import fr.ocr.prj06.entity.stub.dbTopoEntity;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
@@ -11,7 +11,7 @@ import java.util.List;
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
 public class TopoMgmt {
-    LogsProjet logs;
+    private LogsProjet logs;
 
     public TopoMgmt() {
 

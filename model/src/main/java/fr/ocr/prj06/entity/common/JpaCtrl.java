@@ -5,7 +5,6 @@ import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 import org.hibernate.HibernateException;
 
-import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -18,7 +17,6 @@ public abstract class JpaCtrl<EntityMetamodel> {
 
     protected LogsProjet logs;
     protected Class<EntityMetamodel> t;
-    private EntityTransaction et = null;
 
     /**
      * @param t Objet Entity
@@ -37,26 +35,6 @@ public abstract class JpaCtrl<EntityMetamodel> {
     protected abstract void setLogs();
 
     /**
-     * Renvoie (ou crée et renvoi) une référence à un objet transaction
-     * @return et - objet EntityTransaction
-     */
-    /*
-    protected synchronized EntityTransaction getEt() throws ExceptionInInitializerError {
-        try {
-            if (et == null) {
-                logs.maTrace(Level.DEBUG, "Creation EntityTransaction ");
-                et = getEm().getTransaction();
-                logs.maTrace(Level.DEBUG, "EntityTransaction a été créée ");
-            }
-        } catch (Throwable ex) {
-            logs.maTrace(Level.FATAL, "Impossible de créer EntityTransaction :" + ex.getLocalizedMessage());
-            throw new ExceptionInInitializerError(ex);
-        }
-        return et;
-    }
-    */
-
-    /**
      * Permet de récupérer un objet via son ID
      *
      * @param id
@@ -64,7 +42,10 @@ public abstract class JpaCtrl<EntityMetamodel> {
      */
     protected EntityMetamodel findDbEntity(Integer id) throws HibernateException {
         try (JpaEmUtility jpaEmUtility = new JpaEmUtility()) {
-            return (EntityMetamodel) jpaEmUtility.getEm().find(t.getClass(), id);
+            jpaEmUtility.getEm().getTransaction().begin();
+            EntityMetamodel etm = jpaEmUtility.getEm().find(t, id);
+            jpaEmUtility.getEm().getTransaction().commit();
+            return etm;
         } catch (Exception ecp1) {
             logs.maTrace(Level.ERROR, CONTROLLER_JPA_FIND_ENTITY.getMessageErreur() + ecp1.getLocalizedMessage());
             throw new HibernateException(ecp1);

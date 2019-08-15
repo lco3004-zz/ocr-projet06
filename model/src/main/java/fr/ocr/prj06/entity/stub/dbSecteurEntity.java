@@ -19,6 +19,7 @@ public class dbSecteurEntity implements Serializable {
 
     @Id
     @Column(name = "idsecteur", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdsecteur() {
         return idsecteur;
     }
@@ -51,7 +52,7 @@ public class dbSecteurEntity implements Serializable {
         return Objects.hash(idsecteur, nom);
     }
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
     public dbSpotEntity getSpotBySpotIdspot() {
         return spotBySpotIdspot;

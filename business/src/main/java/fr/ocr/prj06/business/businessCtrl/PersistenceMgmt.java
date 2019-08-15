@@ -5,11 +5,11 @@ import fr.ocr.prj06.entity.common.JpaEmfInterface;
 
 import java.io.IOException;
 
-import static fr.ocr.prj06.entity.common.JpaEMFUtility.getInstanceEMF;
+import static fr.ocr.prj06.entity.common.JpaEmfUtility.getInstanceEMF;
 
 public class PersistenceMgmt {
 
-    JpaEmfInterface jpa;
+    private JpaEmfInterface jpa;
 
     public PersistenceMgmt() throws IOException {
         jpa = getInstanceEMF();

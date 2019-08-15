@@ -20,6 +20,7 @@ public class dbSpotEntity implements Serializable {
 
     @Id
     @Column(name = "idspot", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdspot() {
         return idspot;
     }
@@ -81,7 +82,7 @@ public class dbSpotEntity implements Serializable {
         this.secteursByIdspot = secteursByIdspot;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
     public dbUserEntity getUserByUserIduser() {
         return userByUserIduser;

@@ -17,11 +17,11 @@ import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
  * <p>
  * Singleton pour gestion centrale des 3 classes : Transaction, Manager, Factory de JPA (implémentation Hibernate)
  */
-public class JpaEMFUtility implements JpaEmfInterface {
+public class JpaEmfUtility implements JpaEmfInterface {
 
     private  EntityManagerFactory emf = null;
 
-    private static JpaEMFUtility jpaEMFUtility = null;
+    private static JpaEmfUtility jpaEMFUtility = null;
 
     private  String persistenceUnitName;
 
@@ -31,7 +31,7 @@ public class JpaEMFUtility implements JpaEmfInterface {
      * Constructeur qui attend en parametre, le nom l'unité de persistence
      * qui est nommée dans persistence.xml
      */
-    private JpaEMFUtility() throws IOException {
+    private JpaEmfUtility() throws IOException {
         logs = getLogsInstance();
         Properties properties = new Properties();
         InputStream inputStream = JpaCtrl.class.getResourceAsStream("/info.properties");
@@ -45,16 +45,16 @@ public class JpaEMFUtility implements JpaEmfInterface {
      *
      * @return jpaEMFUtility  - le signleton
      */
-    public static JpaEMFUtility getInstanceEMF() throws IOException {
+    public static JpaEmfUtility getInstanceEMF() throws IOException {
         if (jpaEMFUtility == null)
-            jpaEMFUtility = new JpaEMFUtility();
+            jpaEMFUtility = new JpaEmfUtility();
         return jpaEMFUtility;
     }
 
     /**
      * creation d'un EntityManagerFactory ou si existe déja retourne le membre "emf
      * @return emf - objet EntityManagerFactory
-     * @throws ExceptionInInitializerError
+     * @throws Exception
      */
     public synchronized EntityManagerFactory getEmf() throws Exception {
         try {

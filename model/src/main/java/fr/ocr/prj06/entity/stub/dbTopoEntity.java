@@ -14,8 +14,8 @@ public class dbTopoEntity implements Serializable {
 
     private int idtopo;
     private String nom;
-    private byte estPublie;
-    private byte estDisponible;
+    private int estPublie;
+    private int estDisponible;
     private String resume;
     private String lieu;
     private java.util.Date dateDeParution;
@@ -23,6 +23,7 @@ public class dbTopoEntity implements Serializable {
 
     @Id
     @Column(name = "idtopo", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdtopo() {
         return idtopo;
     }
@@ -43,21 +44,21 @@ public class dbTopoEntity implements Serializable {
 
     @Basic
     @Column(name = "est_publie", nullable = false)
-    public byte getEstPublie() {
+    public int getEstPublie() {
         return estPublie;
     }
 
-    public void setEstPublie(byte estPublie) {
+    public void setEstPublie(int estPublie) {
         this.estPublie = estPublie;
     }
 
     @Basic
     @Column(name = "est_disponible", nullable = false)
-    public byte getEstDisponible() {
+    public int getEstDisponible() {
         return estDisponible;
     }
 
-    public void setEstDisponible(byte estDisponible) {
+    public void setEstDisponible(int estDisponible) {
         this.estDisponible = estDisponible;
     }
 
@@ -110,7 +111,7 @@ public class dbTopoEntity implements Serializable {
         return Objects.hash(idtopo, nom, estPublie, estDisponible, resume, lieu, dateDeParution);
     }
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
     public dbUserEntity getUserByUserIduser() {
         return userByUserIduser;

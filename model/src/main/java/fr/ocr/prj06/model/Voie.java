@@ -1,4 +1,4 @@
-package fr.ocr.prj06.business.model;
+package fr.ocr.prj06.model;
 
 import java.util.Set;
 

@@ -38,9 +38,14 @@ public enum Messages {
     }
 
     public enum ErreurMessages {
-        CONTROLLER_JPA_FIND_ENTITY("findDbEntities - Erreur : "),
-        CONTROLLER_JPA_ENTITY_COUNT("getdbEntityCount - Erreur : "),
-        CONTROLLER_JPA_ENTITY_CONSTRUCTEUR("Constructeur EntityCtrl - Erreur"),
+        CONTROLLER_JPA_FIND_ENTITY("findDbEntities - Erreur: "),
+        CONTROLLER_JPA_ENTITY_COUNT("getdbEntityCount - Erreur: "),
+        CONTROLLER_JPA_ENTITY_CONSTRUCTEUR("Constructeur EntityCtrl - Erreur: "),
+        CONTROLLER_JPA_CREATE_COMMENTAIRE("Creation Commentaire - Erreur: "),
+        CONTROLLER_JPA_UPDATE_COMMENTAIRE("Mise à jour Commentaire - Erreur: "),
+        CONTROLLER_JPA_READ_COMMENTAIRE("Lecture un Commentaire - Erreur: "),
+        CONTROLLER_JPA_READLISTE_COMMENTAIRE("Lecture Liste Commentaire - Erreur: "),
+        CONTROLLER_JPA_DELETE_COMMENTAIRE("Suppression un Commentaire - Erreur: "),
         ERREUR_GENERIC("Ne doit pas etre utilisée!");
 
         private String messageErreur;
