@@ -13,23 +13,26 @@ import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
  */
 public class App {
     public static void main(String[] args) throws Exception {
-        LogsProjet logs = getLogsInstance();
 
-        logs.maTrace(Level.DEBUG, "****Business ******  Debut Main ");
-        logs.maTrace(Level.DEBUG, "Appel Controlleur dbUserEntity");
+        try (LogsProjet logs = getLogsInstance()) {
+            logs.maTrace(Level.DEBUG, "****Business ******  Debut Main ");
 
-        try {
-            PersistenceMgmt persistenceMgmt = new PersistenceMgmt();
-            persistenceMgmt.openDAO();
-            {
-                (new UserMgmt()).getListUsers();
-                (new TopoMgmt()).getListTopos();
+            try {
+                PersistenceMgmt persistenceMgmt = new PersistenceMgmt();
+                persistenceMgmt.openDAO();
+                {
+                    logs.maTrace(Level.DEBUG, "Appel Controlleur UsrMgmt");
+                    (new UserMgmt()).getListUsers();
+                    logs.maTrace(Level.DEBUG, "Appel Controlleur TopoMgmt");
+                    (new TopoMgmt()).getListTopos();
+                }
+                persistenceMgmt.closeDao();
+                logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
+            } catch (Exception ex) {
+                logs.maTrace(Level.ERROR, "Erreur dans Main" + ex.getLocalizedMessage());
+                throw new Exception(ex);
             }
-            persistenceMgmt.closeDao();
-            logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
-        } catch (Exception ex) {
-            logs.maTrace(Level.ERROR, "Erreur dans Main" + ex.getLocalizedMessage());
-            throw new Exception(ex);
         }
+
     }
 }
