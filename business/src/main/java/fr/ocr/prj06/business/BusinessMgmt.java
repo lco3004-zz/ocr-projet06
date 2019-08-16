@@ -56,11 +56,11 @@ public class BusinessMgmt {
 
         ArrayList<DbSecteur> dbSecteurs = new ArrayList<>();
         ArrayList<DbVoie> dbVoies = new ArrayList<>();
+        ArrayList<DbLongueur> dbLongueurs = new ArrayList<>();
 
         dbLongueur.setNom("longueur_par_pgm");
         dbLongueur.setCotation("8a");
         dbLongueur.setNombreDeSpits(12);
-        ArrayList<DbLongueur> dbLongueurs = new ArrayList<>();
         dbLongueurs.add(dbLongueur);
 
         dbVoie.setNom("voie_par_pgm");

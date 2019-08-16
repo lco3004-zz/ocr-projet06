@@ -206,31 +206,35 @@ public class JpaCtrl extends JpaUtilityCtrl {
      *
      * ************************************************************************************************************
      */
-    public DbSpot createSpot(Integer idUser, DbSpot dbSpotInfos) throws Exception {
+    public DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
-                jpa.getEm().getTransaction().begin();
-                DbSpot dbSpot = new DbSpot();
+                //DbSpot dbSpot = new DbSpot();
+                //dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
+                //dbSpot.setClassification(dbSpotInfos.getClassification());
+                //dbSpot.setLocalisation(dbSpotInfos.getLocalisation());
+                //dbSpot.setNom(dbSpotInfos.getNom());
 
+                jpa.getEm().getTransaction().begin();
                 dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
-                dbSpot.setClassification(dbSpotInfos.getClassification());
-                dbSpot.setLocalisation(dbSpotInfos.getLocalisation());
-                dbSpot.setNom(dbSpotInfos.getNom());
 
                 jpa.getEm().persist(dbSpot);
+
+                for (DbSecteur dbSecteur : dbSpot.getSecteursByIdspot()) {
+                    dbSecteur.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
+                    jpa.getEm().persist(dbSecteur);
+                    for (DbVoie dbVoie : dbSecteur.getVoiesByIdsecteur()) {
+                        dbVoie.setSecteurBySecteurIdsecteur(jpa.getEm().find(DbSecteur.class, dbSecteur.getIdsecteur()));
+                        jpa.getEm().persist(dbVoie);
+                        for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                            dbLongueur.setVoieByVoieIdvoie(jpa.getEm().find(DbVoie.class, dbVoie.getIdvoie()));
+                            jpa.getEm().persist(dbLongueur);
+                        }
+                    }
+                }
+
                 jpa.getEm().getTransaction().commit();
 
-                for (DbSecteur dbsecteur : dbSpotInfos.getSecteursByIdspot()) {
-                    jpa.getEm().getTransaction().begin();
-                    dbsecteur.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
-                    jpa.getEm().persist(dbsecteur);
-                    jpa.getEm().getTransaction().commit();
-                }
-                jpa.getEm().getTransaction().begin();
-                jpa.getEm().refresh(dbSpot);
-                dbSpot = jpa.getEm().find(DbSpot.class, dbSpot.getIdspot());
-                dbSpot.getSecteursByIdspot().isEmpty();
-                jpa.getEm().getTransaction().commit();
                 return dbSpot;
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();

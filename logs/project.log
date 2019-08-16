@@ -1,7 +1,8 @@
-1. 16/08 - 20:11:56.864 [main] DEBUG - ****Business ******  Debut Main  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-14. 16/08 - 20:12:01.868 [main] DEBUG - Creation  : EntityManagerFactory  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-15. 16/08 - 20:12:05.084 [main] DEBUG - Creation EntityManager :  SessionImpl(91914586<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-16. 16/08 - 20:13:00.147 [main] DEBUG - Fermeture EntityManager :  SessionImpl(91914586<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-17. 16/08 - 20:13:00.179 [main] DEBUG - Fermeture  : EntityManagerFactory  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-18. 16/08 - 20:13:00.183 [main] DEBUG - ****Business ****** Fin Main  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-19. 16/08 - 20:13:00.183 [main] DEBUG - Close : Shutdown LogManager ! Bye ! Logger=fr.ocr.prj06.utility.logs.LogsProjet
+1. 16/08 - 22:32:00.724 [main] DEBUG - ****Business ******  Debut Main  Logger=fr.ocr.prj06.utility.logs.LogsProjet
+14. 16/08 - 22:32:03.216 [main] DEBUG - Creation  : EntityManagerFactory  Logger=fr.ocr.prj06.utility.logs.LogsProjet
+15. 16/08 - 22:32:03.279 [main] DEBUG - Creation EntityManager :  SessionImpl(755945495<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
+16. 16/08 - 22:33:24.153 [main] DEBUG - Fermeture EntityManager :  SessionImpl(755945495<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
+17. 16/08 - 22:33:24.169 [main] ERROR - Creation Spot - Erreur: javax.persistence.PersistenceException: org.hibernate.PropertyValueException: not-null property references a null or transient value : fr.ocr.prj06.entity.stub.DbSecteur.spotBySpotIdspot Logger=fr.ocr.prj06.utility.logs.LogsProjet
+18. 16/08 - 22:33:24.169 [main] DEBUG - Fermeture  : EntityManagerFactory  Logger=fr.ocr.prj06.utility.logs.LogsProjet
+19. 16/08 - 22:33:24.169 [main] ERROR - Erreur dans Main : java.lang.Exception: javax.persistence.PersistenceException: org.hibernate.PropertyValueException: not-null property references a null or transient value : fr.ocr.prj06.entity.stub.DbSecteur.spotBySpotIdspot Logger=fr.ocr.prj06.utility.logs.LogsProjet
+20. 16/08 - 22:33:24.169 [main] DEBUG - Close : Shutdown LogManager ! Bye ! Logger=fr.ocr.prj06.utility.logs.LogsProjet

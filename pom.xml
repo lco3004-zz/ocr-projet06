@@ -26,7 +26,7 @@
   <!-- modules gérés par  parent Pom -->
   <!-- =============================================================== -->
   <modules>
-    <module>core</module>
+      <module>tools</module>
     <module>model</module>
     <module>view</module>
     <module>business</module>
