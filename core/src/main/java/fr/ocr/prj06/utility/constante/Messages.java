@@ -47,7 +47,11 @@ public enum Messages {
         CONTROLLER_JPA_READLISTE_COMMENTAIRE("Lecture Liste Commentaire - Erreur: "),
         CONTROLLER_JPA_DELETE_COMMENTAIRE("Suppression un Commentaire - Erreur: "),
         MODELINTERNE_COPY_VERS_ENTITY_TXTINACT("CopyVersEntity Transaction inactive - Erreur: "),
-        ERREUR_GENERIC("Ne doit pas etre utilisée!");
+        ERREUR_GENERIC("Ne doit pas etre utilisée!"),
+        CONTROLLER_JPA_TOSTRING_COMMENTAIRE("ToString Ctrl Commentaire - Erreur : "),
+        CONTROLLER_JPA_CREATE_LONGUEUR("Creation Longueur - Erreur: "),
+        CONTROLLER_JPA_CREATE_VOIE("Creation Voie - Erreur: "),
+        CONTROLLER_JPA_CREATE_SPOT("Creation Spot - Erreur: ");
 
         private String messageErreur;
 

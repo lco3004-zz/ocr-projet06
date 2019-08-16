@@ -4,7 +4,7 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter
-public class JpaConverterBooleanToInt implements AttributeConverter<Boolean, Integer> {
+public class JpaConvBoolInt implements AttributeConverter<Boolean, Integer> {
     @Override
     public Integer convertToDatabaseColumn(Boolean aBoolean) {
         if (aBoolean == null) {

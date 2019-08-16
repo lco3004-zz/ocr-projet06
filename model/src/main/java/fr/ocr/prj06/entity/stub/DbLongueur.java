@@ -8,12 +8,12 @@ import java.util.Objects;
 @Entity
 @Cacheable
 @Table(name = "longueur", schema = "ocr_projet06")
-public class dbLongueurEntity implements Serializable {
+public class DbLongueur implements Serializable {
     private int idlongueur;
     private String nom;
     private String cotation;
     private Integer nombreDeSpits;
-    private dbVoieEntity voieByVoieIdvoie;
+    private DbVoie voieByVoieIdvoie;
 
     private static final long serialVersionUID=3L;
 
@@ -62,7 +62,7 @@ public class dbLongueurEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbLongueurEntity that = (dbLongueurEntity) o;
+        DbLongueur that = (DbLongueur) o;
         return idlongueur == that.idlongueur &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(cotation, that.cotation) &&
@@ -76,11 +76,11 @@ public class dbLongueurEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie", nullable = false)
-    public dbVoieEntity getVoieByVoieIdvoie() {
+    public DbVoie getVoieByVoieIdvoie() {
         return voieByVoieIdvoie;
     }
 
-    public void setVoieByVoieIdvoie(dbVoieEntity voieByVoieIdvoie) {
+    public void setVoieByVoieIdvoie(DbVoie voieByVoieIdvoie) {
         this.voieByVoieIdvoie = voieByVoieIdvoie;
     }
 }

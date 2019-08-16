@@ -1,15 +1,10 @@
 package fr.ocr.prj06.business;
 
-import fr.ocr.prj06.business.businessCtrl.CommentaireMgmt;
-import fr.ocr.prj06.business.businessCtrl.PersistenceMgmt;
-import fr.ocr.prj06.business.businessCtrl.TopoMgmt;
-import fr.ocr.prj06.business.businessCtrl.UserMgmt;
-import fr.ocr.prj06.model.Commentaire;
-import fr.ocr.prj06.model.Spot;
+import fr.ocr.prj06.entity.stub.DbCommentaire;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
@@ -17,59 +12,59 @@ import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
  * Hello world!
  */
 public class App {
+
     public static void main(String[] args) throws Exception {
 
         try (LogsProjet logs = getLogsInstance()) {
             logs.maTrace(Level.DEBUG, "****Business ******  Debut Main ");
-            PersistenceMgmt persistenceMgmt = null;
-            try {
-                persistenceMgmt = new PersistenceMgmt();
-                persistenceMgmt.openDAO();
-                {
-                    logs.maTrace(Level.DEBUG, "Appel Controlleur UsrMgmt");
-                    (new UserMgmt()).getListUsers();
-                    logs.maTrace(Level.DEBUG, "Appel Controlleur TopoMgmt");
-                    (new TopoMgmt()).getListTopos();
-                    logs.maTrace(Level.DEBUG, "Appel Controlleur CommentaireMgmt");
-                    //idSpot == 1 - il existe
-                    Commentaire commentaire = new Commentaire(1);
-                    commentaire.setEstVisible(false);
-                    commentaire.setIdSpot(1);
-                    commentaire.setTexte("Hello - insertion par pgm");
-                    CommentaireMgmt cmtMgmt = new CommentaireMgmt();
-                    cmtMgmt.ajouterCommentaire(commentaire);
-                    logs.maTrace(Level.DEBUG, "Commentaire après insert : " + commentaire.toString());
-                    commentaire.setTexte("Olleh + noitresni rap mgp ");
-                    cmtMgmt.modiferCommentaire(commentaire);
-                    logs.maTrace(Level.DEBUG, "Commentaire après update Texte : " + commentaire.toString());
-                    commentaire.setEstVisible(true);
-                    cmtMgmt.modiferCommentaire(commentaire);
-                    logs.maTrace(Level.DEBUG, "Commentaire après update isVisble : " + commentaire.toString());
-                    Spot spot = new Spot();
-                    spot.setIdspot(1);
-                    List<Commentaire> lstCmt = cmtMgmt.listerCommentaires(spot);
-                    logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
-                    for (Commentaire x : lstCmt) {
-                        logs.maTrace(Level.DEBUG, "->  : " + x.toString());
-                    }
-                    cmtMgmt.supprimerCommentaire(commentaire);
-                    logs.maTrace(Level.DEBUG, "Liste  après suppression   ");
-                    lstCmt = cmtMgmt.listerCommentaires(spot);
-                    for (Commentaire x : lstCmt) {
-                        logs.maTrace(Level.DEBUG, "->  : " + x.toString());
-                    }
-                    Commentaire cmt = cmtMgmt.lireCommentaire(3);
-                    logs.maTrace(Level.DEBUG, "Lecture d'un commentaire id=3  :" + cmt.toString());
+            BusinessMgmt businessMgmt = new BusinessMgmt();
+            DbCommentaire dbCommentaire = null;
 
-                }
-                persistenceMgmt.closeDao();
+            try {
+                businessMgmt.openDAO();
+
+                businessMgmt.ajouterSpot(1);
+
+                businessMgmt.closeDao();
                 logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
             } catch (Exception ex) {
-                if (persistenceMgmt != null)
-                    persistenceMgmt.closeDao();
+                businessMgmt.closeDao();
                 logs.maTrace(Level.ERROR, "Erreur dans Main : " + ex.getLocalizedMessage());
                 throw new Exception(ex);
             }
         }
+    }
+
+    void tstGestCommentaire(LogsProjet logs, DbCommentaire dbCommentaire, BusinessMgmt businessMgmt) throws Exception {
+        //idSpot == 1 - il existe
+        dbCommentaire = businessMgmt.ajouterCommentaire(1, "Hello - insertion par pgm", true);
+        logs.maTrace(Level.DEBUG, "Commentaire après insert : " + dbCommentaire.toString());
+
+
+        dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(),
+                "Olleh + noitresni rap mgp ",
+                dbCommentaire.getEstVisible());
+        logs.maTrace(Level.DEBUG, "Commentaire après update Texte : " + dbCommentaire.toString());
+
+        dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(),
+                dbCommentaire.getTexte(),
+                true);
+        logs.maTrace(Level.DEBUG, "Commentaire après update isVisble : " + dbCommentaire.toString());
+
+        ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
+        logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
+        for (DbCommentaire x : lstCmt) {
+            logs.maTrace(Level.DEBUG, "->  : " + x.toString());
+        }
+        businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire());
+        logs.maTrace(Level.DEBUG, "Liste  après suppression   ");
+
+        lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
+        for (DbCommentaire x : lstCmt) {
+            logs.maTrace(Level.DEBUG, "->  : " + x.toString());
+        }
+        dbCommentaire = businessMgmt.lireCommentaire(3);
+        logs.maTrace(Level.DEBUG, "Lecture d'un commentaire id=3  :" + dbCommentaire.toString());
+
     }
 }

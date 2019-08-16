@@ -8,11 +8,11 @@ import java.util.Objects;
 @Entity
 @Cacheable
 @Table(name = "voie", schema = "ocr_projet06")
-public class dbVoieEntity implements Serializable {
+public class DbVoie implements Serializable {
     private int idvoie;
     private String nom;
-    private Collection<dbLongueurEntity> longueursByIdvoie;
-    private dbSecteurEntity secteurBySecteurIdsecteur;
+    private Collection<DbLongueur> longueursByIdvoie;
+    private DbSecteur secteurBySecteurIdsecteur;
 
     private static final long serialVersionUID=8L;
 
@@ -41,7 +41,7 @@ public class dbVoieEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbVoieEntity that = (dbVoieEntity) o;
+        DbVoie that = (DbVoie) o;
         return idvoie == that.idvoie &&
                 Objects.equals(nom, that.nom);
     }
@@ -51,22 +51,22 @@ public class dbVoieEntity implements Serializable {
         return Objects.hash(idvoie, nom);
     }
 
-    @OneToMany(mappedBy = "voieByVoieIdvoie")
-    public Collection<dbLongueurEntity> getLongueursByIdvoie() {
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "voieByVoieIdvoie")
+    public Collection<DbLongueur> getLongueursByIdvoie() {
         return longueursByIdvoie;
     }
 
-    public void setLongueursByIdvoie(Collection<dbLongueurEntity> longueursByIdvoie) {
+    public void setLongueursByIdvoie(Collection<DbLongueur> longueursByIdvoie) {
         this.longueursByIdvoie = longueursByIdvoie;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur", nullable = false)
-    public dbSecteurEntity getSecteurBySecteurIdsecteur() {
+    public DbSecteur getSecteurBySecteurIdsecteur() {
         return secteurBySecteurIdsecteur;
     }
 
-    public void setSecteurBySecteurIdsecteur(dbSecteurEntity secteurBySecteurIdsecteur) {
+    public void setSecteurBySecteurIdsecteur(DbSecteur secteurBySecteurIdsecteur) {
         this.secteurBySecteurIdsecteur = secteurBySecteurIdsecteur;
     }
 }

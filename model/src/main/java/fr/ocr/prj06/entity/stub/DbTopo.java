@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 @Cacheable
 @Table(name = "topo", schema = "ocr_projet06")
-public class dbTopoEntity implements Serializable {
+public class DbTopo implements Serializable {
     private static final long serialVersionUID = 6L;
 
     private int idtopo;
@@ -19,7 +19,7 @@ public class dbTopoEntity implements Serializable {
     private String resume;
     private String lieu;
     private java.util.Date dateDeParution;
-    private dbUserEntity userByUserIduser;
+    private DbUser userByUserIduser;
 
     @Id
     @Column(name = "idtopo", nullable = false)
@@ -96,7 +96,7 @@ public class dbTopoEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbTopoEntity that = (dbTopoEntity) o;
+        DbTopo that = (DbTopo) o;
         return idtopo == that.idtopo &&
                 estPublie == that.estPublie &&
                 estDisponible == that.estDisponible &&
@@ -113,11 +113,11 @@ public class dbTopoEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
-    public dbUserEntity getUserByUserIduser() {
+    public DbUser getUserByUserIduser() {
         return userByUserIduser;
     }
 
-    public void setUserByUserIduser(dbUserEntity userByUserIduser) {
+    public void setUserByUserIduser(DbUser userByUserIduser) {
         this.userByUserIduser = userByUserIduser;
     }
 }

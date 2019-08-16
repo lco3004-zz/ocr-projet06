@@ -1,6 +1,6 @@
 package fr.ocr.prj06.entity.stub;
 
-import fr.ocr.prj06.entity.common.JpaConverterBooleanToInt;
+import fr.ocr.prj06.entity.common.JpaConvBoolInt;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,14 +9,14 @@ import java.util.Objects;
 @Entity
 @Cacheable
 @Table(name = "commentaire", schema = "ocr_projet06")
-public class dbCommentaireEntity implements Serializable {
+public class DbCommentaire implements Serializable {
     private int idcommentaire;
     private String texte;
 
-    @Convert(converter = JpaConverterBooleanToInt.class)
+    @Convert(converter = JpaConvBoolInt.class)
     private Boolean estVisible;
 
-    private dbSpotEntity spotBySpotIdspot;
+    private DbSpot spotBySpotIdspot;
 
     private static final long serialVersionUID=1L;
 
@@ -55,7 +55,7 @@ public class dbCommentaireEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbCommentaireEntity that = (dbCommentaireEntity) o;
+        DbCommentaire that = (DbCommentaire) o;
         return idcommentaire == that.idcommentaire &&
                 estVisible == that.estVisible &&
                 Objects.equals(texte, that.texte);
@@ -68,12 +68,24 @@ public class dbCommentaireEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
-    public dbSpotEntity getSpotBySpotIdspot() {
+    public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }
 
-    public void setSpotBySpotIdspot(dbSpotEntity spotBySpotIdspot) {
+    public void setSpotBySpotIdspot(DbSpot spotBySpotIdspot) {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return (new StringBuilder(1024))
+                .append("idCommentaire: ").append(getIdcommentaire())
+                .append(" idSpot: ").append(getSpotBySpotIdspot().getIdspot())
+                .append(" estVisible: ").append(getEstVisible())
+                .append(" texte: ").append(getTexte())
+                .toString();
+    }
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "user", schema = "ocr_projet06")
-public class dbUserEntity implements Serializable {
+public class DbUser implements Serializable {
     private static final long serialVersionUID = 7L;
 
     private int iduser;
@@ -15,8 +15,8 @@ public class dbUserEntity implements Serializable {
     private String email;
     private String mdp;
     private String profil;
-    private Collection<dbSpotEntity> spotsByIduser;
-    private Collection<dbTopoEntity> toposByIduser;
+    private Collection<DbSpot> spotsByIduser;
+    private Collection<DbTopo> toposByIduser;
 
     @Id
     @Column(name = "iduser", nullable = false)
@@ -73,7 +73,7 @@ public class dbUserEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbUserEntity that = (dbUserEntity) o;
+        DbUser that = (DbUser) o;
         return iduser == that.iduser &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(email, that.email) &&
@@ -87,20 +87,20 @@ public class dbUserEntity implements Serializable {
     }
 
     @OneToMany(mappedBy = "userByUserIduser")
-    public Collection<dbSpotEntity> getSpotsByIduser() {
+    public Collection<DbSpot> getSpotsByIduser() {
         return spotsByIduser;
     }
 
-    public void setSpotsByIduser(Collection<dbSpotEntity> spotsByIduser) {
+    public void setSpotsByIduser(Collection<DbSpot> spotsByIduser) {
         this.spotsByIduser = spotsByIduser;
     }
 
     @OneToMany(mappedBy = "userByUserIduser")
-    public Collection<dbTopoEntity> getToposByIduser() {
+    public Collection<DbTopo> getToposByIduser() {
         return toposByIduser;
     }
 
-    public void setToposByIduser(Collection<dbTopoEntity> toposByIduser) {
+    public void setToposByIduser(Collection<DbTopo> toposByIduser) {
         this.toposByIduser = toposByIduser;
     }
 }

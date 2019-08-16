@@ -9,11 +9,11 @@ import java.util.Objects;
 @Entity
 @Cacheable
 @Table(name = "secteur", schema = "ocr_projet06")
-public class dbSecteurEntity implements Serializable {
+public class DbSecteur implements Serializable {
     private int idsecteur;
     private String nom;
-    private dbSpotEntity spotBySpotIdspot;
-    private Collection<dbVoieEntity> voiesByIdsecteur;
+    private DbSpot spotBySpotIdspot;
+    private Collection<DbVoie> voiesByIdsecteur;
 
     private static final long serialVersionUID=4L;
 
@@ -42,7 +42,7 @@ public class dbSecteurEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        dbSecteurEntity that = (dbSecteurEntity) o;
+        DbSecteur that = (DbSecteur) o;
         return idsecteur == that.idsecteur &&
                 Objects.equals(nom, that.nom);
     }
@@ -54,20 +54,20 @@ public class dbSecteurEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
-    public dbSpotEntity getSpotBySpotIdspot() {
+    public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }
 
-    public void setSpotBySpotIdspot(dbSpotEntity spotBySpotIdspot) {
+    public void setSpotBySpotIdspot(DbSpot spotBySpotIdspot) {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    @OneToMany(mappedBy = "secteurBySecteurIdsecteur")
-    public Collection<dbVoieEntity> getVoiesByIdsecteur() {
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "secteurBySecteurIdsecteur")
+    public Collection<DbVoie> getVoiesByIdsecteur() {
         return voiesByIdsecteur;
     }
 
-    public void setVoiesByIdsecteur(Collection<dbVoieEntity> voiesByIdsecteur) {
+    public void setVoiesByIdsecteur(Collection<DbVoie> voiesByIdsecteur) {
         this.voiesByIdsecteur = voiesByIdsecteur;
     }
 }

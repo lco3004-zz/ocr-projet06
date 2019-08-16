@@ -1,6 +1,7 @@
-package fr.ocr.prj06.entity.common;
+package fr.ocr.prj06.controller;
 
-import fr.ocr.prj06.entity.stub.dbTopoEntity;
+import fr.ocr.prj06.entity.common.JpaEmUtility;
+import fr.ocr.prj06.entity.stub.DbTopo;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 import org.hibernate.HibernateException;
@@ -12,17 +13,16 @@ import java.util.List;
 
 import static fr.ocr.prj06.utility.constante.Messages.ErreurMessages.*;
 
+public abstract class JpaUtilityCtrl<EntityMetamodel> {
 
-public abstract class JpaCtrl<EntityMetamodel> {
-
-    protected LogsProjet logs;
-    protected Class<EntityMetamodel> t;
+    LogsProjet logs;
+    private Class<EntityMetamodel> t;
 
     /**
      * @param t Objet Entity
      * @throws Exception
      */
-    protected JpaCtrl(Class<EntityMetamodel> t) throws Exception {
+    protected JpaUtilityCtrl(Class<EntityMetamodel> t) throws Exception {
         try {
             this.t = t;
         } catch (Exception ex) {
@@ -56,7 +56,7 @@ public abstract class JpaCtrl<EntityMetamodel> {
      * @return Liste d'entité de type T
      * @throws HibernateException
      */
-    public List<EntityMetamodel> findDbEntities() throws HibernateException {
+    protected List findDbEntities() throws HibernateException {
         return findDbEntities(true, -1, -1);
     }
 
@@ -67,7 +67,7 @@ public abstract class JpaCtrl<EntityMetamodel> {
      * @return Liste d'entité de type T
      * @throws HibernateException
      */
-    public List<EntityMetamodel> findDbEntities(boolean all, int maxResults, int firstResult) throws HibernateException {
+    private List findDbEntities(boolean all, int maxResults, int firstResult) throws HibernateException {
         try (JpaEmUtility jpaEmUtility = new JpaEmUtility()) {
             CriteriaQuery criteriaQuery = jpaEmUtility.getEm().getCriteriaBuilder().createQuery();
             criteriaQuery.select(criteriaQuery.from(t));
@@ -84,7 +84,7 @@ public abstract class JpaCtrl<EntityMetamodel> {
     }
 
     /**
-     * nombre de dbTopoEntity en base
+     * nombre de DbTopo en base
      *
      * @return int - nombre de tupple
      * @throws HibernateException
@@ -92,7 +92,7 @@ public abstract class JpaCtrl<EntityMetamodel> {
     public int getdbEntityCount() throws HibernateException {
         try (JpaEmUtility jpaEmUtility = new JpaEmUtility()) {
             CriteriaQuery criteriaQuery = jpaEmUtility.getEm().getCriteriaBuilder().createQuery();
-            Root<dbTopoEntity> root = criteriaQuery.from(t.getClass());
+            Root<DbTopo> root = criteriaQuery.from(t.getClass());
             criteriaQuery.select(jpaEmUtility.getEm().getCriteriaBuilder().count(root));
             Query q = jpaEmUtility.getEm().createQuery(criteriaQuery);
             return ((Long) q.getSingleResult()).intValue();
