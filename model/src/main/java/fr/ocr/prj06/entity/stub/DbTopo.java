@@ -1,5 +1,7 @@
 package fr.ocr.prj06.entity.stub;
 
+import fr.ocr.prj06.entity.common.JpaConvBoolInt;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,8 +16,10 @@ public class DbTopo implements Serializable {
 
     private int idtopo;
     private String nom;
-    private int estPublie;
-    private int estDisponible;
+    @Convert(converter = JpaConvBoolInt.class)
+    private Boolean estPublie;
+    @Convert(converter = JpaConvBoolInt.class)
+    private Boolean estDisponible;
     private String resume;
     private String lieu;
     private java.util.Date dateDeParution;
@@ -44,21 +48,21 @@ public class DbTopo implements Serializable {
 
     @Basic
     @Column(name = "est_publie", nullable = false)
-    public int getEstPublie() {
+    public Boolean getEstPublie() {
         return estPublie;
     }
 
-    public void setEstPublie(int estPublie) {
+    public void setEstPublie(Boolean estPublie) {
         this.estPublie = estPublie;
     }
 
     @Basic
     @Column(name = "est_disponible", nullable = false)
-    public int getEstDisponible() {
+    public Boolean getEstDisponible() {
         return estDisponible;
     }
 
-    public void setEstDisponible(int estDisponible) {
+    public void setEstDisponible(Boolean estDisponible) {
         this.estDisponible = estDisponible;
     }
 

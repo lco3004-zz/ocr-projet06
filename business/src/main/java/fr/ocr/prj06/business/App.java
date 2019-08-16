@@ -18,12 +18,14 @@ public class App {
         try (LogsProjet logs = getLogsInstance()) {
             logs.maTrace(Level.DEBUG, "****Business ******  Debut Main ");
             BusinessMgmt businessMgmt = new BusinessMgmt();
-            DbCommentaire dbCommentaire = null;
+
 
             try {
                 businessMgmt.openDAO();
 
                 businessMgmt.ajouterSpot(1);
+
+                businessMgmt.ajouterTopo(2);
 
                 businessMgmt.closeDao();
                 logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
@@ -35,8 +37,10 @@ public class App {
         }
     }
 
-    void tstGestCommentaire(LogsProjet logs, DbCommentaire dbCommentaire, BusinessMgmt businessMgmt) throws Exception {
+    void tstGestCommentaire(LogsProjet logs, BusinessMgmt businessMgmt) throws Exception {
         //idSpot == 1 - il existe
+        DbCommentaire dbCommentaire;
+
         dbCommentaire = businessMgmt.ajouterCommentaire(1, "Hello - insertion par pgm", true);
         logs.maTrace(Level.DEBUG, "Commentaire après insert : " + dbCommentaire.toString());
 

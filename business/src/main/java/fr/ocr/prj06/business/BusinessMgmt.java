@@ -5,6 +5,8 @@ import fr.ocr.prj06.entity.common.JpaEmfInterface;
 import fr.ocr.prj06.entity.stub.*;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static fr.ocr.prj06.entity.common.JpaEmfUtility.getInstanceEMF;
@@ -48,15 +50,37 @@ public class BusinessMgmt {
         return jpaCtrl.updateCommentaire(idCommentaire, txtComment, isVisible);
     }
 
+    public DbTopo ajouterTopo(Integer idUser) throws Exception {
+
+        DbTopo dbTopo = new DbTopo();
+        Date date = new Date(Calendar.AUGUST);
+
+        dbTopo.setDateDeParution(date);
+        dbTopo.setEstDisponible(false);
+        dbTopo.setLieu("Ici_par_Pgm");
+        dbTopo.setEstPublie(true);
+        dbTopo.setNom("nom_par_pgm");
+        dbTopo.setResume("resume_par_pgm");
+        dbTopo = jpaCtrl.createTopo(idUser, dbTopo);
+
+        return dbTopo;
+    }
+
     public DbSpot ajouterSpot(Integer idUser) throws Exception {
         DbSpot dbSpot = new DbSpot();
         DbSecteur dbSecteur = new DbSecteur();
         DbVoie dbVoie = new DbVoie();
         DbLongueur dbLongueur = new DbLongueur();
+        DbCommentaire dbCommentaire = new DbCommentaire();
 
         ArrayList<DbSecteur> dbSecteurs = new ArrayList<>();
         ArrayList<DbVoie> dbVoies = new ArrayList<>();
         ArrayList<DbLongueur> dbLongueurs = new ArrayList<>();
+        ArrayList<DbCommentaire> dbCommentaires = new ArrayList<>();
+
+        dbCommentaire.setEstVisible(true);
+        dbCommentaire.setTexte("commentaire_par_pgm");
+        dbCommentaires.add(dbCommentaire);
 
         dbLongueur.setNom("longueur_par_pgm");
         dbLongueur.setCotation("8a");
@@ -75,7 +99,10 @@ public class BusinessMgmt {
         dbSpot.setLocalisation("localisation_par_pgm");
         dbSpot.setNom("spot_par_pgm");
         dbSpot.setSecteursByIdspot(dbSecteurs);
+        dbSpot.setCommentairesByIdspot(dbCommentaires);
 
-        return jpaCtrl.createSpot(idUser, dbSpot);
+        DbSpot dsp = jpaCtrl.createSpot(idUser, dbSpot);
+
+        return dsp;
     }
 }

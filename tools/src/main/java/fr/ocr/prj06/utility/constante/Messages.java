@@ -51,7 +51,8 @@ public enum Messages {
         CONTROLLER_JPA_TOSTRING_COMMENTAIRE("ToString Ctrl Commentaire - Erreur : "),
         CONTROLLER_JPA_CREATE_LONGUEUR("Creation Longueur - Erreur: "),
         CONTROLLER_JPA_CREATE_VOIE("Creation Voie - Erreur: "),
-        CONTROLLER_JPA_CREATE_SPOT("Creation Spot - Erreur: ");
+        CONTROLLER_JPA_CREATE_SPOT("Creation Spot - Erreur: "),
+        CONTROLLER_JPA_CREATE_TOPO("Creation Topo - Erreur: ");
 
         private String messageErreur;
 

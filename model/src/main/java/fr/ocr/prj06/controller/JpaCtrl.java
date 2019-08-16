@@ -152,6 +152,33 @@ public class JpaCtrl extends JpaUtilityCtrl {
      *
      * ************************************************************************************************************
      */
+    public DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+
+            try {
+                jpa.getEm().getTransaction().begin();
+
+                dbTopo.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
+
+                jpa.getEm().persist(dbTopo);
+
+                jpa.getEm().getTransaction().commit();
+
+                return dbTopo;
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_TOPO.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+
+    /**************************************************************************************************************
+     *
+     * ************************************************************************************************************
+     */
     public DbVoie createVoie(Integer idSecteur, String nom) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbVoie dbVoie = new DbVoie();
@@ -219,6 +246,11 @@ public class JpaCtrl extends JpaUtilityCtrl {
                 dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
+
+                for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
+                    dbCommentaire.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
+                    jpa.getEm().persist(dbCommentaire);
+                }
 
                 for (DbSecteur dbSecteur : dbSpot.getSecteursByIdspot()) {
                     dbSecteur.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
