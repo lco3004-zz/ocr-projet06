@@ -75,7 +75,7 @@ public class DbSpot implements Serializable {
         return Objects.hash(idspot, nom, localisation);
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "spotBySpotIdspot")
+    @OneToMany(mappedBy = "spotBySpotIdspot")
     public Collection<DbCommentaire> getCommentairesByIdspot() {
         return commentairesByIdspot;
     }
@@ -84,7 +84,7 @@ public class DbSpot implements Serializable {
         this.commentairesByIdspot = commentairesByIdspot;
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "spotBySpotIdspot")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "spotBySpotIdspot")
     public Collection<DbSecteur> getSecteursByIdspot() {
         return secteursByIdspot;
     }

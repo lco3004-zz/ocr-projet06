@@ -51,7 +51,7 @@ public class DbVoie implements Serializable {
         return Objects.hash(idvoie, nom);
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "voieByVoieIdvoie")
+    @OneToMany(mappedBy = "voieByVoieIdvoie")
     public Collection<DbLongueur> getLongueursByIdvoie() {
         return longueursByIdvoie;
     }
@@ -60,7 +60,7 @@ public class DbVoie implements Serializable {
         this.longueursByIdvoie = longueursByIdvoie;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur", nullable = false)
     public DbSecteur getSecteurBySecteurIdsecteur() {
         return secteurBySecteurIdsecteur;

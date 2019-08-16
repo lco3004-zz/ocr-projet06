@@ -52,7 +52,7 @@ public class DbSecteur implements Serializable {
         return Objects.hash(idsecteur, nom);
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
@@ -62,7 +62,7 @@ public class DbSecteur implements Serializable {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "secteurBySecteurIdsecteur")
+    @OneToMany(mappedBy = "secteurBySecteurIdsecteur")
     public Collection<DbVoie> getVoiesByIdsecteur() {
         return voiesByIdsecteur;
     }

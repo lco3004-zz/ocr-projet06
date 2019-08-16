@@ -74,7 +74,7 @@ public class DbLongueur implements Serializable {
         return Objects.hash(idlongueur, nom, cotation, nombreDeSpits);
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie", nullable = false)
     public DbVoie getVoieByVoieIdvoie() {
         return voieByVoieIdvoie;
