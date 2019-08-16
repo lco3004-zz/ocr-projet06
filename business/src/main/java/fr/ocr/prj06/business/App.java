@@ -9,7 +9,7 @@ import fr.ocr.prj06.model.Spot;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
@@ -47,7 +47,7 @@ public class App {
                     logs.maTrace(Level.DEBUG, "Commentaire après update isVisble : " + commentaire.toString());
                     Spot spot = new Spot();
                     spot.setIdspot(1);
-                    ArrayList<Commentaire> lstCmt = cmtMgmt.listerCommentaires(spot);
+                    List<Commentaire> lstCmt = cmtMgmt.listerCommentaires(spot);
                     logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
                     for (Commentaire x : lstCmt) {
                         logs.maTrace(Level.DEBUG, "->  : " + x.toString());
@@ -58,6 +58,9 @@ public class App {
                     for (Commentaire x : lstCmt) {
                         logs.maTrace(Level.DEBUG, "->  : " + x.toString());
                     }
+                    Commentaire cmt = cmtMgmt.lireCommentaire(3);
+                    logs.maTrace(Level.DEBUG, "Lecture d'un commentaire id=3  :" + cmt.toString());
+
                 }
                 persistenceMgmt.closeDao();
                 logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");

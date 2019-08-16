@@ -3,7 +3,6 @@ package fr.ocr.prj06.controller;
 import fr.ocr.prj06.entity.common.JpaCtrl;
 import fr.ocr.prj06.entity.common.JpaEmUtility;
 import fr.ocr.prj06.entity.stub.dbCommentaireEntity;
-import fr.ocr.prj06.entity.stub.dbSpotEntity;
 import fr.ocr.prj06.model.Commentaire;
 import fr.ocr.prj06.model.Spot;
 import org.apache.logging.log4j.Level;
@@ -35,13 +34,10 @@ public class CommentaireJpaCtrl extends JpaCtrl {
                 dbCommentaireEntity commentaireEntity = new dbCommentaireEntity();
 
                 jpa.getEm().getTransaction().begin();
-
-                commentaireEntity.setEstVisible(commentaire.getEstVisible());
-                commentaireEntity.setTexte(commentaire.getTexte());
-                commentaireEntity.setSpotBySpotIdspot(jpa.getEm().find(dbSpotEntity.class, commentaire.getIdSpot()));
-
-                jpa.getEm().persist(commentaireEntity);
-
+                {
+                    commentaire.copyVersEntity(commentaireEntity, jpa.getEm());
+                    jpa.getEm().persist(commentaireEntity);
+                }
                 jpa.getEm().getTransaction().commit();
 
                 commentaire.setIdcommentaire(commentaireEntity.getIdcommentaire());
@@ -62,7 +58,6 @@ public class CommentaireJpaCtrl extends JpaCtrl {
     protected void setLogs() {
         super.logs = getLogsInstance();
     }
-
 
     /**
      * @param commentaire
@@ -95,7 +90,6 @@ public class CommentaireJpaCtrl extends JpaCtrl {
         }
     }
 
-
     /**
      * @param commentaire
      * @return
@@ -105,13 +99,12 @@ public class CommentaireJpaCtrl extends JpaCtrl {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
                 jpa.getEm().getTransaction().begin();
+
                 dbCommentaireEntity commentaireEntity = jpa.getEm().find(dbCommentaireEntity.class, commentaire.getIdcommentaire());
+
                 jpa.getEm().getTransaction().commit();
 
-                commentaire.setEstVisible(commentaireEntity.getEstVisible());
-                commentaire.setTexte(commentaireEntity.getTexte());
-                commentaire.setIdcommentaire(commentaireEntity.getIdcommentaire());
-                commentaire.setIdSpot(commentaireEntity.getSpotBySpotIdspot().getIdspot());
+                commentaire.copyVersModele(commentaireEntity);
 
                 return commentaire;
 
@@ -132,9 +125,9 @@ public class CommentaireJpaCtrl extends JpaCtrl {
      * @return
      * @throws Exception
      */
-    public ArrayList<Commentaire> findCommentaires(Spot spot) throws Exception {
+    public List<Commentaire> findCommentaires(Spot spot) throws Exception {
         try {
-            ArrayList<Commentaire> listCommentaires = new ArrayList<>();
+            List<Commentaire> listCommentaires = new ArrayList<>();
             for (dbCommentaireEntity y : (List<dbCommentaireEntity>) findDbEntities()) {
                 Commentaire x = new Commentaire();
                 x.setEstVisible(y.getEstVisible());
@@ -170,15 +163,5 @@ public class CommentaireJpaCtrl extends JpaCtrl {
             logs.maTrace(Level.ERROR, CONTROLLER_JPA_DELETE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
-        try {
-
-        } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READLISTE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
-            throw new Exception(hex1);
-        }
-
     }
 }
-
-
-

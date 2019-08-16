@@ -4,7 +4,7 @@ import fr.ocr.prj06.controller.CommentaireJpaCtrl;
 import fr.ocr.prj06.model.Commentaire;
 import fr.ocr.prj06.model.Spot;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CommentaireMgmt {
 
@@ -28,7 +28,7 @@ public class CommentaireMgmt {
         return commentaireJpaCtrl.read(commentaire);
     }
 
-    public ArrayList<Commentaire> listerCommentaires(Spot spot) throws Exception {
+    public List<Commentaire> listerCommentaires(Spot spot) throws Exception {
         return commentaireJpaCtrl.findCommentaires(spot);
     }
 

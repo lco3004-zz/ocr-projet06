@@ -1,9 +1,9 @@
-2. 15/08 - 19:13:06.508 [main] INFO  - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger
-3. 15/08 - 19:13:06.606 [main] INFO  - HHH000412: Hibernate Core {[WORKING]} : Logger
-4. 15/08 - 19:13:06.804 [main] INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger
-5. 15/08 - 19:13:08.878 [main] INFO  - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC : Logger
-6. 15/08 - 19:13:08.878 [main] INFO  - HHH10001001: Connection properties: {password=****, user=projet06} : Logger
-7. 15/08 - 19:13:08.878 [main] INFO  - HHH10001003: Autocommit mode: false : Logger
-8. 15/08 - 19:13:08.995 [main] INFO  - HHH10001007: JDBC isolation level: <unknown> : Logger
-9. 15/08 - 19:13:09.691 [main] INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger
-10. 15/08 - 19:13:10.684 [main] INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger
+2. 16/08 - 12:08:22.249 [main] INFO  - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger
+3. 16/08 - 12:08:22.357 [main] INFO  - HHH000412: Hibernate Core {[WORKING]} : Logger
+4. 16/08 - 12:08:22.577 [main] INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger
+5. 16/08 - 12:08:24.474 [main] INFO  - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC : Logger
+6. 16/08 - 12:08:24.475 [main] INFO  - HHH10001001: Connection properties: {password=****, user=projet06} : Logger
+7. 16/08 - 12:08:24.475 [main] INFO  - HHH10001003: Autocommit mode: false : Logger
+8. 16/08 - 12:08:24.635 [main] INFO  - HHH10001007: JDBC isolation level: <unknown> : Logger
+9. 16/08 - 12:08:25.501 [main] INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger
+10. 16/08 - 12:08:26.700 [main] INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger

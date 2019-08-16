@@ -46,6 +46,7 @@ public enum Messages {
         CONTROLLER_JPA_READ_COMMENTAIRE("Lecture un Commentaire - Erreur: "),
         CONTROLLER_JPA_READLISTE_COMMENTAIRE("Lecture Liste Commentaire - Erreur: "),
         CONTROLLER_JPA_DELETE_COMMENTAIRE("Suppression un Commentaire - Erreur: "),
+        MODELINTERNE_COPY_VERS_ENTITY_TXTINACT("CopyVersEntity Transaction inactive - Erreur: "),
         ERREUR_GENERIC("Ne doit pas etre utilisée!");
 
         private String messageErreur;
