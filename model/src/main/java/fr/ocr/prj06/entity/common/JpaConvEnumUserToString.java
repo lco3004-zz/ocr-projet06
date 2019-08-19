@@ -10,7 +10,7 @@ import static fr.ocr.prj06.entity.common.UserProfile.GRIMPEUR;
 import static fr.ocr.prj06.entity.common.UserProfile.MEMBRE;
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
-@Converter
+@Converter(autoApply = true)
 public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, String> {
 
     LogsProjet logs;

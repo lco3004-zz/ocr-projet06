@@ -13,6 +13,7 @@ import java.util.List;
 import static fr.ocr.prj06.utility.constante.Messages.ErreurMessages.*;
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
+
 public class JpaCtrl extends JpaUtilityCtrl {
 
     /**

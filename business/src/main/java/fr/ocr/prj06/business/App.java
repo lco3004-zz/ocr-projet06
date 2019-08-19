@@ -8,6 +8,8 @@ import fr.ocr.prj06.entity.stub.DbUser;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
+import java.util.ArrayList;
+
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
 /**
@@ -43,12 +45,12 @@ public class App {
                 dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(), "Moderation", true);
                 logs.maTrace(Level.DEBUG, "Moderation Commentaire  : " + dbCommentaire.toString());
 
-                /*ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
+                ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
                 logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
                 for (DbCommentaire x : lstCmt) {
                     logs.maTrace(Level.DEBUG, "->  : " + x.toString());
                 }
-
+                /*
                 businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire(),false);
                 int idComment = dbCommentaire.getIdcommentaire();
                 logs.maTrace(Level.DEBUG, "Suppression Commentaire  : " + idComment);
