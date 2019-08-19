@@ -1,9 +1,0 @@
-1. 16/08 - 23:50:35.796 [main] DEBUG - ****Business ******  Debut Main  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-14. 16/08 - 23:50:38.109 [main] DEBUG - Creation  : EntityManagerFactory  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-15. 16/08 - 23:50:38.155 [main] DEBUG - Creation EntityManager :  SessionImpl(1084922798<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-16. 16/08 - 23:50:38.218 [main] DEBUG - Fermeture EntityManager :  SessionImpl(1084922798<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-17. 16/08 - 23:50:38.218 [main] DEBUG - Creation EntityManager :  SessionImpl(2044516337<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-18. 16/08 - 23:50:38.233 [main] DEBUG - Fermeture EntityManager :  SessionImpl(2044516337<open>)  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-19. 16/08 - 23:50:38.233 [main] DEBUG - Fermeture  : EntityManagerFactory  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-20. 16/08 - 23:50:38.249 [main] DEBUG - ****Business ****** Fin Main  Logger=fr.ocr.prj06.utility.logs.LogsProjet
-21. 16/08 - 23:50:38.249 [main] DEBUG - Close : Shutdown LogManager ! Bye ! Logger=fr.ocr.prj06.utility.logs.LogsProjet

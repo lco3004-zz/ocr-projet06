@@ -3,31 +3,40 @@ package fr.ocr.prj06.entity.common;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
+import static fr.ocr.prj06.entity.common.UserProfile.GRIMPEUR;
+import static fr.ocr.prj06.entity.common.UserProfile.MEMBRE;
+
 @Converter
 public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, String> {
     @Override
     public String convertToDatabaseColumn(UserProfile userProfile) {
+
         if (userProfile == null) {
-            return "U";
+            return null;
         }
-        if (userProfile == UserProfile.GRIMPEUR) {
-            return "U";
-        } else if (userProfile == UserProfile.MEMBRE)
-            return "M";
-        else
-            return "U";
+
+        switch (userProfile) {
+            case GRIMPEUR:
+                return "U";
+            case MEMBRE:
+                return "M";
+            default:
+                return null;
+        }
     }
 
     @Override
-    public UserProfile convertToEntityAttribute(String s) {
-        if (s == null) {
-            return UserProfile.GRIMPEUR;
+    public UserProfile convertToEntityAttribute(String dbData) {
+        if (dbData == null || "".equalsIgnoreCase(dbData.trim())) {
+            return null;
         }
-        if (s.equals("U"))
-            return UserProfile.GRIMPEUR;
-        else if (s.equals("M"))
-            return UserProfile.MEMBRE;
-        else
-            return UserProfile.GRIMPEUR;
+        String tmp = dbData.trim().toUpperCase();
+        if ("U".equals(tmp)) {
+            return GRIMPEUR;
+        } else if ("M".equals(tmp)) {
+            return MEMBRE;
+        } else {
+            return null;
+        }
     }
 }

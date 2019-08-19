@@ -5,6 +5,9 @@ import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
 import org.apache.logging.log4j.Level;
 
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 import static fr.ocr.prj06.utility.constante.Messages.ErreurMessages.*;
@@ -86,6 +89,30 @@ public class JpaCtrl extends JpaUtilityCtrl {
     }
 
     /**
+     * @param idCommentaire
+     */
+    public void archiveCommentaire(Integer idCommentaire) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+            try {
+                jpa.getEm().getTransaction().begin();
+
+                DbCommentaire dbCommentaire = jpa.getEm().find(DbCommentaire.class, idCommentaire);
+                dbCommentaire.setTexte(dbCommentaire.getTexte());
+                dbCommentaire.setEstVisible(false);
+
+                jpa.getEm().getTransaction().commit();
+
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_UPDATE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+
+    /**
      *
      * @param idCommentaire
      * @param txtComment
@@ -143,9 +170,21 @@ public class JpaCtrl extends JpaUtilityCtrl {
      * @return
      * @throws Exception
      */
-    public List findListeCommentaires(Integer idSpot) throws Exception {
-        try {
-            return findDbEntities();
+    public List findListeCommentaires(Integer idSpot, Boolean isVisible) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaQuery<DbCommentaire> criteriaQuery = jpa.getEm().getCriteriaBuilder().createQuery(DbCommentaire.class);
+
+            criteriaQuery.select(criteriaQuery.from(DbCommentaire.class));
+
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+
+            ArrayList<DbCommentaire> ret = (ArrayList<DbCommentaire>) query.getResultList();
+
+            jpa.getEm().getTransaction().commit();
+            return ret;
+
         } catch (Exception hex1) {
             logs.maTrace(Level.ERROR, CONTROLLER_JPA_READLISTE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);

@@ -62,8 +62,12 @@ public class BusinessMgmt {
      * @param idCommentaire
      * @throws Exception
      */
-    public void supprimerCommentaire(Integer idCommentaire) throws Exception {
-        jpaCtrl.deleteCommentaire(idCommentaire);
+    public void supprimerCommentaire(Integer idCommentaire, Boolean doitEtreSupprimer) throws Exception {
+        if (doitEtreSupprimer)
+            jpaCtrl.deleteCommentaire(idCommentaire);
+        else {
+            jpaCtrl.archiveCommentaire(idCommentaire);
+        }
     }
 
     /**
@@ -82,8 +86,17 @@ public class BusinessMgmt {
      * @return
      * @throws Exception
      */
-    public List listerCommentaires(Integer idSpot) throws Exception {
-        return jpaCtrl.findListeCommentaires(idSpot);
+    public List listerCommentairesActifs(Integer idSpot) throws Exception {
+        return jpaCtrl.findListeCommentaires(idSpot, true);
+    }
+
+    /**
+     * @param idSpot
+     * @return
+     * @throws Exception
+     */
+    public List listerCommentairesArchives(Integer idSpot) throws Exception {
+        return jpaCtrl.findListeCommentaires(idSpot, false);
     }
 
     /**

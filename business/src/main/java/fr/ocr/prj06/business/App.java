@@ -8,8 +8,6 @@ import fr.ocr.prj06.entity.stub.DbUser;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
-import java.util.ArrayList;
-
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
 /**
@@ -45,22 +43,23 @@ public class App {
                 dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(), "Moderation", true);
                 logs.maTrace(Level.DEBUG, "Moderation Commentaire  : " + dbCommentaire.toString());
 
-                ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
+                /*ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
                 logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
                 for (DbCommentaire x : lstCmt) {
                     logs.maTrace(Level.DEBUG, "->  : " + x.toString());
                 }
 
-                businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire());
+                businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire(),false);
                 int idComment = dbCommentaire.getIdcommentaire();
                 logs.maTrace(Level.DEBUG, "Suppression Commentaire  : " + idComment);
 
                 logs.maTrace(Level.DEBUG, "Liste  après suppression   ");
-                lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
+                lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
                 for (DbCommentaire x : lstCmt) {
-                    logs.maTrace(Level.DEBUG, "->  : " + x.toString());
+                    if (x.getEstVisible())
+                        logs.maTrace(Level.DEBUG, "->  : " + x.toString());
                 }
-
+                */
                 businessMgmt.closeDao();
                 logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
             } catch (Exception ex) {
@@ -71,38 +70,4 @@ public class App {
         }
     }
 
-    void tstGestCommentaire(LogsProjet logs, BusinessMgmt businessMgmt) throws Exception {
-        //idSpot == 1 - il existe
-        DbCommentaire dbCommentaire;
-
-        dbCommentaire = businessMgmt.ajouterCommentaire(1, "Hello - insertion par pgm", true);
-        logs.maTrace(Level.DEBUG, "Commentaire après insert : " + dbCommentaire.toString());
-
-
-        dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(),
-                "Olleh + noitresni rap mgp ",
-                dbCommentaire.getEstVisible());
-        logs.maTrace(Level.DEBUG, "Commentaire après update Texte : " + dbCommentaire.toString());
-
-        dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(),
-                dbCommentaire.getTexte(),
-                true);
-        logs.maTrace(Level.DEBUG, "Commentaire après update isVisble : " + dbCommentaire.toString());
-
-        ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
-        logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
-        for (DbCommentaire x : lstCmt) {
-            logs.maTrace(Level.DEBUG, "->  : " + x.toString());
-        }
-        businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire());
-        logs.maTrace(Level.DEBUG, "Liste  après suppression   ");
-
-        lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
-        for (DbCommentaire x : lstCmt) {
-            logs.maTrace(Level.DEBUG, "->  : " + x.toString());
-        }
-        dbCommentaire = businessMgmt.lireCommentaire(3);
-        logs.maTrace(Level.DEBUG, "Lecture d'un commentaire id=3  :" + dbCommentaire.toString());
-
-    }
 }
