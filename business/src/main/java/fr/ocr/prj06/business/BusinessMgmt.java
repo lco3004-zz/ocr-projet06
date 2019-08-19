@@ -123,7 +123,7 @@ public class BusinessMgmt {
         Date date = new Date(Calendar.AUGUST);
 
         dbTopo.setDateDeParution(date);
-        dbTopo.setEstDisponible(false);
+        dbTopo.setEstDisponible(true);
         dbTopo.setLieu("Ici_par_Pgm");
         dbTopo.setEstPublie(true);
         dbTopo.setNom("nom_par_pgm");

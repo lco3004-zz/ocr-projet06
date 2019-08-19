@@ -18,8 +18,8 @@ public class DbUser implements Serializable {
     private String nom;
     private String email;
     private String mdp;
-    @Convert(converter = JpaConvEnumUserToString.class)
-    private UserProfile profil;
+
+
     private Collection<DbSpot> spotsByIduser;
     private Collection<DbTopo> toposByIduser;
 
@@ -66,6 +66,9 @@ public class DbUser implements Serializable {
 
     @Basic
     @Column(name = "profil", nullable = false, length = 2)
+    @Convert(converter = JpaConvEnumUserToString.class)
+    private UserProfile profil;
+
     public UserProfile getProfil() {
         return profil;
     }
