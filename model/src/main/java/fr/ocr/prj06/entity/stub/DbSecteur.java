@@ -70,4 +70,15 @@ public class DbSecteur implements Serializable {
     public void setVoiesByIdsecteur(Collection<DbVoie> voiesByIdsecteur) {
         this.voiesByIdsecteur = voiesByIdsecteur;
     }
+
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return (new StringBuilder(1024))
+                .append("idSecteur: ").append(getIdsecteur())
+                .append(" Nom: ").append(getNom())
+                .toString();
+    }
 }

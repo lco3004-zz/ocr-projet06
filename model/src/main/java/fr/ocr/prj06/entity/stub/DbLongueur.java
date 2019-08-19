@@ -83,4 +83,16 @@ public class DbLongueur implements Serializable {
     public void setVoieByVoieIdvoie(DbVoie voieByVoieIdvoie) {
         this.voieByVoieIdvoie = voieByVoieIdvoie;
     }
+
+    @Override
+    public String toString() {
+        return (new StringBuilder(1024))
+                .append("idLongueur: ").append(getIdlongueur())
+                .append(" Nom: ").append(getNom())
+                .append(" Cotation: ").append(getCotation())
+                .append(" NombreSpits: ").append(getNombreDeSpits())
+                .toString();
+    }
+
 }
+

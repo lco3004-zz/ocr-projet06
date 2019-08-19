@@ -3,14 +3,10 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
 -- -----------------------------------------------------
 -- Schema ocr_projet06
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `ocr_projet06` ;
+DROP SCHEMA IF EXISTS ocr_projet06;
 
 -- -----------------------------------------------------
 -- Schema ocr_projet06
@@ -56,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `topo` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_topo_user1_idx` ON `topo` (`user_iduser` ASC) VISIBLE;
+CREATE INDEX `fk_topo_user1_idx` ON `topo` (`user_iduser` ASC);
 
 
 -- -----------------------------------------------------
@@ -78,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `spot` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_spot_user1_idx` ON `spot` (`user_iduser` ASC) VISIBLE;
+CREATE INDEX `fk_spot_user1_idx` ON `spot` (`user_iduser` ASC);
 
 
 -- -----------------------------------------------------
@@ -98,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `secteur` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_secteur_spot1_idx` ON `secteur` (`spot_idspot` ASC) VISIBLE;
+CREATE INDEX `fk_secteur_spot1_idx` ON `secteur` (`spot_idspot` ASC);
 
 
 -- -----------------------------------------------------
@@ -118,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `voie` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_voie_secteur1_idx` ON `voie` (`secteur_idsecteur` ASC) VISIBLE;
+CREATE INDEX `fk_voie_secteur1_idx` ON `voie` (`secteur_idsecteur` ASC);
 
 
 -- -----------------------------------------------------
@@ -140,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `longueur` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_longueur_voie1_idx` ON `longueur` (`voie_idvoie` ASC) VISIBLE;
+CREATE INDEX `fk_longueur_voie1_idx` ON `longueur` (`voie_idvoie` ASC);
 
 
 -- -----------------------------------------------------
@@ -161,12 +157,9 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_commentaire_spot_idx` ON `commentaire` (`spot_idspot` ASC) VISIBLE;
+CREATE INDEX `fk_commentaire_spot_idx` ON `commentaire` (`spot_idspot` ASC);
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
 -- Data for table `user`

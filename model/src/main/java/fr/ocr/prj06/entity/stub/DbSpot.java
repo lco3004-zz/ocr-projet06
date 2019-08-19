@@ -102,4 +102,17 @@ public class DbSpot implements Serializable {
     public void setUserByUserIduser(DbUser userByUserIduser) {
         this.userByUserIduser = userByUserIduser;
     }
+
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return (new StringBuilder(1024))
+                .append("idSpot: ").append(getIdspot())
+                .append(" Nom: ").append(getNom())
+                .append(" localisation: ").append(getLocalisation())
+                .append(" Classification: ").append(getClassification())
+                .toString();
+    }
 }

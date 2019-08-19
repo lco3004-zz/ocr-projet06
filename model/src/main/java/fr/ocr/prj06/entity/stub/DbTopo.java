@@ -124,4 +124,20 @@ public class DbTopo implements Serializable {
     public void setUserByUserIduser(DbUser userByUserIduser) {
         this.userByUserIduser = userByUserIduser;
     }
+
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return (new StringBuilder(1024))
+                .append("idTopo: ").append(getIdtopo())
+                .append(" Nom: ").append(getNom())
+                .append(" Disponible: ").append(getEstDisponible())
+                .append(" Publie: ").append(getEstPublie())
+                .append(" lieu: ").append(getLieu())
+                .append(" resume: ").append(getResume())
+                .toString();
+    }
+
 }

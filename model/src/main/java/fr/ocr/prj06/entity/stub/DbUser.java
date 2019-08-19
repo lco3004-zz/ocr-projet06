@@ -1,5 +1,9 @@
 package fr.ocr.prj06.entity.stub;
 
+
+import fr.ocr.prj06.entity.common.JpaConvEnumUserToString;
+import fr.ocr.prj06.entity.common.UserProfile;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -14,7 +18,8 @@ public class DbUser implements Serializable {
     private String nom;
     private String email;
     private String mdp;
-    private String profil;
+    @Convert(converter = JpaConvEnumUserToString.class)
+    private UserProfile profil;
     private Collection<DbSpot> spotsByIduser;
     private Collection<DbTopo> toposByIduser;
 
@@ -61,11 +66,11 @@ public class DbUser implements Serializable {
 
     @Basic
     @Column(name = "profil", nullable = false, length = 2)
-    public String getProfil() {
+    public UserProfile getProfil() {
         return profil;
     }
 
-    public void setProfil(String profil) {
+    public void setProfil(UserProfile profil) {
         this.profil = profil;
     }
 
@@ -103,4 +108,19 @@ public class DbUser implements Serializable {
     public void setToposByIduser(Collection<DbTopo> toposByIduser) {
         this.toposByIduser = toposByIduser;
     }
+
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return (new StringBuilder(1024))
+                .append("idUser: ").append(getIduser())
+                .append(" Nom: ").append(getNom())
+                .append(" Mdp: ").append(getMdp())
+                .append(" Profil: ").append(getProfil().toString())
+                .append(" email: ").append(getEmail())
+                .toString();
+    }
+
 }

@@ -1,6 +1,7 @@
 package fr.ocr.prj06.controller;
 
 import fr.ocr.prj06.entity.common.JpaEmUtility;
+import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
 import org.apache.logging.log4j.Level;
 
@@ -25,6 +26,13 @@ public class JpaCtrl extends JpaUtilityCtrl {
         super.logs = getLogsInstance();
     }
 
+    /**
+     * @param idSpot
+     * @param txtComment
+     * @param isVisible
+     * @return
+     * @throws Exception
+     */
     public DbCommentaire createCommentaire(Integer idSpot, String txtComment, Boolean isVisible) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbCommentaire dbCommentaire = new DbCommentaire();
@@ -50,6 +58,12 @@ public class JpaCtrl extends JpaUtilityCtrl {
         }
     }
 
+    /**
+     *
+     * @param idCommentaire
+     * @return
+     * @throws Exception
+     */
     public DbCommentaire readCommentaire(Integer idCommentaire) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
@@ -71,6 +85,14 @@ public class JpaCtrl extends JpaUtilityCtrl {
         }
     }
 
+    /**
+     *
+     * @param idCommentaire
+     * @param txtComment
+     * @param isVisible
+     * @return
+     * @throws Exception
+     */
     public DbCommentaire updateCommentaire(Integer idCommentaire, String txtComment, Boolean isVisible) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
@@ -93,6 +115,11 @@ public class JpaCtrl extends JpaUtilityCtrl {
         }
     }
 
+    /**
+     *
+     * @param idCommentaire
+     * @throws Exception
+     */
     public void deleteCommentaire(Integer idCommentaire) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
@@ -110,6 +137,12 @@ public class JpaCtrl extends JpaUtilityCtrl {
         }
     }
 
+    /**
+     *
+     * @param idSpot
+     * @return
+     * @throws Exception
+     */
     public List findListeCommentaires(Integer idSpot) throws Exception {
         try {
             return findDbEntities();
@@ -118,131 +151,103 @@ public class JpaCtrl extends JpaUtilityCtrl {
             throw new Exception(hex1);
         }
     }
-
-    /**************************************************************************************************************
+    /*
+     *************************************************************************************************************
      *
      * ************************************************************************************************************
      */
-    public DbLongueur createLongueur(Integer idVoie, String nom, String cotation, Integer nbSpits) throws Exception {
+    public DbUser readUser(Integer idUser) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
-            DbLongueur dbLongueur = new DbLongueur();
             try {
                 jpa.getEm().getTransaction().begin();
-                dbLongueur.setCotation(cotation);
-                dbLongueur.setNom(nom);
-                dbLongueur.setNombreDeSpits(nbSpits);
-                dbLongueur.setVoieByVoieIdvoie(jpa.getEm().find(DbVoie.class, idVoie));
 
-                jpa.getEm().persist(dbLongueur);
+                DbUser dbUser = jpa.getEm().find(DbUser.class, idUser);
 
                 jpa.getEm().getTransaction().commit();
 
-                return dbLongueur;
+                return dbUser;
+
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_LONGUEUR.getMessageErreur() + hex1.getLocalizedMessage());
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READ_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
 
-    /**************************************************************************************************************
-     *
-     * ************************************************************************************************************
+    /**
+     * @param dbUser
+     * @return
+     * @throws Exception
      */
-    public DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception {
+    public DbUser createUser(DbUser dbUser) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
-
             try {
+
                 jpa.getEm().getTransaction().begin();
-
-                dbTopo.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
-
-                jpa.getEm().persist(dbTopo);
-
+                jpa.getEm().persist(dbUser);
                 jpa.getEm().getTransaction().commit();
 
-                return dbTopo;
+                return dbUser;
+
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);
             }
+
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_TOPO.getMessageErreur() + hex1.getLocalizedMessage());
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_USER.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
 
-    /**************************************************************************************************************
-     *
-     * ************************************************************************************************************
+    /**
+     * @return
+     * @throws Exception
      */
-    public DbVoie createVoie(Integer idSecteur, String nom) throws Exception {
+    public DbUser updateUser(Integer idUser, UserProfile userProfil) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
-            DbVoie dbVoie = new DbVoie();
             try {
+
                 jpa.getEm().getTransaction().begin();
-                dbVoie.setNom(nom);
-                dbVoie.setSecteurBySecteurIdsecteur(jpa.getEm().find(DbSecteur.class, idSecteur));
-
-                jpa.getEm().persist(dbVoie);
-
+                DbUser dbUser = jpa.getEm().find(DbUser.class, idUser);
+                dbUser.setProfil(userProfil);
                 jpa.getEm().getTransaction().commit();
 
-                return dbVoie;
+                return dbUser;
+
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);
             }
+
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_VOIE.getMessageErreur() + hex1.getLocalizedMessage());
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_USER.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
 
-    /**************************************************************************************************************
+
+    /*
+     *************************************************************************************************************
      *
      * ************************************************************************************************************
      */
-    public DbSecteur createSecteur(Integer idSpot, String nom) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
-            DbSecteur dbSecteur = new DbSecteur();
-            try {
-                jpa.getEm().getTransaction().begin();
-                dbSecteur.setNom(nom);
-                dbSecteur.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, idSpot));
 
-                jpa.getEm().persist(dbSecteur);
-
-                jpa.getEm().getTransaction().commit();
-
-                return dbSecteur;
-            } catch (Exception ex) {
-                jpa.getEm().getTransaction().rollback();
-                throw new Exception(ex);
-            }
-        } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_VOIE.getMessageErreur() + hex1.getLocalizedMessage());
-            throw new Exception(hex1);
-        }
-    }
-
-    /**************************************************************************************************************
-     *
-     * ************************************************************************************************************
+    /**
+     * @param idUser
+     * @param dbSpot
+     * @return
+     * @throws Exception
      */
     public DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
-                //DbSpot dbSpot = new DbSpot();
-                //dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
-                //dbSpot.setClassification(dbSpotInfos.getClassification());
-                //dbSpot.setLocalisation(dbSpotInfos.getLocalisation());
-                //dbSpot.setNom(dbSpotInfos.getNom());
 
                 jpa.getEm().getTransaction().begin();
+
                 dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
@@ -277,4 +282,119 @@ public class JpaCtrl extends JpaUtilityCtrl {
             throw new Exception(hex1);
         }
     }
+
+    /*
+     *************************************************************************************************************
+     *
+     * ************************************************************************************************************
+     */
+    public DbLongueur createLongueur(Integer idVoie, String nom, String cotation, Integer nbSpits) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+            DbLongueur dbLongueur = new DbLongueur();
+            try {
+                jpa.getEm().getTransaction().begin();
+                dbLongueur.setCotation(cotation);
+                dbLongueur.setNom(nom);
+                dbLongueur.setNombreDeSpits(nbSpits);
+                dbLongueur.setVoieByVoieIdvoie(jpa.getEm().find(DbVoie.class, idVoie));
+
+                jpa.getEm().persist(dbLongueur);
+
+                jpa.getEm().getTransaction().commit();
+
+                return dbLongueur;
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_LONGUEUR.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+
+    /*
+     *************************************************************************************************************
+     *
+     * ************************************************************************************************************
+     */
+    public DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+
+            try {
+                jpa.getEm().getTransaction().begin();
+
+                dbTopo.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
+
+                jpa.getEm().persist(dbTopo);
+
+                jpa.getEm().getTransaction().commit();
+
+                return dbTopo;
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_TOPO.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+
+    /*
+     *************************************************************************************************************
+     *
+     * ************************************************************************************************************
+     */
+    public DbVoie createVoie(Integer idSecteur, String nom) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+            DbVoie dbVoie = new DbVoie();
+            try {
+                jpa.getEm().getTransaction().begin();
+                dbVoie.setNom(nom);
+                dbVoie.setSecteurBySecteurIdsecteur(jpa.getEm().find(DbSecteur.class, idSecteur));
+
+                jpa.getEm().persist(dbVoie);
+
+                jpa.getEm().getTransaction().commit();
+
+                return dbVoie;
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_VOIE.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+
+    /*
+     *************************************************************************************************************
+     *
+     * ************************************************************************************************************
+     */
+    public DbSecteur createSecteur(Integer idSpot, String nom) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+            DbSecteur dbSecteur = new DbSecteur();
+            try {
+                jpa.getEm().getTransaction().begin();
+                dbSecteur.setNom(nom);
+                dbSecteur.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, idSpot));
+
+                jpa.getEm().persist(dbSecteur);
+
+                jpa.getEm().getTransaction().commit();
+
+                return dbSecteur;
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_VOIE.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+
 }

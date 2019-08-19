@@ -1,6 +1,10 @@
 package fr.ocr.prj06.business;
 
+import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.DbCommentaire;
+import fr.ocr.prj06.entity.stub.DbSpot;
+import fr.ocr.prj06.entity.stub.DbTopo;
+import fr.ocr.prj06.entity.stub.DbUser;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
@@ -23,9 +27,39 @@ public class App {
             try {
                 businessMgmt.openDAO();
 
-                businessMgmt.ajouterSpot(1);
+                DbUser dbUser = businessMgmt.ajouterGrimpeur("laurentPgm", "laurent@laurent.pgm", "mdpPgm", UserProfile.MEMBRE);
+                logs.maTrace(Level.DEBUG, "Creation Grimpeur  : " + dbUser.toString());
 
-                businessMgmt.ajouterTopo(2);
+                DbSpot dbSpot = businessMgmt.ajouterSpot(dbUser.getIduser());
+                logs.maTrace(Level.DEBUG, "Creation Spot  : " + dbSpot.toString());
+
+                DbTopo dbTopo = businessMgmt.ajouterTopo(dbUser.getIduser());
+                logs.maTrace(Level.DEBUG, "Creation Topo  : " + dbTopo.toString());
+
+                DbCommentaire dbCommentaire = businessMgmt.ajouterCommentaire(dbSpot.getIdspot(), "Hello - insertion par pgm", true);
+                logs.maTrace(Level.DEBUG, "Creation Commentaire  : " + dbCommentaire.toString());
+
+                dbUser = businessMgmt.modifierProfilGrimpeur(dbUser.getIduser(), UserProfile.MEMBRE);
+                logs.maTrace(Level.DEBUG, "Modificaion profil  Grimpeur  : " + dbUser.toString());
+
+                dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(), "Moderation", true);
+                logs.maTrace(Level.DEBUG, "Moderation Commentaire  : " + dbCommentaire.toString());
+
+                ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
+                logs.maTrace(Level.DEBUG, "Affiche Liste des Commentaires: ");
+                for (DbCommentaire x : lstCmt) {
+                    logs.maTrace(Level.DEBUG, "->  : " + x.toString());
+                }
+
+                businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire());
+                int idComment = dbCommentaire.getIdcommentaire();
+                logs.maTrace(Level.DEBUG, "Suppression Commentaire  : " + idComment);
+
+                logs.maTrace(Level.DEBUG, "Liste  après suppression   ");
+                lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentaires(1);
+                for (DbCommentaire x : lstCmt) {
+                    logs.maTrace(Level.DEBUG, "->  : " + x.toString());
+                }
 
                 businessMgmt.closeDao();
                 logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
