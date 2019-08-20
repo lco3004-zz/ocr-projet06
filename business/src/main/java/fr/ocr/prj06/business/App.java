@@ -50,7 +50,7 @@ public class App {
                 for (DbCommentaire x : lstCmt) {
                     logs.maTrace(Level.DEBUG, "->  : " + x.toString());
                 }
-                /*
+
                 businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire(),false);
                 int idComment = dbCommentaire.getIdcommentaire();
                 logs.maTrace(Level.DEBUG, "Suppression Commentaire  : " + idComment);
@@ -61,7 +61,7 @@ public class App {
                     if (x.getEstVisible())
                         logs.maTrace(Level.DEBUG, "->  : " + x.toString());
                 }
-                */
+
                 businessMgmt.closeDao();
                 logs.maTrace(Level.DEBUG, "****Business ****** Fin Main ");
             } catch (Exception ex) {

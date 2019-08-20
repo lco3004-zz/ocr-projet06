@@ -6,7 +6,9 @@ import fr.ocr.prj06.entity.stub.*;
 import org.apache.logging.log4j.Level;
 
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -175,9 +177,16 @@ public class JpaCtrl extends JpaUtilityCtrl {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             jpa.getEm().getTransaction().begin();
 
-            CriteriaQuery<DbCommentaire> criteriaQuery = jpa.getEm().getCriteriaBuilder().createQuery(DbCommentaire.class);
+            CriteriaBuilder builder = jpa.getEm().getCriteriaBuilder();
 
-            criteriaQuery.select(criteriaQuery.from(DbCommentaire.class));
+            CriteriaQuery<DbCommentaire> criteriaQuery = builder.createQuery(DbCommentaire.class);
+
+            Root<DbCommentaire> root = criteriaQuery.from(DbCommentaire.class);
+
+            DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
+
+            criteriaQuery.select(root);
+//            criteriaQuery.where(builder.equal(root.get(), spotBySpotIdspot))
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
@@ -328,6 +337,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
      *
      * ************************************************************************************************************
      */
+    @Deprecated(since = "2019-08-20", forRemoval = true)
     public DbLongueur createLongueur(Integer idVoie, String nom, String cotation, Integer nbSpits) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbLongueur dbLongueur = new DbLongueur();
@@ -386,6 +396,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
      *
      * ************************************************************************************************************
      */
+    @Deprecated(since = "2019-08-20", forRemoval = true)
     public DbVoie createVoie(Integer idSecteur, String nom) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbVoie dbVoie = new DbVoie();
@@ -414,6 +425,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
      *
      * ************************************************************************************************************
      */
+    @Deprecated(since = "2019-08-20", forRemoval = true)
     public DbSecteur createSecteur(Integer idSpot, String nom) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbSecteur dbSecteur = new DbSecteur();

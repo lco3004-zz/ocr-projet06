@@ -8,7 +8,7 @@ import javax.persistence.Converter;
 
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
-@Converter
+@Converter(autoApply = true)
 public class JpaConvBoolInt implements AttributeConverter<Boolean, Integer> {
     LogsProjet logs;
 
@@ -18,27 +18,27 @@ public class JpaConvBoolInt implements AttributeConverter<Boolean, Integer> {
     }
     @Override
     public Integer convertToDatabaseColumn(Boolean aBoolean) {
-        logs.maTrace(Level.DEBUG, "appel de convertToDatabaseColumn : ");
+        logs.maTrace(Level.DEBUG, "appel de BooleanconvertToDatabaseColumn : " + aBoolean);
 
         if (aBoolean == null) {
-            return 12;
+            return null;
         }
         if (aBoolean) {
-            return 56;
+            return 1;
         }
-        return 18;
+        return 0;
 
     }
 
     @Override
     public Boolean convertToEntityAttribute(Integer aInteger) {
-        logs.maTrace(Level.DEBUG, "appel de convertToEntityAttribute : ");
+        logs.maTrace(Level.DEBUG, "appel de BooleanconvertToEntityAttribute : " + aInteger);
         if (aInteger == null) {
             return null;
         }
-        if (aInteger == 56) {
+        if (aInteger == 1) {
             return true;
-        } else if (aInteger == 18) {
+        } else if (aInteger == 0) {
             return false;
         } else
             return false;

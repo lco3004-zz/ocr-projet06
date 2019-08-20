@@ -38,8 +38,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+      <maven.compiler.source>11</maven.compiler.source>
+      <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
@@ -136,13 +136,15 @@
 
       <!-- ===== Bibliothèques tierces ===== -->
       <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
       <dependency>
-        <groupId>org.hibernate.orm</groupId>
+          <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
-        <version>6.0.0.Alpha2</version>
+          <version>5.4.4.Final</version>
       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>

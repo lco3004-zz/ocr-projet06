@@ -36,7 +36,7 @@ public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, 
                     valRet = null;
             }
         }
-        logs.maTrace(Level.DEBUG, "appel de convertToDatabaseColumn : " + ((valRet == null) ? "valret est null" : valRet));
+        logs.maTrace(Level.DEBUG, "appel de EnumconvertToDatabaseColumn : " + ((valRet == null) ? "valret est null" : valRet));
         return valRet;
     }
 
@@ -44,7 +44,7 @@ public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, 
     public UserProfile convertToEntityAttribute(String dbData) {
 
         UserProfile valRet = null;
-        logs.maTrace(Level.DEBUG, "appel de convertToEntityAttribute (dbData est null) : ");
+        logs.maTrace(Level.DEBUG, "appel de EnumconvertToEntityAttribute (dbData est null) : ");
 
         if (dbData != null && !"".equalsIgnoreCase(dbData.trim())) {
             String tmp = dbData.trim().toUpperCase();
@@ -55,7 +55,7 @@ public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, 
             }
         }
 
-        logs.maTrace(Level.DEBUG, "appel de convertToEntityAttribute : " + ((valRet == null) ? "valret est null" : valRet.toString()));
+        logs.maTrace(Level.DEBUG, "appel de EnumconvertToEntityAttribute : " + ((valRet == null) ? "valret est null" : valRet.toString()));
         return valRet;
     }
 }

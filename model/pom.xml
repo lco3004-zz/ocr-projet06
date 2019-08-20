@@ -26,9 +26,9 @@
         </dependency>
         <!-- ===== Artifact tiers ===== -->
         <!-- ===== Bibliothèques tierces ===== -->
-        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
         </dependency>
 
@@ -38,7 +38,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.17</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
