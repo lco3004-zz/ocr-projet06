@@ -5,9 +5,9 @@ import fr.ocr.prj06.entity.common.JpaEmfInterface;
 import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static fr.ocr.prj06.entity.common.JpaEmfUtility.getInstanceEMF;

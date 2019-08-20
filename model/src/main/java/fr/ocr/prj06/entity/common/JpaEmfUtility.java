@@ -20,7 +20,7 @@ import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
  */
 public class JpaEmfUtility implements JpaEmfInterface {
 
-    private  EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = null;
 
     private static JpaEmfUtility jpaEMFUtility = null;
 

@@ -8,7 +8,7 @@ import org.apache.logging.log4j.*;
 public class LogsProjet implements AutoCloseable{
 
     // The name of this Logger will be "org.apache.logging.LogsUtil"
-    private   Logger logger;
+    private Logger logger;
     private static LogsProjet ourInstance = null;
     private Marker marker;
 

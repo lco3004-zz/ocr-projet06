@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 @Entity
 @Cacheable
 @Table(name = "longueur", schema = "ocr_projet06")

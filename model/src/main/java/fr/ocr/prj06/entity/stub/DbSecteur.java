@@ -1,5 +1,6 @@
 package fr.ocr.prj06.entity.stub;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -7,7 +8,6 @@ import java.util.Objects;
 
 
 @Entity
-@Cacheable
 @Table(name = "secteur", schema = "ocr_projet06")
 public class DbSecteur implements Serializable {
     private int idsecteur;

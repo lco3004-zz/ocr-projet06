@@ -4,6 +4,7 @@ import fr.ocr.prj06.entity.common.JpaConvBoolInt;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Objects;
 
 //import java.util.Date;
@@ -22,7 +23,7 @@ public class DbTopo implements Serializable {
     private Boolean estDisponible;
     private String resume;
     private String lieu;
-    private java.util.Date dateDeParution;
+    private Date dateDeParution;
     private DbUser userByUserIduser;
 
     @Id
@@ -92,7 +93,7 @@ public class DbTopo implements Serializable {
         return dateDeParution;
     }
 
-    public void setDateDeParution(java.util.Date dateDeParution) {
+    public void setDateDeParution(Date dateDeParution) {
         this.dateDeParution = dateDeParution;
     }
 
