@@ -3,6 +3,7 @@ package fr.ocr.prj06.controller;
 import fr.ocr.prj06.entity.common.JpaEmUtility;
 import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
+import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
 import javax.persistence.Query;
@@ -16,21 +17,22 @@ import static fr.ocr.prj06.utility.constante.Messages.ErreurMessages.*;
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
 
-public class JpaCtrl extends JpaUtilityCtrl {
+public class JpaCtrl  {
 
+    LogsProjet logs;
     /**
      * @throws Exception
      */
     public JpaCtrl() throws Exception {
-        super(DbCommentaire.class);
-        setLogs();
+        logs = getLogsInstance();
     }
 
 
-    @Override
-    protected void setLogs() {
-        super.logs = getLogsInstance();
-    }
+    /*
+     *************************************************************************************************************
+     * COMMENTAIRE
+     * ************************************************************************************************************
+     */
 
     /**
      * @param idSpot
@@ -186,7 +188,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
             DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
 
             criteriaQuery.select(root);
-//            criteriaQuery.where(builder.equal(root.get(), spotBySpotIdspot))
+            criteriaQuery.where(builder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot));
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
@@ -202,7 +204,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
     }
     /*
      *************************************************************************************************************
-     *
+     * USER
      * ************************************************************************************************************
      */
     public DbUser readUser(Integer idUser) throws Exception {
@@ -281,7 +283,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
 
     /*
      *************************************************************************************************************
-     *
+     * SPOT
      * ************************************************************************************************************
      */
 
@@ -334,7 +336,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
 
     /*
      *************************************************************************************************************
-     *
+     * LONGUEUR
      * ************************************************************************************************************
      */
     @Deprecated(since = "2019-08-20", forRemoval = true)
@@ -365,35 +367,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
 
     /*
      *************************************************************************************************************
-     *
-     * ************************************************************************************************************
-     */
-    public DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
-
-            try {
-                jpa.getEm().getTransaction().begin();
-
-                dbTopo.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
-
-                jpa.getEm().persist(dbTopo);
-
-                jpa.getEm().getTransaction().commit();
-
-                return dbTopo;
-            } catch (Exception ex) {
-                jpa.getEm().getTransaction().rollback();
-                throw new Exception(ex);
-            }
-        } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_TOPO.getMessageErreur() + hex1.getLocalizedMessage());
-            throw new Exception(hex1);
-        }
-    }
-
-    /*
-     *************************************************************************************************************
-     *
+     * VOIE
      * ************************************************************************************************************
      */
     @Deprecated(since = "2019-08-20", forRemoval = true)
@@ -422,7 +396,7 @@ public class JpaCtrl extends JpaUtilityCtrl {
 
     /*
      *************************************************************************************************************
-     *
+     * SECTEUR
      * ************************************************************************************************************
      */
     @Deprecated(since = "2019-08-20", forRemoval = true)
@@ -449,4 +423,61 @@ public class JpaCtrl extends JpaUtilityCtrl {
         }
     }
 
+
+    /*
+     *************************************************************************************************************
+     * TOPO
+     * ************************************************************************************************************
+     */
+    public DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+
+            try {
+                jpa.getEm().getTransaction().begin();
+
+                dbTopo.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
+
+                jpa.getEm().persist(dbTopo);
+
+                jpa.getEm().getTransaction().commit();
+
+                return dbTopo;
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_TOPO.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+    }
+    public List findListeTopos(Integer idUser) throws  Exception {
+        try (JpaEmUtility jpa = new JpaEmUtility()) {
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaBuilder builder = jpa.getEm().getCriteriaBuilder();
+
+            CriteriaQuery<DbTopo> criteriaQuery = builder.createQuery(DbTopo.class);
+
+            Root<DbTopo> root = criteriaQuery.from(DbTopo.class);
+
+            DbUser dbTopo = jpa.getEm().find(DbUser.class, idUser);
+
+            criteriaQuery.select(root);
+//            criteriaQuery.where(builder.equal(root.get(), spotBySpotIdspot))
+
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+
+            ArrayList<DbCommentaire> ret = (ArrayList<DbCommentaire>) query.getResultList();
+
+            jpa.getEm().getTransaction().commit();
+            return ret;
+
+        } catch (Exception hex1) {
+            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READLISTE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
+            throw new Exception(hex1);
+        }
+
+
+    }
 }

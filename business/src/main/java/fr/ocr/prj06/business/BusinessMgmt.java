@@ -19,14 +19,19 @@ import static fr.ocr.prj06.entity.common.SpotClassification.STANDARD;
 public class BusinessMgmt {
 
     private JpaCtrl jpaCtrl;
-    private JpaEmfInterface jpa;
+    private JpaEmfInterface jpaEmfInterface;
+
+    /* ************************************************************************************************
+     * OUVERTURE/FERMETURE
+     * ***********************************************************************************************
+     */
 
     /**
      * @throws Exception
      */
     public BusinessMgmt() throws Exception {
         jpaCtrl = new JpaCtrl();
-        jpa = getInstanceEMF();
+        jpaEmfInterface = getInstanceEMF();
     }
 
     /**
@@ -34,7 +39,7 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public void openDAO() throws Exception {
-        jpa.openDao();
+        jpaEmfInterface.openDao();
     }
 
     /**
@@ -42,8 +47,13 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public void closeDao() throws Exception {
-        jpa.closeDao();
+        jpaEmfInterface.closeDao();
     }
+
+    /* ************************************************************************************************
+     * COMMENTAIREs
+     * ***********************************************************************************************
+     */
 
     /**
      *
@@ -110,7 +120,19 @@ public class BusinessMgmt {
     public DbCommentaire modiferCommentaire(Integer idCommentaire, String txtComment, Boolean isVisible) throws Exception {
         return jpaCtrl.updateCommentaire(idCommentaire, txtComment, isVisible);
     }
+    /* ************************************************************************************************
+    * TOPOs
+    * ***********************************************************************************************
+    */
 
+    /**
+     * @param idSpot
+     * @return
+     * @throws Exception
+     */
+    public List listerTopos(Integer idUser) throws Exception {
+        return jpaCtrl.findListeTopos(idUser );
+    }
     /**
      *
      * @param idUser
@@ -132,6 +154,11 @@ public class BusinessMgmt {
 
         return dbTopo;
     }
+
+    /* ************************************************************************************************
+     *  SPOTs
+     * ***********************************************************************************************
+     */
 
     /**
      *

@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
 public class JpaEmUtility implements AutoCloseable {
-    protected LogsProjet logs;
+    private LogsProjet logs;
     private EntityManager em = null;
 
     public JpaEmUtility() {

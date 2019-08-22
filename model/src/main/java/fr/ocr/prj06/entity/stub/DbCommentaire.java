@@ -11,6 +11,9 @@ import java.util.Objects;
 @Cacheable
 @Table(name = "commentaire", schema = "ocr_projet06")
 public class DbCommentaire implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int idcommentaire;
     private String texte;
 
@@ -18,8 +21,6 @@ public class DbCommentaire implements Serializable {
     private Boolean estVisible;
 
     private DbSpot spotBySpotIdspot;
-
-    private static final long serialVersionUID=1L;
 
     @Id
     @Column(name = "idcommentaire", nullable = false)

@@ -13,7 +13,7 @@ import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 @Converter(autoApply = true)
 public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, String> {
 
-    LogsProjet logs;
+    private LogsProjet logs;
 
     public JpaConvEnumUserToString() {
         logs = getLogsInstance();

@@ -15,7 +15,7 @@ public class DbSecteur implements Serializable {
     private DbSpot spotBySpotIdspot;
     private Collection<DbVoie> voiesByIdsecteur;
 
-    private static final long serialVersionUID=4L;
+    private static final long serialVersionUID=1L;
 
     @Id
     @Column(name = "idsecteur", nullable = false)

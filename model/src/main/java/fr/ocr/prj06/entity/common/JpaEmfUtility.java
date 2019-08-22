@@ -1,6 +1,5 @@
 package fr.ocr.prj06.entity.common;
 
-import fr.ocr.prj06.controller.JpaUtilityCtrl;
 import fr.ocr.prj06.utility.logs.LogsProjet;
 import org.apache.logging.log4j.Level;
 
@@ -35,7 +34,7 @@ public class JpaEmfUtility implements JpaEmfInterface {
     private JpaEmfUtility() throws IOException {
         logs = getLogsInstance();
         Properties properties = new Properties();
-        InputStream inputStream = JpaUtilityCtrl.class.getResourceAsStream("/info.properties");
+        InputStream inputStream = JpaEmfUtility.class.getResourceAsStream("/info.properties");
         properties.load(inputStream);
         this.persistenceUnitName = properties.getProperty(UNITE_DE_PERSISTANCE.getValeurConstante());
     }

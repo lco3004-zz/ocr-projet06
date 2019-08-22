@@ -13,7 +13,7 @@ import java.util.Objects;
 @Cacheable
 @Table(name = "topo", schema = "ocr_projet06")
 public class DbTopo implements Serializable {
-    private static final long serialVersionUID = 6L;
+    private static final long serialVersionUID = 1L;
 
     private int idtopo;
     private String nom;

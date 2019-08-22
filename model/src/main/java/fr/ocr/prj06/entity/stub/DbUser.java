@@ -12,7 +12,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "user", schema = "ocr_projet06")
 public class DbUser implements Serializable {
-    private static final long serialVersionUID = 7L;
+    private static final long serialVersionUID = 1L;
 
     private int iduser;
     private String nom;

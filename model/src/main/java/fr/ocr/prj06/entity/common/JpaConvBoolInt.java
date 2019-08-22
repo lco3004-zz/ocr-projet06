@@ -10,7 +10,7 @@ import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
 
 @Converter(autoApply = true)
 public class JpaConvBoolInt implements AttributeConverter<Boolean, Integer> {
-    LogsProjet logs;
+    private LogsProjet logs;
 
     public JpaConvBoolInt() {
         logs = getLogsInstance();

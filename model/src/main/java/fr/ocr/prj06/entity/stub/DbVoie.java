@@ -14,7 +14,7 @@ public class DbVoie implements Serializable {
     private Collection<DbLongueur> longueursByIdvoie;
     private DbSecteur secteurBySecteurIdsecteur;
 
-    private static final long serialVersionUID=8L;
+    private static final long serialVersionUID=1L;
 
     @Id
     @Column(name = "idvoie", nullable = false)
