@@ -8,7 +8,6 @@ import java.util.Objects;
 
 
 @Entity
-@Cacheable
 @Table(name = "commentaire", schema = "ocr_projet06")
 public class DbCommentaire implements Serializable {
 
@@ -23,7 +22,7 @@ public class DbCommentaire implements Serializable {
     private DbSpot spotBySpotIdspot;
 
     @Id
-    @Column(name = "idcommentaire", nullable = false)
+    @Column(name = "idcommentaire")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdcommentaire() {
         return idcommentaire;
@@ -34,7 +33,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @Basic
-    @Column(name = "texte", nullable = true, length = 256)
+    @Column(name = "texte",length = 256)
     public String getTexte() {
         return texte;
     }
@@ -44,7 +43,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @Basic
-    @Column(name = "est_visible", nullable = false)
+    @Column(name = "est_visible")
     public Boolean getEstVisible() {
         return estVisible;
     }
@@ -68,8 +67,8 @@ public class DbCommentaire implements Serializable {
         return Objects.hash(idcommentaire, texte, estVisible);
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot")
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }

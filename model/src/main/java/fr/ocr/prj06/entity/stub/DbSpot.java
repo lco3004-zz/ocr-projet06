@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Cacheable
 @Table(name = "spot", schema = "ocr_projet06")
 public class DbSpot implements Serializable {
     private int idspot;
@@ -20,7 +19,7 @@ public class DbSpot implements Serializable {
     private static final long serialVersionUID=1L;
 
     @Id
-    @Column(name = "idspot", nullable = false)
+    @Column(name = "idspot")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdspot() {
         return idspot;
@@ -31,7 +30,7 @@ public class DbSpot implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = false, length = 45)
+    @Column(name = "nom", length = 45)
     public String getNom() {
         return nom;
     }
@@ -41,7 +40,7 @@ public class DbSpot implements Serializable {
     }
 
     @Basic
-    @Column(name = "classification", nullable = false, length = 45)
+    @Column(name = "classification", length = 45)
     public String getClassification() {
         return classification;
     }
@@ -51,7 +50,7 @@ public class DbSpot implements Serializable {
     }
 
     @Basic
-    @Column(name = "localisation", nullable = false, length = 45)
+    @Column(name = "localisation", length = 45)
     public String getLocalisation() {
         return localisation;
     }
@@ -75,7 +74,7 @@ public class DbSpot implements Serializable {
         return Objects.hash(idspot, nom, localisation);
     }
 
-    @OneToMany(mappedBy = "spotBySpotIdspot")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "spotBySpotIdspot")
     public Collection<DbCommentaire> getCommentairesByIdspot() {
         return commentairesByIdspot;
     }
@@ -84,7 +83,7 @@ public class DbSpot implements Serializable {
         this.commentairesByIdspot = commentairesByIdspot;
     }
 
-    @OneToMany(mappedBy = "spotBySpotIdspot")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "spotBySpotIdspot")
     public Collection<DbSecteur> getSecteursByIdspot() {
         return secteursByIdspot;
     }
@@ -93,8 +92,8 @@ public class DbSpot implements Serializable {
         this.secteursByIdspot = secteursByIdspot;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser")
     public DbUser getUserByUserIduser() {
         return userByUserIduser;
     }

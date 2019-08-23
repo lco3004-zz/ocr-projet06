@@ -24,7 +24,7 @@ public class DbUser implements Serializable {
     private Collection<DbTopo> toposByIduser;
 
     @Id
-    @Column(name = "iduser", nullable = false)
+    @Column(name = "iduser")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIduser() {
         return iduser;
@@ -35,7 +35,7 @@ public class DbUser implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = true, length = 256)
+    @Column(name = "nom", length = 256)
     public String getNom() {
         return nom;
     }
@@ -45,7 +45,7 @@ public class DbUser implements Serializable {
     }
 
     @Basic
-    @Column(name = "email", nullable = false, length = 256)
+    @Column(name = "email",  length = 256)
     public String getEmail() {
         return email;
     }
@@ -55,7 +55,7 @@ public class DbUser implements Serializable {
     }
 
     @Basic
-    @Column(name = "mdp", nullable = false, length = 16)
+    @Column(name = "mdp",  length = 16)
     public String getMdp() {
         return mdp;
     }
@@ -65,7 +65,7 @@ public class DbUser implements Serializable {
     }
 
     @Basic
-    @Column(name = "profil", nullable = false, length = 2)
+    @Column(name = "profil", length = 2)
     @Convert(converter = JpaConvEnumUserToString.class)
     private UserProfile profil;
 
@@ -94,7 +94,7 @@ public class DbUser implements Serializable {
         return Objects.hash(iduser, nom, email, mdp, profil);
     }
 
-    @OneToMany(mappedBy = "userByUserIduser")
+    @OneToMany(cascade =CascadeType.ALL, mappedBy = "userByUserIduser")
     public Collection<DbSpot> getSpotsByIduser() {
         return spotsByIduser;
     }
@@ -103,7 +103,7 @@ public class DbUser implements Serializable {
         this.spotsByIduser = spotsByIduser;
     }
 
-    @OneToMany(mappedBy = "userByUserIduser")
+    @OneToMany(cascade =CascadeType.ALL,mappedBy = "userByUserIduser")
     public Collection<DbTopo> getToposByIduser() {
         return toposByIduser;
     }

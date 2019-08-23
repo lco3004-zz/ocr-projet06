@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Cacheable
 @Table(name = "longueur", schema = "ocr_projet06")
 public class DbLongueur implements Serializable {
     private int idlongueur;
@@ -17,7 +16,7 @@ public class DbLongueur implements Serializable {
     private static final long serialVersionUID=1L;
 
     @Id
-    @Column(name = "idlongueur", nullable = false)
+    @Column(name = "idlongueur")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdlongueur() {
         return idlongueur;
@@ -28,7 +27,7 @@ public class DbLongueur implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = true, length = 45)
+    @Column(name = "nom", length = 45)
     public String getNom() {
         return nom;
     }
@@ -38,7 +37,7 @@ public class DbLongueur implements Serializable {
     }
 
     @Basic
-    @Column(name = "cotation", nullable = true, length = 45)
+    @Column(name = "cotation", length = 45)
     public String getCotation() {
         return cotation;
     }
@@ -48,7 +47,7 @@ public class DbLongueur implements Serializable {
     }
 
     @Basic
-    @Column(name = "nombre_de_spits", nullable = true)
+    @Column(name = "nombre_de_spits")
     public Integer getNombreDeSpits() {
         return nombreDeSpits;
     }
@@ -73,8 +72,8 @@ public class DbLongueur implements Serializable {
         return Objects.hash(idlongueur, nom, cotation, nombreDeSpits);
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie")
     public DbVoie getVoieByVoieIdvoie() {
         return voieByVoieIdvoie;
     }

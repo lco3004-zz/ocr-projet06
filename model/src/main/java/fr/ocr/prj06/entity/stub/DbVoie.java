@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Cacheable
+
 @Table(name = "voie", schema = "ocr_projet06")
 public class DbVoie implements Serializable {
     private int idvoie;
@@ -17,7 +17,7 @@ public class DbVoie implements Serializable {
     private static final long serialVersionUID=1L;
 
     @Id
-    @Column(name = "idvoie", nullable = false)
+    @Column(name = "idvoie")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdvoie() {
         return idvoie;
@@ -28,7 +28,7 @@ public class DbVoie implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = false, length = 45)
+    @Column(name = "nom", length = 45)
     public String getNom() {
         return nom;
     }
@@ -51,7 +51,7 @@ public class DbVoie implements Serializable {
         return Objects.hash(idvoie, nom);
     }
 
-    @OneToMany(mappedBy = "voieByVoieIdvoie")
+    @OneToMany(cascade = CascadeType.ALL ,mappedBy = "voieByVoieIdvoie")
     public Collection<DbLongueur> getLongueursByIdvoie() {
         return longueursByIdvoie;
     }
@@ -60,8 +60,8 @@ public class DbVoie implements Serializable {
         this.longueursByIdvoie = longueursByIdvoie;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur")
     public DbSecteur getSecteurBySecteurIdsecteur() {
         return secteurBySecteurIdsecteur;
     }

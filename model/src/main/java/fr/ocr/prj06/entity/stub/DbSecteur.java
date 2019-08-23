@@ -18,7 +18,7 @@ public class DbSecteur implements Serializable {
     private static final long serialVersionUID=1L;
 
     @Id
-    @Column(name = "idsecteur", nullable = false)
+    @Column(name = "idsecteur")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdsecteur() {
         return idsecteur;
@@ -29,7 +29,7 @@ public class DbSecteur implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = false, length = 45)
+    @Column(name = "nom", length = 45)
     public String getNom() {
         return nom;
     }
@@ -52,8 +52,8 @@ public class DbSecteur implements Serializable {
         return Objects.hash(idsecteur, nom);
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot")
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }
@@ -62,7 +62,7 @@ public class DbSecteur implements Serializable {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    @OneToMany(mappedBy = "secteurBySecteurIdsecteur")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "secteurBySecteurIdsecteur")
     public Collection<DbVoie> getVoiesByIdsecteur() {
         return voiesByIdsecteur;
     }

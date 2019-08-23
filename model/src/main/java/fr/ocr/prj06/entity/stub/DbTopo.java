@@ -10,7 +10,6 @@ import java.util.Objects;
 //import java.util.Date;
 
 @Entity
-@Cacheable
 @Table(name = "topo", schema = "ocr_projet06")
 public class DbTopo implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -27,7 +26,7 @@ public class DbTopo implements Serializable {
     private DbUser userByUserIduser;
 
     @Id
-    @Column(name = "idtopo", nullable = false)
+    @Column(name = "idtopo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdtopo() {
         return idtopo;
@@ -38,7 +37,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", nullable = false, length = 256)
+    @Column(name = "nom", length = 256)
     public String getNom() {
         return nom;
     }
@@ -48,7 +47,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "est_publie", nullable = false)
+    @Column(name = "est_publie")
     public Boolean getEstPublie() {
         return estPublie;
     }
@@ -58,7 +57,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "est_disponible", nullable = false)
+    @Column(name = "est_disponible")
     public Boolean getEstDisponible() {
         return estDisponible;
     }
@@ -68,7 +67,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "resume", nullable = true, length = 256)
+    @Column(name = "resume",  length = 256)
     public String getResume() {
         return resume;
     }
@@ -78,7 +77,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "lieu", nullable = false, length = 45)
+    @Column(name = "lieu",  length = 45)
     public String getLieu() {
         return lieu;
     }
@@ -88,7 +87,7 @@ public class DbTopo implements Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "date_de_parution", nullable = false)
+    @Column(name = "date_de_parution")
     public java.util.Date getDateDeParution() {
         return dateDeParution;
     }
@@ -116,8 +115,8 @@ public class DbTopo implements Serializable {
         return Objects.hash(idtopo, nom, estPublie, estDisponible, resume, lieu, dateDeParution);
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser")
     public DbUser getUserByUserIduser() {
         return userByUserIduser;
     }
