@@ -12,18 +12,13 @@
 
     <artifactId>model</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
     <name>model</name>
 
     <properties>
-        <app.main.class>fr.ocr.prj06.entity.Methods</app.main.class>
+        <app.main.class>fr.ocr.prj06.controller.JpaCtrl</app.main.class>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>fr.ocr.prj06</groupId>
-            <artifactId>tools</artifactId>
-        </dependency>
         <!-- ===== Artifact tiers ===== -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
@@ -47,23 +42,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.bsc.maven/maven-processor-plugin -->
@@ -146,17 +124,6 @@
                         <version>3.0.0</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>${app.main.class}</mainClass>
-                            <addClasspath>true</addClasspath>
-                        </manifest>
-                    </archive>
-                </configuration>
             </plugin>
         </plugins>
     </build>

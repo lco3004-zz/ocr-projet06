@@ -1,4 +1,4 @@
-package fr.ocr.prj06.utility.constante;
+package fr.ocr.prj06.entity.common;
 
 /**
  * <p>

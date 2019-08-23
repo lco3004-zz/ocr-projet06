@@ -11,6 +11,7 @@
 
     <artifactId>business</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
     <name>business</name>
 
     <properties>
@@ -18,11 +19,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>fr.ocr.prj06</groupId>
-            <artifactId>tools</artifactId>
-            <version>1.0</version>
-        </dependency>
 
         <dependency>
             <groupId>fr.ocr.prj06</groupId>
@@ -53,12 +49,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <artifactSet>
-                                <excludes>
-                                    <exclude>org.apache.logging.log4j:log4j-api</exclude>
-                                    <exclude>org.apache.logging.log4j:log4j-core</exclude>
-                                </excludes>
-                            </artifactSet>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>${app.main.class}</mainClass>

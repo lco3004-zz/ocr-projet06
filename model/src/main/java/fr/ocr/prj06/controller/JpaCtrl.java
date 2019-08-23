@@ -3,8 +3,6 @@ package fr.ocr.prj06.controller;
 import fr.ocr.prj06.entity.common.JpaEmUtility;
 import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
-import fr.ocr.prj06.utility.logs.LogsProjet;
-import org.apache.logging.log4j.Level;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -13,19 +11,8 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
-import static fr.ocr.prj06.utility.constante.Messages.ErreurMessages.*;
-import static fr.ocr.prj06.utility.logs.LogsProjet.getLogsInstance;
-
 
 public class JpaCtrl  {
-
-    LogsProjet logs;
-    /**
-     * @throws Exception
-     */
-    public JpaCtrl() throws Exception {
-        logs = getLogsInstance();
-    }
 
 
     /*
@@ -61,7 +48,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -88,7 +74,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READ_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -112,7 +97,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_UPDATE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -142,7 +126,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_UPDATE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -164,7 +147,6 @@ public class JpaCtrl  {
                 throw new Exception(hex2);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_DELETE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -198,7 +180,6 @@ public class JpaCtrl  {
             return ret;
 
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READLISTE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -223,7 +204,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READ_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -249,7 +229,6 @@ public class JpaCtrl  {
             }
 
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_USER.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -275,11 +254,9 @@ public class JpaCtrl  {
             }
 
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_USER.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
-
 
     /*
      *************************************************************************************************************
@@ -329,7 +306,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_SPOT.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -358,7 +334,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_LONGUEUR.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -387,7 +362,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_VOIE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -416,7 +390,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_VOIE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -445,7 +418,6 @@ public class JpaCtrl  {
                 throw new Exception(ex);
             }
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_CREATE_TOPO.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
     }
@@ -462,7 +434,7 @@ public class JpaCtrl  {
             DbUser dbTopo = jpa.getEm().find(DbUser.class, idUser);
 
             criteriaQuery.select(root);
-//            criteriaQuery.where(builder.equal(root.get(), spotBySpotIdspot))
+            //criteriaQuery.where(builder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot));
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
@@ -472,10 +444,7 @@ public class JpaCtrl  {
             return ret;
 
         } catch (Exception hex1) {
-            logs.maTrace(Level.ERROR, CONTROLLER_JPA_READLISTE_COMMENTAIRE.getMessageErreur() + hex1.getLocalizedMessage());
             throw new Exception(hex1);
         }
-
-
     }
 }
