@@ -45,16 +45,6 @@
       <artifactId>log4j-slf4j-impl</artifactId>
       <scope>compile</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/ pour le web -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-web</artifactId>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/ pour le JSP -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-taglib</artifactId>
-    </dependency>
   </dependencies>
 
   <build>
