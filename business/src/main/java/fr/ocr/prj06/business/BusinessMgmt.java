@@ -7,7 +7,6 @@ import fr.ocr.prj06.entity.stub.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import static fr.ocr.prj06.entity.common.JpaEmfUtility.getInstanceEMF;
@@ -142,7 +141,7 @@ public class BusinessMgmt {
     public DbTopo ajouterTopo(Integer idUser) throws Exception {
 
         DbTopo dbTopo = new DbTopo();
-        Date date = new Date(Calendar.AUGUST);
+        Date date = Date.valueOf("2019-08-23");
 
         dbTopo.setDateDeParution(date);
         dbTopo.setEstDisponible(true);
