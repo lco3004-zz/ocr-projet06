@@ -279,25 +279,6 @@ public class JpaCtrl  {
                 dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
-/*
-                for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
-                    dbCommentaire.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
-                    jpa.getEm().persist(dbCommentaire);
-                }
-
-                for (DbSecteur dbSecteur : dbSpot.getSecteursByIdspot()) {
-                    dbSecteur.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
-                    jpa.getEm().persist(dbSecteur);
-                    for (DbVoie dbVoie : dbSecteur.getVoiesByIdsecteur()) {
-                        dbVoie.setSecteurBySecteurIdsecteur(jpa.getEm().find(DbSecteur.class, dbSecteur.getIdsecteur()));
-                        jpa.getEm().persist(dbVoie);
-                        for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
-                            dbLongueur.setVoieByVoieIdvoie(jpa.getEm().find(DbVoie.class, dbVoie.getIdvoie()));
-                            jpa.getEm().persist(dbLongueur);
-                        }
-                    }
-                }
-*/
                 jpa.getEm().getTransaction().commit();
 
                 return dbSpot;
