@@ -333,13 +333,11 @@ public class JpaCtrl  {
             throw new Exception(hex1);
         }
     }
-
     /*
      *************************************************************************************************************
      * LONGUEUR
      * ************************************************************************************************************
      */
-    @Deprecated(since = "2019-08-20", forRemoval = true)
     public DbLongueur createLongueur(Integer idVoie, String nom, String cotation, Integer nbSpits) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbLongueur dbLongueur = new DbLongueur();

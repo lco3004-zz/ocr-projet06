@@ -1,11 +1,13 @@
-2. 22/08 - 12:26:54.626 [main] INFO  - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger=org.hibernate.jpa.internal.util.LogHelper 
-3. 22/08 - 12:26:54.701 [main] INFO  - HHH000412: Hibernate Core {[WORKING]} : Logger=org.hibernate.Version 
-4. 22/08 - 12:26:54.893 [main] INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger=org.hibernate.annotations.common.Version 
-7. 22/08 - 12:26:56.961 [main] WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!) : Logger=org.hibernate.orm.connections.pooling 
-8. 22/08 - 12:26:56.968 [main] INFO  - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling 
-9. 22/08 - 12:26:56.968 [main] INFO  - HHH10001001: Connection properties: {password=****, user=projet06} : Logger=org.hibernate.orm.connections.pooling 
-10. 22/08 - 12:26:56.969 [main] INFO  - HHH10001003: Autocommit mode: false : Logger=org.hibernate.orm.connections.pooling 
-11. 22/08 - 12:26:56.972 [main] INFO  - HHH000115: Hibernate connection pool size: 20 (min=1) : Logger=org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl 
-12. 22/08 - 12:26:57.452 [main] INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger=org.hibernate.dialect.Dialect 
-13. 22/08 - 12:26:58.369 [main] INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator 
-74. 22/08 - 12:29:37.714 [main] INFO  - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling 
+2. 23/08 - 18:10:03.586 [main] INFO  - HHH000204: Processing PersistenceUnitInfo [name: projet-06] : Logger=org.hibernate.jpa.internal.util.LogHelper 
+3. 23/08 - 18:10:03.633 [main] INFO  - HHH000412: Hibernate Core {[WORKING]} : Logger=org.hibernate.Version 
+4. 23/08 - 18:10:03.742 [main] INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} : Logger=org.hibernate.annotations.common.Version 
+7. 23/08 - 18:10:04.758 [main] WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!) : Logger=org.hibernate.orm.connections.pooling 
+8. 23/08 - 18:10:04.758 [main] INFO  - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling 
+9. 23/08 - 18:10:04.758 [main] INFO  - HHH10001001: Connection properties: {password=****, user=projet06} : Logger=org.hibernate.orm.connections.pooling 
+10. 23/08 - 18:10:04.758 [main] INFO  - HHH10001003: Autocommit mode: false : Logger=org.hibernate.orm.connections.pooling 
+11. 23/08 - 18:10:04.758 [main] INFO  - HHH000115: Hibernate connection pool size: 20 (min=1) : Logger=org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl 
+12. 23/08 - 18:10:05.086 [main] INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect : Logger=org.hibernate.dialect.Dialect 
+13. 23/08 - 18:10:05.336 [main] INFO  - HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader. : Logger=org.hibernate.orm.beans 
+14. 23/08 - 18:10:05.679 [main] INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5677b9e3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode. : Logger=org.hibernate.orm.connections.access 
+15. 23/08 - 18:10:05.711 [main] INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] : Logger=org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator 
+76. 23/08 - 18:10:05.961 [main] INFO  - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/ocr_projet06?serverTimezone=UTC] : Logger=org.hibernate.orm.connections.pooling 

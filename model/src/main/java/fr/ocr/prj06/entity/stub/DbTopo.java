@@ -115,7 +115,7 @@ public class DbTopo implements Serializable {
         return Objects.hash(idtopo, nom, estPublie, estDisponible, resume, lieu, dateDeParution);
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST )
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser")
     public DbUser getUserByUserIduser() {
         return userByUserIduser;

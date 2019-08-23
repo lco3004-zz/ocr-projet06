@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO" monitorInterval="30" name="OCR-Projet06">
+<Configuration status="ALL" monitorInterval="30" name="OCR-Projet06">
     <Properties>
         <Property name="framework_logs">./logs/frameworks.log</Property>
         <Property name="projet06_logs">./logs/project.log</Property>
@@ -35,16 +35,16 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="fr.ocr" level="DEBUG" additivity="false">
+        <Logger name="fr.ocr" level="ALL" additivity="false">
             <AppenderRef ref="FileAppli" />
         </Logger>
-        <Logger name="org.jboss.logging" level="INFO" additivity="false">
+        <Logger name="org.jboss.logging" level="ALL" additivity="false">
             <AppenderRef ref="FileSql" />
         </Logger>
-        <Logger name="Console" level="INFO" additivity="true">
+        <Logger name="Console" level="ALL" additivity="true">
             <AppenderRef ref="Console" />
         </Logger>
-        <Root level="INFO">
+        <Root level="ALL">
             <AppenderRef ref="FileSql"/>
         </Root>
     </Loggers>

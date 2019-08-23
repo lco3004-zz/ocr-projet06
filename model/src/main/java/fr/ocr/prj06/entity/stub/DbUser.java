@@ -94,7 +94,7 @@ public class DbUser implements Serializable {
         return Objects.hash(iduser, nom, email, mdp, profil);
     }
 
-    @OneToMany(cascade =CascadeType.ALL, mappedBy = "userByUserIduser")
+    @OneToMany( mappedBy = "userByUserIduser")
     public Collection<DbSpot> getSpotsByIduser() {
         return spotsByIduser;
     }
@@ -103,7 +103,7 @@ public class DbUser implements Serializable {
         this.spotsByIduser = spotsByIduser;
     }
 
-    @OneToMany(cascade =CascadeType.ALL,mappedBy = "userByUserIduser")
+    @OneToMany(mappedBy = "userByUserIduser")
     public Collection<DbTopo> getToposByIduser() {
         return toposByIduser;
     }
