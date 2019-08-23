@@ -3,6 +3,7 @@ package fr.ocr.prj06.entity.stub;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -16,6 +17,10 @@ public class DbSecteur implements Serializable {
     private Collection<DbVoie> voiesByIdsecteur;
 
     private static final long serialVersionUID=1L;
+
+    public DbSecteur(){
+        voiesByIdsecteur=new ArrayList<>();
+    }
 
     @Id
     @Column(name = "idsecteur")
@@ -52,7 +57,7 @@ public class DbSecteur implements Serializable {
         return Objects.hash(idsecteur, nom);
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST )
+    @ManyToOne
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot")
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
@@ -62,7 +67,7 @@ public class DbSecteur implements Serializable {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    @OneToMany(mappedBy = "secteurBySecteurIdsecteur")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "secteurBySecteurIdsecteur")
     public Collection<DbVoie> getVoiesByIdsecteur() {
         return voiesByIdsecteur;
     }

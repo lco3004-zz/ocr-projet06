@@ -6,7 +6,6 @@ import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import static fr.ocr.prj06.entity.common.JpaEmfUtility.getInstanceEMF;
@@ -125,7 +124,7 @@ public class BusinessMgmt {
     */
 
     /**
-     * @param idSpot
+     * @param idUser
      * @return
      * @throws Exception
      */
@@ -166,39 +165,31 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public DbSpot ajouterSpot(Integer idUser) throws Exception {
+
         DbSpot dbSpot = new DbSpot();
         DbSecteur dbSecteur = new DbSecteur();
         DbVoie dbVoie = new DbVoie();
         DbLongueur dbLongueur = new DbLongueur();
         DbCommentaire dbCommentaire = new DbCommentaire();
 
-        ArrayList<DbSecteur> dbSecteurs = new ArrayList<>();
-        ArrayList<DbVoie> dbVoies = new ArrayList<>();
-        ArrayList<DbLongueur> dbLongueurs = new ArrayList<>();
-        ArrayList<DbCommentaire> dbCommentaires = new ArrayList<>();
-
         dbCommentaire.setEstVisible(true);
         dbCommentaire.setTexte("commentaire_par_pgm");
-        dbCommentaires.add(dbCommentaire);
 
         dbLongueur.setNom("longueur_par_pgm");
         dbLongueur.setCotation("8a");
         dbLongueur.setNombreDeSpits(12);
-        dbLongueurs.add(dbLongueur);
 
         dbVoie.setNom("voie_par_pgm");
-        dbVoie.setLongueursByIdvoie(dbLongueurs);
-        dbVoies.add(dbVoie);
+        dbVoie.getLongueursByIdvoie().add(dbLongueur);
 
         dbSecteur.setNom("secteur_par_pgm");
-        dbSecteur.setVoiesByIdsecteur(dbVoies);
-        dbSecteurs.add(dbSecteur);
+        dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
         dbSpot.setClassification(STANDARD.name());
         dbSpot.setLocalisation("localisation_par_pgm");
         dbSpot.setNom("spot_par_pgm");
-        dbSpot.setSecteursByIdspot(dbSecteurs);
-        dbSpot.setCommentairesByIdspot(dbCommentaires);
+        dbSpot.getSecteursByIdspot().add(dbSecteur);
+        dbSpot.getCommentairesByIdspot().add(dbCommentaire);
 
         DbSpot dsp = jpaCtrl.createSpot(idUser, dbSpot);
 

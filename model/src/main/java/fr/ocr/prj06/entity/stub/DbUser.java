@@ -6,6 +6,7 @@ import fr.ocr.prj06.entity.common.UserProfile;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -22,6 +23,11 @@ public class DbUser implements Serializable {
 
     private Collection<DbSpot> spotsByIduser;
     private Collection<DbTopo> toposByIduser;
+
+    public DbUser() {
+        spotsByIduser=new ArrayList<>();
+        toposByIduser=new ArrayList<>();
+    }
 
     @Id
     @Column(name = "iduser")
@@ -94,7 +100,7 @@ public class DbUser implements Serializable {
         return Objects.hash(iduser, nom, email, mdp, profil);
     }
 
-    @OneToMany( mappedBy = "userByUserIduser")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userByUserIduser")
     public Collection<DbSpot> getSpotsByIduser() {
         return spotsByIduser;
     }
@@ -103,7 +109,7 @@ public class DbUser implements Serializable {
         this.spotsByIduser = spotsByIduser;
     }
 
-    @OneToMany(mappedBy = "userByUserIduser")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "userByUserIduser")
     public Collection<DbTopo> getToposByIduser() {
         return toposByIduser;
     }

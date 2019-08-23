@@ -279,7 +279,7 @@ public class JpaCtrl  {
                 dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
-
+/*
                 for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
                     dbCommentaire.setSpotBySpotIdspot(jpa.getEm().find(DbSpot.class, dbSpot.getIdspot()));
                     jpa.getEm().persist(dbCommentaire);
@@ -297,7 +297,7 @@ public class JpaCtrl  {
                         }
                     }
                 }
-
+*/
                 jpa.getEm().getTransaction().commit();
 
                 return dbSpot;

@@ -2,6 +2,7 @@ package fr.ocr.prj06.entity.stub;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -15,6 +16,11 @@ public class DbSpot implements Serializable {
     private Collection<DbCommentaire> commentairesByIdspot;
     private Collection<DbSecteur> secteursByIdspot;
     private DbUser userByUserIduser;
+
+    public DbSpot () {
+        commentairesByIdspot=new ArrayList<>();
+        secteursByIdspot=new ArrayList<>();
+    }
 
     private static final long serialVersionUID=1L;
 
@@ -74,7 +80,7 @@ public class DbSpot implements Serializable {
         return Objects.hash(idspot, nom, localisation);
     }
 
-    @OneToMany(mappedBy = "spotBySpotIdspot")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "spotBySpotIdspot")
     public Collection<DbCommentaire> getCommentairesByIdspot() {
         return commentairesByIdspot;
     }
@@ -83,7 +89,7 @@ public class DbSpot implements Serializable {
         this.commentairesByIdspot = commentairesByIdspot;
     }
 
-    @OneToMany(mappedBy = "spotBySpotIdspot")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "spotBySpotIdspot")
     public Collection<DbSecteur> getSecteursByIdspot() {
         return secteursByIdspot;
     }
@@ -92,7 +98,7 @@ public class DbSpot implements Serializable {
         this.secteursByIdspot = secteursByIdspot;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST )
+    @ManyToOne
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser")
     public DbUser getUserByUserIduser() {
         return userByUserIduser;

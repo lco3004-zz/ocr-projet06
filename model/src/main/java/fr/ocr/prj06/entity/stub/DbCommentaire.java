@@ -67,7 +67,7 @@ public class DbCommentaire implements Serializable {
         return Objects.hash(idcommentaire, texte, estVisible);
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST )
+    @ManyToOne
     @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot")
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
