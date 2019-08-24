@@ -1,0 +1,6 @@
+Hello from : App
+Liste Complete Commentaires du spot :1
+-->idCommentaire: 2 idSpot: 1 estVisible: true texte: Moderation
+Liste  Commentaires actifs (non supprimés
+Liste  Commentaires archivés (supprimés
+-->idCommentaire: 2 idSpot: 1 estVisible: false texte: Moderation
