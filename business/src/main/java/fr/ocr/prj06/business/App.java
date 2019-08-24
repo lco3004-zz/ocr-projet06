@@ -28,18 +28,25 @@ public class App {
                 businessMgmt.openDAO();
 
                 DbUser dbUser = businessMgmt.ajouterGrimpeur("laurentPgm", "laurent@laurent.pgm", "mdpPgm", UserProfile.MEMBRE);
+                DbUser dbUser2 = businessMgmt.ajouterGrimpeur("cordierPgm", "cordier@cordier.pgm", "mdpPgm", UserProfile.MEMBRE);
 
                 DbSpot dbSpot = businessMgmt.ajouterSpot(dbUser.getIduser());
+                DbSpot dbSpot1 = businessMgmt.ajouterSpot(dbUser.getIduser());
+                DbSpot dbSpot2= businessMgmt.ajouterSpot(dbUser2.getIduser());
+                DbSpot dbSpot3 = businessMgmt.ajouterSpot(dbUser.getIduser());
 
-                businessMgmt.lireCommentaire(1);
+                DbTopo dbTopo = businessMgmt.ajouterTopo(dbUser.getIduser());
+                dbTopo = businessMgmt.ajouterTopo(dbUser2.getIduser());
+                dbTopo = businessMgmt.ajouterTopo(dbUser.getIduser());
 
-                //DbTopo dbTopo = businessMgmt.ajouterTopo(dbUser.getIduser());
+                DbCommentaire dbCommentaire = businessMgmt.ajouterCommentaire(dbSpot.getIdspot(), "Hello - insertion par pgm", true);
+                dbCommentaire = businessMgmt.ajouterCommentaire(dbSpot1.getIdspot(), "Hello - insertion par pgm", true);
+                dbCommentaire = businessMgmt.ajouterCommentaire(dbSpot2.getIdspot(), "Hello - insertion par pgm", true);
+                dbCommentaire = businessMgmt.ajouterCommentaire(dbSpot.getIdspot(), "Hello - insertion par pgm", true);
 
-                //DbCommentaire dbCommentaire = businessMgmt.ajouterCommentaire(dbSpot.getIdspot(), "Hello - insertion par pgm", true);
+                dbUser = businessMgmt.modifierProfilGrimpeur(dbUser.getIduser(), UserProfile.GRIMPEUR);
 
-                dbUser = businessMgmt.modifierProfilGrimpeur(dbUser.getIduser(), UserProfile.MEMBRE);
-
-                //dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(), "Moderation", true);
+                dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(), "Moderation", true);
 
                 ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerTousLesCommentaires(dbSpot.getIdspot());
                 fileWriter.write("Liste Complete Commentaires du spot :" + Integer.valueOf(dbSpot.getIdspot()).toString());
@@ -49,9 +56,9 @@ public class App {
                     fileWriter.write("\n");
                 }
 
-                //fileWriter.write("Suppression commentaire id = " + Integer.valueOf(dbCommentaire.getIdcommentaire()).toString());
-                //fileWriter.write("\n");
-                //businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire(),false);
+                fileWriter.write("Suppression commentaire id = " + Integer.valueOf(dbCommentaire.getIdcommentaire()).toString());
+                fileWriter.write("\n");
+                businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire(),false);
                 lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
                 fileWriter.write("Liste  Commentaires actifs (non supprimés)");
                 fileWriter.write("\n");

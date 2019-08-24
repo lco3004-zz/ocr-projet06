@@ -294,6 +294,19 @@ public class JpaCtrl  {
                     jpa.getEm().merge(dbCommentaire);
                 }
 
+                for (DbSecteur dbSecteur : dbSpot.getSecteursByIdspot()) {
+                    dbSecteur.setSpotBySpotIdspot(dbSpot);
+                    jpa.getEm().merge(dbSecteur);
+                    for (DbVoie dbVoie: dbSecteur.getVoiesByIdsecteur()) {
+                        dbVoie.setSecteurBySecteurIdsecteur(dbSecteur);
+                        jpa.getEm().merge(dbVoie);
+                        for (DbLongueur dbLongueur: dbVoie.getLongueursByIdvoie()) {
+                            dbLongueur.setVoieByVoieIdvoie(dbVoie);
+                            jpa.getEm().merge(dbLongueur);
+                        }
+                    }
+                }
+
                 jpa.getEm().getTransaction().commit();
 
                 return dbSpot;
