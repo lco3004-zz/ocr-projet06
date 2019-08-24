@@ -22,7 +22,7 @@ public class DbCommentaire implements Serializable {
     private DbSpot spotBySpotIdspot;
 
     @Id
-    @Column(name = "idcommentaire")
+    @Column(name = "idcommentaire",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdcommentaire() {
         return idcommentaire;
