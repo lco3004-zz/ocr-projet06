@@ -7,6 +7,7 @@ import fr.ocr.prj06.entity.stub.*;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
@@ -157,20 +158,28 @@ public class JpaCtrl  {
      * @return
      * @throws Exception
      */
-    public List findListeCommentaires(Integer idSpot, Boolean isVisible) throws Exception {
+    public List findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             jpa.getEm().getTransaction().begin();
+            DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
 
-            CriteriaBuilder builder = jpa.getEm().getCriteriaBuilder();
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
 
-            CriteriaQuery<DbCommentaire> criteriaQuery = builder.createQuery(DbCommentaire.class);
+            CriteriaQuery<DbCommentaire> criteriaQuery = criteriaBuilder.createQuery(DbCommentaire.class);
 
             Root<DbCommentaire> root = criteriaQuery.from(DbCommentaire.class);
 
-            DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
 
             criteriaQuery.select(root);
-            criteriaQuery.where(builder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot));
+            if (isFiltrageActif) {
+                Predicate [] predicates = new Predicate[2];
+                predicates[0] = criteriaBuilder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot);
+                predicates[1] = criteriaBuilder.equal(root.get(DbCommentaire_.estVisible),flagFiltrage);
+                criteriaQuery.where(predicates);
+            }else {
+                Predicate predicate = criteriaBuilder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot);
+                criteriaQuery.where(predicate);
+            }
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 

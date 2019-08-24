@@ -34,14 +34,16 @@ public class App {
 
                 dbCommentaire = businessMgmt.modiferCommentaire(dbCommentaire.getIdcommentaire(), "Moderation", true);
 
-                ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
+                ArrayList<DbCommentaire> lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerTousLesCommentaires(dbSpot.getIdspot());
                 for (DbCommentaire x : lstCmt) {
 
                 }
 
                 businessMgmt.supprimerCommentaire(dbCommentaire.getIdcommentaire(),false);
-                int idComment = dbCommentaire.getIdcommentaire();
                 lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesActifs(dbSpot.getIdspot());
+                for (DbCommentaire x : lstCmt) {
+                }
+                lstCmt = (ArrayList<DbCommentaire>) businessMgmt.listerCommentairesArchives(dbSpot.getIdspot());
                 for (DbCommentaire x : lstCmt) {
                 }
 

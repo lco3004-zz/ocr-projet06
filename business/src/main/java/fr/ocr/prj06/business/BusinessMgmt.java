@@ -95,7 +95,16 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public List listerCommentairesActifs(Integer idSpot) throws Exception {
-        return jpaCtrl.findListeCommentaires(idSpot, true);
+        return jpaCtrl.findListeCommentaires(idSpot, true, true);
+    }
+    /**
+     *
+     * @param idSpot
+     * @return
+     * @throws Exception
+     */
+    public List listerCommentairesArchives(Integer idSpot) throws Exception {
+        return jpaCtrl.findListeCommentaires(idSpot, true, false);
     }
 
     /**
@@ -103,8 +112,8 @@ public class BusinessMgmt {
      * @return
      * @throws Exception
      */
-    public List listerCommentairesArchives(Integer idSpot) throws Exception {
-        return jpaCtrl.findListeCommentaires(idSpot, false);
+    public List listerTousLesCommentaires(Integer idSpot) throws Exception {
+        return jpaCtrl.findListeCommentaires(idSpot, false,null);
     }
 
     /**
