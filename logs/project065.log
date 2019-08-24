@@ -1,7 +1,6 @@
 Hello from : App
 Liste Complete Commentaires du spot :1
--->idCommentaire: 2 idSpot: 1 estVisible: true texte: Moderation
-Suppression commentaire id = 2
+-->idCommentaire: 1 idSpot: 1 estVisible: true texte: commentaire_par_pgm
 Liste  Commentaires actifs (non supprimés)
+-->idCommentaire: 1 idSpot: 1 estVisible: true texte: commentaire_par_pgm
 Liste  Commentaires archivés (supprimés)
--->idCommentaire: 2 idSpot: 1 estVisible: false texte: Moderation

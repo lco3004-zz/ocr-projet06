@@ -288,6 +288,12 @@ public class JpaCtrl  {
                 dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
+
+                for (DbCommentaire dbCommentaire: dbSpot.getCommentairesByIdspot()) {
+                    dbCommentaire.setSpotBySpotIdspot(dbSpot);
+                    jpa.getEm().merge(dbCommentaire);
+                }
+
                 jpa.getEm().getTransaction().commit();
 
                 return dbSpot;
