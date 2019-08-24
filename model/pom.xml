@@ -17,6 +17,7 @@
     <dependencies>
 
         <!-- ===== Artifact tiers ===== -->
+
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
         <dependency>
             <groupId>org.hibernate</groupId>

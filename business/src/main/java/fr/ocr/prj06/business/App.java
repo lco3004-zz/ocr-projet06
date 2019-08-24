@@ -8,8 +8,6 @@ import fr.ocr.prj06.entity.stub.DbUser;
 
 import java.util.ArrayList;
 
-
-
 /**
  * Hello world!
  */

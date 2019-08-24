@@ -1,4 +1,6 @@
 # ocr-projet06
+##  MODEL_V4
+## ajout de synchronizd sur entitymanagerfactory (create et close) 
 ##
 ## RETRAIT de LOG4J : le cascade.persit fonctionne ! (ok)
 ## Ajout metamodel via maven pour Criteria (ok) - warning sur (supporte que jdk 1.6)
