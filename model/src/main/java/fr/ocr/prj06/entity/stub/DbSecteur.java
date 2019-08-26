@@ -76,6 +76,13 @@ public class DbSecteur implements Serializable {
         this.voiesByIdsecteur = voiesByIdsecteur;
     }
 
+    @PostPersist
+    public void  pp () {
+        for (DbVoie dbVoie : getVoiesByIdsecteur()) {
+            dbVoie.setSecteurBySecteurIdsecteur(this);
+        }
+    }
+
     /**
      * @return
      */

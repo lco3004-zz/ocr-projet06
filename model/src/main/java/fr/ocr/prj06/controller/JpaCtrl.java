@@ -289,24 +289,6 @@ public class JpaCtrl  {
 
                 jpa.getEm().persist(dbSpot);
 
-                for (DbCommentaire dbCommentaire: dbSpot.getCommentairesByIdspot()) {
-                    dbCommentaire.setSpotBySpotIdspot(dbSpot);
-                    jpa.getEm().merge(dbCommentaire);
-                }
-
-                for (DbSecteur dbSecteur : dbSpot.getSecteursByIdspot()) {
-                    dbSecteur.setSpotBySpotIdspot(dbSpot);
-                    jpa.getEm().merge(dbSecteur);
-                    for (DbVoie dbVoie: dbSecteur.getVoiesByIdsecteur()) {
-                        dbVoie.setSecteurBySecteurIdsecteur(dbSecteur);
-                        jpa.getEm().merge(dbVoie);
-                        for (DbLongueur dbLongueur: dbVoie.getLongueursByIdvoie()) {
-                            dbLongueur.setVoieByVoieIdvoie(dbVoie);
-                            jpa.getEm().merge(dbLongueur);
-                        }
-                    }
-                }
-
                 jpa.getEm().getTransaction().commit();
 
                 return dbSpot;
@@ -352,7 +334,6 @@ public class JpaCtrl  {
      * VOIE
      * ************************************************************************************************************
      */
-    @Deprecated(since = "2019-08-20", forRemoval = true)
     public DbVoie createVoie(Integer idSecteur, String nom) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbVoie dbVoie = new DbVoie();
@@ -380,7 +361,6 @@ public class JpaCtrl  {
      * SECTEUR
      * ************************************************************************************************************
      */
-    @Deprecated(since = "2019-08-20", forRemoval = true)
     public DbSecteur createSecteur(Integer idSpot, String nom) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             DbSecteur dbSecteur = new DbSecteur();
@@ -402,8 +382,6 @@ public class JpaCtrl  {
             throw new Exception(hex1);
         }
     }
-
-
     /*
      *************************************************************************************************************
      * TOPO
@@ -430,6 +408,13 @@ public class JpaCtrl  {
             throw new Exception(hex1);
         }
     }
+
+    /**
+     *
+     * @param idUser
+     * @return
+     * @throws Exception
+     */
     public List findListeTopos(Integer idUser) throws  Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             jpa.getEm().getTransaction().begin();

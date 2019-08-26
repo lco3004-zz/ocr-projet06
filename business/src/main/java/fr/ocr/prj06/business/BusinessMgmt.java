@@ -189,15 +189,19 @@ public class BusinessMgmt {
         dbLongueur.setNombreDeSpits(12);
 
         dbVoie.setNom("voie_par_pgm");
-        dbVoie.getLongueursByIdvoie().add(dbLongueur);
 
         dbSecteur.setNom("secteur_par_pgm");
-        dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
         dbSpot.setClassification(STANDARD.name());
         dbSpot.setLocalisation("localisation_par_pgm");
         dbSpot.setNom("spot_par_pgm");
+
         dbSpot.getSecteursByIdspot().add(dbSecteur);
+
+        dbSecteur.getVoiesByIdsecteur().add(dbVoie);
+
+        dbVoie.getLongueursByIdvoie().add(dbLongueur);
+
         dbSpot.getCommentairesByIdspot().add(dbCommentaire);
 
         DbSpot dsp = jpaCtrl.createSpot(idUser, dbSpot);

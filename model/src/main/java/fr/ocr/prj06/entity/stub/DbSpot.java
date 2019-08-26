@@ -108,6 +108,15 @@ public class DbSpot implements Serializable {
         this.userByUserIduser = userByUserIduser;
     }
 
+    @PostPersist
+    public void  pp () {
+        for ( DbCommentaire dbCommentaire: getCommentairesByIdspot()) {
+            dbCommentaire.setSpotBySpotIdspot(this);
+        }
+        for (DbSecteur dbSecteur : getSecteursByIdspot()) {
+            dbSecteur.setSpotBySpotIdspot(this);
+        }
+    }
     /**
      * @return
      */
