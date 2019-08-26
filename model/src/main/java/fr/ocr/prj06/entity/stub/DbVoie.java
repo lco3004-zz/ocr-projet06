@@ -87,7 +87,8 @@ public class DbVoie implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append("idVoie: ").append(getIdvoie())
+                .append(" idSecteur: ").append(getSecteurBySecteurIdsecteur().getIdsecteur())
+                .append(" idVoie: ").append(getIdvoie())
                 .append(" Nom: ").append(getNom())
                 .toString();
     }

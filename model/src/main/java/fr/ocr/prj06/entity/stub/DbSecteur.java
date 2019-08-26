@@ -89,7 +89,8 @@ public class DbSecteur implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append("idSecteur: ").append(getIdsecteur())
+                .append(" idSpot: ").append(getSpotBySpotIdspot().getIdspot())
+                .append(" idSecteur: ").append(getIdsecteur())
                 .append(" Nom: ").append(getNom())
                 .toString();
     }

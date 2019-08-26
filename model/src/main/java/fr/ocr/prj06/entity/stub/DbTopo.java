@@ -131,7 +131,8 @@ public class DbTopo implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append("idTopo: ").append(getIdtopo())
+                .append(" idUser: ").append(getUserByUserIduser().getIduser())
+                .append(" idTopo: ").append(getIdtopo())
                 .append(" Nom: ").append(getNom())
                 .append(" Disponible: ").append(getEstDisponible())
                 .append(" Publie: ").append(getEstPublie())

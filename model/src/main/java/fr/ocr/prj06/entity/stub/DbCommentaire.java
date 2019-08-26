@@ -90,8 +90,8 @@ public class DbCommentaire implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append("idCommentaire: ").append(getIdcommentaire())
                 .append(" idSpot: ").append(getSpotBySpotIdspot().getIdspot())
+                .append(" idCommentaire: ").append(getIdcommentaire())
                 .append(" estVisible: ").append(getEstVisible())
                 .append(" texte: ").append(getTexte())
                 .toString();

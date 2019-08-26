@@ -124,7 +124,7 @@ public class DbUser implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append("idUser: ").append(getIduser())
+                .append(" idUser: ").append(getIduser())
                 .append(" Nom: ").append(getNom())
                 .append(" Mdp: ").append(getMdp())
                 .append(" Profil: ").append(getProfil().toString())
