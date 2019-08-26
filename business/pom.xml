@@ -24,7 +24,6 @@
             <groupId>fr.ocr.prj06</groupId>
             <artifactId>model</artifactId>
             <version>1.0</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- ===== Bibliothèques tierces ===== -->
