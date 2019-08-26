@@ -4,8 +4,8 @@ webapp/target/*
 model/target/*
 business/target/*
 model/target/*
-tools/target/*
+utilities/target/*
 .m2/*
 lib/*
-logProjet06/*
+logs/*
 dependency-reduced-pom.xml
