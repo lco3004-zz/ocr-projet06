@@ -1,6 +1,8 @@
 package fr.ocr.prj06.listeners;
 
 import fr.ocr.prj06.business.BusinessMgmt;
+import fr.ocr.prj06.entity.common.UserProfile;
+import fr.ocr.prj06.entity.stub.DbUser;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -33,6 +35,18 @@ public class ApplicationListener implements ServletContextListener,
          You can initialize servlet context related data here.
       */
         businessMgmt.openDAO();
+        DbUser[] dbUsers = new DbUser[2];
+        BusinessMgmt businessMgmt = null;
+        try {
+            businessMgmt = new BusinessMgmt();
+            dbUsers[0] = businessMgmt.ajouterGrimpeur("laurentPgm", "laurent@laurent.pgm", "mdpPgm", UserProfile.GRIMPEUR);
+
+            dbUsers[1] = businessMgmt.ajouterGrimpeur("CordierPgm", "cordiert@laurent.pgm", "mdpPgm", UserProfile.GRIMPEUR);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 
