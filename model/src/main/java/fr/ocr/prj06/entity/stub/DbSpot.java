@@ -99,7 +99,7 @@ public class DbSpot implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser")
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser",nullable = false)
     public DbUser getUserByUserIduser() {
         return userByUserIduser;
     }

@@ -75,7 +75,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot",nullable = false,insertable = true)
+    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot",nullable = false)
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }

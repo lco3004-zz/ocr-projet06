@@ -73,7 +73,7 @@ public class DbLongueur implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie")
+    @JoinColumn(name = "voie_idvoie", referencedColumnName = "idvoie", nullable = false)
     public DbVoie getVoieByVoieIdvoie() {
         return voieByVoieIdvoie;
     }

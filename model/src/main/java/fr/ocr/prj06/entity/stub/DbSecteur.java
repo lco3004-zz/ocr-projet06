@@ -58,7 +58,7 @@ public class DbSecteur implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot")
+    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot",nullable = false)
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }

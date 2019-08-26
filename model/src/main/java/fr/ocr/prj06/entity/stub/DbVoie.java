@@ -66,7 +66,7 @@ public class DbVoie implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur")
+    @JoinColumn(name = "secteur_idsecteur", referencedColumnName = "idsecteur",nullable = false)
     public DbSecteur getSecteurBySecteurIdsecteur() {
         return secteurBySecteurIdsecteur;
     }
