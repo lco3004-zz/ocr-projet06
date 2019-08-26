@@ -17,6 +17,11 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>fr.ocr.prj06</groupId>
+            <artifactId>utilities</artifactId>
+            <version>1.0</version>
+        </dependency>
         <!-- ===== Artifact tiers ===== -->
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
