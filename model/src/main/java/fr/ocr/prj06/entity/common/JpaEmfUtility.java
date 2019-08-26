@@ -3,7 +3,6 @@ package fr.ocr.prj06.entity.common;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -28,11 +27,17 @@ public class JpaEmfUtility implements JpaEmfInterface {
      * Constructeur qui attend en parametre, le nom l'unité de persistence
      * qui est nommée dans persistence.xml
      */
-    private JpaEmfUtility() throws IOException {
+    private JpaEmfUtility()  {
+
         Properties properties = new Properties();
-        InputStream inputStream = JpaEmfUtility.class.getResourceAsStream("/info.properties");
-        properties.load(inputStream);
-        this.persistenceUnitName = properties.getProperty(UNITE_DE_PERSISTANCE.getValeurConstante());
+        try {
+            InputStream inputStream = JpaEmfUtility.class.getResourceAsStream("/info.properties");
+            properties.load(inputStream);
+            this.persistenceUnitName = properties.getProperty(UNITE_DE_PERSISTANCE.getValeurConstante());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -41,7 +46,7 @@ public class JpaEmfUtility implements JpaEmfInterface {
      *
      * @return jpaEMFUtility  - le signleton
      */
-    public static JpaEmfUtility getInstanceEMF() throws IOException {
+    public static JpaEmfUtility getInstanceEMF()  {
         if (jpaEMFUtility == null)
             jpaEMFUtility = new JpaEmfUtility();
         return jpaEMFUtility;
@@ -52,13 +57,13 @@ public class JpaEmfUtility implements JpaEmfInterface {
      * @return emf - objet EntityManagerFactory
      * @throws Exception
      */
-    public synchronized EntityManagerFactory getEmf() throws Exception {
+    public synchronized EntityManagerFactory getEmf()  {
         try {
             if (emf == null) {
                 emf = Persistence.createEntityManagerFactory(persistenceUnitName);
             }
         } catch (Throwable ex) {
-            throw new Exception(ex);
+            ex.printStackTrace();
         }
         return emf;
     }
@@ -66,24 +71,24 @@ public class JpaEmfUtility implements JpaEmfInterface {
      * fermeture EntityMangerFactory
      *
      */
-    public synchronized void closeEmf() throws Exception {
+    public synchronized void closeEmf()  {
         try {
             if (emf != null) {
                 emf.close();
                 emf = null;
             }
         } catch (Throwable ex) {
-            throw new Exception(ex);
+           ex.printStackTrace();
         }
     }
 
     @Override
-    public void openDao() throws Exception {
+    public void openDao()  {
         getEmf();
     }
 
     @Override
-    public void closeDao() throws Exception {
+    public void closeDao()  {
         closeEmf();
     }
 }

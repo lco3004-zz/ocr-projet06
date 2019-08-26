@@ -36,16 +36,16 @@ public class BusinessMgmt {
      *
      * @throws Exception
      */
-    public void openDAO() throws Exception {
-        jpaEmfInterface.openDao();
+    public void openDAO()  {
+            jpaEmfInterface.openDao();
     }
 
     /**
      *
      * @throws Exception
      */
-    public void closeDao() throws Exception {
-        jpaEmfInterface.closeDao();
+    public void closeDao() {
+            jpaEmfInterface.closeDao();
     }
 
     /* ************************************************************************************************

@@ -1,19 +1,27 @@
 package fr.ocr.prj06.listeners;
 
+import fr.ocr.prj06.business.BusinessMgmt;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
+import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
-import javax.servlet.http.HttpSessionBindingEvent;
 
 @WebListener()
 public class ApplicationListener implements ServletContextListener,
         HttpSessionListener, HttpSessionAttributeListener {
 
+    public BusinessMgmt getBusinessMgmt() {
+        return businessMgmt;
+    }
+
+    private BusinessMgmt businessMgmt;
     // Public constructor is required by servlet spec
-    public ApplicationListener() {
+    public ApplicationListener() throws Exception {
+        businessMgmt = new BusinessMgmt();
     }
 
     // -------------------------------------------------------
@@ -24,6 +32,8 @@ public class ApplicationListener implements ServletContextListener,
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
+        businessMgmt.openDAO();
+
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
@@ -31,6 +41,8 @@ public class ApplicationListener implements ServletContextListener,
          (the Web application) is undeployed or 
          Application Server shuts down.
       */
+        businessMgmt.closeDao();
+
     }
 
     // -------------------------------------------------------
