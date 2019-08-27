@@ -213,20 +213,20 @@ public class BusinessMgmt {
         return dsp;
     }
 
-    public DbUser ajouterGrimpeur(String nomGrimpeur,
-                                  String emailGrimpeur,
-                                  String mdpGrimpeur,
-                                  UserProfile userProfile) throws Exception {
-        DbUser dbUser = new DbUser();
-        dbUser.setNom(nomGrimpeur);
-        dbUser.setEmail(emailGrimpeur);
-        dbUser.setMdp(mdpGrimpeur);
-        dbUser.setProfil(userProfile);
+    public DbGrimpeur ajouterGrimpeur(String nomGrimpeur,
+                                      String emailGrimpeur,
+                                      String mdpGrimpeur,
+                                      UserProfile userProfile) throws Exception {
+        DbGrimpeur dbGrimpeur = new DbGrimpeur();
+        dbGrimpeur.setNom(nomGrimpeur);
+        dbGrimpeur.setEmail(emailGrimpeur);
+        dbGrimpeur.setMdp(mdpGrimpeur);
+        dbGrimpeur.setProfil(userProfile);
 
-        return jpaCtrl.createUser(dbUser);
+        return jpaCtrl.createUser(dbGrimpeur);
     }
 
-    public DbUser modifierProfilGrimpeur(Integer idUser, UserProfile userProfile) throws Exception {
+    public DbGrimpeur modifierProfilGrimpeur(Integer idUser, UserProfile userProfile) throws Exception {
 
         return jpaCtrl.updateUser(idUser, userProfile);
     }

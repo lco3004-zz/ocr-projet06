@@ -11,7 +11,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "topo", schema = "ocr_projet06")
+@Table(name = "topo",   schema = "public", catalog = "projet06")
 public class DbTopo implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -91,11 +91,11 @@ public class DbTopo implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser",nullable = false)
-    private DbUser userByUserIduser;
-    public DbUser getUserByUserIduser() {
+    private DbGrimpeur userByUserIduser;
+    public DbGrimpeur getUserByUserIduser() {
         return userByUserIduser;
     }
-    public void setUserByUserIduser(DbUser userByUserIduser) {
+    public void setUserByUserIduser(DbGrimpeur userByUserIduser) {
         this.userByUserIduser = userByUserIduser;
     }
 

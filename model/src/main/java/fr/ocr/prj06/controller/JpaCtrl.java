@@ -198,16 +198,16 @@ public class JpaCtrl  {
      * USER
      * ************************************************************************************************************
      */
-    public DbUser readUser(Integer idUser) throws Exception {
+    public DbGrimpeur readUser(Integer idUser) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
                 jpa.getEm().getTransaction().begin();
 
-                DbUser dbUser = jpa.getEm().find(DbUser.class, idUser);
+                DbGrimpeur dbGrimpeur = jpa.getEm().find(DbGrimpeur.class, idUser);
 
                 jpa.getEm().getTransaction().commit();
 
-                return dbUser;
+                return dbGrimpeur;
 
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
@@ -219,19 +219,19 @@ public class JpaCtrl  {
     }
 
     /**
-     * @param dbUser
+     * @param dbGrimpeur
      * @return
      * @throws Exception
      */
-    public DbUser createUser(DbUser dbUser) throws Exception {
+    public DbGrimpeur createUser(DbGrimpeur dbGrimpeur) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
-                jpa.getEm().persist(dbUser);
+                jpa.getEm().persist(dbGrimpeur);
                 jpa.getEm().getTransaction().commit();
 
-                return dbUser;
+                return dbGrimpeur;
 
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
@@ -247,16 +247,16 @@ public class JpaCtrl  {
      * @return
      * @throws Exception
      */
-    public DbUser updateUser(Integer idUser, UserProfile userProfil) throws Exception {
+    public DbGrimpeur updateUser(Integer idUser, UserProfile userProfil) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
-                DbUser dbUser = jpa.getEm().find(DbUser.class, idUser);
-                dbUser.setProfil(userProfil);
+                DbGrimpeur dbGrimpeur = jpa.getEm().find(DbGrimpeur.class, idUser);
+                dbGrimpeur.setProfil(userProfil);
                 jpa.getEm().getTransaction().commit();
 
-                return dbUser;
+                return dbGrimpeur;
 
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
@@ -286,7 +286,7 @@ public class JpaCtrl  {
 
                 jpa.getEm().getTransaction().begin();
 
-                dbSpot.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
+                dbSpot.setUserByUserIduser(jpa.getEm().find(DbGrimpeur.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
 
@@ -394,7 +394,7 @@ public class JpaCtrl  {
             try {
                 jpa.getEm().getTransaction().begin();
 
-                dbTopo.setUserByUserIduser(jpa.getEm().find(DbUser.class, idUser));
+                dbTopo.setUserByUserIduser(jpa.getEm().find(DbGrimpeur.class, idUser));
 
                 jpa.getEm().persist(dbTopo);
 
@@ -428,7 +428,7 @@ public class JpaCtrl  {
             criteriaQuery.select(root);
 
             if (idUser != null) {
-                DbUser  userByUserIduser = jpa.getEm().find(DbUser.class, idUser);
+                DbGrimpeur userByUserIduser = jpa.getEm().find(DbGrimpeur.class, idUser);
                 Predicate predicate = criteriaBuilder.equal(root.get(DbTopo_.USER_BY_USER_IDUSER),userByUserIduser );
                 criteriaQuery.where(predicate);
             }

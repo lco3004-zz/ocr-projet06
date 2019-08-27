@@ -11,8 +11,8 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user", schema = "ocr_projet06")
-public class DbUser implements Serializable {
+@Table(name = "grimpeur",  schema = "public", catalog = "projet06")
+public class DbGrimpeur implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int iduser;
@@ -24,7 +24,7 @@ public class DbUser implements Serializable {
     private Collection<DbSpot> spotsByIduser;
     private Collection<DbTopo> toposByIduser;
 
-    public DbUser() {
+    public DbGrimpeur() {
         spotsByIduser=new ArrayList<>();
         toposByIduser=new ArrayList<>();
     }
@@ -87,7 +87,7 @@ public class DbUser implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DbUser that = (DbUser) o;
+        DbGrimpeur that = (DbGrimpeur) o;
         return iduser == that.iduser &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(email, that.email) &&

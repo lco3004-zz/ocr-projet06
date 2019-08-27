@@ -1,21 +1,14 @@
 package fr.ocr.prj06.entity.stub;
 
 import fr.ocr.prj06.entity.common.JpaConvBoolInt;
-import fr.ocr.prj06.entity.common.JpaEmUtility;
 
 import javax.persistence.*;
-import javax.persistence.metamodel.EntityType;
-import javax.persistence.metamodel.Metamodel;
-import javax.persistence.metamodel.SingularAttribute;
-import javax.persistence.metamodel.Type;
 import java.io.Serializable;
-import java.lang.reflect.Member;
-import java.util.List;
 import java.util.Objects;
 
 
 @Entity
-@Table(name = "commentaire", schema = "ocr_projet06")
+@Table(name = "commentaire", schema = "public", catalog = "projet06")
 public class DbCommentaire implements Serializable {
 
     private static final long serialVersionUID = 1L;

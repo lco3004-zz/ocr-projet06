@@ -26,32 +26,32 @@ public class App {
             try {
                 businessMgmt.openDAO();
 
-                DbUser [] dbUsers = new DbUser[2];
+                DbGrimpeur[] dbGrimpeurs = new DbGrimpeur[2];
 
-                dbUsers[0] = businessMgmt.ajouterGrimpeur("laurentPgm", "laurent@laurent.pgm", "mdpPgm", UserProfile.GRIMPEUR);
+                dbGrimpeurs[0] = businessMgmt.ajouterGrimpeur("laurentPgm", "laurent@laurent.pgm", "mdpPgm", UserProfile.GRIMPEUR);
 
-                dbUsers[1] = businessMgmt.ajouterGrimpeur("CordierPgm", "cordiert@laurent.pgm", "mdpPgm", UserProfile.GRIMPEUR);
+                dbGrimpeurs[1] = businessMgmt.ajouterGrimpeur("CordierPgm", "cordiert@laurent.pgm", "mdpPgm", UserProfile.GRIMPEUR);
 
                 fileWriter.write("Liste Complete Users  :" );
                 fileWriter.write("\n");
-                for (DbUser x : dbUsers) {
+                for (DbGrimpeur x : dbGrimpeurs) {
                     fileWriter.write("-->" + x.toString());
                     fileWriter.write("\n");
                 }
                 fileWriter.write("\n");
 
-                dbUsers[1] = businessMgmt.modifierProfilGrimpeur(dbUsers[1].getIduser(), UserProfile.MEMBRE);
+                dbGrimpeurs[1] = businessMgmt.modifierProfilGrimpeur(dbGrimpeurs[1].getIduser(), UserProfile.MEMBRE);
 
                 fileWriter.write("Liste Complete Users  apres Update profile:" );
                 fileWriter.write("\n");
-                for (DbUser x : dbUsers) {
+                for (DbGrimpeur x : dbGrimpeurs) {
                     fileWriter.write("-->" + x.toString());
                     fileWriter.write("\n");
                 }
                 fileWriter.write("\n");
                 fileWriter.write("\n");
 
-                DbSpot dbSpot = businessMgmt.ajouterSpot(dbUsers[1].getIduser());
+                DbSpot dbSpot = businessMgmt.ajouterSpot(dbGrimpeurs[1].getIduser());
                 fileWriter.write("Liste Complete Spot  :" + dbSpot.toString());
                 fileWriter.write("\n");
                 fileWriter.write("Liste Complete Secteur du Spot  :" + Integer.valueOf(dbSpot.getIdspot()));
@@ -79,14 +79,14 @@ public class App {
                 fileWriter.write("\n");
 
 
-                businessMgmt.ajouterTopo(dbUsers[0].getIduser());
-                businessMgmt.ajouterTopo(dbUsers[0].getIduser());
-                businessMgmt.ajouterTopo(dbUsers[0].getIduser());
-                businessMgmt.ajouterTopo(dbUsers[1].getIduser());
-                businessMgmt.ajouterTopo(dbUsers[1].getIduser());
-                businessMgmt.ajouterTopo(dbUsers[1].getIduser());
+                businessMgmt.ajouterTopo(dbGrimpeurs[0].getIduser());
+                businessMgmt.ajouterTopo(dbGrimpeurs[0].getIduser());
+                businessMgmt.ajouterTopo(dbGrimpeurs[0].getIduser());
+                businessMgmt.ajouterTopo(dbGrimpeurs[1].getIduser());
+                businessMgmt.ajouterTopo(dbGrimpeurs[1].getIduser());
+                businessMgmt.ajouterTopo(dbGrimpeurs[1].getIduser());
 
-                fileWriter.write("Liste Complete Topos  de dbUser.idUser :" + dbUsers[0].getIduser());
+                fileWriter.write("Liste Complete Topos  de dbUser.idUser :" + dbGrimpeurs[0].getIduser());
                 fileWriter.write("\n");
                 for (DbTopo dbTopo :  businessMgmt.listerTousTopos() ) {
                     fileWriter.write("Topo  :" + dbTopo.toString());

@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "spot", schema = "ocr_projet06")
+@Table(name = "spot",   schema = "public", catalog = "projet06")
 public class DbSpot implements Serializable {
     private int idspot;
     private String nom;
@@ -15,7 +15,7 @@ public class DbSpot implements Serializable {
     private String classification;
     private Collection<DbCommentaire> commentairesByIdspot;
     private Collection<DbSecteur> secteursByIdspot;
-    private DbUser userByUserIduser;
+    private DbGrimpeur userByUserIduser;
 
     public DbSpot () {
         commentairesByIdspot=new ArrayList<>();
@@ -100,11 +100,11 @@ public class DbSpot implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "user_iduser", referencedColumnName = "iduser",nullable = false)
-    public DbUser getUserByUserIduser() {
+    public DbGrimpeur getUserByUserIduser() {
         return userByUserIduser;
     }
 
-    public void setUserByUserIduser(DbUser userByUserIduser) {
+    public void setUserByUserIduser(DbGrimpeur userByUserIduser) {
         this.userByUserIduser = userByUserIduser;
     }
 
