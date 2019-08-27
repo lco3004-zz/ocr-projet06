@@ -78,6 +78,15 @@ public class App {
 
 
                 businessMgmt.ajouterTopo(dbUsers[0].getIduser());
+                fileWriter.write("Liste Complete Topos  de dbUser.idUser :" + dbUsers[0].getIduser());
+                fileWriter.write("\n");
+                for (DbTopo dbTopo :  businessMgmt.listerTopos(dbUsers[0].getIduser()) ) {
+                    fileWriter.write("Longueur  :" + dbTopo.toString());
+                }
+
+                fileWriter.write("\n");
+                fileWriter.write("\n");
+
 
                 businessMgmt.ajouterCommentaire(dbSpot.getIdspot(), "Hello - insertion par pgm", true);
 

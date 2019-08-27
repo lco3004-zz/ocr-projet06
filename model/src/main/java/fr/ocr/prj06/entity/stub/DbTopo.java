@@ -1,5 +1,6 @@
 package fr.ocr.prj06.entity.stub;
 
+import fr.ocr.prj06.entity.common.EtatsResaTopo;
 import fr.ocr.prj06.entity.common.JpaConvBoolInt;
 import fr.ocr.prj06.entity.common.JpaConvEnumResaTopoToString;
 
@@ -8,7 +9,6 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
-//import java.util.Date;
 
 @Entity
 @Table(name = "topo", schema = "ocr_projet06")
@@ -50,11 +50,11 @@ public class DbTopo implements Serializable {
     @Basic
     @Column(name = "est_disponible")
     @Convert(converter = JpaConvEnumResaTopoToString.class)
-    private String etatReservation;
-    public String getEtatReservation() {
+    private EtatsResaTopo etatReservation;
+    public EtatsResaTopo getEtatReservation() {
         return etatReservation;
     }
-    public void setEtatReservation(String estDisponible) {
+    public void setEtatReservation(EtatsResaTopo estDisponible) {
         this.etatReservation = etatReservation;
     }
 

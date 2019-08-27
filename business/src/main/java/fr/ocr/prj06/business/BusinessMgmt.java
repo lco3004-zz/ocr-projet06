@@ -1,6 +1,7 @@
 package fr.ocr.prj06.business;
 
 import fr.ocr.prj06.controller.JpaCtrl;
+import fr.ocr.prj06.entity.common.EtatsResaTopo;
 import fr.ocr.prj06.entity.common.JpaEmfInterface;
 import fr.ocr.prj06.entity.common.UserProfile;
 import fr.ocr.prj06.entity.stub.*;
@@ -137,7 +138,7 @@ public class BusinessMgmt {
      * @return
      * @throws Exception
      */
-    public List listerTopos(Integer idUser) throws Exception {
+    public List<DbTopo> listerTopos(Integer idUser) throws Exception {
         return jpaCtrl.findListeTopos(idUser );
     }
     /**
@@ -152,7 +153,7 @@ public class BusinessMgmt {
         Date date = Date.valueOf("2019-08-23");
 
         dbTopo.setDateDeParution(date);
-        dbTopo.setEstDisponible(true);
+        dbTopo.setEtatReservation(EtatsResaTopo.W_FR);
         dbTopo.setLieu("Ici_par_Pgm");
         dbTopo.setEstPublie(true);
         dbTopo.setNom("nom_par_pgm");

@@ -415,7 +415,7 @@ public class JpaCtrl  {
      * @return
      * @throws Exception
      */
-    public List findListeTopos(Integer idUser) throws  Exception {
+    public List<DbTopo> findListeTopos(Integer idUser) throws  Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             jpa.getEm().getTransaction().begin();
 
@@ -428,11 +428,10 @@ public class JpaCtrl  {
             DbUser dbTopo = jpa.getEm().find(DbUser.class, idUser);
 
             criteriaQuery.select(root);
-            //criteriaQuery.where(builder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot));
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
-            ArrayList<DbCommentaire> ret = (ArrayList<DbCommentaire>) query.getResultList();
+            List<DbTopo> ret = (List<DbTopo>) query.getResultList();
 
             jpa.getEm().getTransaction().commit();
             return ret;
