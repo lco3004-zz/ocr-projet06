@@ -20,6 +20,15 @@ Liste Complete Longeur de la Voie  :1
 Longueur  : idVoie: 1 idLongueur: 1 Nom: longueur_par_pgm Cotation: 8a NombreSpits: 12
 
 
+Liste Complete Topos  de dbUser.idUser :1
+Topo  : idUser: 1 idTopo: 1 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 1 idTopo: 2 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 1 idTopo: 3 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 2 idTopo: 4 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 2 idTopo: 5 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 2 idTopo: 6 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+
+
 Liste Complete Commentaires du spot :1
 
 --> idSpot: 1 idCommentaire: 1 estVisible: true texte: commentaire_par_pgm

@@ -6,7 +6,7 @@ import fr.ocr.prj06.entity.common.JpaConvEnumResaTopoToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 
@@ -48,13 +48,14 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "est_disponible")
+    @Column(name = "etat_reservation")
     @Convert(converter = JpaConvEnumResaTopoToString.class)
     private EtatsResaTopo etatReservation;
     public EtatsResaTopo getEtatReservation() {
         return etatReservation;
     }
-    public void setEtatReservation(EtatsResaTopo estDisponible) {
+    public void setEtatReservation(EtatsResaTopo etatReservation) {
+
         this.etatReservation = etatReservation;
     }
 
@@ -81,7 +82,7 @@ public class DbTopo implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "date_de_parution")
     private Date dateDeParution;
-    public java.util.Date getDateDeParution() {
+    public Date getDateDeParution() {
         return dateDeParution;
     }
     public void setDateDeParution(Date dateDeParution) {
@@ -123,7 +124,7 @@ public class DbTopo implements Serializable {
                 .append(" idUser: ").append(getUserByUserIduser().getIduser())
                 .append(" idTopo: ").append(getIdtopo())
                 .append(" Nom: ").append(getNom())
-                .append(" Disponible: ").append(getEtatReservation())
+                .append(" EtatResa: ").append(etatReservation.toString())
                 .append(" Publie: ").append(getEstPublie())
                 .append(" lieu: ").append(getLieu())
                 .append(" resume: ").append(getResume())

@@ -158,7 +158,7 @@ public class JpaCtrl  {
      * @return
      * @throws Exception
      */
-    public List findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception {
+    public List<? extends DbCommentaire> findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             jpa.getEm().getTransaction().begin();
             DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
@@ -171,6 +171,7 @@ public class JpaCtrl  {
 
 
             criteriaQuery.select(root);
+
             if (isFiltrageActif) {
                 Predicate [] predicates = new Predicate[2];
                 predicates[0] = criteriaBuilder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot);
@@ -419,15 +420,18 @@ public class JpaCtrl  {
         try (JpaEmUtility jpa = new JpaEmUtility()) {
             jpa.getEm().getTransaction().begin();
 
-            CriteriaBuilder builder = jpa.getEm().getCriteriaBuilder();
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
 
-            CriteriaQuery<DbTopo> criteriaQuery = builder.createQuery(DbTopo.class);
+            CriteriaQuery<DbTopo> criteriaQuery = criteriaBuilder.createQuery(DbTopo.class);
 
             Root<DbTopo> root = criteriaQuery.from(DbTopo.class);
-
-            DbUser dbTopo = jpa.getEm().find(DbUser.class, idUser);
-
             criteriaQuery.select(root);
+
+            if (idUser != null) {
+                DbUser  userByUserIduser = jpa.getEm().find(DbUser.class, idUser);
+                Predicate predicate = criteriaBuilder.equal(root.get(DbTopo_.USER_BY_USER_IDUSER),userByUserIduser );
+                criteriaQuery.where(predicate);
+            }
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 

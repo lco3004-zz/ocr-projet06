@@ -132,7 +132,9 @@ public class BusinessMgmt {
     * TOPOs
     * ***********************************************************************************************
     */
-
+    public Iterable<? extends DbTopo> listerTousTopos() throws Exception {
+        return jpaCtrl.findListeTopos(null );
+    }
     /**
      * @param idUser
      * @return
@@ -153,7 +155,8 @@ public class BusinessMgmt {
         Date date = Date.valueOf("2019-08-23");
 
         dbTopo.setDateDeParution(date);
-        dbTopo.setEtatReservation(EtatsResaTopo.W_FR);
+        EtatsResaTopo etatsResaTopo = EtatsResaTopo.W_FR;
+        dbTopo.setEtatReservation(etatsResaTopo);
         dbTopo.setLieu("Ici_par_Pgm");
         dbTopo.setEstPublie(true);
         dbTopo.setNom("nom_par_pgm");
@@ -227,4 +230,6 @@ public class BusinessMgmt {
 
         return jpaCtrl.updateUser(idUser, userProfile);
     }
+
+
 }

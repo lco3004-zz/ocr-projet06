@@ -6,6 +6,8 @@ import fr.ocr.prj06.entity.stub.*;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+
+
 /**
  * Hello world!
  */
@@ -78,10 +80,17 @@ public class App {
 
 
                 businessMgmt.ajouterTopo(dbUsers[0].getIduser());
+                businessMgmt.ajouterTopo(dbUsers[0].getIduser());
+                businessMgmt.ajouterTopo(dbUsers[0].getIduser());
+                businessMgmt.ajouterTopo(dbUsers[1].getIduser());
+                businessMgmt.ajouterTopo(dbUsers[1].getIduser());
+                businessMgmt.ajouterTopo(dbUsers[1].getIduser());
+
                 fileWriter.write("Liste Complete Topos  de dbUser.idUser :" + dbUsers[0].getIduser());
                 fileWriter.write("\n");
-                for (DbTopo dbTopo :  businessMgmt.listerTopos(dbUsers[0].getIduser()) ) {
-                    fileWriter.write("Longueur  :" + dbTopo.toString());
+                for (DbTopo dbTopo :  businessMgmt.listerTousTopos() ) {
+                    fileWriter.write("Topo  :" + dbTopo.toString());
+                    fileWriter.write("\n");
                 }
 
                 fileWriter.write("\n");
