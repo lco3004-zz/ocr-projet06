@@ -1,0 +1,67 @@
+package org.christianschenk.testrealm;
+
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.catalina.realm.GenericPrincipal;
+import org.apache.catalina.realm.RealmBase;
+
+public class MyRealm extends RealmBase {
+
+  @Override
+  protected String getName() {
+    return this.getClass().getSimpleName();
+  }
+
+  @Override
+  protected String getPassword(final String username) {
+    return "test123";
+  }
+
+  @Override
+  protected Principal getPrincipal(final String username) {
+    final List<String> roles = new ArrayList<String>();
+    roles.add("tomcat");
+    return new GenericPrincipal(this, username, "test123", roles);
+  }
+}
+https://www.christianschenk.org/blog/setup-your-own-tomcat-security-realm/
+
+
+As you might guess from the code every user name will be allowed as long as the password is test123. Furthermore the user will have the role tomcat.
+
+Compile the code, put it in a JAR and copy the JAR to server/lib inside your Tomcat.
+
+Configure the webapp
+Next we’ll add a context to the Tomcat server and put the realm inside it. If the need arises the realm can also go into the Engine or Host element and thus have a broader scope. Finally we’ll configure the webapp (web.xml) and declare some security requirements.
+
+Put the following context into conf/Catalina/localhost/realmtest.xml or inside the server.xml and adjust the docBase attribute:
+
+<Context path="/realmtest" debug="0" reloadable="true"
+         docBase="path/to/your/webapp/">
+
+  <Realm className="org.christianschenk.testrealm.MyRealm" debug="0" />
+</Context>
+I want to restrict access to the whole webapp with Basic HTTP authentication and want users to have the role tomcat, so I put this into the webapp’s web.xml:
+
+<security-constraint>
+  <web-resource-collection>
+    <web-resource-name>The entire webapp</web-resource-name>
+    <url-pattern>/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>tomcat</role-name>
+  </auth-constraint>
+</security-constraint>
+<login-config>
+  <auth-method>BASIC</auth-method>
+  <realm-name>MyRealm</realm-name>
+</login-config>
+<security-role>
+  <role-name>tomcat</role-name>
+</security-role>
+Testing and Conclusion
+To test the setup start the Tomcat server and check catalina.out for errors. If everything went fine try to access your web application at /realmtest where you should be prompted to enter a user name and password. Type whatever user name you want and use test123 for the password: your attempt to log in will be successful. If you try to enter another password, access should be denied.
+
+As we have seen it’s easy and fun to code and setup your own realm for the Tomcat server. Before reinventing the wheel have a look at the Realm Configuration Howto and check out the available realms. Probably it’s the JDBCRealm you’re looking for: it’ll fetch credentials and roles from a database. If this isn’t sufficient, go ahead and write your own realm.
