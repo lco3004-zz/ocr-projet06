@@ -1,14 +1,14 @@
 Hello from : App
 Liste Complete Users  :
---> idUser: 1 Nom: laurentPgm Mdp: mdpPgm Profil: GRIMPEUR email: laurent@laurent.pgm
---> idUser: 2 Nom: CordierPgm Mdp: mdpPgm Profil: GRIMPEUR email: cordiert@laurent.pgm
+--> idUser: 2 Nom: laurentPgm Mdp: mdpPgm Profil: GRIMPEUR email: laurent@laurent.pgm
+--> idUser: 3 Nom: CordierPgm Mdp: mdpPgm Profil: GRIMPEUR email: cordiert@laurent.pgm
 
 Liste Complete Users  apres Update profile:
---> idUser: 1 Nom: laurentPgm Mdp: mdpPgm Profil: GRIMPEUR email: laurent@laurent.pgm
---> idUser: 2 Nom: CordierPgm Mdp: mdpPgm Profil: MEMBRE email: cordiert@laurent.pgm
+--> idUser: 2 Nom: laurentPgm Mdp: mdpPgm Profil: GRIMPEUR email: laurent@laurent.pgm
+--> idUser: 3 Nom: CordierPgm Mdp: mdpPgm Profil: MEMBRE email: cordiert@laurent.pgm
 
 
-Liste Complete Spot  : idUser: 2 idSpot: 1 Nom: spot_par_pgm localisation: localisation_par_pgm Classification: STANDARD
+Liste Complete Spot  : idUser: 3 idSpot: 1 Nom: spot_par_pgm localisation: localisation_par_pgm Classification: STANDARD
 Liste Complete Secteur du Spot  :1
 
 Secteur  : idSpot: 1 idSecteur: 1 Nom: secteur_par_pgm
@@ -20,38 +20,38 @@ Liste Complete Longeur de la Voie  :1
 Longueur  : idVoie: 1 idLongueur: 1 Nom: longueur_par_pgm Cotation: 8a NombreSpits: 12
 
 
-Liste Complete Topos  de dbUser.idUser :1
-Topo  : idUser: 1 idTopo: 1 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
-Topo  : idUser: 1 idTopo: 2 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
-Topo  : idUser: 1 idTopo: 3 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
-Topo  : idUser: 2 idTopo: 4 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
-Topo  : idUser: 2 idTopo: 5 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Liste Complete Topos  de dbUser.idUser :2
 Topo  : idUser: 2 idTopo: 6 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 2 idTopo: 7 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 2 idTopo: 8 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 3 idTopo: 9 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 3 idTopo: 10 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
+Topo  : idUser: 3 idTopo: 11 Nom: nom_par_pgm EtatResa: W_FR Publie: true lieu: Ici_par_Pgm resume: resume_par_pgm
 
 
 Liste Complete Commentaires du spot :1
 
---> idSpot: 1 idCommentaire: 1 estVisible: true texte: commentaire_par_pgm
---> idSpot: 1 idCommentaire: 2 estVisible: true texte: Hello - insertion par pgm
---> idSpot: 1 idCommentaire: 3 estVisible: true texte: Hello bis - insertion par pgm
+--> idSpot: 1 idCommentaire: 3 estVisible: true texte: commentaire_par_pgm
+--> idSpot: 1 idCommentaire: 4 estVisible: true texte: Hello - insertion par pgm
+--> idSpot: 1 idCommentaire: 5 estVisible: true texte: Hello bis - insertion par pgm
 
 
 Liste Complete Commentaires du spot : 1 ,  APRES Moderation
 
---> idSpot: 1 idCommentaire: 1 estVisible: true texte: commentaire_par_pgm
---> idSpot: 1 idCommentaire: 2 estVisible: true texte: Hello - insertion par pgm
---> idSpot: 1 idCommentaire: 3 estVisible: true texte: Moderation
+--> idSpot: 1 idCommentaire: 3 estVisible: true texte: commentaire_par_pgm
+--> idSpot: 1 idCommentaire: 4 estVisible: true texte: Hello - insertion par pgm
+--> idSpot: 1 idCommentaire: 5 estVisible: true texte: Moderation
 
 
-Suppression commentaire id = 3
+Suppression commentaire id = 5
 Liste  Commentaires actifs (non supprimés)
 
---> idSpot: 1 idCommentaire: 1 estVisible: true texte: commentaire_par_pgm
---> idSpot: 1 idCommentaire: 2 estVisible: true texte: Hello - insertion par pgm
+--> idSpot: 1 idCommentaire: 3 estVisible: true texte: commentaire_par_pgm
+--> idSpot: 1 idCommentaire: 4 estVisible: true texte: Hello - insertion par pgm
 
 
 Liste  Commentaires archivés (supprimés)
 
---> idSpot: 1 idCommentaire: 3 estVisible: false texte: Moderation
+--> idSpot: 1 idCommentaire: 5 estVisible: false texte: Moderation
 
 
