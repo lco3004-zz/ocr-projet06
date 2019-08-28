@@ -1,3 +1,26 @@
+
+
+
+
+You can try these two methods from the HttpServletRequest interface.
+
+getUserPrincipal() returns a Principal from which you can get the logged used as getUserPrincipal().getName().
+
+isUserInRole("Administrators") returns true if the current Principal is in the provided role.
+
+http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html
+
+
+
+
+Tomcat follows the servlet specification and makes the user's information available to your webapp in two ways:
+
+Use request.getUserPrincipal to get the java.security.Principal that represents the user. You can call Principal.getName to get the user's name.
+Use request.isUserInRole to check if a user has a particular role.
+
+
+/*************************************
+
 package org.christianschenk.testrealm;
 
 import java.security.Principal;
