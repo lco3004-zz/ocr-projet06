@@ -1,3 +1,8 @@
+
+--  -------------------- POSTGRESQL - PROJET06 ---------------------------------
+--  Pour une maquette, pourqoui utiliser MySql qui est simple et rapide à construire
+--  alors que PostGresql permet de perdre  des heures à faire ce qui suit
+-- -----------------------------------------------------------------------------
 -- Database: projet06
 
 DROP DATABASE IF EXISTS projet06;
@@ -15,34 +20,121 @@ GRANT ALL ON DATABASE projet06 TO postgres;
 
 GRANT TEMPORARY, CONNECT ON DATABASE projet06 TO PUBLIC;
 
+--  -------------------------------------------------------------------------
+-- et les Drop dans l'ordre
+-- ---------------------------------------------------------------------------
 
--- Table: public.commentaire
-
+DROP TABLE IF EXISTS public.longueur;
+DROP TABLE IF EXISTS public.voie;
+DROP TABLE  IF EXISTS public.secteur;
 DROP TABLE IF EXISTS public.commentaire;
+DROP TABLE IF EXISTS public.topo;
+DROP TABLE  IF EXISTS public.spot;
+DROP TABLE IF EXISTS public.grimpeur;
 
-CREATE TABLE public.commentaire
-(
-    idcommentaire integer NOT NULL DEFAULT nextval('commentaire_idcommentaire_seq'::regclass),
-    est_visible integer,
-    texte character varying(256) COLLATE pg_catalog."default",
-    spot_idspot integer NOT NULL,
-    CONSTRAINT commentaire_pkey PRIMARY KEY (idcommentaire),
-    CONSTRAINT fk9opuacfoym9aae4x5no6clpva FOREIGN KEY (spot_idspot)
-        REFERENCES public.spot (idspot) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-    WITH (
-        OIDS = FALSE
-    )
-    TABLESPACE pg_default;
+DROP SEQUENCE IF EXISTS  public.commentaire_idcommentaire_seq;
+DROP SEQUENCE IF EXISTS public.grimpeur_iduser_seq;
+DROP SEQUENCE IF EXISTS public.longueur_idlongueur_seq;
+DROP SEQUENCE IF EXISTS public.secteur_idsecteur_seq;
+DROP SEQUENCE IF EXISTS public.voie_idvoie_seq;
+DROP SEQUENCE IF EXISTS public.topo_idtopo_seq;
+DROP SEQUENCE IF EXISTS public.spot_idspot_seq;
 
-ALTER TABLE public.commentaire
-    OWNER to postgres;
+-- ---------------------   SEQUENCE --------------------------------------------
+-- pour commencer !!
+-- -------------------------------------------------------------------------
+
+-- SEQUENCE: public.commentaire_idcommentaire_seq
+
+CREATE SEQUENCE public.commentaire_idcommentaire_seq
+    INCREMENT 1
+    START 3
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.commentaire_idcommentaire_seq
+    OWNER TO postgres;
+
+-- SEQUENCE: public.grimpeur_iduser_seq
+
+CREATE SEQUENCE public.grimpeur_iduser_seq
+    INCREMENT 1
+    START 2
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.grimpeur_iduser_seq
+    OWNER TO postgres;
+
+-- SEQUENCE: public.longueur_idlongueur_seq
+
+CREATE SEQUENCE public.longueur_idlongueur_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.longueur_idlongueur_seq
+    OWNER TO postgres;
+
+
+-- SEQUENCE: public.secteur_idsecteur_seq
+
+CREATE SEQUENCE public.secteur_idsecteur_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.secteur_idsecteur_seq
+    OWNER TO postgres;
+
+
+-- SEQUENCE: public.spot_idspot_seq
+
+CREATE SEQUENCE public.spot_idspot_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.spot_idspot_seq
+    OWNER TO postgres;
+
+
+-- SEQUENCE: public.topo_idtopo_seq
+
+CREATE SEQUENCE public.topo_idtopo_seq
+    INCREMENT 1
+    START 6
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.topo_idtopo_seq
+    OWNER TO postgres;
+
+
+-- SEQUENCE: public.voie_idvoie_seq
+
+CREATE SEQUENCE public.voie_idvoie_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.voie_idvoie_seq
+    OWNER TO postgres;
+
+-- Table NBIEN RESPECTER l'ORDRE ------------------------
 
 -- Table: public.grimpeur
-
-DROP TABLE IF EXISTS public.grimpeur;
 
 CREATE TABLE public.grimpeur
 (
@@ -60,58 +152,9 @@ CREATE TABLE public.grimpeur
 
 ALTER TABLE public.grimpeur
     OWNER to postgres;
-
--- Table: public.longueur
-
-DROP TABLE IF EXISTS public.longueur;
-
-CREATE TABLE public.longueur
-(
-    idlongueur integer NOT NULL DEFAULT nextval('longueur_idlongueur_seq'::regclass),
-    cotation character varying(45) COLLATE pg_catalog."default",
-    nom character varying(45) COLLATE pg_catalog."default",
-    nombre_de_spits integer,
-    voie_idvoie integer NOT NULL,
-    CONSTRAINT longueur_pkey PRIMARY KEY (idlongueur),
-    CONSTRAINT fkp0jjx9qv97soh8eofxd8lwgr4 FOREIGN KEY (voie_idvoie)
-        REFERENCES public.voie (idvoie) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-    WITH (
-        OIDS = FALSE
-    )
-    TABLESPACE pg_default;
-
-ALTER TABLE public.longueur
-    OWNER to postgres;
-
--- Table: public.secteur
-
-DROP TABLE  IF EXISTS public.secteur;
-
-CREATE TABLE public.secteur
-(
-    idsecteur integer NOT NULL DEFAULT nextval('secteur_idsecteur_seq'::regclass),
-    nom character varying(45) COLLATE pg_catalog."default",
-    spot_idspot integer NOT NULL,
-    CONSTRAINT secteur_pkey PRIMARY KEY (idsecteur),
-    CONSTRAINT fkmlcj4gkyht0f5urxj9aratsjk FOREIGN KEY (spot_idspot)
-        REFERENCES public.spot (idspot) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-    WITH (
-        OIDS = FALSE
-    )
-    TABLESPACE pg_default;
-
-ALTER TABLE public.secteur
-    OWNER to postgres;
-
 -- Table: public.spot
 
-DROP TABLE  IF EXISTS public.spot;
+
 
 CREATE TABLE public.spot
 (
@@ -136,7 +179,7 @@ ALTER TABLE public.spot
 
 -- Table: public.topo
 
-DROP TABLE IF EXISTS public.topo;
+
 
 CREATE TABLE public.topo
 (
@@ -162,9 +205,58 @@ CREATE TABLE public.topo
 ALTER TABLE public.topo
     OWNER to postgres;
 
+
+-- Table: public.commentaire
+
+
+
+CREATE TABLE public.commentaire
+(
+    idcommentaire integer NOT NULL DEFAULT nextval('commentaire_idcommentaire_seq'::regclass),
+    est_visible integer,
+    texte character varying(256) COLLATE pg_catalog."default",
+    spot_idspot integer NOT NULL,
+    CONSTRAINT commentaire_pkey PRIMARY KEY (idcommentaire),
+    CONSTRAINT fk9opuacfoym9aae4x5no6clpva FOREIGN KEY (spot_idspot)
+        REFERENCES public.spot (idspot) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+ALTER TABLE public.commentaire
+    OWNER to postgres;
+
+-- Table: public.secteur
+
+
+
+CREATE TABLE public.secteur
+(
+    idsecteur integer NOT NULL DEFAULT nextval('secteur_idsecteur_seq'::regclass),
+    nom character varying(45) COLLATE pg_catalog."default",
+    spot_idspot integer NOT NULL,
+    CONSTRAINT secteur_pkey PRIMARY KEY (idsecteur),
+    CONSTRAINT fkmlcj4gkyht0f5urxj9aratsjk FOREIGN KEY (spot_idspot)
+        REFERENCES public.spot (idspot) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+ALTER TABLE public.secteur
+    OWNER to postgres;
+
+
 -- Table: public.voie
 
-DROP TABLE IF EXISTS public.voie;
+
 
 CREATE TABLE public.voie
 (
@@ -184,3 +276,30 @@ CREATE TABLE public.voie
 
 ALTER TABLE public.voie
     OWNER to postgres;
+
+
+-- Table: public.longueur
+
+
+CREATE TABLE public.longueur
+(
+    idlongueur integer NOT NULL DEFAULT nextval('longueur_idlongueur_seq'::regclass),
+    cotation character varying(45) COLLATE pg_catalog."default",
+    nom character varying(45) COLLATE pg_catalog."default",
+    nombre_de_spits integer,
+    voie_idvoie integer NOT NULL,
+    CONSTRAINT longueur_pkey PRIMARY KEY (idlongueur),
+    CONSTRAINT fkp0jjx9qv97soh8eofxd8lwgr4 FOREIGN KEY (voie_idvoie)
+        REFERENCES public.voie (idvoie) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+ALTER TABLE public.longueur
+    OWNER to postgres;
+
+
