@@ -5,6 +5,7 @@ model/target/*
 business/target/*
 model/target/*
 utilities/target/*
+view/target/*
 .m2/*
 lib/*
 logs/*
