@@ -1,4 +1,4 @@
-package fr.ocr.prj06.entity.stub;
+package fr.ocr.prj06.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -81,9 +81,7 @@ public class DbVoie implements Serializable {
         }
     }
 
-    /**
-     * @return
-     */
+
     @Override
     public String toString() {
         return (new StringBuilder(1024))

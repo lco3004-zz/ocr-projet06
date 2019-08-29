@@ -2,7 +2,7 @@ package fr.ocr.prj06.servlets;
 
 import fr.ocr.prj06.business.BusinessMgmt;
 import fr.ocr.prj06.constantes.MessageDeBase;
-import fr.ocr.prj06.entity.stub.DbGrimpeur;
+import fr.ocr.prj06.entities.DbGrimpeur;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,7 +1,7 @@
 package fr.ocr.prj06.business;
 
-import fr.ocr.prj06.entity.common.UserProfile;
-import fr.ocr.prj06.entity.stub.*;
+import fr.ocr.prj06.constantes.UserProfile;
+import fr.ocr.prj06.entities.*;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -78,23 +78,6 @@ public class App {
                 fileWriter.write("\n");
                 fileWriter.write("\n");
 
-
-                businessMgmt.ajouterTopo(dbGrimpeurs[0].getIduser());
-                businessMgmt.ajouterTopo(dbGrimpeurs[0].getIduser());
-                businessMgmt.ajouterTopo(dbGrimpeurs[0].getIduser());
-                businessMgmt.ajouterTopo(dbGrimpeurs[1].getIduser());
-                businessMgmt.ajouterTopo(dbGrimpeurs[1].getIduser());
-                businessMgmt.ajouterTopo(dbGrimpeurs[1].getIduser());
-
-                fileWriter.write("Liste Complete Topos  de dbUser.idUser :" + dbGrimpeurs[0].getIduser());
-                fileWriter.write("\n");
-                for (DbTopo dbTopo :  businessMgmt.listerTousTopos() ) {
-                    fileWriter.write("Topo  :" + dbTopo.toString());
-                    fileWriter.write("\n");
-                }
-
-                fileWriter.write("\n");
-                fileWriter.write("\n");
 
 
                 businessMgmt.ajouterCommentaire(dbSpot.getIdspot(), "Hello - insertion par pgm", true);

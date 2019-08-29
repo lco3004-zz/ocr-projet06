@@ -1,16 +1,14 @@
 package fr.ocr.prj06.business;
 
-import fr.ocr.prj06.controller.JpaCtrl;
-import fr.ocr.prj06.entity.common.EtatsResaTopo;
-import fr.ocr.prj06.entity.common.JpaEmfInterface;
-import fr.ocr.prj06.entity.common.UserProfile;
-import fr.ocr.prj06.entity.stub.*;
+import fr.ocr.prj06.constantes.UserProfile;
+import fr.ocr.prj06.controllers.JpaCtrl;
+import fr.ocr.prj06.entities.*;
+import fr.ocr.prj06.interfaces.JpaInterface_EntityManagerFactory;
 
-import java.sql.Date;
 import java.util.List;
 
-import static fr.ocr.prj06.entity.common.JpaEmfUtility.getInstanceEMF;
-import static fr.ocr.prj06.entity.common.SpotClassification.STANDARD;
+import static fr.ocr.prj06.constantes.SpotClassification.STANDARD;
+import static fr.ocr.prj06.controllers.JpaEntityManagerFactory.getJpaEMFUtility;
 
 /**
  *
@@ -18,7 +16,7 @@ import static fr.ocr.prj06.entity.common.SpotClassification.STANDARD;
 public class BusinessMgmt {
 
     private JpaCtrl jpaCtrl;
-    private JpaEmfInterface jpaEmfInterface;
+    private JpaInterface_EntityManagerFactory jpaModelInterfaceUtility;
 
     /* ************************************************************************************************
      * OUVERTURE/FERMETURE
@@ -30,7 +28,7 @@ public class BusinessMgmt {
      */
     public BusinessMgmt() throws Exception {
         jpaCtrl = new JpaCtrl();
-        jpaEmfInterface = getInstanceEMF();
+        jpaModelInterfaceUtility = getJpaEMFUtility();
     }
 
     /**
@@ -38,7 +36,7 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public void openDAO()  {
-            jpaEmfInterface.openDao();
+            jpaModelInterfaceUtility.openDao();
     }
 
     /**
@@ -46,7 +44,7 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public void closeDao() {
-            jpaEmfInterface.closeDao();
+            jpaModelInterfaceUtility.closeDao();
     }
 
     /* ************************************************************************************************
@@ -127,43 +125,6 @@ public class BusinessMgmt {
      */
     public DbCommentaire modiferCommentaire(Integer idCommentaire, String txtComment, Boolean isVisible) throws Exception {
         return jpaCtrl.updateCommentaire(idCommentaire, txtComment, isVisible);
-    }
-    /* ************************************************************************************************
-    * TOPOs
-    * ***********************************************************************************************
-    */
-    public Iterable<? extends DbTopo> listerTousTopos() throws Exception {
-        return jpaCtrl.findListeTopos(null );
-    }
-    /**
-     * @param idUser
-     * @return
-     * @throws Exception
-     */
-    public List<DbTopo> listerTopos(Integer idUser) throws Exception {
-        return jpaCtrl.findListeTopos(idUser );
-    }
-    /**
-     *
-     * @param idUser
-     * @return
-     * @throws Exception
-     */
-    public DbTopo ajouterTopo(Integer idUser) throws Exception {
-
-        DbTopo dbTopo = new DbTopo();
-        Date date = Date.valueOf("2019-08-23");
-
-        dbTopo.setDateDeParution(date);
-        EtatsResaTopo etatsResaTopo = EtatsResaTopo.W_FR;
-        dbTopo.setEtatReservation(etatsResaTopo);
-        dbTopo.setLieu("Ici_par_Pgm");
-        dbTopo.setEstPublie(true);
-        dbTopo.setNom("nom_par_pgm");
-        dbTopo.setResume("resume_par_pgm");
-        dbTopo = jpaCtrl.createTopo(idUser, dbTopo);
-
-        return dbTopo;
     }
 
     /* ************************************************************************************************

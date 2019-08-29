@@ -1,8 +1,8 @@
-package fr.ocr.prj06.entity.stub;
+package fr.ocr.prj06.entities;
 
 
-import fr.ocr.prj06.entity.common.JpaConvEnumUserToString;
-import fr.ocr.prj06.entity.common.UserProfile;
+import fr.ocr.prj06.constantes.UserProfile;
+import fr.ocr.prj06.converters.JpaConvEnumUserToString;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,8 +1,8 @@
-package fr.ocr.prj06.controller;
+package fr.ocr.prj06.controllers;
 
-import fr.ocr.prj06.entity.common.JpaEmUtility;
-import fr.ocr.prj06.entity.common.UserProfile;
-import fr.ocr.prj06.entity.stub.*;
+import fr.ocr.prj06.constantes.UserProfile;
+import fr.ocr.prj06.entities.*;
+import fr.ocr.prj06.entity.DbCommentaire_;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -30,7 +30,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public DbCommentaire createCommentaire(Integer idSpot, String txtComment, Boolean isVisible) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             DbCommentaire dbCommentaire = new DbCommentaire();
             try {
                 jpa.getEm().getTransaction().begin();
@@ -60,7 +60,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public DbCommentaire readCommentaire(Integer idCommentaire) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
 
@@ -83,7 +83,7 @@ public class JpaCtrl  {
      * @param idCommentaire
      */
     public void archiveCommentaire(Integer idCommentaire) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
 
@@ -111,7 +111,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public DbCommentaire updateCommentaire(Integer idCommentaire, String txtComment, Boolean isVisible) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
 
@@ -137,7 +137,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public void deleteCommentaire(Integer idCommentaire) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
                 DbCommentaire dbCommentaire = jpa.getEm().find(DbCommentaire.class, idCommentaire);
@@ -159,7 +159,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public List<? extends DbCommentaire> findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             jpa.getEm().getTransaction().begin();
             DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
 
@@ -198,12 +198,12 @@ public class JpaCtrl  {
      * USER
      * ************************************************************************************************************
      */
-    public DbGrimpeur readUser(Integer idUser) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+    public DbGrimpeur readGrimpeur(Integer idGrimpeur) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
 
-                DbGrimpeur dbGrimpeur = jpa.getEm().find(DbGrimpeur.class, idUser);
+                DbGrimpeur dbGrimpeur = jpa.getEm().find(DbGrimpeur.class, idGrimpeur);
 
                 jpa.getEm().getTransaction().commit();
 
@@ -224,7 +224,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public DbGrimpeur createUser(DbGrimpeur dbGrimpeur) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
@@ -248,7 +248,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public DbGrimpeur updateUser(Integer idUser, UserProfile userProfil) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
@@ -281,7 +281,7 @@ public class JpaCtrl  {
      * @throws Exception
      */
     public DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
@@ -307,7 +307,7 @@ public class JpaCtrl  {
      * ************************************************************************************************************
      */
     public DbLongueur createLongueur(Integer idVoie, String nom, String cotation, Integer nbSpits) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             DbLongueur dbLongueur = new DbLongueur();
             try {
                 jpa.getEm().getTransaction().begin();
@@ -336,7 +336,7 @@ public class JpaCtrl  {
      * ************************************************************************************************************
      */
     public DbVoie createVoie(Integer idSecteur, String nom) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             DbVoie dbVoie = new DbVoie();
             try {
                 jpa.getEm().getTransaction().begin();
@@ -363,7 +363,7 @@ public class JpaCtrl  {
      * ************************************************************************************************************
      */
     public DbSecteur createSecteur(Integer idSpot, String nom) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             DbSecteur dbSecteur = new DbSecteur();
             try {
                 jpa.getEm().getTransaction().begin();
@@ -379,67 +379,6 @@ public class JpaCtrl  {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);
             }
-        } catch (Exception hex1) {
-            throw new Exception(hex1);
-        }
-    }
-    /*
-     *************************************************************************************************************
-     * TOPO
-     * ************************************************************************************************************
-     */
-    public DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
-
-            try {
-                jpa.getEm().getTransaction().begin();
-
-                dbTopo.setUserByUserIduser(jpa.getEm().find(DbGrimpeur.class, idUser));
-
-                jpa.getEm().persist(dbTopo);
-
-                jpa.getEm().getTransaction().commit();
-
-                return dbTopo;
-            } catch (Exception ex) {
-                jpa.getEm().getTransaction().rollback();
-                throw new Exception(ex);
-            }
-        } catch (Exception hex1) {
-            throw new Exception(hex1);
-        }
-    }
-
-    /**
-     *
-     * @param idUser
-     * @return
-     * @throws Exception
-     */
-    public List<DbTopo> findListeTopos(Integer idUser) throws  Exception {
-        try (JpaEmUtility jpa = new JpaEmUtility()) {
-            jpa.getEm().getTransaction().begin();
-
-            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
-
-            CriteriaQuery<DbTopo> criteriaQuery = criteriaBuilder.createQuery(DbTopo.class);
-
-            Root<DbTopo> root = criteriaQuery.from(DbTopo.class);
-            criteriaQuery.select(root);
-
-            if (idUser != null) {
-                DbGrimpeur userByUserIduser = jpa.getEm().find(DbGrimpeur.class, idUser);
-                Predicate predicate = criteriaBuilder.equal(root.get(DbTopo_.USER_BY_USER_IDUSER),userByUserIduser );
-                criteriaQuery.where(predicate);
-            }
-
-            Query query = jpa.getEm().createQuery(criteriaQuery);
-
-            List<DbTopo> ret = (List<DbTopo>) query.getResultList();
-
-            jpa.getEm().getTransaction().commit();
-            return ret;
-
         } catch (Exception hex1) {
             throw new Exception(hex1);
         }

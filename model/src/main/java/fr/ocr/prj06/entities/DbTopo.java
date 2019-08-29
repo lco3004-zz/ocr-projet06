@@ -1,8 +1,8 @@
-package fr.ocr.prj06.entity.stub;
+package fr.ocr.prj06.entities;
 
-import fr.ocr.prj06.entity.common.EtatsResaTopo;
-import fr.ocr.prj06.entity.common.JpaConvBoolInt;
-import fr.ocr.prj06.entity.common.JpaConvEnumResaTopoToString;
+import fr.ocr.prj06.constantes.EtatsResaTopo;
+import fr.ocr.prj06.converters.JpaConvBoolInt;
+import fr.ocr.prj06.converters.JpaConvEnumResaTopoToString;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
-package fr.ocr.prj06.entity.stub;
+package fr.ocr.prj06.entities;
 
-import fr.ocr.prj06.entity.common.JpaConvBoolInt;
+import fr.ocr.prj06.converters.JpaConvBoolInt;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +22,7 @@ public class DbCommentaire implements Serializable {
     private DbSpot spotBySpotIdspot;
 
     @Id
-    @Column(name = "idcommentaire",nullable = false)
+    @Column(name = "idcommentaire", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdcommentaire() {
         return idcommentaire;
@@ -33,7 +33,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @Basic
-    @Column(name = "texte",length = 256)
+    @Column(name = "texte", length = 256)
     public String getTexte() {
         return texte;
     }
@@ -68,7 +68,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot",nullable = false)
+    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }
@@ -77,9 +77,7 @@ public class DbCommentaire implements Serializable {
         this.spotBySpotIdspot = spotBySpotIdspot;
     }
 
-    /**
-     * @return
-     */
+
     @Override
     public String toString() {
         return (new StringBuilder(1024))

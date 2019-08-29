@@ -1,4 +1,4 @@
-package fr.ocr.prj06.entity.stub;
+package fr.ocr.prj06.entities;
 
 
 import javax.persistence.*;
@@ -83,9 +83,7 @@ public class DbSecteur implements Serializable {
         }
     }
 
-    /**
-     * @return
-     */
+
     @Override
     public String toString() {
         return (new StringBuilder(1024))

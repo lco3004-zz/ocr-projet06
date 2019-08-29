@@ -3,10 +3,9 @@ package fr.ocr.prj06.filelogs;
 
 import java.io.FileWriter;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Properties;
 
-import static fr.ocr.prj06.entity.common.Messages.ConstantesPgm.FILELOGSNAME;
+import static fr.ocr.prj06.entity.converter.Messages.ConstantesPgm.FILELOGSNAME;
 
 /**
  * Hello world!

@@ -1,12 +1,14 @@
-package fr.ocr.prj06.entity.common;
+package fr.ocr.prj06.controllers;
 
+
+import fr.ocr.prj06.interfaces.JpaInterface_EntityManagerFactory;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.prj06.entity.common.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
+import static fr.ocr.prj06.entity.converter.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
 
 
 /**
@@ -14,11 +16,11 @@ import static fr.ocr.prj06.entity.common.Messages.ConstantesPgm.UNITE_DE_PERSIST
  * <p>
  * Singleton pour gestion centrale des 3 classes : Transaction, Manager, Factory de JPA (implémentation Hibernate)
  */
-public class JpaEmfUtility implements JpaEmfInterface {
+public class JpaEntityManagerFactory implements JpaInterface_EntityManagerFactory {
 
     private EntityManagerFactory emf = null;
 
-    private static JpaEmfUtility jpaEMFUtility = null;
+    private static JpaEntityManagerFactory jpaEMFUtility = null;
 
     private  String persistenceUnitName;
 
@@ -27,11 +29,11 @@ public class JpaEmfUtility implements JpaEmfInterface {
      * Constructeur qui attend en parametre, le nom l'unité de persistence
      * qui est nommée dans persistence.xml
      */
-    private JpaEmfUtility()  {
+    private JpaEntityManagerFactory()  {
 
         Properties properties = new Properties();
         try {
-            InputStream inputStream = JpaEmfUtility.class.getResourceAsStream("/info.properties");
+            InputStream inputStream = JpaEntityManagerFactory.class.getResourceAsStream("/info.properties");
             properties.load(inputStream);
             this.persistenceUnitName = properties.getProperty(UNITE_DE_PERSISTANCE.getValeurConstante());
         }
@@ -39,16 +41,15 @@ public class JpaEmfUtility implements JpaEmfInterface {
             e.printStackTrace();
         }
     }
-
     /**
      * renvoie instance du singleton - permet d'utiliser l'autocloseable try() {} ce qui ferme
      * l'entitymanager (mais pas le factory qui doit être fermé avec un closeEmFactory
      *
      * @return jpaEMFUtility  - le signleton
      */
-    public static JpaEmfUtility getInstanceEMF()  {
+    public static JpaEntityManagerFactory getJpaEMFUtility()  {
         if (jpaEMFUtility == null)
-            jpaEMFUtility = new JpaEmfUtility();
+            jpaEMFUtility = new JpaEntityManagerFactory();
         return jpaEMFUtility;
     }
 
