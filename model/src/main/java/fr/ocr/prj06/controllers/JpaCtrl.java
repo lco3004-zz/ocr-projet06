@@ -252,7 +252,7 @@ public class JpaCtrl  {
 
                 jpa.getEm().getTransaction().begin();
                 DbGrimpeur dbGrimpeur = jpa.getEm().find(DbGrimpeur.class, idUser);
-                dbGrimpeur.setProfil(userProfil);
+                dbGrimpeur.setRoleName(userProfil);
                 jpa.getEm().getTransaction().commit();
 
                 return dbGrimpeur;
@@ -285,7 +285,7 @@ public class JpaCtrl  {
 
                 jpa.getEm().getTransaction().begin();
 
-                dbSpot.setUserByUserIduser(jpa.getEm().find(DbGrimpeur.class, idUser));
+                dbSpot.setGrimpeurByGrimpeurIdgrimpeur(jpa.getEm().find(DbGrimpeur.class, idUser));
 
                 jpa.getEm().persist(dbSpot);
 

@@ -15,7 +15,7 @@ public class DbSpot implements Serializable {
     private String classification;
     private Collection<DbCommentaire> commentairesByIdspot;
     private Collection<DbSecteur> secteursByIdspot;
-    private DbGrimpeur userByUserIduser;
+    private DbGrimpeur grimpeurByGrimpeurIdgrimpeur;
 
     public DbSpot () {
         commentairesByIdspot=new ArrayList<>();
@@ -99,13 +99,13 @@ public class DbSpot implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser",nullable = false)
-    public DbGrimpeur getUserByUserIduser() {
-        return userByUserIduser;
+    @JoinColumn(name = "grimpeur_idgrimpeur", referencedColumnName = "idgrimpeur",nullable = false)
+    public DbGrimpeur getGrimpeurByGrimpeurIdgrimpeur() {
+        return grimpeurByGrimpeurIdgrimpeur;
     }
 
-    public void setUserByUserIduser(DbGrimpeur userByUserIduser) {
-        this.userByUserIduser = userByUserIduser;
+    public void setGrimpeurByGrimpeurIdgrimpeur(DbGrimpeur grimpeurByGrimpeurIdgrimpeur) {
+        this.grimpeurByGrimpeurIdgrimpeur = grimpeurByGrimpeurIdgrimpeur;
     }
 
     @PostPersist
@@ -121,7 +121,7 @@ public class DbSpot implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append(" idUser: ").append(getUserByUserIduser().getIduser())
+                .append(" idGrimpeur: ").append(getGrimpeurByGrimpeurIdgrimpeur().getIdgrimpeur())
                 .append(" idSpot: ").append(getIdspot())
                 .append(" Nom: ").append(getNom())
                 .append(" localisation: ").append(getLocalisation())

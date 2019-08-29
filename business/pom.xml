@@ -14,10 +14,6 @@
     <packaging>jar</packaging>
     <name>business</name>
 
-    <properties>
-        <app.main.class>fr.ocr.prj06.business.App</app.main.class>
-    </properties>
-
     <dependencies>
 
         <dependency>

@@ -90,13 +90,14 @@ public class DbTopo implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser",nullable = false)
-    private DbGrimpeur userByUserIduser;
-    public DbGrimpeur getUserByUserIduser() {
-        return userByUserIduser;
+    @JoinColumn(name = "grimpeur_idgrimpeur", referencedColumnName = "idgrimpeur",nullable = false)
+    private DbGrimpeur grimpeurByGrimpeurIdgrimpeur;
+
+    public DbGrimpeur getGrimpeurByGrimpeurIdgrimpeur() {
+        return grimpeurByGrimpeurIdgrimpeur;
     }
-    public void setUserByUserIduser(DbGrimpeur userByUserIduser) {
-        this.userByUserIduser = userByUserIduser;
+    public void setGrimpeurByGrimpeurIdgrimpeur(  DbGrimpeur grimpeurByGrimpeurIdgrimpeur) {
+        this.grimpeurByGrimpeurIdgrimpeur = grimpeurByGrimpeurIdgrimpeur;
     }
 
     @Override
@@ -121,7 +122,7 @@ public class DbTopo implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append(" idUser: ").append(getUserByUserIduser().getIduser())
+                .append(" idGrimpeur: ").append(getGrimpeurByGrimpeurIdgrimpeur().getIdgrimpeur())
                 .append(" idTopo: ").append(getIdtopo())
                 .append(" Nom: ").append(getNom())
                 .append(" EtatResa: ").append(etatReservation.toString())

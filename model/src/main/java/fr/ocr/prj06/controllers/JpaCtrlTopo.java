@@ -40,7 +40,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
             if (idUser != null) {
                 DbGrimpeur userByUserIduser = jpa.getEm().find(DbGrimpeur.class, idUser);
-                Predicate predicate = criteriaBuilder.equal(root.get(DbTopo_.USER_BY_USER_IDUSER),userByUserIduser );
+                Predicate predicate = criteriaBuilder.equal(root.get(DbTopo_.GRIMPEUR_BY_GRIMPEUR_IDGRIMPEUR),userByUserIduser );
                 criteriaQuery.where(predicate);
             }
 
@@ -63,7 +63,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
             try {
                 jpa.getEm().getTransaction().begin();
 
-                dbTopo.setUserByUserIduser(jpa.getEm().find(DbGrimpeur.class, idUser));
+                dbTopo.setGrimpeurByGrimpeurIdgrimpeur(jpa.getEm().find(DbGrimpeur.class, idUser));
 
                 jpa.getEm().persist(dbTopo);
 
@@ -101,7 +101,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
                 dbTopo.setLieu(x.getLieu());
                 dbTopo.setNom(x.getNom());
                 dbTopo.setResume(x.getResume());
-                dbTopo.setUserByUserIduser(x.getUserByUserIduser());
+                dbTopo.setGrimpeurByGrimpeurIdgrimpeur(x.getGrimpeurByGrimpeurIdgrimpeur());
                 jpa.getEm().getTransaction().commit();
 
             } catch (Exception ex) {

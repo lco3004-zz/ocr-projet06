@@ -14,7 +14,9 @@
   <body>
   <a href="hello"> Bienvenue sur le Site des amis de l'escalade </a>
   <br>
-  <a href="voirTousLesSpots.html" >Voir tous les spots </a>
+  <a href="lesspots" >Nos spots </a>
+  <br>
+  <a href="lestopos" >Nos topos </a>
   <br>
   <a href="login.html"> Se connecter </a>
   <br>

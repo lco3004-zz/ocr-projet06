@@ -1,8 +1,6 @@
 package fr.ocr.prj06.servlets;
 
-import fr.ocr.prj06.business.BusinessMgmt;
 import fr.ocr.prj06.constantes.MessageDeBase;
-import fr.ocr.prj06.entities.DbGrimpeur;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,27 +12,26 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet(name = "tlisteSpot", urlPatterns = {"/listeSpot"})
-public class tlisteSpot extends HttpServlet {
+
+@WebServlet(name = "lesspots", urlPatterns = {"/lesspots"}, displayName = "Les topos de la grimpette")
+public class LesSpots extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request,response);
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            DbGrimpeur[] dbGrimpeurs = new DbGrimpeur[2];
-            dbGrimpeurs[0] = new DbGrimpeur();
-            dbGrimpeurs[0].setNom("Le Grimpeur à la main");
-            BusinessMgmt businessMgmt =new BusinessMgmt();
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
-            out.print("<p>"+ dbGrimpeurs[0].toString() + " </p>");
+            out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
             out.print(BR.getValeur());
+            out.print("<a href=\"listetouslesspots\">Voir tous nos Spots</a>");
             out.print(BR.getValeur());
             out.print(HTML_FIN.getValeur());
             out.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+
     }
 }

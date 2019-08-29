@@ -15,72 +15,58 @@ import java.util.Objects;
 public class DbGrimpeur implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int iduser;
-    private String nom;
-    private String email;
-    private String mdp;
+    private int idgrimpeur;
+    private String userPass;
+    private String userName;
+    private UserProfile roleName;
 
 
-    private Collection<DbSpot> spotsByIduser;
-    private Collection<DbTopo> toposByIduser;
+    private Collection<DbSpot> spotsByIdgrimpeur;
+    private Collection<DbTopo> toposByIdgrimpeur;
 
     public DbGrimpeur() {
-        spotsByIduser=new ArrayList<>();
-        toposByIduser=new ArrayList<>();
+        spotsByIdgrimpeur=new ArrayList<>();
+        toposByIdgrimpeur=new ArrayList<>();
     }
 
     @Id
-    @Column(name = "iduser")
+    @Column(name = "idgrimpeur")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getIduser() {
-        return iduser;
+    public int getIdgrimpeur() {
+        return idgrimpeur;
     }
-
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
-    }
-
-    @Basic
-    @Column(name = "nom", length = 256)
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setIdgrimpeur(int idgrimpeur) {
+        this.idgrimpeur = idgrimpeur;
     }
 
     @Basic
-    @Column(name = "email",  length = 256)
-    public String getEmail() {
-        return email;
+    @Column(name = "user_pass")
+    public String getUserPass() {
+        return userPass;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Basic
-    @Column(name = "mdp",  length = 16)
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
     }
 
     @Basic
-    @Column(name = "profil", length = 2)
+    @Column(name = "user_name")
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    @Basic
+    @Column(name = "role_name")
     @Convert(converter = JpaConvEnumUserToString.class)
-    private UserProfile profil;
-
-    public UserProfile getProfil() {
-        return profil;
+    public UserProfile getRoleName() {
+        return roleName;
     }
-
-    public void setProfil(UserProfile profil) {
-        this.profil = profil;
+    public void setRoleName(UserProfile roleName) {
+        this.roleName = roleName;
     }
 
     @Override
@@ -88,34 +74,36 @@ public class DbGrimpeur implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DbGrimpeur that = (DbGrimpeur) o;
-        return iduser == that.iduser &&
-                Objects.equals(nom, that.nom) &&
-                Objects.equals(email, that.email) &&
-                Objects.equals(mdp, that.mdp) &&
-                Objects.equals(profil, that.profil);
+        return idgrimpeur == that.idgrimpeur &&
+                Objects.equals(userPass, that.userPass) &&
+                Objects.equals(userName, that.userName) &&
+                Objects.equals(roleName, that.roleName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(iduser, nom, email, mdp, profil);
+        return Objects.hash(idgrimpeur, userPass, userName, roleName);
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userByUserIduser")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "grimpeurByGrimpeurIdgrimpeur")
     public Collection<DbSpot> getSpotsByIduser() {
-        return spotsByIduser;
+        return spotsByIdgrimpeur;
     }
 
-    public void setSpotsByIduser(Collection<DbSpot> spotsByIduser) {
-        this.spotsByIduser = spotsByIduser;
+    public void setSpotsByIduser(Collection<DbSpot> spotsByIdgrimpeur) {
+
+        this.spotsByIdgrimpeur = spotsByIdgrimpeur;
     }
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "userByUserIduser")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "grimpeurByGrimpeurIdgrimpeur")
     public Collection<DbTopo> getToposByIduser() {
-        return toposByIduser;
+
+        return toposByIdgrimpeur;
     }
 
-    public void setToposByIduser(Collection<DbTopo> toposByIduser) {
-        this.toposByIduser = toposByIduser;
+    public void setToposByIduser(Collection<DbTopo> toposByIdgrimpeur) {
+
+        this.toposByIdgrimpeur = toposByIdgrimpeur;
     }
 
     /**
@@ -124,11 +112,10 @@ public class DbGrimpeur implements Serializable {
     @Override
     public String toString() {
         return (new StringBuilder(1024))
-                .append(" idUser: ").append(getIduser())
-                .append(" Nom: ").append(getNom())
-                .append(" Mdp: ").append(getMdp())
-                .append(" Profil: ").append(getProfil().toString())
-                .append(" email: ").append(getEmail())
+                .append(" idUser: ").append(getIdgrimpeur())
+                .append(" Nom: ").append(getUserName())
+                .append(" Mdp: ").append(getUserPass())
+                .append(" Role: ").append(getRoleName().toString())
                 .toString();
     }
 
