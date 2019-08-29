@@ -23,10 +23,10 @@ public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, 
         if (userProfile != null) {
             switch (userProfile) {
                 case GRIMPEUR:
-                    valRet = "U";
+                    valRet = "GRIMPEUR";
                     break;
                 case MEMBRE:
-                    valRet = "M";
+                    valRet = "MEMBRE";
                     break;
                 default:
                     valRet = null;

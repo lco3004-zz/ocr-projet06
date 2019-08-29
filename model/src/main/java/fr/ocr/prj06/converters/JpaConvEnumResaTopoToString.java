@@ -15,13 +15,13 @@ public class JpaConvEnumResaTopoToString implements AttributeConverter<EtatsResa
         if (attribute != null) {
             switch (attribute) {
                 case R_FR:   //demande de rservation
-                    valRet = R_FR.name().toLowerCase();
+                    valRet = R_FR.name().toUpperCase();
                     break;
                 case A_FR:  //reservation acceptée
-                    valRet = A_FR.name().toLowerCase();
+                    valRet = A_FR.name().toUpperCase();
                     break;
                 case W_FR:  //en attente de rersevation
-                    valRet = W_FR.name().toLowerCase();
+                    valRet = W_FR.name().toUpperCase();
                     break;
                 default:
                 valRet =null;
@@ -34,12 +34,12 @@ public class JpaConvEnumResaTopoToString implements AttributeConverter<EtatsResa
     public EtatsResaTopo convertToEntityAttribute(String dbData) {
         EtatsResaTopo valRet=null;
         if (dbData != null && !"".equalsIgnoreCase(dbData.trim())) {
-            String tmp = dbData.trim().toLowerCase();
-            if (R_FR.name().toLowerCase().equals(tmp)) {
+            String tmp = dbData.trim().toUpperCase();
+            if (R_FR.name().toUpperCase().equals(tmp)) {
                 valRet = R_FR;
-            } else if (A_FR.name().toLowerCase().equals(tmp)) {
+            } else if (A_FR.name().toUpperCase().equals(tmp)) {
                 valRet = A_FR;
-            } else if (W_FR.name().toLowerCase().equals(tmp)) {
+            } else if (W_FR.name().toUpperCase().equals(tmp)) {
                 valRet = W_FR;
             }
         }
