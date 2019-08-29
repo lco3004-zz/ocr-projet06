@@ -2,7 +2,7 @@ package fr.ocr.prj06.controllers;
 
 import fr.ocr.prj06.entities.DbGrimpeur;
 import fr.ocr.prj06.entities.DbTopo;
-import fr.ocr.prj06.entity.DbTopo_;
+import fr.ocr.prj06.entities.DbTopo_;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -89,12 +89,26 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
     }
 
     @Override
-    public DbTopo updateTopo(DbTopo dbTopo) throws Exception {
-        DbTopo dbTopoUpdate  = null;
+    public DbTopo updateTopo(DbTopo x) throws Exception {
+        DbTopo dbTopo  = new DbTopo();
         try (JpaEntityManager jpa = new JpaEntityManager()) {
+            try {
+                jpa.getEm().getTransaction().begin();
+                dbTopo.setIdtopo(x.getIdtopo());
+                dbTopo.setDateDeParution(x.getDateDeParution());
+                dbTopo.setEstPublie(x.getEstPublie());
+                dbTopo.setEtatReservation(x.getEtatReservation());
+                dbTopo.setLieu(x.getLieu());
+                dbTopo.setNom(x.getNom());
+                dbTopo.setResume(x.getResume());
+                dbTopo.setUserByUserIduser(x.getUserByUserIduser());
+                jpa.getEm().getTransaction().commit();
 
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
         }
-
-        return dbTopoUpdate;
+        return  readTopo(dbTopo.getIdtopo());
     }
 }

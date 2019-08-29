@@ -2,13 +2,12 @@ package fr.ocr.prj06.business;
 
 import fr.ocr.prj06.constantes.UserProfile;
 import fr.ocr.prj06.controllers.JpaCtrl;
+import fr.ocr.prj06.controllers.JpaEntityManagerFactory;
 import fr.ocr.prj06.entities.*;
-import fr.ocr.prj06.interfaces.JpaInterface_EntityManagerFactory;
 
 import java.util.List;
 
 import static fr.ocr.prj06.constantes.SpotClassification.STANDARD;
-import static fr.ocr.prj06.controllers.JpaEntityManagerFactory.getJpaEMFUtility;
 
 /**
  *
@@ -16,7 +15,7 @@ import static fr.ocr.prj06.controllers.JpaEntityManagerFactory.getJpaEMFUtility;
 public class BusinessMgmt {
 
     private JpaCtrl jpaCtrl;
-    private JpaInterface_EntityManagerFactory jpaModelInterfaceUtility;
+    private JpaEntityManagerFactory jpaEmf;
 
     /* ************************************************************************************************
      * OUVERTURE/FERMETURE
@@ -28,23 +27,16 @@ public class BusinessMgmt {
      */
     public BusinessMgmt() throws Exception {
         jpaCtrl = new JpaCtrl();
-        jpaModelInterfaceUtility = getJpaEMFUtility();
+        jpaEmf = JpaEntityManagerFactory.getJpaEntityManagerFactory();
     }
 
-    /**
-     *
-     * @throws Exception
-     */
     public void openDAO()  {
-            jpaModelInterfaceUtility.openDao();
+            jpaEmf.openDao();
     }
 
-    /**
-     *
-     * @throws Exception
-     */
     public void closeDao() {
-            jpaModelInterfaceUtility.closeDao();
+
+        jpaEmf.closeDao();
     }
 
     /* ************************************************************************************************

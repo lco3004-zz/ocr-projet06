@@ -1,14 +1,13 @@
 package fr.ocr.prj06.controllers;
 
 
-import fr.ocr.prj06.interfaces.JpaInterface_EntityManagerFactory;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.prj06.entity.converter.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
+import static fr.ocr.prj06.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
+
 
 
 /**
@@ -16,11 +15,11 @@ import static fr.ocr.prj06.entity.converter.Messages.ConstantesPgm.UNITE_DE_PERS
  * <p>
  * Singleton pour gestion centrale des 3 classes : Transaction, Manager, Factory de JPA (implémentation Hibernate)
  */
-public class JpaEntityManagerFactory implements JpaInterface_EntityManagerFactory {
+public class JpaEntityManagerFactory  {
 
     private EntityManagerFactory emf = null;
 
-    private static JpaEntityManagerFactory jpaEMFUtility = null;
+    private static JpaEntityManagerFactory jpaEmf = null;
 
     private  String persistenceUnitName;
 
@@ -47,10 +46,10 @@ public class JpaEntityManagerFactory implements JpaInterface_EntityManagerFactor
      *
      * @return jpaEMFUtility  - le signleton
      */
-    public static JpaEntityManagerFactory getJpaEMFUtility()  {
-        if (jpaEMFUtility == null)
-            jpaEMFUtility = new JpaEntityManagerFactory();
-        return jpaEMFUtility;
+    public static JpaEntityManagerFactory getJpaEntityManagerFactory()  {
+        if (jpaEmf == null)
+            jpaEmf = new JpaEntityManagerFactory();
+        return jpaEmf;
     }
 
     /**
@@ -83,12 +82,11 @@ public class JpaEntityManagerFactory implements JpaInterface_EntityManagerFactor
         }
     }
 
-    @Override
     public void openDao()  {
         getEmf();
     }
 
-    @Override
+
     public void closeDao()  {
         closeEmf();
     }

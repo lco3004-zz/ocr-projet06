@@ -7,11 +7,32 @@ import fr.ocr.prj06.entities.DbTopo;
 import java.util.Date;
 import java.util.List;
 
-class CtrMetierTopo implements OperationsTopo{
+public interface CtrlMetierTopo  {
+
+    CtrlMetierTopo ctrlMetierTopo = new CtrlMetierTopo_impl();
+
+    List<DbTopo> listerMesTopos(Integer idGrimpeur);
+
+    List<DbTopo> listerTousTopos();
+
+    DbTopo enregistrerMonTopo(Integer idGrimpeur, Date dateParutionTopo, EtatsResaTopo etatsResaTopo, String lieuTopo, String nomTopo, String resumeTopo, Boolean estPublieTopo);
+
+    DbTopo publierMonTopo(int idTopo);
+
+    DbTopo demanderResaTopo(int idGrimpeur, int idTopo);
+
+    DbTopo accepterResaTopo(int idTopo);
+
+    DbTopo consulterMonTopo(int idTopo);
+}
+
+
+class CtrlMetierTopo_impl implements CtrlMetierTopo{
 
     private JpaCtrlTopo jpaCtrlTopo;
 
-    CtrMetierTopo() {
+    CtrlMetierTopo_impl() {
+
         this.jpaCtrlTopo = JpaCtrlTopo.getInstance;
     }
 

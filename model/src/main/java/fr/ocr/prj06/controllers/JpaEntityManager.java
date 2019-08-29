@@ -1,7 +1,6 @@
 package fr.ocr.prj06.controllers;
 
 
-
 import javax.persistence.EntityManager;
 
 
@@ -9,17 +8,16 @@ public class JpaEntityManager implements AutoCloseable {
     private EntityManager em = null;
 
     public JpaEntityManager() {
-
     }
 
     /**
-     * creation d'un EntityManagerFactory ou si existe déja retourne le membre "emf
+     * creation d'un EntityManagerou si existe déja retourne le membre "emf
      *
      * @return em - objet EntityManager
      */
     public synchronized EntityManager getEm() throws ExceptionInInitializerError {
         try {
-            JpaEntityManagerFactory jpa = JpaEntityManagerFactory.getJpaEMFUtility();
+            JpaEntityManagerFactory jpa = JpaEntityManagerFactory.getJpaEntityManagerFactory();
             if (em == null) {
                 em = jpa.getEmf().createEntityManager();
             }

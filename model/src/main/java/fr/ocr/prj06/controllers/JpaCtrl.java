@@ -2,7 +2,6 @@ package fr.ocr.prj06.controllers;
 
 import fr.ocr.prj06.constantes.UserProfile;
 import fr.ocr.prj06.entities.*;
-import fr.ocr.prj06.entity.DbCommentaire_;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;

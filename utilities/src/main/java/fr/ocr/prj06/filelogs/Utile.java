@@ -5,7 +5,8 @@ import java.io.FileWriter;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.prj06.entity.converter.Messages.ConstantesPgm.FILELOGSNAME;
+import static fr.ocr.prj06.constantes.Messages.ConstantesPgm.FILELOGSNAME;
+
 
 /**
  * Hello world!
