@@ -15,7 +15,7 @@ import java.util.List;
 
  */
 public interface JpaCtrlTopo {
-     JpaCtrlTopo getInstance = new JpaCtrlTopo_impl();
+     JpaCtrlTopo JPA_CTRL_TOPO = new JpaCtrlTopo_impl();
      List<DbTopo> findListeTopos(Integer idUser) throws  Exception;
      DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception;
      DbTopo readTopo(Integer idTopo) throws Exception;

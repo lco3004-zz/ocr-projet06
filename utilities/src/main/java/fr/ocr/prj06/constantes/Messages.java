@@ -10,8 +10,7 @@ public enum Messages {
     ;
 
     public enum ConstantesPgm {
-        UNITE_DE_PERSISTANCE("persistenceUnitName"),
-        FILELOGSNAME("logs/project065.log");
+        ;
 
         private String valeurConstante;
 

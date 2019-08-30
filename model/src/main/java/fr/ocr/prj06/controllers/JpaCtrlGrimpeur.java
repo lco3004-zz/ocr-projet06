@@ -6,7 +6,7 @@ import fr.ocr.prj06.entities.DbGrimpeur;
 import java.util.List;
 
 public interface JpaCtrlGrimpeur {
-    JpaCtrlGrimpeur getInstance = new JpaCtrlGrimpeur_impl();
+    JpaCtrlGrimpeur JPA_CTRL_GRIMPEUR = new JpaCtrlGrimpeur_impl();
     DbGrimpeur readGrimpeur(int idGrimpeur) throws Exception ;
     List<DbGrimpeur> findListGrimpeurs(UserProfile userProfile) throws Exception;
     DbGrimpeur createGrimpeur(DbGrimpeur dbGrimpeur) throws Exception;

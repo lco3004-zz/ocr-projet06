@@ -2,41 +2,47 @@ package fr.ocr.prj06.filelogs;
 
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
-import static fr.ocr.prj06.constantes.Messages.ConstantesPgm.FILELOGSNAME;
 
 
 /**
  * Hello world!
  */
 public class Utile {
-    private FileWriter fileWriter;
+    private static FileWriter fileWriter;
     private String fileLogsName;
     private static Utile utile = null;
 
-    private Utile() throws Exception {
-        Properties properties = new Properties();
-        InputStream inputStream = Utile.class.getResourceAsStream("/info.properties");
-        properties.load(inputStream);
-        this.fileLogsName = properties.getProperty(FILELOGSNAME.getValeurConstante());
-
-        fileWriter = new FileWriter("");
+    private Utile()  {
+        try {
+            Properties properties = new Properties();
+            InputStream inputStream = Utile.class.getResourceAsStream("/info.properties");
+            properties.load(inputStream);
+            this.fileLogsName = properties.getProperty("logsfile");
+            fileWriter = new FileWriter(this.fileLogsName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public Utile getUtile() throws Exception {
-        if (utile.equals(null)) {
+    private static void getUtile()  {
+
+        if (utile== null) {
             utile = new Utile();
         }
-        return utile;
     }
 
-    public  void EcrireLogs(String s) throws Exception {
-            if (fileWriter.equals(null)) {
-                this.getUtile();
+    public static void EcrireLogs(String s)  {
+        try {
+            if (fileWriter == null) {
+                getUtile();
             }
-            this.fileWriter.write(s +"\n");
+            fileWriter.write(s +"\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

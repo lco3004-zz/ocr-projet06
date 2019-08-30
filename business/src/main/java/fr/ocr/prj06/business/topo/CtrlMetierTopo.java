@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CtrlMetierTopo  {
 
-    CtrlMetierTopo ctrlMetierTopo = new CtrlMetierTopo_impl();
+    CtrlMetierTopo CTRL_METIER_TOPO = new CtrlMetierTopo_impl();
 
     List<DbTopo> listerMesTopos(Integer idGrimpeur);
 
@@ -33,7 +33,7 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
 
     CtrlMetierTopo_impl() {
 
-        this.jpaCtrlTopo = JpaCtrlTopo.getInstance;
+        this.jpaCtrlTopo = JpaCtrlTopo.JPA_CTRL_TOPO;
     }
 
     @Override
