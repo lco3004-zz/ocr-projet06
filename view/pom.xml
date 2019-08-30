@@ -33,14 +33,12 @@
   </dependencies>
 
   <build>
-      <finalName> site_Projet06</finalName>
-
       <plugins>
         <plugin>
            <artifactId>maven-war-plugin</artifactId>
           <configuration>
             <warSourceDirectory>WebContent</warSourceDirectory>
-            <failOnMissingWebXml>false</failOnMissingWebXml>
+            <failOnMissingWebXml>true</failOnMissingWebXml>
           </configuration>
         </plugin>
         <plugin>
