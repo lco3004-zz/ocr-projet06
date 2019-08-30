@@ -14,7 +14,6 @@
   <version>1.0</version>
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
@@ -32,7 +31,6 @@
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
@@ -40,14 +38,9 @@
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
         </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-        </plugin>
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
         </plugin>
       </plugins>
-    </pluginManagement>
   </build>
 </project>

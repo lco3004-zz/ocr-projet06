@@ -21,7 +21,6 @@
     <dependency>
       <groupId>fr.ocr.prj06</groupId>
       <artifactId>business</artifactId>
-      <version>1.0</version>
     </dependency>
 
     <dependency>
@@ -39,6 +38,14 @@
           <configuration>
             <warSourceDirectory>WebContent</warSourceDirectory>
             <failOnMissingWebXml>true</failOnMissingWebXml>
+              <archive>
+                <manifest>
+                  <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                </manifest>
+                <manifestEntries>
+                  <Date>${maven.build.timestamp}</Date>
+                </manifestEntries>
+              </archive>
           </configuration>
         </plugin>
         <plugin>
