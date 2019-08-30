@@ -5,24 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-<form   action="ajouterUnTopo" method="post">
+<form   action="gestionDesTopos/ajouterUnTopo" method="post">
     <label id="nomTopo" > Nom du Topo : </label>
     <input id   name="nomTopo" size="64" type="text"/>
     <br>
     <br>
     <label id="dateParutionTopo" > dateParutionTopo (yyyy/mm/dd) : </label>
-    <input id  name="dateParutionTopo" size="64" type="date"/>
+    <input id  name="dateParutionTopo" size="64" type="datetime-local"/>
     <br>
     <br>
     <label id="lieuTopo" > lieuTopo : </label>
     <input id  name="lieuTopo" size="64" type="text"/>
     <br>
     <br>
-    <label id="resumeTopo" > Resumé : </label>
+    <label id="resumeTopo" > ResumÃ© : </label>
     <input id  name="resumeTopo" size="64"  type="text"/>
     <br>
     <br>
     <input type="submit" value="Enregistrer le  Topo"/>
 </form>
+
 </body>
 </html>

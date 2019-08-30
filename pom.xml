@@ -150,13 +150,6 @@
 
       <!-- ===== Bibliothèques tierces ===== -->
 
-      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-c3p0</artifactId>
-        <version>5.4.4.Final</version>
-      </dependency>
-
       <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
       <dependency>
         <groupId>javax.persistence</groupId>
