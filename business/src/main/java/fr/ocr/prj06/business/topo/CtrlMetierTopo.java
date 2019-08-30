@@ -67,6 +67,7 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
             dbTopo = jpaCtrlTopo.createTopo(idGrimpeur,dbTopo);
         } catch (Exception e) {
             e.printStackTrace();
+            dbTopo=null;
         }
         return dbTopo;
    }
