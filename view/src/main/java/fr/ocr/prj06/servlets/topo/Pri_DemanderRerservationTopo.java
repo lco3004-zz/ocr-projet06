@@ -23,6 +23,12 @@ import static fr.ocr.prj06.constantes.MessageDeBase.*;
 public class Pri_DemanderRerservationTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
+    private Integer rangServletPlan;
+
+    @Override
+    public void init() {
+        this.rangServletPlan =  Integer.valueOf( this.getInitParameter("rang_servlet"));
+    }
 
     public Pri_DemanderRerservationTopo() {
         super();

@@ -25,13 +25,13 @@ public class Pri_AccepterReservationTopo extends HttpServlet {
     private static final long serialVersionUID =1L;
     private Integer rangServletPlan;
 
-    public Pri_AccepterReservationTopo() {
-        super();
-    }
-
     @Override
     public void init() {
         this.rangServletPlan =  Integer.valueOf( this.getInitParameter("rang_servlet"));
+    }
+
+    public Pri_AccepterReservationTopo() {
+        super();
     }
 
 

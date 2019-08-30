@@ -16,6 +16,20 @@ import java.io.IOException;
                 @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})
 
 public class Pri_AjouterUnTopo extends HttpServlet {
+
+    private static final long serialVersionUID =1L;
+    private Integer rangServletPlan;
+
+    @Override
+    public void init() {
+        this.rangServletPlan =  Integer.valueOf( this.getInitParameter("rang_servlet"));
+    }
+
+    public Pri_AjouterUnTopo() {
+        super();
+    }
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
