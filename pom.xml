@@ -38,14 +38,90 @@
   <properties>
     <project.build.sourceEncoding>CP1252</project.build.sourceEncoding>
     <project.build.targetEncoding>CP1252</project.build.targetEncoding>
-      <maven.compiler.source>11</maven.compiler.source>
-      <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
     <logsfilename>logs/project065.log</logsfilename>
+    <nomUniteDePersistance>dbprojet_06</nomUniteDePersistance>
   </properties>
+
+  <!-- =============================================================== -->
+  <!-- Profils -->
+  <!-- =============================================================== -->
+  <profiles>
+    <!-- Profil pour l'environnement de développement -->
+    <!-- active par defaut -->
+    <profile>
+      <id>dev</id>
+      <activation>
+        <property>
+          <name>target_profile</name>
+          <value>dev</value>
+        </property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <finalName>${project.artifactId}-dev</finalName>
+        <resources>
+          <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+    <!-- Profil pour l'environnement de production-->
+    <!-- pas de snapshot en production-->
+    <profile>
+      <id>prod</id>
+      <activation>
+        <property>
+          <name>target_profile</name>
+          <value>prod</value>
+        </property>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <finalName>${project.artifactId}-prod</finalName>
+        <resources>
+          <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+        <plugins>
+          <!--  enforcer sur controle que les versions ne sont pas snapshot  -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>enforce-no-snapshots</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireReleaseVersion>
+                      <message>No Snapshots Allowed!</message>
+                    </requireReleaseVersion>
+                    <requireReleaseDeps>
+                      <message>No Snapshots Allowed!</message>
+                    </requireReleaseDeps>
+                  </rules>
+                  <fail>true</fail>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <!-- =============================================================== -->
   <!-- Gestion des dépendances -->

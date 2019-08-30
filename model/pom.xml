@@ -15,10 +15,6 @@
     <version>1.0</version>
     <name>model</name>
 
-    <properties>
-        <nomUniteDePersistance>dbprojet_06</nomUniteDePersistance>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>fr.ocr.prj06</groupId>
