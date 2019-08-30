@@ -12,12 +12,12 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet(name = "Pub_SrvltListeCompleteTopos" , urlPatterns = {"/pub_MgmtTopos/pub_ListeCompleteTopos"})
-public class Pub_SrvltListeCompleteTopos extends HttpServlet {
+@WebServlet(name = "Pub_SrvltListerTousLesTopos" , urlPatterns = {"/pub_MgmtTopos/pub_ListeCompleteTopos"})
+public class Pub_SrvltListerTousLesTopos extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pub_SrvltListeCompleteTopos() {
+    public Pub_SrvltListerTousLesTopos() {
         super();
     }
 
@@ -32,7 +32,7 @@ public class Pub_SrvltListeCompleteTopos extends HttpServlet {
             out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
             out.print(BR.getValeur());
             out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet Pub_SrvltListeCompleteTopos");
+            out.print("Hello from servlet Pub_SrvltListerTousLesTopos");
             out.print(PFIN.getValeur());
             out.print(BR.getValeur());
 

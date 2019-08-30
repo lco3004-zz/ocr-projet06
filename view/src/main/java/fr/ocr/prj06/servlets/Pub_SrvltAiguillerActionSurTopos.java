@@ -14,14 +14,14 @@ import java.io.PrintWriter;
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet( description = "Servlet proposant les opérations disponibles sur le stopos",
-        name = "Pub_SrvltMgmtTopos",
+        name = "Pub_SrvltAiguillerActionSurTopos",
         urlPatterns = {"/pub_MgmtTopos"},
         initParams = {@WebInitParam(description = "niveau de la servlet dans le plan du site",name = "niveau_servlet",value = "1")})
-public class Pub_SrvltMgmtTopos extends HttpServlet {
+public class Pub_SrvltAiguillerActionSurTopos extends HttpServlet {
     private static final long serialVersionUID =1L;
     private Integer niveauServletPlan ;
 
-    public Pub_SrvltMgmtTopos () {
+    public Pub_SrvltAiguillerActionSurTopos() {
         super();
     }
     @Override
