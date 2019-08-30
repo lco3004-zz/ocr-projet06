@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet(description = "Permet au grimpeur proprietaire du topo d'accepter/refuser une resa de topo" ,
         name = "Pub_Sinscrire",
-        urlPatterns = {"/gestionDesTopos/accepterReservationTopo"},
+        urlPatterns = {"/SincrireSurLeSite"},
         initParams = {
                 @WebInitParam( description = "rang   servlet dans le plan du site",name = "rang_servlet",value = "2"),
                 @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})

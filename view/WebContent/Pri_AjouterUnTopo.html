@@ -2,22 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter Un topo</title>
+    <title>Title</title>
 </head>
 <body>
-<!--
-Date dateParutionTopo,
-String lieuTopo,
-String nomTopo,
-String resumeTopo,
--->
-<form   action="gestionDesTopos/ajouterUnTopo" method="post">
+<form   action="ajouterUnTopo" method="post">
     <label id="nomTopo" > Nom du Topo : </label>
     <input id   name="nomTopo" size="64" type="text"/>
     <br>
     <br>
     <label id="dateParutionTopo" > dateParutionTopo (yyyy/mm/dd) : </label>
-    <input id  name="dateParutionTopo" size="64" type="datetime-local"/>
+    <input id  name="dateParutionTopo" size="64" type="date"/>
     <br>
     <br>
     <label id="lieuTopo" > lieuTopo : </label>
@@ -30,6 +24,5 @@ String resumeTopo,
     <br>
     <input type="submit" value="Enregistrer le  Topo"/>
 </form>
-
 </body>
 </html>

@@ -53,7 +53,7 @@ public class Pub_SrvltAiguillerActionSurTopos extends HttpServlet {
             out.print("<a href=\"gestionDesTopos/listerMesTopos\">Voir mes topos</a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"WEB-INF/Pri_AjouterUnTopo.html\">Ajouter un Topo</a>");
+            out.print("<a href=\"Pri_AjouterUnTopo.html\">Ajouter un Topo</a>");
             out.print(BR.getValeur());
 
             out.print("<a href=\"gestionDesTopos/partagerUnTopo\">Partager un topo</a>");
