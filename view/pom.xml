@@ -33,6 +33,7 @@
   </dependencies>
 
   <build>
+      <finalName> site_Projet06</finalName>
 
       <plugins>
         <plugin>

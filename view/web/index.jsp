@@ -12,13 +12,11 @@
   </head>
   <body>
   <body>
-  <a href="hello"> Bienvenue sur le Site des amis de l'escalade </a>
+  <h3> Bienvenue sur le Site des amis de l'escalade </h3>
   <br>
-  <a href="lesspots" >Nos spots </a>
+  <a href="pub_MgmtTopos" >Nos Topos </a>
   <br>
-  <a href="lestopos" >Nos topos </a>
-  <br>
-  <a href="login.html"> Se connecter </a>
+  <a href="login.html"> Se Connecter </a>
   <br>
   </body>  </body>
 </html>

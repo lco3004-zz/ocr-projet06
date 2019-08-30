@@ -32,7 +32,7 @@ public class JpaEntityManagerFactory  {
         try {
             InputStream inputStream = JpaEntityManagerFactory.class.getResourceAsStream("/info.properties");
             properties.load(inputStream);
-            this.persistenceUnitName = properties.getProperty( "persistenceUnitName" );
+            this.persistenceUnitName = properties.getProperty( "nomDeLaPersistance" );
         }
         catch (Exception e) {
             e.printStackTrace();

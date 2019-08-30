@@ -12,12 +12,16 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
+@WebServlet(name = "Pub_SrvltListeCompleteTopos" , urlPatterns = {"/pub_MgmtTopos/pub_ListeCompleteTopos"})
+public class Pub_SrvltListeCompleteTopos extends HttpServlet {
 
-@WebServlet(name = "lesspots", urlPatterns = {"/lesspots"}, displayName = "Les topos de la grimpette")
-public class LesSpots extends HttpServlet {
+    private static final long serialVersionUID =1L;
+
+    public Pub_SrvltListeCompleteTopos() {
+        super();
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
 
     }
 
@@ -25,12 +29,17 @@ public class LesSpots extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
+            out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
             out.print(BR.getValeur());
-            out.print("<a href=\"listetouslesspots\">Voir tous nos Spots</a>");
+            out.print(PDEBUT.getValeur());
+            out.print("Hello from servlet Pub_SrvltListeCompleteTopos");
+            out.print(PFIN.getValeur());
             out.print(BR.getValeur());
+
             out.print(HTML_FIN.getValeur());
             out.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

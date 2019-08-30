@@ -44,7 +44,6 @@
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
-    <persistenceUnitName>projet-06</persistenceUnitName>
     <logsfilename>logs/project065.log</logsfilename>
   </properties>
 
