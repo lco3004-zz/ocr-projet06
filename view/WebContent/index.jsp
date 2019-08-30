@@ -14,7 +14,7 @@
   <body>
   <h3> Bienvenue sur le Site des amis de l'escalade </h3>
   <br>
-  <a href="pub_MgmtTopos" >Nos Topos </a>
+  <a href="gestionDesTopos" >Nos Topos </a>
   <br>
   <a href="login.html"> Se Connecter </a>
   <br>

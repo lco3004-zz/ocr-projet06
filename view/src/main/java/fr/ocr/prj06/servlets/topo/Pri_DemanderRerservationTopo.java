@@ -1,8 +1,9 @@
-package fr.ocr.prj06.servlets;
+package fr.ocr.prj06.servlets.topo;
 
 import fr.ocr.prj06.constantes.MessageDeBase;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,12 +13,18 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet(name = "Pub_SrvltListerTousLesTopos" , urlPatterns = {"/pub_MgmtTopos/pub_ListeCompleteTopos"})
-public class Pub_SrvltListerTousLesTopos extends HttpServlet {
+@WebServlet( description = "Permet à un grimpeur de faire une demande de resa de topo",
+        name = "Pri_DemanderRerservationTopo",
+        urlPatterns = {"/gestionDesTopos/demanderReservationTopo"},
+        initParams = {
+                @WebInitParam( description = "rang   servlet dans le plan du site",name = "rang_servlet",value = "2"),
+                @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})
+
+public class Pri_DemanderRerservationTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pub_SrvltListerTousLesTopos() {
+    public Pri_DemanderRerservationTopo() {
         super();
     }
 
@@ -32,7 +39,7 @@ public class Pub_SrvltListerTousLesTopos extends HttpServlet {
             out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
             out.print(BR.getValeur());
             out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet Pub_SrvltListerTousLesTopos");
+            out.print("Hello from servlet : " +this.getServletName());
             out.print(PFIN.getValeur());
             out.print(BR.getValeur());
 
@@ -41,6 +48,5 @@ public class Pub_SrvltListerTousLesTopos extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

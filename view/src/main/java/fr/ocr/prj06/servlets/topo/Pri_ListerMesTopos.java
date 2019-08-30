@@ -1,4 +1,4 @@
-package fr.ocr.prj06.servlets;
+package fr.ocr.prj06.servlets.topo;
 
 import fr.ocr.prj06.constantes.MessageDeBase;
 
@@ -13,20 +13,20 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet( description = "Servlet proposant les opérations disponibles sur le stopos",
-        name = "Pub_SrvltAiguillerActionSurTopos",
-        urlPatterns = {"/pub_MgmtTopos"},
-        initParams = {@WebInitParam(description = "niveau de la servlet dans le plan du site",name = "niveau_servlet",value = "1")})
-public class Pub_SrvltAiguillerActionSurTopos extends HttpServlet {
-    private static final long serialVersionUID =1L;
-    private Integer niveauServletPlan ;
+@WebServlet(description = "liste les topos appartenant à un grimpeur quelque soit l'état du topo",
+        name = "Pri_ListerMesTopos",
+        urlPatterns = {"/gestionDesTopos/listerMesTopos"},
+        initParams = {
+                @WebInitParam( description = "rang   servlet dans le plan du site",name = "rang_servlet",value = "2"),
+                @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})
 
-    public Pub_SrvltAiguillerActionSurTopos() {
+
+public class Pri_ListerMesTopos extends HttpServlet {
+
+    private static final long serialVersionUID =1L;
+
+    public Pri_ListerMesTopos() {
         super();
-    }
-    @Override
-    public void init() {
-        this.niveauServletPlan =  Integer.valueOf( this.getInitParameter("niveau_servlet"));
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,11 +38,10 @@ public class Pub_SrvltAiguillerActionSurTopos extends HttpServlet {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
             out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
-            out.print(PDEBUT.getValeur());
-            out.print("--> NiveauServlet :" + niveauServletPlan.toString());
-            out.print(PFIN.getValeur());
             out.print(BR.getValeur());
-            out.print("<a href=\"pub_MgmtTopos/pub_ListeCompleteTopos\">Voir tous nos topos</a>");
+            out.print(PDEBUT.getValeur());
+            out.print("Hello from servlet : " +this.getServletName());
+            out.print(PFIN.getValeur());
             out.print(BR.getValeur());
 
             out.print(HTML_FIN.getValeur());
