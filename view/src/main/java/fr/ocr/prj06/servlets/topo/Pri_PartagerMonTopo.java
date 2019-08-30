@@ -13,9 +13,9 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet(description = "Permet au grimpeur de publier/partager un de ses  topos",
+@WebServlet(description = "Permet au grimpeur de partager/publier un de ses  topos",
         name = "Pri_PartagerMonTopo",
-        urlPatterns = {"/gestionDesTopos/partagerMonTopo"},
+        urlPatterns = {"/gestionDesTopos/partagerUnTopo"},
         initParams = {
                 @WebInitParam( description = "rang   servlet dans le plan du site",name = "rang_servlet",value = "2"),
                 @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})

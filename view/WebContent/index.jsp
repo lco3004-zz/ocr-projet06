@@ -16,7 +16,7 @@
   <br>
   <a href="gestionDesTopos" >Nos Topos </a>
   <br>
-  <a href="login.html"> Se Connecter </a>
+  <a href="login.html"> Se Connecter/S'inscrire </a>
   <br>
   </body>  </body>
 </html>

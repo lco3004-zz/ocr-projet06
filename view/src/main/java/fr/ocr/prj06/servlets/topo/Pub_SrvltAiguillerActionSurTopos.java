@@ -45,7 +45,23 @@ public class Pub_SrvltAiguillerActionSurTopos extends HttpServlet {
             out.print("--> NiveauServlet :" + rangServletPlan.toString());
             out.print(PFIN.getValeur());
             out.print(BR.getValeur());
-            out.print("<a href=\"pub_MgmtTopos/pub_ListeCompleteTopos\">Voir tous nos topos</a>");
+
+            out.print("<a href=\"pub_MgmtTopos/listeCompleteTopos\">Voir tous nos topos</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"pub_MgmtTopos/listerMesTopos\">Voir mes topos</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"pub_MgmtTopos/ajouterUnTopo\">Ajouter un Topo</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"pub_MgmtTopos/partagerUnTopo\">Partager un topo</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"pub_MgmtTopos/demanderReservationTopo\">Demander la réservation d'un topo</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"pub_MgmtTopos/accepterReservationTopo\">Accepter une réservation d'un topo</a>");
             out.print(BR.getValeur());
 
             out.print(HTML_FIN.getValeur());
