@@ -6,8 +6,6 @@ import javax.persistence.Persistence;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.prj06.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
-
 
 
 /**
@@ -34,7 +32,7 @@ public class JpaEntityManagerFactory  {
         try {
             InputStream inputStream = JpaEntityManagerFactory.class.getResourceAsStream("/info.properties");
             properties.load(inputStream);
-            this.persistenceUnitName = properties.getProperty(UNITE_DE_PERSISTANCE.getValeurConstante());
+            this.persistenceUnitName = properties.getProperty( "persistenceUnitName" );
         }
         catch (Exception e) {
             e.printStackTrace();

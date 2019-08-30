@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>La Grimpette</title>
   </head>
   <body>
   <body>
@@ -20,6 +20,5 @@
   <br>
   <a href="login.html"> Se connecter </a>
   <br>
-  <a href=".html"> Voir les Topos disponibles  </a>
   </body>  </body>
 </html>
