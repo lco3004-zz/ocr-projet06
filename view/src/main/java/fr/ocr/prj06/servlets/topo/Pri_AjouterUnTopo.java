@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 
-import static fr.ocr.prj06.constantes.EtatsResaTopo.W_FR;
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
@@ -43,19 +41,26 @@ public class Pri_AjouterUnTopo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String nomTopo = request.getParameter("nomTopo");
-            Date dateParutionTopo = Date.valueOf("2019-06-21");
 
             String lieuTopo   = request.getParameter("lieuTopo");
             String resumeTopo = request.getParameter("resumeTopo");
 
-            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+            CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
 
-            DbTopo dbTopo = ctrlMetierTopo.enregistrerMonTopo(2,lieuTopo, nomTopo,resumeTopo);
-             request.setAttribute("dbTopo",dbTopo);
+            DbTopo dbTopo = ctrlMetierTopo.enregistrerMonTopo(2, lieuTopo, nomTopo, resumeTopo);
+
+            request.setAttribute("dbTopo",dbTopo);
+
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationCreationTopo");
-            requestDispatcher.forward(request,response);
-        } catch (Exception e) {
 
+            requestDispatcher.forward(request,response);
+
+        } catch (Exception e) {
+            request.removeAttribute("dbTopo");
+
+            request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+e.getStackTrace());
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
+            requestDispatcher.forward(request,response);
         }
 
     }

@@ -4,6 +4,7 @@ import fr.ocr.prj06.business.topo.CtrlMetierTopo;
 import fr.ocr.prj06.constantes.MessageDeBase;
 import fr.ocr.prj06.entities.DbTopo;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -44,11 +45,20 @@ public class Pub_ListerTousLesTopos extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            List<DbTopo> dbTopos =  CtrlMetierTopo.CTRL_METIER_TOPO.listerTousTopos();
+        try  {
+            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousTopos();
+            request.setAttribute("dbTopos",dbTopos);
+            throw  new  Exception("bonjour tsts msg erreur");
+            //RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
+            //requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            request.removeAttribute("dbTopos");
+            request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+e.getStackTrace());
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
+            requestDispatcher.forward(request,response);
+
         }
     }
 }

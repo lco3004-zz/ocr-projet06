@@ -8,6 +8,10 @@
         <servlet-name>Pri_confirmationCreationTopo</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_confirmationCreationTopo.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>Pri_PageErreurInterne</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pri_PageErreurInterne.jsp</jsp-file>
+    </servlet>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
