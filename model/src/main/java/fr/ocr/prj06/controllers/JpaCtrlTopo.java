@@ -69,7 +69,8 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
                 jpa.getEm().getTransaction().commit();
 
-                return dbTopo;
+                return readTopo(dbTopo.getIdtopo());
+
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);

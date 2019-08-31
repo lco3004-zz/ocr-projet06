@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
@@ -48,8 +49,9 @@ public class Pri_AjouterUnTopo extends HttpServlet {
             CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
 
             DbTopo dbTopo = ctrlMetierTopo.enregistrerMonTopo(2, lieuTopo, nomTopo, resumeTopo);
-
-            request.setAttribute("dbTopo",dbTopo);
+            ArrayList<DbTopo> dbTopos =new ArrayList<>();
+            dbTopos.add(dbTopo);
+            request.setAttribute("dbTopos",dbTopos);
 
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationCreationTopo");
 
