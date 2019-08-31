@@ -28,6 +28,9 @@
      ${ requestScope.dbTopo.getEtatReservation()}
          <br>
      ${ requestScope.dbTopo.getGrimpeurByGrimpeurIdgrimpeur().getIdgrimpeur()}
+
+         <br>
+         <a href="../index.jsp" >Retour Acceuil</a>
  </p>
 </body>
 </html>

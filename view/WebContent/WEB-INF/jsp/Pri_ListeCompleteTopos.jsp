@@ -8,8 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Liste des Topos</title>
-    ${  requestScope.dbTopos}
+    <a href="../index.jsp" >Retour Acceuil</a>
 </head>
 <body>
 
