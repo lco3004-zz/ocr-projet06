@@ -14,7 +14,7 @@
 
    Oups Erreur Interne : ${requestScope.messageErreur}
    <br>
-    <a href="index.jsp">Retour Acceuil</a>
+    <a href="login.html">Retour Acceuil</a>
 
 </body>
 </html>
