@@ -12,25 +12,10 @@
 </head>
 <body>
  <p> Topo Cree</p>
- <p>
-     ${ requestScope.dbTopo.getIdtopo()}
-         <br>
-     ${ requestScope.dbTopo.getNom()}
-         <br>
-     ${ requestScope.dbTopo.getLieu()}
-         <br>
-     ${ requestScope.dbTopo.getResume()}
-         <br>
-     ${ requestScope.dbTopo.getDateDeParution() }
-         <br>
-     ${ requestScope.dbTopo.getEstPublie()}
-         <br>
-     ${ requestScope.dbTopo.getEtatReservation()}
-         <br>
-     ${ requestScope.dbTopo.getGrimpeurByGrimpeurIdgrimpeur().getIdgrimpeur()}
 
-         <br>
-         <a href="../index.jsp" >Retour Acceuil</a>
- </p>
-</body>
+
+ <br>
+ Retour Acceuil  <a href="<%=request.getContextPath()%>/index.jsp">Cliquez ici</a>
+
+ </body>
 </html>
