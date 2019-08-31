@@ -41,35 +41,21 @@ public class Pri_AjouterUnTopo extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
+        try {
             String nomTopo = request.getParameter("nomTopo");
-            Date dateParutionTopo = Date.valueOf(request.getParameter("dateParutionTopo"));
+            Date dateParutionTopo = Date.valueOf("2019-06-21");
 
             String lieuTopo   = request.getParameter("lieuTopo");
             String resumeTopo = request.getParameter("resumeTopo");
-            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
-                DbTopo dbTopo = ctrlMetierTopo.enregistrerMonTopo(2, dateParutionTopo, W_FR, lieuTopo,
-                        nomTopo,resumeTopo, false);
-                if (dbTopo !=null) {
-                        request.setAttribute("dbTopo",dbTopo);
-                    RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationCreationTopo");
-                    requestDispatcher.forward(request,response);
-                }
-                else {
-                    response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
-                    out.print(HTML_DEBUT.getValeur());
-                    out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
-                    out.print(BR.getValeur());
-                    out.print(PDEBUT.getValeur());
-                    out.print("<h2> Erreur Insertion Topo </h2>");
-                    out.print(PFIN.getValeur());
-                    out.print(BR.getValeur());
-                    out.print(HTML_FIN.getValeur());
-                    out.flush();
-                }
 
+            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+
+            DbTopo dbTopo = ctrlMetierTopo.enregistrerMonTopo(2,lieuTopo, nomTopo,resumeTopo);
+             request.setAttribute("dbTopo",dbTopo);
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationCreationTopo");
+            requestDispatcher.forward(request,response);
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
 
     }

@@ -12,5 +12,22 @@
 </head>
 <body>
  <p> Topo Cree</p>
+ <p>
+     ${ requestScope.dbTopo.getIdtopo()}
+         <br>
+     ${ requestScope.dbTopo.getNom()}
+         <br>
+     ${ requestScope.dbTopo.getLieu()}
+         <br>
+     ${ requestScope.dbTopo.getResume()}
+         <br>
+     ${ requestScope.dbTopo.getDateDeParution() }
+         <br>
+     ${ requestScope.dbTopo.getEstPublie()}
+         <br>
+     ${ requestScope.dbTopo.getEtatReservation()}
+         <br>
+     ${ requestScope.dbTopo.getGrimpeurByGrimpeurIdgrimpeur().getIdgrimpeur()}
+ </p>
 </body>
 </html>
