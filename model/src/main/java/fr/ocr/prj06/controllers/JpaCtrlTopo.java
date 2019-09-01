@@ -46,10 +46,10 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
-            List<DbTopo> ret = (List<DbTopo>) query.getResultList();
+            List<DbTopo> dbTopos = (List<DbTopo>) query.getResultList();
 
             jpa.getEm().getTransaction().commit();
-            return ret;
+            return dbTopos;
 
         } catch (Exception hex1) {
             throw new Exception(hex1);

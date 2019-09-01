@@ -4,10 +4,8 @@ import fr.ocr.prj06.constantes.EtatsResaTopo;
 import fr.ocr.prj06.controllers.JpaCtrlTopo;
 import fr.ocr.prj06.entities.DbTopo;
 
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public interface CtrlMetierTopo  {
 
@@ -63,33 +61,28 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
         dbTopo.setEstPublie(estPublieTopo);
         dbTopo.setNom(nomTopo);
         dbTopo.setResume(resumeTopo);
-        dbTopo = jpaCtrlTopo.createTopo(idGrimpeur,dbTopo);
-
-        return dbTopo;
+        return jpaCtrlTopo.createTopo(idGrimpeur,dbTopo);
    }
 
     @Override
     public DbTopo publierMonTopo(int idTopo) throws Exception{
         DbTopo dbTopo = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEstPublie(true);
-        dbTopo = jpaCtrlTopo.updateTopo(dbTopo);
-        return dbTopo;
+        return jpaCtrlTopo.updateTopo(dbTopo);
     }
 
     @Override
     public DbTopo demanderResaTopo(int idGrimpeur, int idTopo) throws Exception {
         DbTopo dbTopo  = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEtatReservation(EtatsResaTopo.R_FR);
-        dbTopo = jpaCtrlTopo.updateTopo(dbTopo);
-        return dbTopo;
+        return jpaCtrlTopo.updateTopo(dbTopo);
     }
 
     @Override
     public DbTopo accepterResaTopo(int idTopo) throws Exception {
         DbTopo dbTopo = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEtatReservation(EtatsResaTopo.A_FR);
-        dbTopo = jpaCtrlTopo.updateTopo(dbTopo);
-        return dbTopo;
+        return jpaCtrlTopo.updateTopo(dbTopo);
     }
 
     @Override

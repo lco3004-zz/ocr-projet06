@@ -10,8 +10,8 @@
 ### Business : (appel controleurs du Model selon la table/Entité concernée) avec cntrome validaté de la demande (webapp)
 ### View  : Presentation (JSP) et Controller webapp (servlets)
 
-## Notes // à supprimer avant soutenance
-### Cache L2 Hibernate - non utilisé (erreur)   
+Creation Db :
+ 
 
 
 
