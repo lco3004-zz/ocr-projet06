@@ -17,7 +17,7 @@
         <jsp-file>/WEB-INF/jsp/Pri_ListeCompleteTopos.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>Pri_ListeCompleteSpots</servlet-name>
+        <servlet-name>Pri_ListeDesSpots</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_ListeCompleteSpots.jsp</jsp-file>
     </servlet>
 

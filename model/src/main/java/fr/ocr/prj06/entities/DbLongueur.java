@@ -1,5 +1,8 @@
 package fr.ocr.prj06.entities;
 
+import fr.ocr.prj06.constantes.CotationLongueur;
+import fr.ocr.prj06.converters.JpaConvEnumCotationLgToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -9,7 +12,7 @@ import java.util.Objects;
 public class DbLongueur implements Serializable {
     private int idlongueur;
     private String nom;
-    private String cotation;
+    private CotationLongueur cotation;
     private Integer nombreDeSpits;
     private DbVoie voieByVoieIdvoie;
 
@@ -38,11 +41,13 @@ public class DbLongueur implements Serializable {
 
     @Basic
     @Column(name = "cotation", length = 45)
-    public String getCotation() {
+    @Convert(converter = JpaConvEnumCotationLgToString.class)
+
+    public CotationLongueur getCotation() {
         return cotation;
     }
 
-    public void setCotation(String cotation) {
+    public void setCotation(CotationLongueur cotation) {
         this.cotation = cotation;
     }
 

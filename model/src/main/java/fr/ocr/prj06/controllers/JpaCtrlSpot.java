@@ -1,8 +1,6 @@
 package fr.ocr.prj06.controllers;
 
-import fr.ocr.prj06.entities.DbGrimpeur;
-import fr.ocr.prj06.entities.DbSpot;
-import fr.ocr.prj06.entities.DbSpot_;
+import fr.ocr.prj06.entities.*;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -19,6 +17,9 @@ public interface JpaCtrlSpot {
     List<DbSpot> findListeSpots(Integer idUser) throws  Exception;
     DbSpot readSpot(Integer idSpot) throws Exception;
     DbSpot updateSpot(DbSpot dbSpot) throws Exception;
+    DbSecteur readSecteur(Integer idSecteur) throws Exception;
+    DbVoie readVoie (Integer idVoie) throws Exception;
+    DbLongueur readLongueur (Integer idLongueur) throws Exception;
 
 }
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
@@ -87,7 +88,35 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbSpot updateSpot(DbSpot dbSpot) throws Exception {
+
         return null;
+    }
+
+    @Override
+    public DbSecteur readSecteur(Integer idSecteur) throws Exception {
+        DbSecteur dbSecteur =null;
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            dbSecteur = jpa.getEm().find(DbSecteur.class,idSecteur);
+        }
+        return dbSecteur;
+    }
+
+    @Override
+    public DbVoie readVoie(Integer idVoie) throws Exception {
+        DbVoie dbVoie =null;
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            dbVoie = jpa.getEm().find(DbVoie.class,idVoie);
+        }
+        return dbVoie;
+    }
+
+    @Override
+    public DbLongueur readLongueur(Integer idLongueur) throws Exception {
+        DbLongueur dbLongueur =null;
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            dbLongueur = jpa.getEm().find(DbLongueur.class,idLongueur);
+        }
+        return dbLongueur;
     }
 
 }
