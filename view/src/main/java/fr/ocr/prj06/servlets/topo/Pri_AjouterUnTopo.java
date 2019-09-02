@@ -6,7 +6,6 @@ import fr.ocr.prj06.entities.DbTopo;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,20 +18,11 @@ import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
         name = "Pri_AjouterUnTopo",
-        urlPatterns = {"/gestionDesTopos/ajouterUnTopo"},
-        initParams = {
-                @WebInitParam( description = "rang   servlet dans le plan du site",name = "rang_servlet",value = "2"),
-                @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})
+        urlPatterns = {"/gestionDesTopos/ajouterUnTopo"})
 
 public class Pri_AjouterUnTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
-    private Integer rangServletPlan;
-
-    @Override
-    public void init() {
-        this.rangServletPlan =  Integer.valueOf( this.getInitParameter("rang_servlet"));
-    }
 
     public Pri_AjouterUnTopo() {
         super();
@@ -48,7 +38,7 @@ public class Pri_AjouterUnTopo extends HttpServlet {
 
             CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
 
-            DbTopo dbTopo = ctrlMetierTopo.enregistrerMonTopo(2, lieuTopo, nomTopo, resumeTopo);
+            DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(2, lieuTopo, nomTopo, resumeTopo);
             ArrayList<DbTopo> dbTopos =new ArrayList<>();
             dbTopos.add(dbTopo);
             request.setAttribute("dbTopos",dbTopos);

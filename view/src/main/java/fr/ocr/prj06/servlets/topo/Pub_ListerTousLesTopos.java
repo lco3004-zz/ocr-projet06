@@ -5,7 +5,6 @@ import fr.ocr.prj06.entities.DbTopo;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,20 +14,11 @@ import java.util.List;
 
 @WebServlet(description = "Servlet qui liste tous les topos DISPONIBLES (publié et non réservé) du site",
         name = "Pub_ListerTousLesTopos" ,
-        urlPatterns = {"/gestionDesTopos/listeCompleteTopos"},
-        initParams = {
-                @WebInitParam( description = "rang   servlet dans le plan du site",name = "rang_servlet",value = "2"),
-                @WebInitParam(description = "niveau protection servlet", name = "niveau_protection",value = "private")})
+        urlPatterns = {"/gestionDesTopos/listeCompleteTopos"})
 
 public class Pub_ListerTousLesTopos extends HttpServlet {
 
     private static final long serialVersionUID =1L;
-    private Integer rangServletPlan;
-
-    @Override
-    public void init() {
-        this.rangServletPlan =  Integer.valueOf( this.getInitParameter("rang_servlet"));
-    }
 
     public Pub_ListerTousLesTopos() {
         super();

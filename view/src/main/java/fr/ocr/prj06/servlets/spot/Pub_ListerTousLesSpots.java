@@ -1,4 +1,4 @@
-package fr.ocr.prj06.servlets.topo;
+package fr.ocr.prj06.servlets.spot;
 
 import fr.ocr.prj06.constantes.MessageDeBase;
 
@@ -12,17 +12,12 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet( description = "Permet à un grimpeur de faire une demande de resa de topo",
-        name = "Pri_DemanderRerservationTopo",
-        urlPatterns = {"/gestionDesTopos/demanderReservationTopo"})
+@WebServlet(description = "Servlet qui liste tous les Spots taggés ou non",
+        name = "Pub_ListerTousLesSpots",
+        urlPatterns = {"gestionDesSpots/listeCompleteSpots"})
 
-public class Pri_DemanderRerservationTopo extends HttpServlet {
-
+public class Pub_ListerTousLesSpots extends HttpServlet {
     private static final long serialVersionUID =1L;
-
-    public Pri_DemanderRerservationTopo() {
-        super();
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -32,7 +27,7 @@ public class Pri_DemanderRerservationTopo extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
+            out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
             out.print(BR.getValeur());
             out.print(PDEBUT.getValeur());
             out.print("Hello from servlet : " +this.getServletName());

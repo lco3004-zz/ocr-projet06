@@ -1,4 +1,4 @@
-package fr.ocr.prj06.servlets.topo;
+package fr.ocr.prj06.servlets.spot;
 
 import fr.ocr.prj06.constantes.MessageDeBase;
 
@@ -12,17 +12,20 @@ import java.io.PrintWriter;
 
 import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
-@WebServlet( description = "Permet à un grimpeur de faire une demande de resa de topo",
-        name = "Pri_DemanderRerservationTopo",
-        urlPatterns = {"/gestionDesTopos/demanderReservationTopo"})
+@WebServlet(description = "Servlet proposant les opérations disponibles sur les Spots",
+        name = "Pub_GestionDesSpots",
+        urlPatterns = {"/gestionDesSpots"})
 
-public class Pri_DemanderRerservationTopo extends HttpServlet {
+
+public class Pub_GestionDesSpots extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_DemanderRerservationTopo() {
+    public Pub_GestionDesSpots() {
+
         super();
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -30,13 +33,26 @@ public class Pri_DemanderRerservationTopo extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
+
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
+            out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
+
             out.print(BR.getValeur());
-            out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet : " +this.getServletName());
-            out.print(PFIN.getValeur());
+
+            out.print("<a href=\"gestionDesSpots/listeCompleteSpots\">Consulter la liste de nos Spots</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"gestionDesTopos/listerMesSpots\">Consulter la liste de mes Spots </a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"gestionDesTopos/ajouterUnSpot\">Ajouter un Spot</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"gestionDesTopos/taggerCeSpot\">Tagger Ce Spot</a>");
+            out.print(BR.getValeur());
+
+            out.print("<a href=\"gestionDesTopos/voirCeSpot\">Voir Ce Spot  en detail</a>");
             out.print(BR.getValeur());
 
             out.print(HTML_FIN.getValeur());
@@ -44,5 +60,6 @@ public class Pri_DemanderRerservationTopo extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }
