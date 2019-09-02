@@ -14,7 +14,7 @@
 
    Oups Erreur Interne : ${requestScope.messageErreur}
    <br>
-   Veuillez cliquer sur ce lien pour continuer <a href="<%=request.getContextPath()%>/jsp.html">Cliquez ici</a>
+   Veuillez cliquer sur ce lien pour continuer <a href="<%=request.getContextPath()%>/index.jsp">Cliquez ici</a>
 
 </body>
 </html>
