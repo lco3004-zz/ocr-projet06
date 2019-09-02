@@ -1,12 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: cordier
-  Date: 02/09/2019
-  Time: 12:05
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15"  pageEncoding="ISO-8859-15"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
+
 <html>
 <head>
     <title>Liste des SPots du Site les amis de l'escalade</title>
@@ -20,8 +18,6 @@
         <th> NomduSpot  </th>
         <th> TagDuSpot  </th>
         <th> LieuDuSpot </th>
-        <th> Nb.Comments</th>
-        <th> Nb.Secteurs</th>
     </tr>
 
     </thead>
@@ -33,21 +29,6 @@
             <td>${dbSpot.getNom()}</td>
             <td>${dbSpot.getClassification()}</td>
             <td>${dbSpot.getLocalisation()}</td>
-            <td>
-                <c:if test=" ${dbSpot.getCommentairesByIdspot() != null}">
-                    ${dbSpot.getCommentairesByIdspot().size()}
-                </c:if>
-            </td>
-            <td>
-                <c:choose>
-                    <c:when test="${dbSpot.getSecteursByIdspot().size() != null}">
-                        ${dbSpot.getSecteursByIdspot().size()}
-                    </c:when>
-                    <c:otherwise>
-                        0
-                    </c:otherwise>
-                </c:choose>
-            </td>
         </tr>
     </c:forEach>
     </tbody>

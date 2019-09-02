@@ -35,7 +35,7 @@ public class Pub_ListerTousLesTopos extends HttpServlet {
             List<DbTopo> dbTopos = ctrlMetierTopo.listerTousTopos();
             request.setAttribute("dbTopos",dbTopos);
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeCompleteTopos");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeDesTopos");
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {

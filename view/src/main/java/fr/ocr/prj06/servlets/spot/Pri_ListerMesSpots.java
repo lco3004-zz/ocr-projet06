@@ -30,14 +30,14 @@ public class Pri_ListerMesSpots extends HttpServlet {
             List<DbSpot> dbSpots=null;
             Integer idGrimpeur =null;
 
-            if ( ! request.getAttribute("idGrimpeur").equals(null)) {
+            if ( request.getAttribute("idGrimpeur") != null) {
                 idGrimpeur =  (Integer)request.getAttribute("idGrimpeur");
             }
 
             dbSpots = ctrlMetierSpot.listerMesSpots(idGrimpeur);
             request.setAttribute("dbSpots",dbSpots);
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeCompleteSpots");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeDesSpots");
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {

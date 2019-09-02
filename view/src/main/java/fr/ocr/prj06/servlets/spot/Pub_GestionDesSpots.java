@@ -54,7 +54,10 @@ public class Pub_GestionDesSpots extends HttpServlet {
 
             out.print("<a href=\"gestionDesSpots/voirCeSpot\">Voir Ce Spot  en detail</a>");
             out.print(BR.getValeur());
-
+            out.print(BR.getValeur());
+            out.print("Veuillez cliquer sur ce lien pour continuer -> ");
+            String cheminRet = request.getContextPath() +"/index.jsp";
+            out.print("<a href="+ cheminRet +"> <b> Cliquez ici  </b> </a>");
             out.print(HTML_FIN.getValeur());
             out.flush();
         } catch (Exception e) {

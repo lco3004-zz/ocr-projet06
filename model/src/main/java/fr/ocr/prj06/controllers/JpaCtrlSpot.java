@@ -67,10 +67,10 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
-            List<DbSpot> dbTopos = (List<DbSpot>) query.getResultList();
+            List<DbSpot> dbSpots = (List<DbSpot>) query.getResultList();
 
             jpa.getEm().getTransaction().commit();
-            return dbTopos;
+            return dbSpots;
 
         } catch (Exception hex1) {
             throw new Exception(hex1);

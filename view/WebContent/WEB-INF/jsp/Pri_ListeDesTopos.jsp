@@ -1,14 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: cordier
-  Date: 31/08/2019
-  Time: 16:08
-  To change this template use File | Settings | File Templates.
---%>
 
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15"  pageEncoding="ISO-8859-15"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -20,6 +11,7 @@
 
 <body>
 <table>
+    <thead>
     <tr>
         <th> idTopo </th>
         <th> dateCreation </th>
@@ -30,8 +22,9 @@
         <th> lieu </th>
         <th> resume </th>
     </tr>
+    </thead>
+    <tbody>
     <c:forEach var="dbTopo"  items="${requestScope.dbTopos}">
-
         <tr>
             <td>${dbTopo.getIdtopo()}</td>
             <td>${dbTopo.getDateDeParution()}</td>
@@ -43,13 +36,15 @@
             <td>${dbTopo.getResume()}</td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
 <br/>
 <br/>
 
-<footer >
-    Retour Acceuil  <a href="<%=request.getContextPath()%>/index.jsp">Cliquez ici</a>
+<footer>
+    Veuillez cliquer sur ce lien pour continuer <a href="<%=request.getContextPath()%>/index.jsp"> <b> Cliquez ici  </b> </a>
 </footer>
+
 
 </body>
 </html>

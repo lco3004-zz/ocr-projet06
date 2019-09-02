@@ -13,12 +13,12 @@
         <jsp-file>/WEB-INF/jsp/Pri_PageErreurInterne.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>Pri_ListeCompleteTopos</servlet-name>
-        <jsp-file>/WEB-INF/jsp/Pri_ListeCompleteTopos.jsp</jsp-file>
+        <servlet-name>Pri_ListeDesTopos</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pri_ListeDesTopos.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>Pri_ListeDesSpots</servlet-name>
-        <jsp-file>/WEB-INF/jsp/Pri_ListeCompleteSpots.jsp</jsp-file>
+        <jsp-file>/WEB-INF/jsp/Pri_ListeDesSpots.jsp</jsp-file>
     </servlet>
 
 

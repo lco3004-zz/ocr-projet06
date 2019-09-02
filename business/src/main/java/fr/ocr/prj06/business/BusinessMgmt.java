@@ -1,6 +1,5 @@
 package fr.ocr.prj06.business;
 
-import fr.ocr.prj06.controllers.JpaCtrl;
 import fr.ocr.prj06.controllers.JpaEntityManagerFactory;
 
 /**
@@ -8,7 +7,7 @@ import fr.ocr.prj06.controllers.JpaEntityManagerFactory;
  */
 public class BusinessMgmt {
 
-    private JpaCtrl jpaCtrl;
+
     private JpaEntityManagerFactory jpaEmf;
 
     /* ************************************************************************************************
@@ -20,7 +19,7 @@ public class BusinessMgmt {
      * @throws Exception
      */
     public BusinessMgmt() throws Exception {
-        jpaCtrl = new JpaCtrl();
+
         jpaEmf = JpaEntityManagerFactory.getJpaEntityManagerFactory();
     }
 
