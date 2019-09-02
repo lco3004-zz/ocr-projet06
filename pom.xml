@@ -45,7 +45,7 @@
     <maven.build.timestamp.format>dd/MM/YYYY - hh:mm</maven.build.timestamp.format>
     <build.timestamp>${maven.build.timestamp}</build.timestamp>
     <logsfilename>logs/project065.log</logsfilename>
-    <nomUniteDePersistance>dbprojet_06</nomUniteDePersistance>
+    <nomUniteDePersistance>db_projet06</nomUniteDePersistance>
   </properties>
 
   <!-- =============================================================== -->

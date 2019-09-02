@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "grimpeur",  schema = "public", catalog = "projet06")
+@Table(name = "grimpeur",  schema = "public", catalog = "db_projet06")
 public class DbGrimpeur implements Serializable {
     private static final long serialVersionUID = 1L;
 

@@ -34,7 +34,8 @@ public class Pub_ListerTousLesSpots extends HttpServlet {
 
         } catch (Exception e) {
             request.removeAttribute("dbSpots");
-            request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+e.getStackTrace());
+            request.setAttribute("LocalizedMessage","LocalizedMsg : "+e.getLocalizedMessage()+" "+e.getStackTrace());
+            request.setAttribute("StackTrace","StackTrace : "+ e.getLocalizedMessage()+" "+e.getStackTrace());
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
             requestDispatcher.forward(request,response);
 

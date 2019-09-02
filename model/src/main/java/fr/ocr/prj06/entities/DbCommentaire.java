@@ -8,7 +8,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "commentaire", schema = "public", catalog = "projet06")
+@Table(name = "commentaire", schema = "public", catalog = "db_projet06")
 public class DbCommentaire implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,7 +68,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot", nullable = false)
+    @JoinColumn(name = "spot_idspot", referencedColumnName = "idspot")
     public DbSpot getSpotBySpotIdspot() {
         return spotBySpotIdspot;
     }

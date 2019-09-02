@@ -11,7 +11,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "topo",   schema = "public", catalog = "projet06")
+@Table(name = "topo",   schema = "public", catalog = "db_projet06")
 public class DbTopo implements Serializable {
     private static final long serialVersionUID = 1L;
 

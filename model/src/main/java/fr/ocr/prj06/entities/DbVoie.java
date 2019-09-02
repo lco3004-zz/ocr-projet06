@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 
-@Table(name = "voie",   schema = "public", catalog = "projet06")
+@Table(name = "voie",   schema = "public", catalog = "db_projet06")
 public class DbVoie implements Serializable {
     private int idvoie;
     private String nom;

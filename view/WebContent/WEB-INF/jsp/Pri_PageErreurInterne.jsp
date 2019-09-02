@@ -11,10 +11,26 @@
     <title>Erreur interne</title>
 </head>
 <body>
-
-   Oups Erreur Interne : ${requestScope.messageErreur}
-   <br>
-   Veuillez cliquer sur ce lien pour continuer <a href="<%=request.getContextPath()%>/index.jsp">Cliquez ici</a>
+    <br/>
+    <br/>
+        <h3>Oups Erreur Interne :</h3>
+    <br/>
+    <br/>
+    <p>
+         ${requestScope.LocalizedMessage}
+    </p>
+    <p>
+        ${requestScope.StackTrace}
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        Veuillez cliquer sur ce lien pour continuer <a href="<%=request.getContextPath()%>/index.jsp"> <h4> Cliquez ici  </h4> </a>
+    </footer>
 
 </body>
 </html>

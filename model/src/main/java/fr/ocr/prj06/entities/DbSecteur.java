@@ -9,7 +9,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "secteur",   schema = "public", catalog = "projet06")
+@Table(name = "secteur",   schema = "public", catalog = "db_projet06")
 public class DbSecteur implements Serializable {
     private int idsecteur;
     private String nom;
