@@ -34,6 +34,12 @@ public class Pub_GestionDesSpots extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
 
+            try {
+                request.getSession().invalidate();
+
+            }catch (IllegalStateException ex) {
+                //pas grave, on fera un log pour info
+            }
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
             out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
