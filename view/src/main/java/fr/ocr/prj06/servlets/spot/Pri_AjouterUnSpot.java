@@ -14,7 +14,7 @@ import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet( description = "Permet au grimpeur d'ajouter un spot sur le site",
         name = "Pri_AjouterUnSpot",
-        urlPatterns = {"gestionDesTopos/ajouterUnSpot"})
+        urlPatterns = {"/gestionDesSpots/ajouterUnSpot"})
 
 public class Pri_AjouterUnSpot extends HttpServlet {
     private static final long serialVersionUID =1L;

@@ -14,7 +14,7 @@ import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Servlet pour tagger un Spot  'les amis de lescalade' ",
         name = "PriMember_TaggerCeSpot",
-        urlPatterns = {"gestionDesTopos/taggerCeSpot"})
+        urlPatterns = {"/gestionDesSpots/taggerCeSpot"})
 
 public class PriMember_TaggerCeSpot extends HttpServlet {
 

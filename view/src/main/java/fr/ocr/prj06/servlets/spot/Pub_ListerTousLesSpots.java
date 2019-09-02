@@ -14,7 +14,7 @@ import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Servlet qui liste tous les Spots taggés ou non",
         name = "Pub_ListerTousLesSpots",
-        urlPatterns = {"gestionDesSpots/listeCompleteSpots"})
+        urlPatterns = {"/gestionDesSpots/listeCompleteSpots"})
 
 public class Pub_ListerTousLesSpots extends HttpServlet {
     private static final long serialVersionUID =1L;

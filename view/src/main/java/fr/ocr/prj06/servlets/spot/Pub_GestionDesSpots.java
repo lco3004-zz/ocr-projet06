@@ -43,16 +43,16 @@ public class Pub_GestionDesSpots extends HttpServlet {
             out.print("<a href=\"gestionDesSpots/listeCompleteSpots\">Consulter la liste de nos Spots</a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"gestionDesTopos/listerMesSpots\">Consulter la liste de mes Spots </a>");
+            out.print("<a href=\"gestionDesSpots/listerMesSpots\">Consulter la liste de mes Spots </a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"gestionDesTopos/ajouterUnSpot\">Ajouter un Spot</a>");
+            out.print("<a href=\"gestionDesSpots/ajouterUnSpot\">Ajouter un Spot</a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"gestionDesTopos/taggerCeSpot\">Tagger Ce Spot</a>");
+            out.print("<a href=\"gestionDesSpots/taggerCeSpot\">Tagger Ce Spot</a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"gestionDesTopos/voirCeSpot\">Voir Ce Spot  en detail</a>");
+            out.print("<a href=\"gestionDesSpots/voirCeSpot\">Voir Ce Spot  en detail</a>");
             out.print(BR.getValeur());
 
             out.print(HTML_FIN.getValeur());

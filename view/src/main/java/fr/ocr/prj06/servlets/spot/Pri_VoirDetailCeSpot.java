@@ -14,7 +14,7 @@ import static fr.ocr.prj06.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Servlet proposant les opérations disponibles sur les Spots",
             name = "Pri_VoirDetailCeSpot",
-            urlPatterns = {"/gestionDesTopos/voirCeSpot"})
+            urlPatterns = {"/gestionDesSpots/voirCeSpot"})
 
 public class Pri_VoirDetailCeSpot extends HttpServlet {
 
