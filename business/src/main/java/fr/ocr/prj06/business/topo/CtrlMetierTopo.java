@@ -15,15 +15,15 @@ public interface CtrlMetierTopo  {
 
     List<DbTopo> listerTousTopos() throws Exception;
 
-    DbTopo enregistrerMonTopo(Integer idGrimpeur, String lieuTopo, String nomTopo, String resumeTopo) throws Exception;
+    DbTopo enregistrerCeTopo(Integer idGrimpeur, String lieuTopo, String nomTopo, String resumeTopo) throws Exception;
 
-    DbTopo publierMonTopo(int idTopo) throws Exception;
+    DbTopo publierCeTopo(int idTopo) throws Exception;
 
-    DbTopo demanderResaTopo(int idGrimpeur, int idTopo) throws Exception;
+    DbTopo demanderResaCeTopo(int idGrimpeur, int idTopo) throws Exception;
 
-    DbTopo accepterResaTopo(int idTopo) throws Exception;
+    DbTopo accepterResaCeTopo(int idTopo) throws Exception;
 
-    DbTopo consulterMonTopo(int idTopo) throws Exception;
+    DbTopo consulterCeTopo(int idTopo) throws Exception;
 }
 
 
@@ -49,44 +49,43 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
     }
 
     @Override
-    public DbTopo enregistrerMonTopo(Integer idGrimpeur,  String lieuTopo, String nomTopo, String resumeTopo) throws Exception {
+    public DbTopo enregistrerCeTopo(Integer idGrimpeur,  String lieuTopo, String nomTopo, String resumeTopo) throws Exception {
         DbTopo dbTopo = new DbTopo();
 
-        EtatsResaTopo etatsResaTopo = EtatsResaTopo.W_FR;
-        Boolean estPublieTopo =false;
-
         dbTopo.setDateDeParution(new Date());
-        dbTopo.setEtatReservation(etatsResaTopo);
+        dbTopo.setEtatReservation(EtatsResaTopo.W_FR);
+        dbTopo.setEstPublie(false);
+
         dbTopo.setLieu(lieuTopo);
-        dbTopo.setEstPublie(estPublieTopo);
         dbTopo.setNom(nomTopo);
         dbTopo.setResume(resumeTopo);
+
         return jpaCtrlTopo.createTopo(idGrimpeur,dbTopo);
    }
 
     @Override
-    public DbTopo publierMonTopo(int idTopo) throws Exception{
+    public DbTopo publierCeTopo(int idTopo) throws Exception{
         DbTopo dbTopo = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEstPublie(true);
         return jpaCtrlTopo.updateTopo(dbTopo);
     }
 
     @Override
-    public DbTopo demanderResaTopo(int idGrimpeur, int idTopo) throws Exception {
+    public DbTopo demanderResaCeTopo(int idGrimpeur, int idTopo) throws Exception {
         DbTopo dbTopo  = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEtatReservation(EtatsResaTopo.R_FR);
         return jpaCtrlTopo.updateTopo(dbTopo);
     }
 
     @Override
-    public DbTopo accepterResaTopo(int idTopo) throws Exception {
+    public DbTopo accepterResaCeTopo(int idTopo) throws Exception {
         DbTopo dbTopo = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEtatReservation(EtatsResaTopo.A_FR);
         return jpaCtrlTopo.updateTopo(dbTopo);
     }
 
     @Override
-    public DbTopo consulterMonTopo(int idTopo) throws  Exception {
+    public DbTopo consulterCeTopo(int idTopo) throws  Exception {
         return jpaCtrlTopo.readTopo(idTopo);
     }
 }
