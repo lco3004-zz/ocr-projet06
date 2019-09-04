@@ -1,8 +1,9 @@
 package fr.ocr.business.commentaire;
 
 
-import fr.ocr.prj06.controllers.JpaCtrlCommentaire;
-import fr.ocr.prj06.entities.DbCommentaire;
+
+import fr.ocr.model.controllers.JpaCtrlCommentaire;
+import fr.ocr.model.entities.DbCommentaire;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package fr.ocr.business.grimpeur;
 
 
-import fr.ocr.prj06.constantes.UserProfile;
-import fr.ocr.prj06.controllers.JpaCtrlGrimpeur;
-import fr.ocr.prj06.entities.DbGrimpeur;
+import fr.ocr.model.constantes.UserProfile;
+import fr.ocr.model.controllers.JpaCtrlGrimpeur;
+import fr.ocr.model.entities.DbGrimpeur;
 
 import java.util.List;
 

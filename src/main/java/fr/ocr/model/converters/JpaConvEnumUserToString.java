@@ -1,13 +1,14 @@
 package fr.ocr.model.converters;
 
 
-import fr.ocr.prj06.constantes.UserProfile;
+import fr.ocr.model.constantes.UserProfile;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import static fr.ocr.prj06.constantes.UserProfile.GRIMPEUR;
-import static fr.ocr.prj06.constantes.UserProfile.MEMBRE;
+import static fr.ocr.model.constantes.UserProfile.GRIMPEUR;
+import static fr.ocr.model.constantes.UserProfile.MEMBRE;
+
 
 @Converter(autoApply = true)
 public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, String> {

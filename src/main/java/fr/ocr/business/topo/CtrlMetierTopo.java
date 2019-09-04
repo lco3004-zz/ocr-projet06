@@ -1,11 +1,12 @@
 package fr.ocr.business.topo;
 
-import fr.ocr.prj06.constantes.EtatsResaTopo;
-import fr.ocr.prj06.controllers.JpaCtrlTopo;
-import fr.ocr.prj06.entities.DbTopo;
+import fr.ocr.model.constantes.EtatsResaTopo;
+import fr.ocr.model.controllers.JpaCtrlTopo;
+import fr.ocr.model.entities.DbTopo;
 
 import java.util.Date;
 import java.util.List;
+
 
 public interface CtrlMetierTopo  {
 
@@ -38,9 +39,7 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
 
     @Override
     public List<DbTopo> listerMesTopos(Integer idGrimpeur)  throws Exception {
-        List<DbTopo> valRet=null;
-        valRet = jpaCtrlTopo.findListeTopos(idGrimpeur);
-        return valRet;
+        return jpaCtrlTopo.findListeTopos(idGrimpeur);
     }
 
     @Override

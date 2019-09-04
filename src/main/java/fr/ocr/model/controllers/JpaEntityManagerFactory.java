@@ -1,4 +1,4 @@
-package fr.ocr.prj06.controllers;
+package fr.ocr.model.controllers;
 
 
 import javax.persistence.EntityManagerFactory;
@@ -6,14 +6,10 @@ import javax.persistence.Persistence;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.prj06.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
+import static fr.ocr.utility.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
 
 
-/**
- * @author Laurent
- * <p>
- * Singleton pour gestion centrale des 3 classes : Transaction, Manager, Factory de JPA (implémentation Hibernate)
- */
+
 public class JpaEntityManagerFactory  {
 
     private EntityManagerFactory emf = null;
@@ -22,11 +18,6 @@ public class JpaEntityManagerFactory  {
 
     private  String persistenceUnitName;
 
-
-    /**
-     * Constructeur qui attend en parametre, le nom l'unité de persistence
-     * qui est nommée dans persistence.xml
-     */
     private JpaEntityManagerFactory()  {
 
         Properties properties = new Properties();
@@ -40,45 +31,26 @@ public class JpaEntityManagerFactory  {
             e.printStackTrace();
         }
     }
-    /**
-     * renvoie instance du singleton - permet d'utiliser l'autocloseable try() {} ce qui ferme
-     * l'entitymanager (mais pas le factory qui doit être fermé avec un closeEmFactory
-     *
-     * @return jpaEMFUtility  - le signleton
-     */
+
+
     public static JpaEntityManagerFactory getJpaEntityManagerFactory()  {
         if (jpaEmf == null)
             jpaEmf = new JpaEntityManagerFactory();
         return jpaEmf;
     }
 
-    /**
-     * creation d'un EntityManagerFactory ou si existe déja retourne le membre "emf
-     * @return emf - objet EntityManagerFactory
-     * @throws Exception
-     */
-    public synchronized EntityManagerFactory getEmf()  {
-        try {
-            if (emf == null) {
-                emf = Persistence.createEntityManagerFactory(persistenceUnitName);
-            }
-        } catch (Throwable ex) {
-            ex.printStackTrace();
+
+    public synchronized EntityManagerFactory getEmf()   {
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory(persistenceUnitName);
         }
         return emf;
     }
-    /**
-     * fermeture EntityMangerFactory
-     *
-     */
+
     public synchronized void closeEmf()  {
-        try {
-            if (emf != null) {
-                emf.close();
-                emf = null;
-            }
-        } catch (Throwable ex) {
-           ex.printStackTrace();
+        if (emf != null) {
+            emf.close();
+            emf = null;
         }
     }
 

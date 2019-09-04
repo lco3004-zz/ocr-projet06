@@ -1,6 +1,6 @@
 package fr.ocr.model.controllers;
 
-import fr.ocr.prj06.entities.*;
+import fr.ocr.model.entities.*;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,6 +8,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
+
 
 public interface JpaCtrlSpot {
 
@@ -26,7 +27,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception {
-        try (JpaEntityManager jpa = new fr.ocr.prj06.controllers.JpaEntityManager()) {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
@@ -79,7 +80,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbSpot readSpot(Integer idSpot) throws Exception {
-        DbSpot dbSpot =null;
+        DbSpot dbSpot ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             dbSpot = jpa.getEm().find(DbSpot.class,idSpot);
         }
@@ -87,14 +88,13 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
     }
 
     @Override
-    public DbSpot updateSpot(DbSpot dbSpot) throws Exception {
-
+    public DbSpot updateSpot(DbSpot dbSpot)  {
         return null;
     }
 
     @Override
     public DbSecteur readSecteur(Integer idSecteur) throws Exception {
-        DbSecteur dbSecteur =null;
+        DbSecteur dbSecteur ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             dbSecteur = jpa.getEm().find(DbSecteur.class,idSecteur);
         }
@@ -103,7 +103,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbVoie readVoie(Integer idVoie) throws Exception {
-        DbVoie dbVoie =null;
+        DbVoie dbVoie ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             dbVoie = jpa.getEm().find(DbVoie.class,idVoie);
         }
@@ -112,7 +112,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbLongueur readLongueur(Integer idLongueur) throws Exception {
-        DbLongueur dbLongueur =null;
+        DbLongueur dbLongueur ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             dbLongueur = jpa.getEm().find(DbLongueur.class,idLongueur);
         }

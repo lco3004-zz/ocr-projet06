@@ -1,8 +1,8 @@
-package fr.ocr.prj06.controllers;
+package fr.ocr.model.controllers;
 
-import fr.ocr.prj06.entities.DbGrimpeur;
-import fr.ocr.prj06.entities.DbTopo;
-import fr.ocr.prj06.entities.DbTopo_;
+import fr.ocr.model.entities.DbGrimpeur;
+import fr.ocr.model.entities.DbTopo;
+import fr.ocr.model.entities.DbTopo_;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -82,7 +82,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
     @Override
     public DbTopo readTopo(Integer idTopo) throws Exception {
-        DbTopo dbTopo =null;
+        DbTopo dbTopo ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             dbTopo = jpa.getEm().find(DbTopo.class,idTopo);
         }

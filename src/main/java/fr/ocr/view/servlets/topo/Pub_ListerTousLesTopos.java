@@ -1,7 +1,7 @@
-package fr.ocr.prj06.servlets.topo;
+package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
-import fr.ocr.prj06.entities.DbTopo;
+import fr.ocr.model.entities.DbTopo;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
+
 
 @WebServlet(description = "Servlet qui liste tous les topos DISPONIBLES (publié et non réservé) du site",
         name = "Pub_ListerTousLesTopos" ,
@@ -40,7 +42,7 @@ public class Pub_ListerTousLesTopos extends HttpServlet {
 
         } catch (Exception e) {
             request.removeAttribute("dbTopos");
-            request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+e.getStackTrace());
+            request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
             requestDispatcher.forward(request,response);
 

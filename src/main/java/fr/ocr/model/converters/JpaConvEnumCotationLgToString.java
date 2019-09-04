@@ -1,11 +1,12 @@
 package fr.ocr.model.converters;
 
-import fr.ocr.prj06.constantes.CotationLongueur;
+import fr.ocr.model.constantes.CotationLongueur;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import static fr.ocr.prj06.constantes.CotationLongueur.*;
+import static fr.ocr.model.constantes.CotationLongueur.*;
+
 
 @Converter(autoApply = true)
 public class JpaConvEnumCotationLgToString implements AttributeConverter<CotationLongueur, String> {

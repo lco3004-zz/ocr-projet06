@@ -1,4 +1,5 @@
-package fr.ocr.prj06.servlets.spot;
+package fr.ocr.view.servlets.spot;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class Pub_ListerTousLesSpots extends HttpServlet {
     private static final long serialVersionUID =1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  {
 
     }
 

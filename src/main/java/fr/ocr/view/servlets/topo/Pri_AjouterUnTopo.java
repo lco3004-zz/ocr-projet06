@@ -1,8 +1,8 @@
-package fr.ocr.prj06.servlets.topo;
+package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
-import fr.ocr.prj06.constantes.MessageDeBase;
-import fr.ocr.prj06.entities.DbTopo;
+import fr.ocr.model.entities.DbTopo;
+import fr.ocr.utility.constantes.MessageDeBase;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import static fr.ocr.prj06.constantes.MessageDeBase.*;
+import static fr.ocr.utility.constantes.MessageDeBase.*;
+
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
         name = "Pri_AjouterUnTopo",
@@ -50,14 +52,14 @@ public class Pri_AjouterUnTopo extends HttpServlet {
         } catch (Exception e) {
             request.removeAttribute("dbTopo");
 
-            request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+e.getStackTrace());
+            request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
             requestDispatcher.forward(request,response);
         }
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         try (PrintWriter out = response.getWriter()) {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
@@ -70,8 +72,6 @@ public class Pri_AjouterUnTopo extends HttpServlet {
 
             out.print(HTML_FIN.getValeur());
             out.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

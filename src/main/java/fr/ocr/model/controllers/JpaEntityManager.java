@@ -3,8 +3,7 @@ package fr.ocr.model.controllers;
 
 import javax.persistence.EntityManager;
 
-
-
+import static fr.ocr.model.controllers.JpaEntityManagerFactory.getJpaEntityManagerFactory;
 
 public class JpaEntityManager implements AutoCloseable {
     private EntityManager em = null;
@@ -29,11 +28,6 @@ public class JpaEntityManager implements AutoCloseable {
         return em;
     }
 
-    /**
-     * ne ferme que l'entity manager
-     *
-     * @throws Exception
-     */
     @Override
     public synchronized void close() throws Exception {
         try {

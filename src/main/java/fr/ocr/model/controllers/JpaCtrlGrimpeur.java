@@ -2,8 +2,8 @@ package fr.ocr.model.controllers;
 
 
 import fr.ocr.model.constantes.UserProfile;
-import fr.ocr.prj06.entities.DbGrimpeur;
-import fr.ocr.prj06.entities.DbGrimpeur_;
+import fr.ocr.model.entities.DbGrimpeur;
+import fr.ocr.model.entities.DbGrimpeur_;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;

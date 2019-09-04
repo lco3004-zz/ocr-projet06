@@ -1,8 +1,7 @@
-package fr.ocr.prj06.servlets.topo;
+package fr.ocr.view.servlets.topo;
 
-import fr.ocr.prj06.constantes.MessageDeBase;
+import fr.ocr.utility.constantes.MessageDeBase;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static fr.ocr.prj06.constantes.MessageDeBase.*;
+import static fr.ocr.utility.constantes.MessageDeBase.*;
+
 
 @WebServlet(description = "Permet au grimpeur proprietaire du topo d'accepter/refuser une resa de topo" ,
         name = "Pri_AccepterReservationTopo",
@@ -25,11 +25,11 @@ public class Pri_AccepterReservationTopo extends HttpServlet {
     }
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         try (PrintWriter out = response.getWriter()) {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
@@ -42,8 +42,6 @@ public class Pri_AccepterReservationTopo extends HttpServlet {
 
             out.print(HTML_FIN.getValeur());
             out.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

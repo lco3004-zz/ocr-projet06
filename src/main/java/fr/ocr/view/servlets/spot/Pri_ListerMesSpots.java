@@ -1,6 +1,7 @@
+package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
-import fr.ocr.prj06.entities.DbSpot;
+import fr.ocr.model.entities.DbSpot;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(description = "Servlet qui liste les spots d'un grimpeur ",
@@ -19,14 +21,14 @@ import java.util.List;
 public class Pri_ListerMesSpots extends HttpServlet {
     private static final long serialVersionUID =1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try  {
             CtrlMetierSpot ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
-            List<DbSpot> dbSpots=null;
+            List<DbSpot> dbSpots;
             Integer idGrimpeur =null;
 
             if ( request.getAttribute("idGrimpeur") != null) {
@@ -41,8 +43,8 @@ public class Pri_ListerMesSpots extends HttpServlet {
 
         } catch (Exception e) {
             request.removeAttribute("dbSpots");
-            request.setAttribute("LocalizedMessage","LocalizedMsg : "+e.getLocalizedMessage()+" "+e.getStackTrace());
-            request.setAttribute("StackTrace","StackTrace : "+ e.getLocalizedMessage()+" "+e.getStackTrace());
+            request.setAttribute("LocalizedMessage","LocalizedMsg : "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
+            request.setAttribute("StackTrace","StackTrace : "+ e.getLocalizedMessage()+" "+Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
             requestDispatcher.forward(request,response);
 

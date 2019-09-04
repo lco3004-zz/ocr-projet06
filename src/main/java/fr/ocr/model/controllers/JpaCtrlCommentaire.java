@@ -1,16 +1,16 @@
 package fr.ocr.model.controllers;
 
-import fr.ocr.prj06.entities.DbCommentaire;
-import fr.ocr.prj06.entities.DbCommentaire_;
-import fr.ocr.prj06.entities.DbSpot;
+import fr.ocr.model.entities.DbCommentaire;
+import fr.ocr.model.entities.DbCommentaire_;
+import fr.ocr.model.entities.DbSpot;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
 import java.util.List;
+
 
 public interface JpaCtrlCommentaire {
 
@@ -20,7 +20,7 @@ public interface JpaCtrlCommentaire {
     void archiveCommentaire(Integer idCommentaire) throws Exception;
     DbCommentaire updateCommentaire(Integer idCommentaire, String txtComment, Boolean isVisible) throws Exception;
     void deleteCommentaire(Integer idCommentaire) throws Exception;
-    List<? extends DbCommentaire> findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception;
+    List<DbCommentaire> findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception;
 
 }
 
@@ -133,7 +133,7 @@ class  JpaCtrlCommentaire_impl implements JpaCtrlCommentaire {
     }
 
     @Override
-    public List<? extends DbCommentaire> findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception {
+    public List<DbCommentaire> findListeCommentaires(Integer idSpot, Boolean isFiltrageActif, Boolean flagFiltrage) throws Exception {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             jpa.getEm().getTransaction().begin();
             DbSpot spotBySpotIdspot = jpa.getEm().find(DbSpot.class, idSpot);
@@ -149,17 +149,17 @@ class  JpaCtrlCommentaire_impl implements JpaCtrlCommentaire {
 
             if (isFiltrageActif) {
                 Predicate[] predicates = new Predicate[2];
-                predicates[0] = criteriaBuilder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot);
-                predicates[1] = criteriaBuilder.equal(root.get(DbCommentaire_.estVisible),flagFiltrage);
+                predicates[0] = criteriaBuilder.equal(root.get(DbCommentaire_.SPOT_BY_SPOT_IDSPOT), spotBySpotIdspot);
+                predicates[1] = criteriaBuilder.equal(root.get(DbCommentaire_.EST_VISIBLE),flagFiltrage);
                 criteriaQuery.where(predicates);
             }else {
-                Predicate predicate = criteriaBuilder.equal(root.get(DbCommentaire_.spotBySpotIdspot), spotBySpotIdspot);
+                Predicate predicate = criteriaBuilder.equal(root.get(DbCommentaire_.SPOT_BY_SPOT_IDSPOT), spotBySpotIdspot);
                 criteriaQuery.where(predicate);
             }
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
-            ArrayList<DbCommentaire> ret = (ArrayList<DbCommentaire>) query.getResultList();
+            List<DbCommentaire> ret = (List<DbCommentaire>) query.getResultList();
 
             jpa.getEm().getTransaction().commit();
             return ret;

@@ -1,11 +1,12 @@
 package fr.ocr.model.converters;
 
 
+import fr.ocr.model.constantes.EtatsResaTopo;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import static fr.ocr.prj06.constantes.EtatsResaTopo.*;
+import static fr.ocr.model.constantes.EtatsResaTopo.*;
 
 @Converter(autoApply = true)
 public class JpaConvEnumResaTopoToString implements AttributeConverter<EtatsResaTopo, String> {

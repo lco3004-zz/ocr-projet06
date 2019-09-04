@@ -1,13 +1,15 @@
 package fr.ocr.business.spot;
 
 
-import fr.ocr.prj06.constantes.SpotClassification;
-import fr.ocr.prj06.controllers.JpaCtrlSpot;
-import fr.ocr.prj06.entities.DbSpot;
+import fr.ocr.model.controllers.JpaCtrlSpot;
+import fr.ocr.model.entities.DbSpot;
 
 import java.util.List;
 
-import static fr.ocr.prj06.constantes.SpotClassification.STANDARD;
+import static fr.ocr.model.constantes.SpotClassification.OFFICIEL;
+import static fr.ocr.model.constantes.SpotClassification.STANDARD;
+
+
 
 public interface CtrlMetierSpot {
     CtrlMetierSpot CTRL_METIER_SPOT = new CtrlMetierSpot_impl();
@@ -32,8 +34,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
 
     @Override
     public List<DbSpot> listerMesSpots(Integer idGrimpeur) throws Exception {
-        List<DbSpot> dbSpots =  jpaCtrlSpot.findListeSpots(idGrimpeur);
-        return  dbSpots;
+        return  jpaCtrlSpot.findListeSpots(idGrimpeur);
     }
 
     @Override
@@ -44,7 +45,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     @Override
     public DbSpot taggerCeSpot(Integer idSpot) throws Exception {
         DbSpot dbSpot = jpaCtrlSpot.readSpot(idSpot);
-        dbSpot.setClassification(SpotClassification.OFFICIEL.name());
+        dbSpot.setClassification(OFFICIEL.name());
         return jpaCtrlSpot.updateSpot(dbSpot);
     }
 

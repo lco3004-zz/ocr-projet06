@@ -1,8 +1,8 @@
 package fr.ocr.business;
 
-import fr.ocr.prj06.controllers.JpaCtrlSpot;
-import fr.ocr.prj06.controllers.JpaEntityManagerFactory;
 
+import fr.ocr.model.controllers.JpaCtrlSpot;
+import fr.ocr.model.controllers.JpaEntityManagerFactory;
 
 /**
  *
@@ -16,7 +16,7 @@ public class BusinessMgmt {
      * ***********************************************************************************************
      */
 
-    public BusinessMgmt() throws Exception {
+    public BusinessMgmt()  {
         jpaCtrl = JpaCtrlSpot.JPA_CTRL_SPOT;
 
         jpaEmf = JpaEntityManagerFactory.getJpaEntityManagerFactory();
