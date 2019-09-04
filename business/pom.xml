@@ -18,7 +18,6 @@
         <app.main.class>fr.ocr.prj06.business.App</app.main.class>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>fr.ocr.prj06</groupId>
