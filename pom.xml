@@ -208,14 +208,11 @@
         <scope>provided</scope>
       </dependency>
 
-
       <dependency>
         <groupId>org.apache.taglibs</groupId>
         <artifactId>taglibs-standard-impl</artifactId>
         <version>1.2.5</version>
       </dependency>
-
-
     </dependencies>
   </dependencyManagement>
 
@@ -242,6 +239,23 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.3</version>
+          <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j18-impl -->
+            <dependency>
+              <groupId>org.apache.logging.log4j</groupId>
+              <artifactId>log4j-slf4j18-impl</artifactId>
+              <version>2.12.1</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+            <dependency>
+              <groupId>org.apache.logging.log4j</groupId>
+              <artifactId>log4j-core</artifactId>
+              <version>2.12.1</version>
+              <scope>runtime</scope>
+            </dependency>
+
+          </dependencies>
         </plugin>
 
         <plugin>
@@ -318,8 +332,6 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.2</version>
         </plugin>
-
-
       </plugins>
     </pluginManagement>
     <plugins>
