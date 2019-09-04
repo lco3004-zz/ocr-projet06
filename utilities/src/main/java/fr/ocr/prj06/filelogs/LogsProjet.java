@@ -1,33 +1,39 @@
 package fr.ocr.prj06.filelogs;
-import org.slf4j.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+import org.apache.logging.log4j.*;
+
+import static fr.ocr.prj06.constantes.Messages.ConstantesPgm.NOM_APPLICATION;
 
 /**
  *
  */
 public class LogsProjet implements AutoCloseable{
 
+    private static final Integer MARKER_PROJET = 1;
+    private static final Integer MARKER_JPA = 2;
     private static LogsProjet ourInstance = null;
-    // The name of this Logger will be "org.apache.logging.LogsUtil"
+
+
     private final   Logger logger;
+
     private final Marker markerProject;
 
-    private LogsProjet() {
-        logger = LoggerFactory.getLogger(LogsProjet.class);
-
-        markerProject = MarkerFactory.getMarker(loadProperties());
+    private LogsProjet(Object object) {
+        markerProject = MarkerManager.getMarker(loadProperties(MARKER_PROJET));
+        logger = LogManager.getLogger(this);
     }
 
-    public static LogsProjet getLogsInstance() {
+    public static LogsProjet getLogsInstance(Object object) {
         if (ourInstance == null)
-            ourInstance = new LogsProjet();
+            ourInstance = new LogsProjet(object);
         return ourInstance;
     }
 
-    private String loadProperties() {
+    private String loadProperties(Integer choixProperty) {
         Properties properties = new Properties();
         InputStream inputStream = LogsProjet.class.getResourceAsStream("/info.properties");
         try {
@@ -35,19 +41,29 @@ public class LogsProjet implements AutoCloseable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return properties.getProperty(type.getValeurConstante());
+        if (choixProperty == MARKER_JPA) {
+            return  "JPA";
+        }
+
+        return properties.getProperty(NOM_APPLICATION.getValeurConstante());
+    }
+
+    public void info_projet(String msg) {
+        logger.log(Level.INFO,msg);
+    }
+    public void debug_projet(String msg) {
+        logger.log(Level.DEBUG,msg);
+    }
+    public void warn_projet(String msg) {
+        logger.log(Level.WARN,msg);
+    }
+    public void error_projet(String msg) {
+        logger.log(Level.ERROR,msg);
     }
 
     @Override
     public void close() {
-        ILoggerFactory x =   LoggerFactory.getILoggerFactory();
-        x.
+        info_projet("Close : Shutdown LogManager ! Bye !");
+        LogManager.shutdown();
     }
 }
-
-
-/*
- * ***************************************************************************************************************
- *  the end
- * ***************************************************************************************************************
- */

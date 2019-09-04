@@ -34,6 +34,8 @@ public class BusinessMgmt {
 
         jpaEmf.closeDao();
     }
+
+
     public DbSpot ajouterSpot(Integer idUser) throws Exception {
 
         DbSpot dbSpot = new DbSpot();

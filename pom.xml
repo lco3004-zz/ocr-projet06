@@ -14,23 +14,13 @@
   <!-- =============================================================== -->
   <!-- Parent Pom et nom application -->
   <!-- =============================================================== -->
-  <packaging>pom</packaging>
-  <name>projet06</name>
+  <packaging>war</packaging>
+  <name>lagrimpeuse</name>
 
   <!-- =============================================================== -->
   <!-- information generales application -->
   <!-- =============================================================== -->
   <description>  Projet06 </description>
-
-  <!-- =============================================================== -->
-  <!-- modules gérés par  parent Pom -->
-  <!-- =============================================================== -->
-  <modules>
-    <module>model</module>
-    <module>business</module>
-    <module>view</module>
-    <module>utilities</module>
-  </modules>
 
   <!-- =============================================================== -->
   <!-- Propietes -->
@@ -126,28 +116,7 @@
   <!-- =============================================================== -->
   <!-- Gestion des dépendances -->
   <!-- =============================================================== -->
-  <dependencyManagement>
     <dependencies>
-
-      <dependency>
-        <groupId>fr.ocr.prj06</groupId>
-        <artifactId>utilities</artifactId>
-        <version>1.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>fr.ocr.prj06</groupId>
-        <artifactId>model</artifactId>
-        <version>1.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>fr.ocr.prj06</groupId>
-        <artifactId>business</artifactId>
-        <version>1.0</version>
-      </dependency>
-
-      <!-- ===== Bibliothèques tierces ===== -->
 
       <dependency>
         <groupId>javax.servlet.jsp.jstl</groupId>
@@ -214,25 +183,21 @@
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-core</artifactId>
         <version>2.12.1</version>
-        <scope>runtime</scope>
+        <scope>compile</scope>
       </dependency>
-
       <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>2.0.0-alpha0</version>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.12.1</version>
       </dependency>
 
-
     </dependencies>
-  </dependencyManagement>
 
   <!-- =============================================================== -->
   <!-- Build -->
   <!-- =============================================================== -->
   <build>
-    <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -247,20 +212,49 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>3.2.3</version>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <compilerArgument>-proc:none</compilerArgument>
+          </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.bsc.maven</groupId>
           <artifactId>maven-processor-plugin</artifactId>
-          <version>3.3.3</version>
+          <executions>
+            <execution>
+              <id>process</id>
+              <goals>
+                <goal>process</goal>
+              </goals>
+              <phase>generate-sources</phase>
+              <configuration>
+                <outputDirectory>target/metamodel</outputDirectory>
+                <processors>
+                  <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
+                </processors>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <id>add-source</id>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>add-source</goal>
+              </goals>
+              <configuration>
+                <sources>
+                  <source> target/metamodel </source>
+                </sources>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
 
         <plugin>
@@ -270,10 +264,10 @@
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.2</version>
+          <artifactId>maven-war-plugin</artifactId>
           <configuration>
+            <warSourceDirectory>WebContent</warSourceDirectory>
+            <failOnMissingWebXml>true</failOnMissingWebXml>
             <archive>
               <manifest>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -326,25 +320,13 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.2</version>
         </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
       </plugins>
-    </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.0.0-M2</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.1.1</version>
-      </plugin>
-    </plugins>
   </build>
 </project>
 

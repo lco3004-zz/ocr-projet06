@@ -10,7 +10,8 @@ public enum Messages {
     ;
 
     public enum ConstantesPgm {
-        ;
+        UNITE_DE_PERSISTANCE("nomDeLaPersistance"),
+        NOM_APPLICATION ("type");
 
         private String valeurConstante;
 
