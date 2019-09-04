@@ -1,6 +1,7 @@
 package fr.ocr.view.listeners;
 
 import fr.ocr.business.BusinessMgmt;
+import fr.ocr.utility.filelogs.LogsProjet;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -33,6 +34,10 @@ public class ApplicationListener implements ServletContextListener,
          You can initialize servlet context related data here.
       */
         businessMgmt.openDAO();
+
+        LogsProjet logs = LogsProjet.getLogsInstance();
+
+        logs.info_projet("hello from log4j");
 
     }
 

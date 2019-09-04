@@ -22,7 +22,7 @@ public class JpaEntityManagerFactory  {
 
         Properties properties = new Properties();
         try {
-            InputStream inputStream = JpaEntityManagerFactory.class.getResourceAsStream("/META-INF/info.properties");
+            InputStream inputStream = JpaEntityManagerFactory.class.getResourceAsStream("/info.properties");
             properties.load(inputStream);
             this.persistenceUnitName = properties.getProperty(UNITE_DE_PERSISTANCE.getValeurConstante());
             //this.persistenceUnitName = properties.getProperty( "nomDeLaPersistance" );
