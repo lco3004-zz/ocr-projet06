@@ -38,80 +38,6 @@
     <nomUniteDePersistance>db_projet06</nomUniteDePersistance>
   </properties>
 
-  <!-- =============================================================== -->
-  <!-- Profils -->
-  <!-- =============================================================== -->
-  <profiles>
-    <!-- Profil pour l'environnement de développement -->
-    <!-- active par defaut -->
-    <profile>
-      <id>dev</id>
-      <activation>
-        <property>
-          <name>target_profile</name>
-          <value>dev</value>
-        </property>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <build>
-        <finalName>${project.artifactId}-dev</finalName>
-        <resources>
-          <resource>
-            <directory>src/main/META-INF</directory>
-            <filtering>true</filtering>
-          </resource>
-        </resources>
-      </build>
-    </profile>
-    <!-- Profil pour l'environnement de production-->
-    <!-- pas de snapshot en production-->
-    <profile>
-      <id>prod</id>
-      <activation>
-        <property>
-          <name>target_profile</name>
-          <value>prod</value>
-        </property>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <build>
-        <finalName>${project.artifactId}-prod</finalName>
-        <resources>
-          <resource>
-            <directory>src/main/META-INF</directory>
-            <filtering>true</filtering>
-          </resource>
-        </resources>
-        <plugins>
-          <!--  enforcer sur controle que les versions ne sont pas snapshot  -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-enforcer-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>enforce-no-snapshots</id>
-                <phase>validate</phase>
-                <goals>
-                  <goal>enforce</goal>
-                </goals>
-                <configuration>
-                  <rules>
-                    <requireReleaseVersion>
-                      <message>No Snapshots Allowed!</message>
-                    </requireReleaseVersion>
-                    <requireReleaseDeps>
-                      <message>No Snapshots Allowed!</message>
-                    </requireReleaseDeps>
-                  </rules>
-                  <fail>true</fail>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
   <!-- =============================================================== -->
   <!-- Gestion des dépendances -->
@@ -178,6 +104,12 @@
   <!-- Build -->
   <!-- =============================================================== -->
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
