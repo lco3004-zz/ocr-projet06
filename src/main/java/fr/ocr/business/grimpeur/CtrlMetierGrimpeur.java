@@ -18,6 +18,7 @@ public interface CtrlMetierGrimpeur {
     List<DbGrimpeur> listeTousGrimpeurs() throws Exception;
     List<DbGrimpeur> listeTousMembre() throws Exception;
     DbGrimpeur consulterCeGrimpeur(Integer idGrimpeur) throws Exception;
+    List<DbGrimpeur>  retrouverCeGrimpeur(String NomGrimpeur) throws Exception;
 
 }
 
@@ -57,5 +58,10 @@ class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
     @Override
     public DbGrimpeur consulterCeGrimpeur(Integer idGrimpeur) throws Exception {
         return jpaCtrlGrimpeur.readGrimpeur(idGrimpeur);
+    }
+
+    @Override
+    public List<DbGrimpeur>  retrouverCeGrimpeur(String NomGrimpeur) throws Exception {
+        return jpaCtrlGrimpeur.findListGrimpeurs(NomGrimpeur);
     }
 }
