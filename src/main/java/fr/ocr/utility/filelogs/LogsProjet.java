@@ -50,13 +50,15 @@ public class LogsProjet {
         logger.log(Level.INFO,msg);
     }
     public void debug_projet(String msg) {
-        logger.log(Level.DEBUG,msg);
+        logger.debug(msg);
     }
     public void warn_projet(String msg) {
-        logger.log(Level.WARN,msg);
+
+        logger.warn(msg);
     }
     public void error_projet(String msg) {
-        logger.log(Level.ERROR,msg);
+
+        logger.error(msg);
     }
 
 

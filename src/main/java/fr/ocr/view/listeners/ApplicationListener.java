@@ -20,9 +20,12 @@ public class ApplicationListener implements ServletContextListener,
     }
 
     private BusinessMgmt businessMgmt;
+    private LogsProjet logs;
+
     // Public constructor is required by servlet spec
     public ApplicationListener() throws Exception {
         businessMgmt = new BusinessMgmt();
+        logs = LogsProjet.getLogsInstance();
     }
 
     // -------------------------------------------------------
@@ -34,11 +37,7 @@ public class ApplicationListener implements ServletContextListener,
          You can initialize servlet context related data here.
       */
         businessMgmt.openDAO();
-
-        LogsProjet logs = LogsProjet.getLogsInstance();
-
         logs.info_projet("hello from log4j");
-
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
@@ -47,7 +46,8 @@ public class ApplicationListener implements ServletContextListener,
          Application Server shuts down.
       */
         businessMgmt.closeDao();
-
+        logs.info_projet("Bye from log4j");
+        logs.close();
     }
 
     // -------------------------------------------------------
@@ -59,6 +59,7 @@ public class ApplicationListener implements ServletContextListener,
 
     public void sessionDestroyed(HttpSessionEvent se) {
         /* Session is destroyed. */
+        logs.close();
     }
 
     // -------------------------------------------------------

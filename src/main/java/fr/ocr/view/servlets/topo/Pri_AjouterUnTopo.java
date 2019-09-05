@@ -50,7 +50,7 @@ public class Pri_AjouterUnTopo extends HttpServlet {
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopo");
+            request.removeAttribute("dbTopos");
 
             request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");

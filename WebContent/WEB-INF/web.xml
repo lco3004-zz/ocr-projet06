@@ -20,8 +20,10 @@
         <servlet-name>Pri_ListeDesSpots</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_ListeDesSpots.jsp</jsp-file>
     </servlet>
-
-
+    <servlet>
+        <servlet-name>Pri_confirmationInscription</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pri_confirmationInscription.jsp</jsp-file>
+    </servlet>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

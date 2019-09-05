@@ -10,7 +10,7 @@ import java.util.List;
 public interface CtrlMetierGrimpeur {
     CtrlMetierGrimpeur CTRL_METIER_GRIMPEUR = new CtrlMetierGrimpeur_impl();
 
-    DbGrimpeur ajouterGrimpeur(DbGrimpeur dbGrimpeur) throws Exception ;
+    DbGrimpeur ajouterGrimpeur(String nom, String mdp) throws Exception ;
 
 
     DbGrimpeur modifierProfilGrimpeur(Integer idUser, UserProfile userProfile) throws Exception ;
@@ -31,7 +31,10 @@ class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
     }
 
     @Override
-    public DbGrimpeur ajouterGrimpeur(DbGrimpeur dbGrimpeur) throws Exception {
+    public DbGrimpeur ajouterGrimpeur(String nom, String mdp) throws Exception {
+        DbGrimpeur dbGrimpeur = new DbGrimpeur();
+        dbGrimpeur.setUserName(nom);
+        dbGrimpeur.setUserPass(mdp);
         dbGrimpeur.setRoleName(UserProfile.GRIMPEUR);
         return  jpaCtrlGrimpeur.createGrimpeur(dbGrimpeur);
     }
