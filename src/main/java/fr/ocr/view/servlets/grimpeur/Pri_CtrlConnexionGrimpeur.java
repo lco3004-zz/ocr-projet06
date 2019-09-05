@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "Pri_CtrlConnexionGrimpeur",
-        urlPatterns = {"/gestionGrimpeurs/CtrlConnexionGrimpeur"})
+        urlPatterns = {"/CtrlConnexionGrimpeur"})
 
 public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
     private static final long serialVersionUID =1L;

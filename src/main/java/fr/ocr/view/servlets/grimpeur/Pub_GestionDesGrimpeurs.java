@@ -38,13 +38,14 @@ public class Pub_GestionDesGrimpeurs extends HttpServlet {
 
             out.print(BR.getValeur());
 
-            out.print("<a href=\"connexionGrimpeur.html\">Se connecter</a>");
+
+            out.print("<a href=\"ConnexionGrimpeur\" >Se connecter</a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"inscriptionGrimpeur.html\">S'inscrire</a>");
+            out.print("<a href=\"InscriptionGrimpeur\">S'inscrire</a>");
             out.print(BR.getValeur());
 
-            out.print("<a href=\"gestionGrimpeurs/ListerLesGrimpeurs\">Liste des Grimpeurs</a>");
+            out.print("<a href=\"ListerLesGrimpeurs\">Liste des Grimpeurs</a>");
             out.print(BR.getValeur());
 
             out.print(BR.getValeur());

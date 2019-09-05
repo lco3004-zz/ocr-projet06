@@ -15,7 +15,7 @@ import java.util.List;
 
 @WebServlet(description = "Permet au grimpeur proprietaire du topo d'accepter/refuser une resa de topo" ,
             name = "Pri_ListerLesGrimpeurs",
-            urlPatterns = {"/gestionGrimpeurs/ListerLesGrimpeurs"})
+        urlPatterns = {"/ListerLesGrimpeurs"})
 
 public class Pri_ListerLesGrimpeurs extends HttpServlet {
 

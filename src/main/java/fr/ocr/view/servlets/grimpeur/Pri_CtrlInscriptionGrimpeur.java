@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 @WebServlet(description = "inscription d'un nouveau grimepeur sur le site" ,
         name = "Pri_CtrlInscriptionGrimpeur",
-        urlPatterns = {"/gestionGrimpeurs/CtrlInscriptionGrimpeur"})
+        urlPatterns = {"/CtrlInscriptionGrimpeur"})
 
 public class Pri_CtrlInscriptionGrimpeur extends HttpServlet {
     private static final long serialVersionUID =1L;

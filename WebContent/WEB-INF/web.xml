@@ -30,6 +30,35 @@
         <jsp-file>/WEB-INF/jsp/Pri_ListeGrimpeurs.jsp</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pub_ConnexionGrimpeur.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pub_InscriptionGrimpeur.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Pri_AjouterUnTopo</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pri_AjouterUnTopo.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Pri_AjouterUnTopo</servlet-name>
+        <url-pattern>/AjouterUnTopo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
+        <url-pattern>/InscriptionGrimpeur</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
+        <url-pattern>/ConnexionGrimpeur</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
