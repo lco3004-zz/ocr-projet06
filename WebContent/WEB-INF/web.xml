@@ -25,6 +25,12 @@
         <jsp-file>/WEB-INF/jsp/Pri_confirmationInscription.jsp</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>Pri_ListeGrimpeurs</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pri_ListeGrimpeurs.jsp</jsp-file>
+    </servlet>
+
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

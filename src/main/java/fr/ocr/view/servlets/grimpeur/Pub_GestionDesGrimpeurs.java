@@ -2,7 +2,6 @@ package fr.ocr.view.servlets.grimpeur;
 
 import fr.ocr.utility.constantes.MessageDeBase;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,11 +25,11 @@ public class Pub_GestionDesGrimpeurs extends HttpServlet {
         super();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try (PrintWriter out = response.getWriter()) {
 
             try {
@@ -49,8 +48,11 @@ public class Pub_GestionDesGrimpeurs extends HttpServlet {
             out.print(BR.getValeur());
 
             out.print("<a href=\"inscriptionGrimpeur.html\">S'inscrire</a>");
-
             out.print(BR.getValeur());
+
+            out.print("<a href=\"gestionGrimpeurs/ListerLesGrimpeurs\">Liste des Grimpeurs</a>");
+            out.print(BR.getValeur());
+
             out.print(BR.getValeur());
             out.print("Veuillez cliquer sur ce lien pour continuer -> ");
 

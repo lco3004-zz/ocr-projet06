@@ -5,6 +5,7 @@ import fr.ocr.model.constantes.UserProfile;
 import fr.ocr.model.controllers.JpaCtrlGrimpeur;
 import fr.ocr.model.entities.DbGrimpeur;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface CtrlMetierGrimpeur {
@@ -15,11 +16,12 @@ public interface CtrlMetierGrimpeur {
 
     DbGrimpeur modifierProfilGrimpeur(Integer idUser, UserProfile userProfile) throws Exception ;
 
-    List<DbGrimpeur> listeTousGrimpeurs() throws Exception;
-    List<DbGrimpeur> listeTousMembre() throws Exception;
-    DbGrimpeur consulterCeGrimpeur(Integer idGrimpeur) throws Exception;
-    List<DbGrimpeur>  retrouverCeGrimpeur(String NomGrimpeur) throws Exception;
+    List<DbGrimpeur> listerTousGrimpeurs() throws Exception;
 
+    List<DbGrimpeur> listerTousMembres() throws Exception;
+    DbGrimpeur consulterCeGrimpeur(Integer idGrimpeur) throws Exception;
+
+    DbGrimpeur connecterCeGrimpeur(String NomGrimpeur, String mdpGrimpeur) throws Exception;
 }
 
 class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
@@ -46,13 +48,18 @@ class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
     }
 
     @Override
-    public List<DbGrimpeur> listeTousGrimpeurs() throws Exception {
-        return jpaCtrlGrimpeur.findListGrimpeurs(UserProfile.GRIMPEUR);
+    public List<DbGrimpeur> listerTousGrimpeurs() throws Exception {
+        ArrayList<UserProfile> userProfiles = new ArrayList<>();
+        userProfiles.add(UserProfile.GRIMPEUR);
+        userProfiles.add(UserProfile.MEMBRE);
+        return jpaCtrlGrimpeur.findGrimpeurByProfile(userProfiles);
     }
 
     @Override
-    public List<DbGrimpeur> listeTousMembre() throws Exception {
-        return jpaCtrlGrimpeur.findListGrimpeurs(UserProfile.MEMBRE);
+    public List<DbGrimpeur> listerTousMembres() throws Exception {
+        ArrayList<UserProfile> userProfiles = new ArrayList<>();
+        userProfiles.add(UserProfile.MEMBRE);
+        return jpaCtrlGrimpeur.findGrimpeurByProfile(userProfiles);
     }
 
     @Override
@@ -61,7 +68,15 @@ class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
     }
 
     @Override
-    public List<DbGrimpeur>  retrouverCeGrimpeur(String NomGrimpeur) throws Exception {
-        return jpaCtrlGrimpeur.findListGrimpeurs(NomGrimpeur);
+    public DbGrimpeur connecterCeGrimpeur(String NomGrimpeur, String mdpGrimpeur) throws Exception {
+        List<DbGrimpeur> dbGrimpeurs = jpaCtrlGrimpeur.findGrimpeurByName(NomGrimpeur);
+        DbGrimpeur dbGrimpeur = null;
+
+        if (dbGrimpeurs.size() == 1) {
+            if (dbGrimpeurs.get(0).getUserPass().contentEquals(new StringBuffer(mdpGrimpeur))) {
+                dbGrimpeur = dbGrimpeurs.get(0);
+            }
+        }
+        return dbGrimpeur;
     }
 }

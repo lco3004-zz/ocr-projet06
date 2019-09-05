@@ -9,8 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 @WebServlet(name = "Pri_CtrlConnexionGrimpeur",
@@ -31,20 +31,22 @@ public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
             String nomGrimpeur = request.getParameter("nomGrimpeur");
             String mdpGrimpeur = request.getParameter("mdpGrimpeur");
 
-            DbGrimpeur dbGrimpeur = ctrlMetierGrimpeur.ajouterGrimpeur(nomGrimpeur,mdpGrimpeur);
+            DbGrimpeur dbGrimpeur = ctrlMetierGrimpeur.connecterCeGrimpeur(nomGrimpeur, mdpGrimpeur);
 
-            ArrayList<DbGrimpeur> dbGrimpeurs =new ArrayList<>();
+            RequestDispatcher requestDispatcher;
 
-            dbGrimpeurs.add(dbGrimpeur);
-
-            request.setAttribute("dbGrimpeurs",dbGrimpeurs);
-
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationInscription");
+            if (dbGrimpeur != null) {
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationInscription");
+            } else {
+                requestDispatcher = this.getServletContext().getNamedDispatcher("/erreurDeConnexion.html");
+            }
 
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbGrimpeurs");
+            request.getSession().removeAttribute("dbGrimpeur");
 
             request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
@@ -55,7 +57,7 @@ public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }
