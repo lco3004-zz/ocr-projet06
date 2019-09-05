@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @WebServlet(name = "Pri_CtrlConnexionGrimpeur",
         urlPatterns = {"/gestionGrimpeurs/CtrlConnexionGrimpeur"})
@@ -26,6 +28,13 @@ public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 
+            try {
+                request.getSession().invalidate();
+
+            } catch (IllegalStateException ex) {
+                //pas grave, on fera un log pour info
+            }
+
             CtrlMetierGrimpeur ctrlMetierGrimpeur =  CtrlMetierGrimpeur.CTRL_METIER_GRIMPEUR;
 
             String nomGrimpeur = request.getParameter("nomGrimpeur");
@@ -38,22 +47,24 @@ public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
             if (dbGrimpeur != null) {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationInscription");
+                List<DbGrimpeur> dbGrimpeurs = new ArrayList<>();
+                dbGrimpeurs.add(dbGrimpeur);
+                request.setAttribute("dbGrimpeurs", dbGrimpeurs);
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeGrimpeurs");
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("/erreurDeConnexion.html");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("/erreurGrimpeur.html");
             }
 
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
             request.getSession().removeAttribute("dbGrimpeur");
+            request.removeAttribute("dbGrimpeurs");
 
             request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
             requestDispatcher.forward(request,response);
         }
-
-
 
     }
 

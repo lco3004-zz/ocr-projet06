@@ -22,14 +22,19 @@
         <th> nomGrimpeur</th>
         <th> mdpGrimpeur</th>
         <th> roleGrimpeur</th>
+        <th> estConnecté ?</th>
     </tr>
     <c:forEach var="dbGrimpeur" items="${requestScope.dbGrimpeurs}">
-
+        <c:set var="boolCon" scope="request" value="non"></c:set>
         <tr>
             <td>${dbGrimpeur.getIdgrimpeur()}</td>
             <td>${dbGrimpeur.getUserName()}</td>
             <td>${dbGrimpeur.getUserPass()}</td>
             <td>${dbGrimpeur.getRoleName()}</td>
+            <c:if test="${dbGrimpeur.getUserName() == sessionScope.dbGrimpeur.getUserName()}">
+                <c:set var="boolCon" scope="request" value="OUI"></c:set>
+            </c:if>
+            <td> ${boolCon}</td>
         </tr>
     </c:forEach>
 </table>

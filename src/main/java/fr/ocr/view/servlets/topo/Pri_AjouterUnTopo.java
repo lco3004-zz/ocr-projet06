@@ -45,7 +45,7 @@ public class Pri_AjouterUnTopo extends HttpServlet {
             dbTopos.add(dbTopo);
             request.setAttribute("dbTopos",dbTopos);
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_confirmationCreationTopo");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeDesTopos");
 
             requestDispatcher.forward(request,response);
 

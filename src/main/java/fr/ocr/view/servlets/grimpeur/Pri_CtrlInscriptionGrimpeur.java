@@ -36,13 +36,20 @@ public class Pri_CtrlInscriptionGrimpeur extends HttpServlet {
 
             DbGrimpeur dbGrimpeur = ctrlMetierGrimpeur.ajouterGrimpeur(nomGrimpeur,mdpGrimpeur);
 
-            ArrayList<DbGrimpeur> dbGrimpeurs =new ArrayList<>();
+            RequestDispatcher requestDispatcher;
 
-            dbGrimpeurs.add(dbGrimpeur);
+            if (dbGrimpeur != null) {
+                ArrayList<DbGrimpeur> dbGrimpeurs = new ArrayList<>();
 
-            request.setAttribute("dbGrimpeurs",dbGrimpeurs);
+                dbGrimpeurs.add(dbGrimpeur);
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ConfirmationConnexion");
+                request.setAttribute("dbGrimpeurs", dbGrimpeurs);
+
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeGrimpeurs");
+
+            } else {
+                requestDispatcher = this.getServletContext().getNamedDispatcher("/erreurGrimpeur.html");
+            }
 
             requestDispatcher.forward(request,response);
 

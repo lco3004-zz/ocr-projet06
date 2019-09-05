@@ -63,8 +63,10 @@ class JpaCtrlGrimpeur_impl implements JpaCtrlGrimpeur {
                 int i = 0;
                 for (UserProfile userProfile : userProfiles) {
                     predicates[i] = criteriaBuilder.equal(root.get(DbGrimpeur_.ROLE_NAME), userProfile);
+                    i++;
                 }
-                criteriaQuery.where(predicates).orderBy(order);
+                Predicate conditions = criteriaBuilder.or(predicates[0], predicates[1]);
+                criteriaQuery.where(conditions).orderBy(order);
             }
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
@@ -122,7 +124,7 @@ class JpaCtrlGrimpeur_impl implements JpaCtrlGrimpeur {
 
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
-                throw new Exception(ex);
+                return null;
             }
 
         } catch (Exception hex1) {

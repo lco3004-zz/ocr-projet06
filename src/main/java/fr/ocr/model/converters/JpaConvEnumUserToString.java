@@ -43,9 +43,9 @@ public class JpaConvEnumUserToString implements AttributeConverter<UserProfile, 
 
         if (dbData != null && !"".equalsIgnoreCase(dbData.trim())) {
             String tmp = dbData.trim().toUpperCase();
-            if ("U".equals(tmp)) {
+            if ("GRIMPEUR".equals(tmp)) {
                 valRet = GRIMPEUR;
-            } else if ("M".equals(tmp)) {
+            } else if ("MEMBRE".equals(tmp)) {
                 valRet = MEMBRE;
             }
         }
