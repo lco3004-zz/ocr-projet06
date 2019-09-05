@@ -10,10 +10,6 @@ DROP TABLE IF EXISTS public.topo;
 DROP TABLE  IF EXISTS public.spot;
 DROP TABLE IF EXISTS public.grimpeur;
    
-DROP TABLE  IF EXISTS  public.roles;
-DROP TABLE  IF EXISTS  public.utilisateurs;
-
-
 DROP SEQUENCE IF EXISTS  public.commentaire_idcommentaire_seq;
 DROP SEQUENCE IF EXISTS public.grimpeur_idgrimpeur_seq;
 DROP SEQUENCE IF EXISTS public.longueur_idlongueur_seq;
@@ -284,22 +280,4 @@ CREATE TABLE public.longueur
 
 ALTER TABLE public.longueur
     OWNER to postgres;
-   
-
-
-CREATE TABLE public.roles (
-	nom_util varchar(45) NOT NULL,
-	nom_role varchar(45) NOT NULL,
-	CONSTRAINT roles_fk FOREIGN KEY (nom_util) REFERENCES utilisateurs(nom_util) ON UPDATE CASCADE
-)
-TABLESPACE ts_projet06;
-
-
-
-CREATE TABLE public.utilisateurs (
-	nom_util varchar(45) NOT NULL,
-	mdp_util varchar(45) NOT NULL,
-	CONSTRAINT utilisateurs_pk PRIMARY KEY (nom_util)
-)
-TABLESPACE ts_projet06;
 

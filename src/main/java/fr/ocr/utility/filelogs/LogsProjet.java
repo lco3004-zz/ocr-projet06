@@ -21,7 +21,8 @@ public class LogsProjet {
 
     private LogsProjet() {
         markerProject = MarkerManager.getMarker(loadProperties(MARKER_PROJET));
-        logger = LogManager.getLogger(this);
+        logger = LogManager.getLogger(this.getClass());
+
     }
 
     public static LogsProjet getLogsInstance() {
@@ -38,7 +39,7 @@ public class LogsProjet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (choixProperty == MARKER_JPA) {
+        if (choixProperty.equals(MARKER_JPA)) {
             return  "JPA";
         }
 
