@@ -50,9 +50,9 @@ public class Pri_CtrlConnexion extends HttpServlet {
                 List<DbGrimpeur> dbGrimpeurs = new ArrayList<>();
                 dbGrimpeurs.add(dbGrimpeur);
                 request.setAttribute("dbGrimpeurs", dbGrimpeurs);
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeGrimpeurs");
+                requestDispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur.jsp");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ErreurGrimpeur");
             }
 
             requestDispatcher.forward(request,response);

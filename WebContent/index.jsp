@@ -7,17 +7,49 @@
     <%@include file="/WEB-INF/fragments/entete.html" %>
   </head>
   <body>
-  <h3> Bienvenue sur le Site des amis de l'escalade </h3>
-  <br>
-  <a href="Pub_GestionsDesTopos">Nos Topos </a>
-  <br>
-  <a href="Pub_GestionsDesSpots">Nos Spots </a>
-  <br>
-  <a href="Pub_GestionDesGrimpeurs"> Se Connecter/S'inscrire </a>
-  <br>
-  </body>
+
+  <nav>
+    <ul>
+      <li><a href="#idSpots" target="_self" title="Nos Spots"> Nos Spots </a></li>
+      <li><a href="#idTopos" target="_self" title="Les Topos "> Nos Topos </a></li>
+      <li><a href="#idCnx" target="_self" title="Connexion"> Se connecter</a></li>
+    </ul>
+  </nav>
+
+  <!-- Spots-->
+  <section class="contener">
+    <h3> Nos Spots </h3>
+    <!-- DESCRIPTION-->
+    <div id="idSpots">
+      <!-- PROJET 1-->
+      <article class="projet">
+        <a href="monpremierprojet.html" target="_self"> ListeDesSpots</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contener">
+    <h3> Connexion/Identification</h3>
+    <article id="idCnx">
+      <p> Connexion
+        <b>
+          <a href="<%=application.getContextPath()%>/WEB-INF/jsp/grimpeurs/Pub_ConnexionGrimpeur.jsp" target="_self">Connexion</a>
+        </b>
+      </p>
+      <p>
+        Identification
+        <b>
+          <a href="<%=application.getContextPath()%>/WEB-INF/jsp/grimpeurs/Pub_InscriptionGrimpeur.jsp" target="_self">Inscription</a>
+        </b>
+      </p>
+    </article>
+  </section>
 
   <footer>
     <%@include file="WEB-INF/fragments/footer.html" %>
   </footer>
+
+  </body>
 </html>

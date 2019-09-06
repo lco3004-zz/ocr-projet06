@@ -45,10 +45,10 @@ public class Pri_CtrlInscription extends HttpServlet {
 
                 request.setAttribute("dbGrimpeurs", dbGrimpeurs);
 
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeGrimpeurs");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_CtrlConnexion");
 
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur.jsp");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur");
             }
 
             requestDispatcher.forward(request,response);
