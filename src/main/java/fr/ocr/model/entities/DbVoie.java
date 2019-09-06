@@ -33,7 +33,7 @@ public class DbVoie implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", length = 45)
+    @Column(name = "nom", length = 64, nullable = false)
     public String getNom() {
         return nom;
     }

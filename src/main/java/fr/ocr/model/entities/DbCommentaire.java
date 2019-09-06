@@ -43,7 +43,7 @@ public class DbCommentaire implements Serializable {
     }
 
     @Basic
-    @Column(name = "est_visible")
+    @Column(name = "est_visible", nullable = false)
     public Boolean getEstVisible() {
         return estVisible;
     }

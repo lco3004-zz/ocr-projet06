@@ -27,7 +27,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", length = 256)
+    @Column(name = "nom", length = 256, nullable = false)
     private String nom;
     public String getNom() {
         return nom;
@@ -37,7 +37,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "est_publie")
+    @Column(name = "est_publie", nullable = false)
     @Convert(converter = JpaConvBoolInt.class)
     private Boolean estPublie;
     public Boolean getEstPublie() {
@@ -48,7 +48,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "etat_reservation")
+    @Column(name = "etat_reservation", nullable = false)
     @Convert(converter = JpaConvEnumResaTopoToString.class)
     private EtatsResaTopo etatReservation;
     public EtatsResaTopo getEtatReservation() {
@@ -70,7 +70,7 @@ public class DbTopo implements Serializable {
     }
 
     @Basic
-    @Column(name = "lieu",  length = 45)
+    @Column(name = "lieu", length = 256, nullable = false)
     private String lieu;
     public String getLieu() {
         return lieu;
@@ -80,7 +80,7 @@ public class DbTopo implements Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "date_de_parution")
+    @Column(name = "date_de_parution", nullable = false)
     private Date dateDeParution;
     public Date getDateDeParution() {
         return dateDeParution;

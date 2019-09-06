@@ -36,7 +36,7 @@ public class DbSpot implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", length = 45)
+    @Column(name = "nom", length = 256, nullable = false)
     public String getNom() {
         return nom;
     }
@@ -46,7 +46,7 @@ public class DbSpot implements Serializable {
     }
 
     @Basic
-    @Column(name = "classification", length = 45)
+    @Column(name = "classification", length = 64, nullable = false)
     public String getClassification() {
         return classification;
     }
@@ -56,7 +56,7 @@ public class DbSpot implements Serializable {
     }
 
     @Basic
-    @Column(name = "localisation", length = 45)
+    @Column(name = "localisation", length = 256, nullable = false)
     public String getLocalisation() {
         return localisation;
     }

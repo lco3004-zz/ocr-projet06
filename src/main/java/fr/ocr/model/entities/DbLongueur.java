@@ -30,7 +30,7 @@ public class DbLongueur implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", length = 45)
+    @Column(name = "nom", length = 256)
     public String getNom() {
         return nom;
     }
@@ -40,7 +40,7 @@ public class DbLongueur implements Serializable {
     }
 
     @Basic
-    @Column(name = "cotation", length = 45)
+    @Column(name = "cotation", length = 64)
     @Convert(converter = JpaConvEnumCotationLgToString.class)
 
     public CotationLongueur getCotation() {

@@ -194,7 +194,7 @@ CREATE TABLE public.commentaire
     idcommentaire integer NOT NULL DEFAULT nextval('commentaire_idcommentaire_seq'::regclass),
     est_visible integer DEFAULT 0 NOT NULL,
     texte character varying(256) COLLATE pg_catalog."default",
-    spot_idspot integer ,
+    spot_idspot integer NOT NULL ,
     CONSTRAINT commentaire_pkey PRIMARY KEY (idcommentaire),
     CONSTRAINT fk9opuacfoym9aae4x5no6clpva FOREIGN KEY (spot_idspot)
         REFERENCES public.spot (idspot) MATCH SIMPLE

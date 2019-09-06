@@ -33,7 +33,7 @@ public class DbSecteur implements Serializable {
     }
 
     @Basic
-    @Column(name = "nom", length = 45)
+    @Column(name = "nom", length = 256, nullable = false)
     public String getNom() {
         return nom;
     }

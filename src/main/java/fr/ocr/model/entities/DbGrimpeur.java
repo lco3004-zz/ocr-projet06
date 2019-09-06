@@ -39,7 +39,7 @@ public class DbGrimpeur implements Serializable {
     }
 
     @Basic
-    @Column(name = "user_pass")
+    @Column(name = "user_pass", nullable = false)
     public String getUserPass() {
         return userPass;
     }
@@ -49,7 +49,7 @@ public class DbGrimpeur implements Serializable {
     }
 
     @Basic
-    @Column(name = "user_name")
+    @Column(name = "user_name", nullable = false, unique = true)
     public String getUserName() {
         return userName;
     }
@@ -59,7 +59,7 @@ public class DbGrimpeur implements Serializable {
     }
 
     @Basic
-    @Column(name = "role_name")
+    @Column(name = "role_name", nullable = false)
     @Convert(converter = JpaConvEnumUserToString.class)
     public UserProfile getRoleName() {
         return roleName;
