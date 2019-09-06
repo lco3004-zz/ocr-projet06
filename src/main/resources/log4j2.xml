@@ -1,52 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO" monitorInterval="30" name="OCR-Projet06">
+<Configuration status="DEBUG" monitorInterval="30" name="OCR-Projet06">
     <Properties>
-        <Property name="framework_logs">./logs/frameworks.log</Property>
-        <Property name="projet06_logs">./logs/project.log</Property>
+        <Property name="framework_logs">../logs/project06/frameworks.log</Property>
+        <Property name="projet06_logs">../logs/project06/project.log</Property>
         <Property name="filtreSurProjet"> ${project.build.finalName} </Property>
     </Properties>
 
     <Appenders>
         <File name="FileAppli" fileName="${projet06_logs}" append="false" bufferSize="32768" bufferedIO="true"
               immediateFlush="false">
-            <PatternLayout>
-                <MarkerPatternSelector
-                        defaultPattern="%sn. %d{dd/MM - HH:mm:ss.SSS} [%t] %-5level - %msg Logger=%logger%n">
-                    <PatternMatch key="${filtreSurProjet}"
-                                  pattern="%sn. %d{dd/MM - HH:mm:ss.SSS} [%t] %-5level - %msg Projet==%logger%n"/>
-                </MarkerPatternSelector>
-            </PatternLayout>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
+
         <File name="FileSql" fileName="${framework_logs}" append="false" bufferSize="32768" bufferedIO="true"
               immediateFlush="false">
-            <PatternLayout>
-                <MarkerPatternSelector
-                        defaultPattern="%sn. %d{dd/MM - HH:mm:ss.SSS} [%t] %-5level - %msg : Logger=%logger %n">
-                    <PatternMatch key="${filtreSurProjet}"
-                                  pattern="%sn. %d{dd/MM - HH:mm:ss.SSS} [%t] %-5level - %msg : Projet=%logger %n"/>
-                </MarkerPatternSelector>
-            </PatternLayout>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
+
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout>
-                <MarkerPatternSelector defaultPattern="%sn. %d{HH:mm:ss} [%t] %-5level - %msg :Logger=%logger %n">
-                    <PatternMatch key="${filtreSurProjet}" pattern="%sn. %d{HH:mm:ss} [%t] %-5level - %msg : Projet=%logger %n"/>
-                </MarkerPatternSelector>
-            </PatternLayout>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
     </Appenders>
+
     <Loggers>
-        <Logger name="fr.ocr" level="DEBUG" additivity="false">
+        <Logger name="fr" level="DEBUG" additivity="false">
             <AppenderRef ref="FileAppli" />
         </Logger>
-        <Logger name="org.jboss.logging" level="INFO" additivity="false">
+        <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
             <AppenderRef ref="FileSql" />
         </Logger>
-        <Logger name="Console" level="INFO" additivity="true">
+        <Logger name="Console" level="INFO" additivity="false">
             <AppenderRef ref="Console" />
         </Logger>
         <Root level="INFO">
-            <AppenderRef ref="FileSql"/>
+            <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
 </Configuration>

@@ -1,6 +1,8 @@
 package fr.ocr.view.listeners;
 
 import fr.ocr.business.BusinessMgmt;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -36,6 +38,8 @@ public class ApplicationListener implements ServletContextListener,
       */
         businessMgmt = new BusinessMgmt();
         businessMgmt.openDAO();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
 
     }
 
