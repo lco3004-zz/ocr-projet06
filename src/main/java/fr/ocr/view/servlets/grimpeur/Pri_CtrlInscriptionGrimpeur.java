@@ -48,7 +48,7 @@ public class Pri_CtrlInscriptionGrimpeur extends HttpServlet {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeGrimpeurs");
 
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("/erreurGrimpeur.html");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur.jsp");
             }
 
             requestDispatcher.forward(request,response);

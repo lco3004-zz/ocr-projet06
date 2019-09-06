@@ -52,7 +52,7 @@ public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
                 request.setAttribute("dbGrimpeurs", dbGrimpeurs);
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeGrimpeurs");
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("/erreurGrimpeur.html");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur.jsp");
             }
 
             requestDispatcher.forward(request,response);
