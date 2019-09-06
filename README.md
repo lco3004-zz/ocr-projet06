@@ -1,5 +1,5 @@
 # ocr-projet06
-##  MODEL_V5
+##  MODEL_V6
 ##
 ## PostgreSql 11
 ## JPA 2.2
