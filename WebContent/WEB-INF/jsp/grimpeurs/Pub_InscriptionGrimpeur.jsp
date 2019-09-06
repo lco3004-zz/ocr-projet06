@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<form action="Pri_CtrlInscriptionGrimpeur" method="post">
+<form action="PriCtrlInscription" method="post">
     <label id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
     <input name="nomGrimpeur"  required ="true" size="64" type="text"/>
     <br>

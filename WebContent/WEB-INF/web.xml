@@ -54,18 +54,19 @@
         <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
         <jsp-file>/WEB-INF/jsp/grimpeurs/Pub_InscriptionGrimpeur.jsp</jsp-file>
     </servlet>
-    <servlet>
-        <servlet-name>Pub_GestionDesGrimpeurs</servlet-name>
-        <jsp-file>/WEB-INF/jsp/grimpeurs/Pub_GestionDesGrimpeurs.jsp</jsp-file>
-    </servlet>
+
     <!-- **************************************************************** -->
 
     <!-- **************************************************************** -->
     <!--  GRIMPEURS MAPPING -->
     <!-- **************************************************************** -->
     <servlet-mapping>
-        <servlet-name>Pub_GestionDesGrimpeurs</servlet-name>
-        <url-pattern>/Pub_GestionDesGrimpeurs</url-pattern>
+        <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
+        <url-pattern>/Pub_ConnexionGrimpeur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
+        <url-pattern>/Pub_InscriptionGrimpeur</url-pattern>
     </servlet-mapping>
 
     <!-- **************************************************************** -->

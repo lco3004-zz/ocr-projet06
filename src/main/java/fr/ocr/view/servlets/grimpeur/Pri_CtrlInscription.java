@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 @WebServlet(description = "inscription d'un nouveau grimepeur sur le site" ,
         name = "Pri_CtrlInscription",
-        urlPatterns = {"/Pri_CtrlInscription"})
+        urlPatterns = {"/PriCtrlInscription"})
 
 public class Pri_CtrlInscription extends HttpServlet {
     private static final long serialVersionUID =1L;
@@ -62,7 +62,7 @@ public class Pri_CtrlInscription extends HttpServlet {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 }

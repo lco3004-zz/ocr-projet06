@@ -11,12 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @WebServlet(name = "Pri_CtrlConnexion",
-        urlPatterns = {"/Pri_CtrlConnexion"})
+        urlPatterns = {"/PriCtrlConnexion"})
 
 public class Pri_CtrlConnexion extends HttpServlet {
     private static final long serialVersionUID =1L;
@@ -47,9 +45,7 @@ public class Pri_CtrlConnexion extends HttpServlet {
             if (dbGrimpeur != null) {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
-                List<DbGrimpeur> dbGrimpeurs = new ArrayList<>();
-                dbGrimpeurs.add(dbGrimpeur);
-                request.setAttribute("dbGrimpeurs", dbGrimpeurs);
+                request.setAttribute("dbGrimpeur", dbGrimpeur);
                 requestDispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
             } else {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ErreurGrimpeur");

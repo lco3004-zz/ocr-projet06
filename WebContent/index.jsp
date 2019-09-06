@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <html>
-  <head>
-    <%@include file="/WEB-INF/fragments/entete.html" %>
+<head>
+  <%@include file="/WEB-INF/fragments/entete.html" %>
   </head>
   <body>
 
@@ -35,13 +35,13 @@
     <article id="idCnx">
       <p> Connexion
         <b>
-          <a href="<%=application.getContextPath()%>/WEB-INF/jsp/grimpeurs/Pub_ConnexionGrimpeur.jsp" target="_self">Connexion</a>
+          <a href="${pageContext.request.contextPath}/Pub_ConnexionGrimpeur" target="_self">Connexion</a>
         </b>
       </p>
       <p>
         Identification
         <b>
-          <a href="<%=application.getContextPath()%>/WEB-INF/jsp/grimpeurs/Pub_InscriptionGrimpeur.jsp" target="_self">Inscription</a>
+          <a href="${pageContext.request.contextPath}/Pub_InscriptionGrimpeur" target="_self">Inscription</a>
         </b>
       </p>
     </article>
