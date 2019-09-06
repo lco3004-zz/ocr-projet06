@@ -37,6 +37,7 @@
         <servlet-name>Pub_GestionsDesSpots</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pub_GestionsDesSpots.jsp</jsp-file>
     </servlet>
+    <!-- **************************************************************** -->
 
     <!-- **************************************************************** -->
     <!--    GRIMPEURS          -->
@@ -63,33 +64,41 @@
     </servlet>
     <!-- **************************************************************** -->
 
-    <!--  -->
-
+    <!-- **************************************************************** -->
+    <!--  GRIMPEURS MAPPING -->
+    <!-- **************************************************************** -->
     <servlet-mapping>
         <servlet-name>Pub_GestionDesGrimpeurs</servlet-name>
         <url-pattern>/Pub_GestionDesGrimpeurs</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
+        <url-pattern>/Pub_InscriptionGrimpeur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
+        <url-pattern>/Pub_ConnexionGrimpeur</url-pattern>
+    </servlet-mapping>
+    <!-- **************************************************************** -->
 
 
+    <!-- **************************************************************** -->
+    <!--  SPOTS MAPPING -->
+    <!-- **************************************************************** -->
     <servlet-mapping>
         <servlet-name>Pub_GestionsDesSpots</servlet-name>
         <url-pattern>/Pub_GestionsDesSpots</url-pattern>
     </servlet-mapping>
+    <!-- **************************************************************** -->
 
+    <!-- **************************************************************** -->
+    <!--  TOPO MAPPING -->
+    <!-- **************************************************************** -->
     <servlet-mapping>
         <servlet-name>Pub_GestionsDesTopos</servlet-name>
         <url-pattern>/Pub_GestionsDesTopos</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
-        <url-pattern>/Pub_InscriptionGrimpeur</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
-        <url-pattern>/Pub_ConnexionGrimpeur</url-pattern>
-    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
