@@ -55,7 +55,7 @@ public class Pri_CtrlConnexion extends HttpServlet {
 
         } catch (Exception e) {
             request.getSession().removeAttribute("dbGrimpeur");
-            request.removeAttribute("dbGrimpeurs");
+            request.removeAttribute("dbGrimpeur");
 
             request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");

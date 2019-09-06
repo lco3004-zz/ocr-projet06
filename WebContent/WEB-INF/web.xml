@@ -20,10 +20,7 @@
         <servlet-name>Pub_ListeDesTopos</servlet-name>
         <jsp-file>/WEB-INF/jsp/topos/Pub_ListeDesTopos.jsp</jsp-file>
     </servlet>
-    <servlet>
-        <servlet-name>Pub_GestionsDesTopos</servlet-name>
-        <jsp-file>/WEB-INF/jsp/topos/Pub_GestionsDesTopos.jsp</jsp-file>
-    </servlet>
+
     <!-- **************************************************************** -->
 
     <!-- **************************************************************** -->
@@ -85,9 +82,10 @@
     <!-- **************************************************************** -->
     <!--  TOPO MAPPING -->
     <!-- **************************************************************** -->
+
     <servlet-mapping>
-        <servlet-name>Pub_GestionsDesTopos</servlet-name>
-        <url-pattern>/Pub_GestionsDesTopos</url-pattern>
+        <servlet-name>Pri_AjouterUnTopo</servlet-name>
+        <url-pattern>/Pri_AjouterUnTopo</url-pattern>
     </servlet-mapping>
     <!-- **************************************************************** -->
 

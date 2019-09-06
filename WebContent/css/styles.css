@@ -31,7 +31,7 @@ nav {
     box-shadow: 0 3px 1px -1px rgba(0, 0, 0, 0.5);
     font-size: 1.1em;
     text-align: center;
-    padding: 15px;
+    padding: 30px;
     position: relative;
 }
 
@@ -119,7 +119,7 @@ ul {
 }
 
 .projet img {
-    min-width: 400px;
+    min-width: 200px;
     height: 266px;
 
 }
@@ -131,7 +131,7 @@ ul {
 
 
 .picture {
-    width: 400px;
+    width: 200px;
     height: 266px;
     overflow: hidden;
     margin-bottom: 15px;
@@ -158,12 +158,13 @@ ul {
     justify-content: space-around;
 }
 
-#idProjets h3 {
-    color: black;
+#idSpots {
     border: 1px black solid;
     border-radius: 15px;
+    padding: 30px;
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 50px;
 }
 
 #idPictureProject img {
@@ -171,12 +172,16 @@ ul {
     margin-bottom: 10px;
 }
 
-#idLogo {
-    margin-top: 30px;
-    width: 50px;
+#idTopos {
+    border: 1px black solid;
+    border-radius: 15px;
+    padding: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 50px;
 }
 
-#idContact {
+#idCnx {
     border: 1px black solid;
     border-radius: 15px;
     padding: 30px;

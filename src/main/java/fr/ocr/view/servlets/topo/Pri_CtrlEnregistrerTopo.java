@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static fr.ocr.constantes.MessageDeBase.*;
@@ -20,7 +19,7 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
         name = "Pri_CtrlEnregistrerTopo",
-        urlPatterns = {"/Pri_CtrlEnregistrerTopo"})
+        urlPatterns = {"/PriCtrlEnregistrerTopo"})
 
 public class Pri_CtrlEnregistrerTopo extends HttpServlet {
 
@@ -41,16 +40,13 @@ public class Pri_CtrlEnregistrerTopo extends HttpServlet {
             CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
 
             DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(2, lieuTopo, nomTopo, resumeTopo);
-            ArrayList<DbTopo> dbTopos =new ArrayList<>();
-            dbTopos.add(dbTopo);
-            request.setAttribute("dbTopos",dbTopos);
+            request.setAttribute("dbTopo", dbTopo.getNom());
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeDesTopos");
-
+            RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopos");
+            request.removeAttribute("dbTopo");
 
             request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");

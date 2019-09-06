@@ -10,44 +10,52 @@
 
   <nav>
     <ul>
-      <li>
-        ${requestScope.dbGrimpeur}
-      </li>
       <li><a href="#idSpots" target="_self" title="Nos Spots"> Nos Spots </a></li>
       <li><a href="#idTopos" target="_self" title="Les Topos "> Nos Topos </a></li>
       <li><a href="#idCnx" target="_self" title="Connexion"> Se connecter</a></li>
     </ul>
   </nav>
+  <br/>
+  <br/>
 
   <!-- Spots-->
   <section class="contener">
-    <h3> Nos Spots </h3>
+    <h3> Nos Topos </h3>
     <!-- DESCRIPTION-->
-    <div id="idSpots">
+    <div id="idTopos">
       <!-- PROJET 1-->
       <article class="projet">
-        <a href="monpremierprojet.html" target="_self"> ListeDesSpots</a>
+        <p>
+          Topo (dernier ajouté : ${requestScope.dbTopo} )
+          <b>
+            <a href="${pageContext.request.contextPath}/Pri_AjouterUnTopo" target="_self"> Enregistrer un Topo</a>
+          </b>
+        </p>
       </article>
-
     </div>
   </section>
+  <br/>
+  <br/>
+
 
   <!-- CONTACT -->
   <section class="contener">
     <h3> Connexion/Identification</h3>
-    <article id="idCnx">
-      <p> Connexion
-        <b>
-          <a href="${pageContext.request.contextPath}/Pub_ConnexionGrimpeur" target="_self">Connexion</a>
-        </b>
-      </p>
-      <p>
-        Identification
-        <b>
-          <a href="${pageContext.request.contextPath}/Pub_InscriptionGrimpeur" target="_self">Inscription</a>
-        </b>
-      </p>
-    </article>
+    <div id="idCnx">
+      <article class="projet">
+        <p> Connexion (actuel : ${requestScope.dbGrimpeur} )
+          <b>
+            <a href="${pageContext.request.contextPath}/Pub_ConnexionGrimpeur" target="_self">Connexion</a>
+          </b>
+        </p>
+        <p>
+          Identification
+          <b>
+            <a href="${pageContext.request.contextPath}/Pub_InscriptionGrimpeur" target="_self">Inscription</a>
+          </b>
+        </p>
+      </article>
+    </div>
   </section>
 
   <footer>

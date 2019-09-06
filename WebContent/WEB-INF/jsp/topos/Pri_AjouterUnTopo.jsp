@@ -8,7 +8,7 @@
     <%@include file="/WEB-INF/fragments/entete.html" %>
 </head>
 <body>
-<form action="CtrlAjouterUnTopo" method="post">
+<form action="PriCtrlEnregistrerTopo" method="post">
     <label id="nomTopo" > Nom du Topo : </label>
     <input id  name="nomTopo" required ="true" size="64" type="text"/>
     <br>
