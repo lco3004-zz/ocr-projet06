@@ -10,6 +10,9 @@
 
   <nav>
     <ul>
+      <li>
+        ${requestScope.dbGrimpeur}
+      </li>
       <li><a href="#idSpots" target="_self" title="Nos Spots"> Nos Spots </a></li>
       <li><a href="#idTopos" target="_self" title="Les Topos "> Nos Topos </a></li>
       <li><a href="#idCnx" target="_self" title="Connexion"> Se connecter</a></li>

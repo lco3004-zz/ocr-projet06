@@ -2,6 +2,9 @@
 -- et les Drop dans l'ordre
 -- ---------------------------------------------------------------------------
 
+DROP INDEX IF EXISTS  public.idx_user_name;
+
+
 DROP TABLE IF EXISTS public.longueur;
 DROP TABLE IF EXISTS public.voie;
 DROP TABLE  IF EXISTS public.secteur;
@@ -126,12 +129,15 @@ CREATE TABLE public.grimpeur
         OIDS = FALSE
     )
     TABLESPACE ts_projet06;
-   
-   
 
 ALTER TABLE public.grimpeur
     OWNER to postgres;
 
+CREATE UNIQUE INDEX idx_user_name
+    ON public.grimpeur USING btree
+        (user_name COLLATE pg_catalog."default")
+    TABLESPACE ts_projet06;
+   
 
 
 -- Table: public.spot

@@ -45,7 +45,7 @@ public class Pri_CtrlConnexion extends HttpServlet {
             if (dbGrimpeur != null) {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
-                request.setAttribute("dbGrimpeur", dbGrimpeur);
+                request.setAttribute("dbGrimpeur", dbGrimpeur.getUserName());
                 requestDispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
             } else {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ErreurGrimpeur");
