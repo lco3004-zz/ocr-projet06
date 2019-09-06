@@ -117,9 +117,9 @@ ALTER SEQUENCE public.voie_idvoie_seq
 CREATE TABLE public.grimpeur
 (
     idgrimpeur integer NOT NULL DEFAULT nextval('grimpeur_idgrimpeur_seq'::regclass),
-    user_pass character varying(64)  NOT NULL COLLATE pg_catalog."default",
-    user_name character varying(256) NOT NULL COLLATE pg_catalog."default",
-    role_name character varying(256) DEFAULT 'GRIMPEUR'  NOT NULL COLLATE pg_catalog."default" ,
+    user_pass character varying(64)   COLLATE pg_catalog."default" NOT NULL,
+    user_name character varying(256)  COLLATE pg_catalog."default" NOT NULL,
+    role_name character varying(256) DEFAULT 'GRIMPEUR'  COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT grimpeur_pkey PRIMARY KEY (idgrimpeur)
 )
     WITH (
@@ -139,9 +139,9 @@ ALTER TABLE public.grimpeur
 CREATE TABLE public.spot
 (
     idspot integer NOT NULL DEFAULT nextval('spot_idspot_seq'::regclass),
-    classification character varying(64) DEFAULT 'STANDARD' NOT NULL COLLATE pg_catalog."default",
-    localisation character varying(256)  NOT NULL COLLATE pg_catalog."default",
-    nom character varying(256)  NOT NULL COLLATE pg_catalog."default",
+    classification character varying(64) DEFAULT 'STANDARD' COLLATE pg_catalog."default" NOT NULL,
+    localisation character varying(256)   COLLATE pg_catalog."default" NOT NULL,
+    nom character varying(256)   COLLATE pg_catalog."default" NOT NULL,
     grimpeur_idgrimpeur integer NOT NULL,
     CONSTRAINT spot_pkey PRIMARY KEY (idspot),
     CONSTRAINT fk6658yrb78eur49a2vs4elpodu FOREIGN KEY (grimpeur_idgrimpeur)
@@ -165,9 +165,9 @@ CREATE TABLE public.topo
     idtopo integer NOT NULL DEFAULT nextval('topo_idtopo_seq'::regclass),
     date_de_parution date  NOT NULL,
     est_publie integer DEFAULT 0 NOT NULL,
-    etat_reservation character varying(16) DEFAULT 'W_FR' NOT NULL COLLATE pg_catalog."default",
-    lieu character varying(256)  NOT NULL COLLATE pg_catalog."default",
-    nom character varying(256)  NOT NULL COLLATE pg_catalog."default",
+    etat_reservation character varying(16) DEFAULT 'W_FR' COLLATE pg_catalog."default"  NOT NULL,
+    lieu character varying(256)   COLLATE pg_catalog."default" NOT NULL,
+    nom character varying(256)   COLLATE pg_catalog."default" NOT NULL,
     resume character varying(256) COLLATE pg_catalog."default",
     grimpeur_idgrimpeur integer NOT NULL,
     CONSTRAINT topo_pkey PRIMARY KEY (idtopo),
@@ -187,15 +187,15 @@ ALTER TABLE public.topo
 
 -- Table: public.commentaire
 
-
-
 CREATE TABLE public.commentaire
 (
     idcommentaire integer NOT NULL DEFAULT nextval('commentaire_idcommentaire_seq'::regclass),
-    est_visible integer DEFAULT 0 NOT NULL,
+    est_visible integer NOT NULL DEFAULT 0,
     texte character varying(256) COLLATE pg_catalog."default",
-    spot_idspot integer NOT NULL ,
-    CONSTRAINT commentaire_pkey PRIMARY KEY (idcommentaire),
+    spot_idspot integer NOT NULL,
+    nom character varying(256)  COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT commentaire_pkey PRIMARY KEY (idcommentaire)
+        USING INDEX TABLESPACE ts_projet06,
     CONSTRAINT fk9opuacfoym9aae4x5no6clpva FOREIGN KEY (spot_idspot)
         REFERENCES public.spot (idspot) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -204,7 +204,7 @@ CREATE TABLE public.commentaire
     WITH (
         OIDS = FALSE
     )
-    TABLESPACE  ts_projet06;
+    TABLESPACE ts_projet06;
 
 ALTER TABLE public.commentaire
     OWNER to postgres;
@@ -212,11 +212,10 @@ ALTER TABLE public.commentaire
 -- Table: public.secteur
 
 
-
 CREATE TABLE public.secteur
 (
     idsecteur integer NOT NULL DEFAULT nextval('secteur_idsecteur_seq'::regclass),
-    nom character varying(265)  NOT NULL COLLATE pg_catalog."default",
+    nom character varying(265)   COLLATE pg_catalog."default" NOT NULL,
     spot_idspot integer NOT NULL,
     CONSTRAINT secteur_pkey PRIMARY KEY (idsecteur),
     CONSTRAINT fkmlcj4gkyht0f5urxj9aratsjk FOREIGN KEY (spot_idspot)
@@ -240,7 +239,7 @@ ALTER TABLE public.secteur
 CREATE TABLE public.voie
 (
     idvoie integer NOT NULL DEFAULT nextval('voie_idvoie_seq'::regclass),
-    nom character varying(64)  NOT NULL COLLATE pg_catalog."default",
+    nom character varying(64)   COLLATE pg_catalog."default" NOT NULL,
     secteur_idsecteur integer NOT NULL,
     CONSTRAINT voie_pkey PRIMARY KEY (idvoie),
     CONSTRAINT fkhiagkwhsw8p3yqoqk2y1sqhem FOREIGN KEY (secteur_idsecteur)
@@ -263,8 +262,8 @@ ALTER TABLE public.voie
 CREATE TABLE public.longueur
 (
     idlongueur integer NOT NULL DEFAULT nextval('longueur_idlongueur_seq'::regclass),
-    cotation character varying(64) NOT NULL COLLATE pg_catalog."default",
-    nom character varying(256)  NOT NULL COLLATE pg_catalog."default",
+    cotation character varying(64)  COLLATE pg_catalog."default" NOT NULL,
+    nom character varying(256)  COLLATE pg_catalog."default"  NOT NULL,
     nombre_de_spits integer  NOT NULL,
     voie_idvoie integer NOT NULL,
     CONSTRAINT longueur_pkey PRIMARY KEY (idlongueur),

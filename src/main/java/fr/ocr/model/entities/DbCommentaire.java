@@ -15,6 +15,7 @@ public class DbCommentaire implements Serializable {
 
     private int idcommentaire;
     private String texte;
+    private String nom;
 
     @Convert(converter = JpaConvBoolInt.class)
     private Boolean estVisible;
@@ -31,6 +32,18 @@ public class DbCommentaire implements Serializable {
     public void setIdcommentaire(int idcommentaire) {
         this.idcommentaire = idcommentaire;
     }
+
+    @Basic
+    @Column(name = "nom", length = 256, nullable = false)
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+
 
     @Basic
     @Column(name = "texte", length = 256)

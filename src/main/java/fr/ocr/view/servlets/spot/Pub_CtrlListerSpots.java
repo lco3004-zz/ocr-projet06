@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(description = "Servlet qui liste tous les Spots taggés ou non",
-        name = "Pub_ListerTousLesSpots",
-        urlPatterns = {"/Pub_ListerTousLesSpots"})
+        name = "Pub_CtrlListerSpots",
+        urlPatterns = {"/Pub_CtrlListerSpots"})
 
-public class Pub_ListerTousLesSpots extends HttpServlet {
+public class Pub_CtrlListerSpots extends HttpServlet {
     private static final long serialVersionUID =1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  {

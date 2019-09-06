@@ -15,13 +15,13 @@ import java.util.Arrays;
 
 
 @WebServlet(description = "inscription d'un nouveau grimepeur sur le site" ,
-        name = "Pri_CtrlInscriptionGrimpeur",
-        urlPatterns = {"/Pri_CtrlInscriptionGrimpeur"})
+        name = "Pri_CtrlInscription",
+        urlPatterns = {"/Pri_CtrlInscription"})
 
-public class Pri_CtrlInscriptionGrimpeur extends HttpServlet {
+public class Pri_CtrlInscription extends HttpServlet {
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlInscriptionGrimpeur() {
+    public Pri_CtrlInscription() {
         super();
     }
 

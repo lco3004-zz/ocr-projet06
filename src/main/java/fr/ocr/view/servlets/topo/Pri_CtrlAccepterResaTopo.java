@@ -12,17 +12,18 @@ import java.io.PrintWriter;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 
-@WebServlet( description = "Permet à un grimpeur de faire une demande de resa de topo",
-        name = "Pri_DemanderRerservationTopo",
-        urlPatterns = {"/Pri_DemanderRerservationTopo"})
+@WebServlet(description = "Permet au grimpeur proprietaire du topo d'accepter/refuser une resa de topo" ,
+        name = "Pri_CtrlAccepterResaTopo",
+        urlPatterns = {"/Pri_CtrlAccepterResaTopo"})
 
-public class Pri_DemanderRerservationTopo extends HttpServlet {
+public class Pri_CtrlAccepterResaTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_DemanderRerservationTopo() {
+    public Pri_CtrlAccepterResaTopo() {
         super();
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 

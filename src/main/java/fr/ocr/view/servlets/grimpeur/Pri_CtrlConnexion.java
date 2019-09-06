@@ -15,13 +15,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@WebServlet(name = "Pri_CtrlConnexionGrimpeur",
-        urlPatterns = {"/Pri_CtrlConnexionGrimpeur"})
+@WebServlet(name = "Pri_CtrlConnexion",
+        urlPatterns = {"/Pri_CtrlConnexion"})
 
-public class Pri_CtrlConnexionGrimpeur extends HttpServlet {
+public class Pri_CtrlConnexion extends HttpServlet {
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlConnexionGrimpeur() {
+    public Pri_CtrlConnexion() {
         super();
     }
 

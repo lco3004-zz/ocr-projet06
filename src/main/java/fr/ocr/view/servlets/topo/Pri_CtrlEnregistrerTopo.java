@@ -19,14 +19,14 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
-        name = "Pri_Ctrl_AjouterUnTopo",
-        urlPatterns = {"/Pri_Ctrl_AjouterUnTopo"})
+        name = "Pri_CtrlEnregistrerTopo",
+        urlPatterns = {"/Pri_CtrlEnregistrerTopo"})
 
-public class Pri_Ctrl_AjouterUnTopo extends HttpServlet {
+public class Pri_CtrlEnregistrerTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_Ctrl_AjouterUnTopo() {
+    public Pri_CtrlEnregistrerTopo() {
         super();
     }
 

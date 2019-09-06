@@ -17,10 +17,10 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
 @WebServlet( description = "Permet au grimpeur d'ajouter un spot sur le site",
-        name = "Pri_AjouterUnSpot",
-        urlPatterns = {"/Pri_AjouterUnSpot"})
+        name = "Pri_CtrlEnregistrerSpot",
+        urlPatterns = {"/Pri_CtrlEnregistrerSpot"})
 
-public class Pri_AjouterUnSpot extends HttpServlet {
+public class Pri_CtrlEnregistrerSpot extends HttpServlet {
     private static final long serialVersionUID =1L;
 
     public DbSpot ajouterSpot(Integer idUser) throws Exception {
@@ -34,6 +34,7 @@ public class Pri_AjouterUnSpot extends HttpServlet {
 
         dbCommentaire.setEstVisible(true);
         dbCommentaire.setTexte("commentaire_par_pgm");
+        dbCommentaire.setNom("pas beau le spot");
 
         dbLongueur.setNom("longueur_par_pgm");
         dbLongueur.setCotation(SIX_APLUS);
