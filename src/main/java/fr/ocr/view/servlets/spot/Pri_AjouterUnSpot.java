@@ -18,7 +18,7 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 @WebServlet( description = "Permet au grimpeur d'ajouter un spot sur le site",
         name = "Pri_AjouterUnSpot",
-        urlPatterns = {"/gestionDesSpots/ajouterUnSpot"})
+        urlPatterns = {"/Pri_AjouterUnSpot"})
 
 public class Pri_AjouterUnSpot extends HttpServlet {
     private static final long serialVersionUID =1L;

@@ -16,7 +16,7 @@ import java.util.List;
 
 @WebServlet(description = "Servlet qui liste tous les topos DISPONIBLES (publié et non réservé) du site",
         name = "Pub_ListerTousLesTopos" ,
-        urlPatterns = {"/gestionDesTopos/listeCompleteTopos"})
+        urlPatterns = {"/Pub_ListerTousLesTopos"})
 
 public class Pub_ListerTousLesTopos extends HttpServlet {
 

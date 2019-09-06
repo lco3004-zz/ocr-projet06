@@ -14,7 +14,7 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 @WebServlet( description = "Permet à un grimpeur de faire une demande de resa de topo",
         name = "Pri_DemanderRerservationTopo",
-        urlPatterns = {"/gestionDesTopos/demanderReservationTopo"})
+        urlPatterns = {"/Pri_DemanderRerservationTopo"})
 
 public class Pri_DemanderRerservationTopo extends HttpServlet {
 

@@ -1,17 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%@ page contentType="text/html;charset=ISO-8859-15" language="java" %>
 <html>
   <head>
-    <title>La Grimpette</title>
+    <%@include file="/WEB-INF/fragments/entete.html" %>
   </head>
   <body>
   <h3> Bienvenue sur le Site des amis de l'escalade </h3>
   <br>
-  <a href="gestionDesTopos" >Nos Topos </a>
+  <a href="Pub_GestionsDesTopos">Nos Topos </a>
   <br>
-  <a href="gestionDesSpots" >Nos Spots </a>
+  <a href="Pub_GestionsDesSpots">Nos Spots </a>
   <br>
-  <a href="gestionDesGrimpeurs"> Se Connecter/S'inscrire </a>
+  <a href="Pub_GestionDesGrimpeurs"> Se Connecter/S'inscrire </a>
   <br>
   </body>
+
+  <footer>
+    <%@include file="WEB-INF/fragments/footer.html" %>
+  </footer>
 </html>

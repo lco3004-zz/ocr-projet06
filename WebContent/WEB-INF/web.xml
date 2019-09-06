@@ -5,59 +5,90 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>Pri_confirmationCreationTopo</servlet-name>
-        <jsp-file>/WEB-INF/jsp/Pri_confirmationCreationTopo.jsp</jsp-file>
-    </servlet>
-    <servlet>
         <servlet-name>Pri_PageErreurInterne</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_PageErreurInterne.jsp</jsp-file>
     </servlet>
+
+    <!-- **************************************************************** -->
+    <!-- TOPOS -->
+    <!-- **************************************************************** -->
     <servlet>
         <servlet-name>Pri_ListeDesTopos</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_ListeDesTopos.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>Pri_confirmationCreationTopo</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pri_confirmationCreationTopo.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Pub_GestionsDesTopos</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pub_GestionsDesTopos.jsp</jsp-file>
+    </servlet>
+    <!-- **************************************************************** -->
+
+    <!-- **************************************************************** -->
+    <!-- SPOTS -->
+    <!-- **************************************************************** -->
+    <servlet>
         <servlet-name>Pri_ListeDesSpots</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_ListeDesSpots.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>Pub_GestionsDesSpots</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pub_GestionsDesSpots.jsp</jsp-file>
+    </servlet>
+
+    <!-- **************************************************************** -->
+    <!--    GRIMPEURS          -->
+    <!-- **************************************************************** -->
+    <servlet>
         <servlet-name>Pri_confirmationInscription</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_confirmationInscription.jsp</jsp-file>
     </servlet>
-
     <servlet>
         <servlet-name>Pri_ListeGrimpeurs</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pri_ListeGrimpeurs.jsp</jsp-file>
     </servlet>
-
     <servlet>
         <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pub_ConnexionGrimpeur.jsp</jsp-file>
     </servlet>
-
     <servlet>
         <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
         <jsp-file>/WEB-INF/jsp/Pub_InscriptionGrimpeur.jsp</jsp-file>
     </servlet>
-
     <servlet>
-        <servlet-name>Pri_AjouterUnTopo</servlet-name>
-        <jsp-file>/WEB-INF/jsp/Pri_AjouterUnTopo.jsp</jsp-file>
+        <servlet-name>Pub_GestionDesGrimpeurs</servlet-name>
+        <jsp-file>/WEB-INF/jsp/Pub_GestionDesGrimpeurs.jsp</jsp-file>
     </servlet>
+    <!-- **************************************************************** -->
+
+    <!--  -->
 
     <servlet-mapping>
-        <servlet-name>Pri_AjouterUnTopo</servlet-name>
-        <url-pattern>/AjouterUnTopo</url-pattern>
+        <servlet-name>Pub_GestionDesGrimpeurs</servlet-name>
+        <url-pattern>/Pub_GestionDesGrimpeurs</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>Pub_GestionsDesSpots</servlet-name>
+        <url-pattern>/Pub_GestionsDesSpots</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Pub_GestionsDesTopos</servlet-name>
+        <url-pattern>/Pub_GestionsDesTopos</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
-        <url-pattern>/InscriptionGrimpeur</url-pattern>
+        <url-pattern>/Pub_InscriptionGrimpeur</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
-        <url-pattern>/ConnexionGrimpeur</url-pattern>
+        <url-pattern>/Pub_ConnexionGrimpeur</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

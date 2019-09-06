@@ -14,7 +14,7 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Permet au grimpeur de partager/publier un de ses  topos",
         name = "Pri_PartagerMonTopo",
-        urlPatterns = {"/gestionDesTopos/partagerUnTopo"})
+        urlPatterns = {"/Pri_PartagerMonTopo"})
 
 public class Pri_PartagerMonTopo extends HttpServlet {
 

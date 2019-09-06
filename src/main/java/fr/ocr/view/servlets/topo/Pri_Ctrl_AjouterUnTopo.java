@@ -20,7 +20,7 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
         name = "Pri_Ctrl_AjouterUnTopo",
-        urlPatterns = {"/CtrlAjouterUnTopo"})
+        urlPatterns = {"/Pri_Ctrl_AjouterUnTopo"})
 
 public class Pri_Ctrl_AjouterUnTopo extends HttpServlet {
 

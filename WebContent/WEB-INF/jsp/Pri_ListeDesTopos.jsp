@@ -1,12 +1,10 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-15"  pageEncoding="ISO-8859-15"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-
 <html>
 <head>
-    <title>ok liste topo</title>
+    <%@include file="/WEB-INF/fragments/entete.html" %>
 </head>
 
 <body>
@@ -38,13 +36,11 @@
     </c:forEach>
     </tbody>
 </table>
-<br/>
-<br/>
+
 
 <footer>
-    Veuillez cliquer sur ce lien pour continuer <a href="<%=request.getContextPath()%>/index.jsp"> <b> Cliquez ici  </b> </a>
+    <%@include file="/WEB-INF/fragments/footer.html" %>
 </footer>
-
 
 </body>
 </html>

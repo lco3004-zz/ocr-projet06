@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet(description = "Servlet qui liste tous les Spots taggés ou non",
         name = "Pub_ListerTousLesSpots",
-        urlPatterns = {"/gestionDesSpots/listeCompleteSpots"})
+        urlPatterns = {"/Pub_ListerTousLesSpots"})
 
 public class Pub_ListerTousLesSpots extends HttpServlet {
     private static final long serialVersionUID =1L;

@@ -1,11 +1,11 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-
 <html>
 <head>
-    <title>Liste des Grimepeurs</title>
+    <%@include file="/WEB-INF/fragments/entete.html" %>
 </head>
 <body>
 
@@ -38,12 +38,12 @@
         </tr>
     </c:forEach>
 </table>
-<br/>
-<br/>
+
 
 <footer>
-    Retour Acceuil <a href="<%=request.getContextPath()%>/index.jsp">Cliquez ici</a>
+    <%@include file="/WEB-INF/fragments/footer.html" %>
 </footer>
+
 
 </body>
 </html>
