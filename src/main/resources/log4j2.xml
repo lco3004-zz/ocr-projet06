@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO" monitorInterval="30" name="OCR-Projet06">
     <Properties>
-        <Property name="framework_logs">/logs/frameworks.log</Property>
-        <Property name="projet06_logs">/logs/project.log</Property>
+        <Property name="framework_logs">./logs/frameworks.log</Property>
+        <Property name="projet06_logs">./logs/project.log</Property>
         <Property name="filtreSurProjet"> ${project.build.finalName} </Property>
     </Properties>
 

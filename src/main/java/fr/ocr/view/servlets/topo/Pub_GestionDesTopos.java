@@ -1,6 +1,6 @@
 package fr.ocr.view.servlets.topo;
 
-import fr.ocr.utility.constantes.MessageDeBase;
+import fr.ocr.constantes.MessageDeBase;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static fr.ocr.utility.constantes.MessageDeBase.*;
+import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet( description = "Servlet proposant les opérations disponibles sur le stopos",

@@ -1,4 +1,4 @@
-package fr.ocr.utility.constantes;
+package fr.ocr.constantes;
 
 /**
  * <p>

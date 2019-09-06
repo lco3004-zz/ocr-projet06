@@ -1,7 +1,6 @@
 package fr.ocr.view.listeners;
 
 import fr.ocr.business.BusinessMgmt;
-import fr.ocr.utility.filelogs.LogsProjet;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -20,12 +19,11 @@ public class ApplicationListener implements ServletContextListener,
     }
 
     private BusinessMgmt businessMgmt;
-    private LogsProjet logs;
+
 
     // Public constructor is required by servlet spec
-    public ApplicationListener() throws Exception {
-        businessMgmt = new BusinessMgmt();
-        logs = LogsProjet.getLogsInstance();
+    public ApplicationListener() {
+
     }
 
     // -------------------------------------------------------
@@ -36,8 +34,9 @@ public class ApplicationListener implements ServletContextListener,
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
+        businessMgmt = new BusinessMgmt();
         businessMgmt.openDAO();
-        logs.info_projet("hello from log4j");
+
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
@@ -46,8 +45,7 @@ public class ApplicationListener implements ServletContextListener,
          Application Server shuts down.
       */
         businessMgmt.closeDao();
-        logs.info_projet("Bye from log4j");
-        logs.close();
+
     }
 
     // -------------------------------------------------------
@@ -59,7 +57,7 @@ public class ApplicationListener implements ServletContextListener,
 
     public void sessionDestroyed(HttpSessionEvent se) {
         /* Session is destroyed. */
-        logs.close();
+
     }
 
     // -------------------------------------------------------

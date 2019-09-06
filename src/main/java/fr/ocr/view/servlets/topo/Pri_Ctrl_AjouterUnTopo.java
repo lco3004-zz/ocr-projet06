@@ -1,8 +1,8 @@
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
+import fr.ocr.constantes.MessageDeBase;
 import fr.ocr.model.entities.DbTopo;
-import fr.ocr.utility.constantes.MessageDeBase;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static fr.ocr.utility.constantes.MessageDeBase.*;
+import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",

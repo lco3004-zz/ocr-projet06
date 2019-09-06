@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.utility.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
+import static fr.ocr.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
 
 
 

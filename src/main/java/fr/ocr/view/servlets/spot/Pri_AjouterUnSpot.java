@@ -1,8 +1,8 @@
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
+import fr.ocr.constantes.MessageDeBase;
 import fr.ocr.model.entities.*;
-import fr.ocr.utility.constantes.MessageDeBase;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static fr.ocr.constantes.MessageDeBase.*;
 import static fr.ocr.model.constantes.CotationLongueur.SIX_APLUS;
 import static fr.ocr.model.constantes.SpotClassification.STANDARD;
-import static fr.ocr.utility.constantes.MessageDeBase.*;
 
 
 @WebServlet( description = "Permet au grimpeur d'ajouter un spot sur le site",

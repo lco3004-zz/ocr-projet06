@@ -1,4 +1,4 @@
-package fr.ocr.utility.constantes;
+package fr.ocr.constantes;
 
 public enum MessageDeBase {
     HTML_DEBUT ("<html> <body> <br>"),
