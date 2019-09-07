@@ -4,9 +4,12 @@
 
 <html>
 <head>
+  <meta charset="ISO-8859-15">
 
-  <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
-  <title>Laurent Cordier | OpenClassrooms </title>
+  <link href="../../css/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <meta content="width=device-width" name="viewport"/>
+
 
 </head>
 <body>

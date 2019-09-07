@@ -193,7 +193,7 @@ ul {
 /* FONT IMPORTEES */
 @font-face {
     font-family: "handwriting";
-    src: url('../WEB-INF/fonts/handwriting.ttf') format('truetype') ;
+    src: url("../fonts/handwriting.ttf") format('truetype') ;
 }
 
 /* MEDIA */
