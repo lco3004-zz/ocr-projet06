@@ -4,24 +4,29 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!-- **************************************************************** -->
+    <!-- GENERAL -->
+    <!-- **************************************************************** -->
     <servlet>
-        <servlet-name>Pri_PageErreurInterne</servlet-name>
-        <jsp-file>/WEB-INF/jsp/Pri_PageErreurInterne.jsp</jsp-file>
+        <servlet-name>Jsp_ErrInterne</servlet-name>
+        <jsp-file>/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Jsp_AcceuilSite</servlet-name>
+        <jsp-file>/WEB-INF/jsp/home/Jsp_AcceuilSite.jsp</jsp-file>
     </servlet>
 
     <!-- **************************************************************** -->
     <!-- TOPOS -->
     <!-- **************************************************************** -->
     <servlet>
-        <servlet-name>Pri_AjouterUnTopo</servlet-name>
-        <jsp-file>/WEB-INF/jsp/topos/Pri_AjouterUnTopo.jsp</jsp-file>
+        <servlet-name>Jsp_AjouterUnTopo</servlet-name>
+        <jsp-file>/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>Pub_ListeDesTopos</servlet-name>
-        <jsp-file>/WEB-INF/jsp/topos/Pub_ListeDesTopos.jsp</jsp-file>
+        <servlet-name>Jsp_ListeDesTopos</servlet-name>
+        <jsp-file>/WEB-INF/jsp/topo/Jsp_ListeDesTopos.jsp</jsp-file>
     </servlet>
-
-    <!-- **************************************************************** -->
 
     <!-- **************************************************************** -->
     <!-- SPOTS -->
@@ -40,16 +45,16 @@
     <!--    GRIMPEURS          -->
     <!-- **************************************************************** -->
     <servlet>
-        <servlet-name>Pri_ErreurGrimpeur</servlet-name>
-        <jsp-file>/WEB-INF/jsp/grimpeurs/Pri_ErreurGrimpeur.jsp</jsp-file>
+        <servlet-name>Jsp_ErrCnxOuIns</servlet-name>
+        <jsp-file>/WEB-INF/jsp/erreur/Jsp_ErrCnxOuIns.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>Pub_ConnexionGrimpeur</servlet-name>
-        <jsp-file>/WEB-INF/jsp/grimpeurs/Pub_ConnexionGrimpeur.jsp</jsp-file>
+        <servlet-name>Jsp_Connexion</servlet-name>
+        <jsp-file>/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>Pub_InscriptionGrimpeur</servlet-name>
-        <jsp-file>/WEB-INF/jsp/grimpeurs/Pub_InscriptionGrimpeur.jsp</jsp-file>
+        <servlet-name>Svt_Inscription</servlet-name>
+        <jsp-file>/WEB-INF/jsp/grimpeurs/Svt_Inscription.jsp</jsp-file>
     </servlet>
 
     <!-- **************************************************************** -->
