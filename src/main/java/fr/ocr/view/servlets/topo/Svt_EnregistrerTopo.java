@@ -18,14 +18,14 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
-        name = "Pri_CtrlEnregistrerTopo",
+        name = "Svt_EnregistrerTopo",
         urlPatterns = {"/PriCtrlEnregistrerTopo"})
 
-public class Pri_CtrlEnregistrerTopo extends HttpServlet {
+public class Svt_EnregistrerTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlEnregistrerTopo() {
+    public Svt_EnregistrerTopo() {
         super();
     }
 
@@ -42,7 +42,7 @@ public class Pri_CtrlEnregistrerTopo extends HttpServlet {
             DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(2, lieuTopo, nomTopo, resumeTopo);
             request.setAttribute("dbTopo", dbTopo.getNom());
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+            RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/Jsp_AcceuilSite.jsp");
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {

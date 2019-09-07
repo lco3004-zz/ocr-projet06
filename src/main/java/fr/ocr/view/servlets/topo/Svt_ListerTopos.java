@@ -15,14 +15,14 @@ import java.util.List;
 
 
 @WebServlet(description = "Servlet qui liste tous les topos DISPONIBLES (publié et non réservé) du site",
-        name = "Pub_CtrlListerTopos",
-        urlPatterns = {"/Pub_CtrlListerTopos"})
+        name = "Svt_ListerTopos",
+        urlPatterns = {"/Svt_ListerTopos"})
 
-public class Pub_CtrlListerTopos extends HttpServlet {
+public class Svt_ListerTopos extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pub_CtrlListerTopos() {
+    public Svt_ListerTopos() {
         super();
     }
 

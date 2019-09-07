@@ -13,14 +13,14 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(description = "Permet au grimpeur de partager/publier un de ses  topos",
-        name = "Pri_CtrlPublierTopo",
-        urlPatterns = {"/Pri_CtrlPublierTopo"})
+        name = "Svt_PublierTopo",
+        urlPatterns = {"/Svt_PublierTopo"})
 
-public class Pri_CtrlPublierTopo extends HttpServlet {
+public class Svt_PublierTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlPublierTopo() {
+    public Svt_PublierTopo() {
         super();
     }
 

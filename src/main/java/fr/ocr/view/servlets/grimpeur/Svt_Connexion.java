@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 
-@WebServlet(name = "Pri_CtrlConnexion",
+@WebServlet(name = "Svt_Connexion",
         urlPatterns = {"/PriCtrlConnexion"})
 
-public class Pri_CtrlConnexion extends HttpServlet {
+public class Svt_Connexion extends HttpServlet {
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlConnexion() {
+    public Svt_Connexion() {
         super();
     }
 
@@ -46,7 +46,7 @@ public class Pri_CtrlConnexion extends HttpServlet {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
                 request.setAttribute("dbGrimpeur", dbGrimpeur.getUserName());
-                requestDispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+                requestDispatcher = this.getServletContext().getRequestDispatcher("/Jsp_AcceuilSite.jsp");
             } else {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ErreurGrimpeur");
             }

@@ -13,10 +13,10 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(description = "Servlet pour tagger un Spot  'les amis de lescalade' ",
-        name = "PriM_CtrlTaggerSpot",
-        urlPatterns = {"/PriM_CtrlTaggerSpot"})
+        name = "Svt_TaggerSpot",
+        urlPatterns = {"/Svt_TaggerSpot"})
 
-public class PriM_CtrlTaggerSpot extends HttpServlet {
+public class Svt_TaggerSpot extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 

@@ -1,4 +1,4 @@
-package fr.ocr.view.servlets.topo;
+package fr.ocr.view.servlets.spot;
 
 import fr.ocr.constantes.MessageDeBase;
 
@@ -12,17 +12,19 @@ import java.io.PrintWriter;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 
-@WebServlet(description = "Permet à un grimpeur de faire une demande de resa de topo",
-        name = "Pri_CtrlDemanderResaTopo",
-        urlPatterns = {"/Pri_CtrlDemanderResaTopo"})
+@WebServlet(description = "Servlet proposant les opérations disponibles sur les Spots",
+        name = "Svt_VoirDetailSpot",
+        urlPatterns = {"/Svt_VoirDetailSpot"})
 
-public class Pri_CtrlDemanderResaTopo extends HttpServlet {
+public class Svt_VoirDetailSpot extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlDemanderResaTopo() {
+
+    public Svt_VoirDetailSpot() {
         super();
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
@@ -32,7 +34,7 @@ public class Pri_CtrlDemanderResaTopo extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
+            out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
             out.print(BR.getValeur());
             out.print(PDEBUT.getValeur());
             out.print("Hello from servlet : " +this.getServletName());

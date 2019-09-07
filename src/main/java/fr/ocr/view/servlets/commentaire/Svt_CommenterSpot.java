@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Pri_CtrlModererCommentaireSpot")
-public class Pri_CtrlModererCommentaireSpot extends HttpServlet {
+@WebServlet(name = "Svt_CommenterSpot")
+public class Svt_CommenterSpot extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

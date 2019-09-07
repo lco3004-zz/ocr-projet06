@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <%@include file="/WEB-INF/fragments/entete.html" %>
+    <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 </form>
 
 <footer>
-    <%@include file="/WEB-INF/fragments/footer.html" %>
+    <%@include file="/WEB-INF/fragments/Html_FooterPourHtml.html" %>
 </footer>
 
 </body>

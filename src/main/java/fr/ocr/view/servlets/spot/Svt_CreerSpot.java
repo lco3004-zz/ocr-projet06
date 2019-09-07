@@ -17,10 +17,10 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
 @WebServlet( description = "Permet au grimpeur d'ajouter un spot sur le site",
-        name = "Pri_CtrlEnregistrerSpot",
-        urlPatterns = {"/Pri_CtrlEnregistrerSpot"})
+        name = "Svt_CreerSpot",
+        urlPatterns = {"/Svt_CreerSpot"})
 
-public class Pri_CtrlEnregistrerSpot extends HttpServlet {
+public class Svt_CreerSpot extends HttpServlet {
     private static final long serialVersionUID =1L;
 
     public DbSpot ajouterSpot(Integer idUser) throws Exception {

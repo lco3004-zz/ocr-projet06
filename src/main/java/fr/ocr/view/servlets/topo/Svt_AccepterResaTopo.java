@@ -13,14 +13,14 @@ import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(description = "Permet au grimpeur proprietaire du topo d'accepter/refuser une resa de topo" ,
-        name = "Pri_CtrlAccepterResaTopo",
-        urlPatterns = {"/Pri_CtrlAccepterResaTopo"})
+        name = "Svt_AccepterResaTopo",
+        urlPatterns = {"/Svt_AccepterResaTopo"})
 
-public class Pri_CtrlAccepterResaTopo extends HttpServlet {
+public class Svt_AccepterResaTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlAccepterResaTopo() {
+    public Svt_AccepterResaTopo() {
         super();
     }
 

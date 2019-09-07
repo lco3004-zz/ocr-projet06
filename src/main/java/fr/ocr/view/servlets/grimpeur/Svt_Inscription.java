@@ -15,13 +15,13 @@ import java.util.Arrays;
 
 
 @WebServlet(description = "inscription d'un nouveau grimepeur sur le site" ,
-        name = "Pri_CtrlInscription",
+        name = "Svt_Inscription",
         urlPatterns = {"/PriCtrlInscription"})
 
-public class Pri_CtrlInscription extends HttpServlet {
+public class Svt_Inscription extends HttpServlet {
     private static final long serialVersionUID =1L;
 
-    public Pri_CtrlInscription() {
+    public Svt_Inscription() {
         super();
     }
 
@@ -45,7 +45,7 @@ public class Pri_CtrlInscription extends HttpServlet {
 
                 request.setAttribute("dbGrimpeurs", dbGrimpeurs);
 
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_CtrlConnexion");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_Connexion");
 
             } else {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur");

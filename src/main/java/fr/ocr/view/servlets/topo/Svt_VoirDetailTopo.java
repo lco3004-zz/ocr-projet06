@@ -1,4 +1,4 @@
-package fr.ocr.view.servlets.commentaire;
+package fr.ocr.view.servlets.topo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Pri_CtrlVoirDetailCommentaireSpot")
-public class Pri_CtrlVoirDetailCommentaireSpot extends HttpServlet {
+@WebServlet(name = "Svt_VoirDetailTopo")
+public class Svt_VoirDetailTopo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
