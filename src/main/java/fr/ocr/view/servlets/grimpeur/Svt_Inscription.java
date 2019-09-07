@@ -38,7 +38,7 @@ public class Svt_Inscription extends HttpServlet {
             RequestDispatcher requestDispatcher;
 
             if (ctrlMetierGrimpeur.ajouterGrimpeur(nomGrimpeur, mdpGrimpeur) != null) {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Connexion");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_Connexion");
 
             } else {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrCnxOuIns");
@@ -54,6 +54,13 @@ public class Svt_Inscription extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        try {
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_Inscription");
+            requestDispatcher.forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
+        }
     }
 }

@@ -54,7 +54,6 @@ public class Svt_Connexion extends HttpServlet {
             } else {
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrCnxOuIns");
             }
-
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
