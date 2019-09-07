@@ -68,7 +68,14 @@ public class Svt_Connexion extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_Connexion");
+            requestDispatcher.forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
+        }
     }
 }

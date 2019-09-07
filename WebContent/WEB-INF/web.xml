@@ -12,6 +12,10 @@
         <jsp-file>/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>Jsp_ErrCnxOuIns</servlet-name>
+        <jsp-file>/WEB-INF/jsp/erreur/Jsp_ErrCnxOuIns.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>Jsp_AcceuilSite</servlet-name>
         <jsp-file>/WEB-INF/jsp/home/Jsp_AcceuilSite.jsp</jsp-file>
     </servlet>
@@ -32,29 +36,22 @@
     <!-- SPOTS -->
     <!-- **************************************************************** -->
     <servlet>
-        <servlet-name>Pub_ListeDesSpots</servlet-name>
-        <jsp-file>/WEB-INF/jsp/spots/Pub_ListeDesSpots.jsp</jsp-file>
-    </servlet>
-    <servlet>
-        <servlet-name>Pub_GestionsDesSpots</servlet-name>
-        <jsp-file>/WEB-INF/jsp/spots/Pub_GestionsDesSpots.jsp</jsp-file>
+        <servlet-name>Jsp_ListeDesSpots</servlet-name>
+        <jsp-file>/WEB-INF/jsp/spot/Jsp_ListeDesSpots.jsp</jsp-file>
     </servlet>
     <!-- **************************************************************** -->
 
     <!-- **************************************************************** -->
     <!--    GRIMPEURS          -->
     <!-- **************************************************************** -->
-    <servlet>
-        <servlet-name>Jsp_ErrCnxOuIns</servlet-name>
-        <jsp-file>/WEB-INF/jsp/erreur/Jsp_ErrCnxOuIns.jsp</jsp-file>
-    </servlet>
+
     <servlet>
         <servlet-name>Jsp_Connexion</servlet-name>
         <jsp-file>/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>Svt_Inscription</servlet-name>
-        <jsp-file>/WEB-INF/jsp/grimpeurs/Svt_Inscription.jsp</jsp-file>
+        <servlet-name>Jsp_Inscription</servlet-name>
+        <jsp-file>/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp</jsp-file>
     </servlet>
 
     <!-- **************************************************************** -->

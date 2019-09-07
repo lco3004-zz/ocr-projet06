@@ -10,7 +10,6 @@
 
 </head>
 <body>
-
   <nav>
     <ul>
       <li><a href="#idSpots" target="_self" title="Nos Spots"> Nos Spots </a></li>
@@ -18,9 +17,6 @@
       <li><a href="#idCnx" target="_self" title="Connexion"> Se connecter</a></li>
     </ul>
   </nav>
-  <br/>
-  <br/>
-
   <!-- Tpos-->
   <section class="contener">
     <h3> Nos Topos </h3>
@@ -58,10 +54,9 @@
   <br/>
   <br/>
 
-
-  <!-- CONTACT -->
+  <!-- Connexion -->
   <section class="contener">
-    <h3> Connexion/Identification</h3>
+    <h3> Connexion</h3>
     <div id="idCnx">
       <article class="projet">
         <p> Connexion (actuel : ${requestScope.dbGrimpeur} )
@@ -69,10 +64,20 @@
             <a href="Connexion" target="_self">Connexion</a>
           </b>
         </p>
-        <p>
-          Identification
+      </article>
+    </div>
+  </section>
+  <br/>
+  <br/>
+
+  <!-- Inscription -->
+  <section class="contener">
+    <h3> Identification</h3>
+    <div id="idInsc">
+      <article class="projet">
+        <p> Identification
           <b>
-            <a href="" target="_self">Inscription</a>
+            <a href="Inscription" target="_self">Inscription</a>
           </b>
         </p>
       </article>
