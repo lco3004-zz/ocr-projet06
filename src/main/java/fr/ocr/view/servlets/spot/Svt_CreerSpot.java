@@ -3,6 +3,8 @@ package fr.ocr.view.servlets.spot;
 import fr.ocr.business.spot.CtrlMetierSpot;
 import fr.ocr.constantes.MessageDeBase;
 import fr.ocr.model.entities.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +18,16 @@ import static fr.ocr.model.constantes.CotationLongueur.SIX_APLUS;
 import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
-@WebServlet( description = "Permet au grimpeur d'ajouter un spot sur le site",
-        name = "Svt_CreerSpot",
-        urlPatterns = {"/Svt_CreerSpot"})
+@WebServlet(name = "Svt_CreerSpot", urlPatterns = {"/CreerSpot"})
 
 public class Svt_CreerSpot extends HttpServlet {
     private static final long serialVersionUID =1L;
+
+    public Svt_CreerSpot() {
+        super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
+    }
 
     public DbSpot ajouterSpot(Integer idUser) throws Exception {
         CtrlMetierSpot ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;

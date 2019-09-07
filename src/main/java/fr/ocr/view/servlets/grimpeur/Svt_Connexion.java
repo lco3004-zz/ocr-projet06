@@ -2,6 +2,8 @@ package fr.ocr.view.servlets.grimpeur;
 
 import fr.ocr.business.grimpeur.CtrlMetierGrimpeur;
 import fr.ocr.model.entities.DbGrimpeur;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,14 +15,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 
-@WebServlet(name = "Svt_Connexion",
-        urlPatterns = {"/PriCtrlConnexion"})
-
+@WebServlet(name = "Svt_Connexion", urlPatterns = {"/Connexion"})
 public class Svt_Connexion extends HttpServlet {
     private static final long serialVersionUID =1L;
 
     public Svt_Connexion() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

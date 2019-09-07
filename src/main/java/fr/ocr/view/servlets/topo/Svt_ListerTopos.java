@@ -2,6 +2,8 @@ package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
 import fr.ocr.model.entities.DbTopo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,18 +16,18 @@ import java.util.Arrays;
 import java.util.List;
 
 
-@WebServlet(description = "Servlet qui liste tous les topos DISPONIBLES (publié et non réservé) du site",
-        name = "Svt_ListerTopos",
-        urlPatterns = {"/Svt_ListerTopos"})
+@WebServlet(name = "Svt_ListerTopos", urlPatterns = {"/ListerTopos"})
 
 public class Svt_ListerTopos extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
+
     public Svt_ListerTopos() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);

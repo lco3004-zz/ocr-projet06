@@ -1,6 +1,8 @@
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.constantes.MessageDeBase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,19 +14,17 @@ import java.io.PrintWriter;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 
-@WebServlet(description = "Servlet proposant les opérations disponibles sur les Spots",
-        name = "Svt_VoirDetailSpot",
-        urlPatterns = {"/Svt_VoirDetailSpot"})
+@WebServlet(name = "Svt_VoirDetailSpot", urlPatterns = {"/VoirDetailSpot"})
 
 public class Svt_VoirDetailSpot extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
-
     public Svt_VoirDetailSpot() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 

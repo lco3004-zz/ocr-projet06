@@ -1,6 +1,8 @@
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.constantes.MessageDeBase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,18 +14,18 @@ import java.io.PrintWriter;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 
-@WebServlet(description = "Permet au grimpeur proprietaire du topo d'accepter/refuser une resa de topo" ,
-        name = "Svt_AccepterResaTopo",
-        urlPatterns = {"/Svt_AccepterResaTopo"})
+@WebServlet(name = "Svt_AccepterResaTopo", urlPatterns = {"/AccepterResaTopo"})
 
 public class Svt_AccepterResaTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
+
     public Svt_AccepterResaTopo() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 

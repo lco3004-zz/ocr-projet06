@@ -3,6 +3,8 @@ package fr.ocr.view.servlets.topo;
 import fr.ocr.business.topo.CtrlMetierTopo;
 import fr.ocr.constantes.MessageDeBase;
 import fr.ocr.model.entities.DbTopo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,18 +19,18 @@ import java.util.Arrays;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 
-@WebServlet(description = "Permet au grimpeur d'enregistrer/créer/ajouter un topo sur le site",
-        name = "Svt_EnregistrerTopo",
-        urlPatterns = {"/PriCtrlEnregistrerTopo"})
+@WebServlet(name = "Svt_EnregistrerTopo", urlPatterns = {"/EnregistrerTopo"})
 
 public class Svt_EnregistrerTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
 
+
     public Svt_EnregistrerTopo() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

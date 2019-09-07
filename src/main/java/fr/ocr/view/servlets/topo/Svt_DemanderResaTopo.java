@@ -1,6 +1,8 @@
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.constantes.MessageDeBase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +14,7 @@ import java.io.PrintWriter;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 
-@WebServlet(description = "Permet à un grimpeur de faire une demande de resa de topo",
-        name = "Svt_DemanderResaTopo",
-        urlPatterns = {"/Svt_DemanderResaTopo"})
+@WebServlet(name = "Svt_DemanderResaTopo", urlPatterns = {"/DemanderResaTopo"})
 
 public class Svt_DemanderResaTopo extends HttpServlet {
 
@@ -22,6 +22,8 @@ public class Svt_DemanderResaTopo extends HttpServlet {
 
     public Svt_DemanderResaTopo() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {

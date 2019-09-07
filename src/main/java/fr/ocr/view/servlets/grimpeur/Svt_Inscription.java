@@ -2,6 +2,8 @@ package fr.ocr.view.servlets.grimpeur;
 
 import fr.ocr.business.grimpeur.CtrlMetierGrimpeur;
 import fr.ocr.model.entities.DbGrimpeur;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,15 +16,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-@WebServlet(description = "inscription d'un nouveau grimepeur sur le site" ,
-        name = "Svt_Inscription",
-        urlPatterns = {"/PriCtrlInscription"})
+@WebServlet(name = "Svt_Inscription", urlPatterns = {"/Inscription"})
 
 public class Svt_Inscription extends HttpServlet {
     private static final long serialVersionUID =1L;
 
     public Svt_Inscription() {
         super();
+        final Logger logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
