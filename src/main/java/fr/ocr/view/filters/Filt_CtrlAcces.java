@@ -4,8 +4,8 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(filterName = "FiltreConnexion")
-public class FiltreConnexion implements Filter {
+@WebFilter(filterName = "Filt_CtrlAcces")
+public class Filt_CtrlAcces implements Filter {
     public void destroy() {
     }
 

@@ -1,7 +1,6 @@
 package fr.ocr.view.servlets.grimpeur;
 
 import fr.ocr.business.grimpeur.CtrlMetierGrimpeur;
-import fr.ocr.model.entities.DbGrimpeur;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -20,10 +18,11 @@ import java.util.Arrays;
 
 public class Svt_Inscription extends HttpServlet {
     private static final long serialVersionUID =1L;
+    private final Logger logger;
 
     public Svt_Inscription() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
@@ -36,30 +35,20 @@ public class Svt_Inscription extends HttpServlet {
             String nomGrimpeur = request.getParameter("nomGrimpeur");
             String mdpGrimpeur = request.getParameter("mdpGrimpeur");
 
-            DbGrimpeur dbGrimpeur = ctrlMetierGrimpeur.ajouterGrimpeur(nomGrimpeur,mdpGrimpeur);
-
             RequestDispatcher requestDispatcher;
 
-            if (dbGrimpeur != null) {
-                ArrayList<DbGrimpeur> dbGrimpeurs = new ArrayList<>();
-
-                dbGrimpeurs.add(dbGrimpeur);
-
-                request.setAttribute("dbGrimpeurs", dbGrimpeurs);
-
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_Connexion");
+            if (ctrlMetierGrimpeur.ajouterGrimpeur(nomGrimpeur, mdpGrimpeur) != null) {
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Connexion");
 
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("/Pri_ErreurGrimpeur");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrCnxOuIns");
             }
 
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbGrimpeurs");
-
             request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request,response);
         }
     }

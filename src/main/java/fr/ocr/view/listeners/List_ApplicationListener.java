@@ -13,18 +13,19 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 @WebListener()
-public class ApplicationListener implements ServletContextListener,
+public class List_ApplicationListener implements ServletContextListener,
         HttpSessionListener, HttpSessionAttributeListener {
 
-    public BusinessMgmt getBusinessMgmt() {
-        return businessMgmt;
-    }
 
     private BusinessMgmt businessMgmt;
 
+    private final Logger logger;
 
     // Public constructor is required by servlet spec
-    public ApplicationListener() {
+    public List_ApplicationListener() {
+        super();
+        logger = LogManager.getLogger(this.getClass());
+        businessMgmt = new BusinessMgmt();
 
     }
 
@@ -36,9 +37,9 @@ public class ApplicationListener implements ServletContextListener,
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
-        businessMgmt = new BusinessMgmt();
+
         businessMgmt.openDAO();
-        final Logger logger = LogManager.getLogger(this.getClass());
+
         logger.debug("Hello from :" + this.getClass().getSimpleName());
 
     }
@@ -49,7 +50,7 @@ public class ApplicationListener implements ServletContextListener,
          Application Server shuts down.
       */
         businessMgmt.closeDao();
-
+        logger.debug("Bye from :" + this.getClass().getSimpleName());
     }
 
     // -------------------------------------------------------

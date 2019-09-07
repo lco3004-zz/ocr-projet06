@@ -13,10 +13,11 @@ import java.io.IOException;
 @WebServlet(name = "Svt_ListerCommentaires", urlPatterns = {"/ListerCommentaires"})
 public class Svt_ListerCommentaires extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private final Logger logger;
 
     public Svt_ListerCommentaires() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 

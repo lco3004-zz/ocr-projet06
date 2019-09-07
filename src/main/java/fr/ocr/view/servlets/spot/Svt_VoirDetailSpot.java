@@ -19,10 +19,11 @@ import static fr.ocr.constantes.MessageDeBase.*;
 public class Svt_VoirDetailSpot extends HttpServlet {
 
     private static final long serialVersionUID =1L;
+    private final Logger logger;
 
     public Svt_VoirDetailSpot() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 

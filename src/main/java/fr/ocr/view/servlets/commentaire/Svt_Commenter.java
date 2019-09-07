@@ -14,9 +14,11 @@ import java.io.IOException;
 public class Svt_Commenter extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private final Logger logger;
+
     public Svt_Commenter() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

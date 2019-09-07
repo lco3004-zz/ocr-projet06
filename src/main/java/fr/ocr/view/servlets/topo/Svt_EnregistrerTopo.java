@@ -24,11 +24,12 @@ import static fr.ocr.constantes.MessageDeBase.*;
 public class Svt_EnregistrerTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
+    private final Logger logger;
 
 
     public Svt_EnregistrerTopo() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 

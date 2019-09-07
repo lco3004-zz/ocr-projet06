@@ -4,9 +4,12 @@
 
 <html>
 <head>
+
   <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
-  </head>
-  <body>
+  <title>Laurent Cordier | OpenClassrooms </title>
+
+</head>
+<body>
 
   <nav>
     <ul>
@@ -18,7 +21,7 @@
   <br/>
   <br/>
 
-  <!-- Spots-->
+  <!-- Tpos-->
   <section class="contener">
     <h3> Nos Topos </h3>
     <!-- DESCRIPTION-->
@@ -28,7 +31,25 @@
         <p>
           Topo (dernier ajouté : ${requestScope.dbTopo} )
           <b>
-            <a href="${pageContext.request.contextPath}/Pri_AjouterUnTopo" target="_self"> Enregistrer un Topo</a>
+            <a href="#" target="_self"> Enregistrer un Topo</a>
+          </b>
+        </p>
+      </article>
+    </div>
+  </section>
+  <br/>
+  <br/>
+  <!-- Spots-->
+  <section class="contener">
+    <h3> Nos Topos </h3>
+    <!-- DESCRIPTION-->
+    <div id="idSpots">
+      <!-- PROJET 1-->
+      <article class="projet">
+        <p>
+          Spot (dernier ajouté : ${requestScope.dbSpot} )
+          <b>
+            <a href="#" target="_self"> Créer un Spot</a>
           </b>
         </p>
       </article>
@@ -45,13 +66,13 @@
       <article class="projet">
         <p> Connexion (actuel : ${requestScope.dbGrimpeur} )
           <b>
-            <a href="${pageContext.request.contextPath}/Pub_ConnexionGrimpeur" target="_self">Connexion</a>
+            <a href="Connexion" target="_self">Connexion</a>
           </b>
         </p>
         <p>
           Identification
           <b>
-            <a href="${pageContext.request.contextPath}/Pub_InscriptionGrimpeur" target="_self">Inscription</a>
+            <a href="" target="_self">Inscription</a>
           </b>
         </p>
       </article>

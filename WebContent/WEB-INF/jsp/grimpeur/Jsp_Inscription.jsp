@@ -6,11 +6,13 @@
 
 <html>
 <head>
+
     <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
+    <title>Laurent Cordier | OpenClassrooms </title>
 </head>
 
 <body>
-<form action="PriCtrlInscription" method="post">
+<form action="Inscription" method="post">
     <label id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
     <input name="nomGrimpeur"  required ="true" size="64" type="text"/>
     <br>

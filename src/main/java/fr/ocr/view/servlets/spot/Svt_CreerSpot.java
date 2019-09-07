@@ -22,10 +22,11 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 public class Svt_CreerSpot extends HttpServlet {
     private static final long serialVersionUID =1L;
+    private final Logger logger;
 
     public Svt_CreerSpot() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 

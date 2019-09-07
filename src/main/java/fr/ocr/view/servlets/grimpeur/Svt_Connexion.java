@@ -18,10 +18,11 @@ import java.util.Arrays;
 @WebServlet(name = "Svt_Connexion", urlPatterns = {"/Connexion"})
 public class Svt_Connexion extends HttpServlet {
     private static final long serialVersionUID =1L;
+    private final Logger logger;
 
     public Svt_Connexion() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
@@ -47,10 +48,11 @@ public class Svt_Connexion extends HttpServlet {
             if (dbGrimpeur != null) {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
-                request.setAttribute("dbGrimpeur", dbGrimpeur.getUserName());
-                requestDispatcher = this.getServletContext().getRequestDispatcher("/Jsp_AcceuilSite.jsp");
+                request.setAttribute("dbGrimpeur", dbGrimpeur);
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AcceuilSite");
+
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ErreurGrimpeur");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrCnxOuIns");
             }
 
             requestDispatcher.forward(request,response);
@@ -60,7 +62,7 @@ public class Svt_Connexion extends HttpServlet {
             request.removeAttribute("dbGrimpeur");
 
             request.setAttribute("messageErreur"," "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request,response);
         }
 

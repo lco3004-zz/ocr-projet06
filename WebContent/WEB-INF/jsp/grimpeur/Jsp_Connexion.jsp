@@ -8,7 +8,7 @@
     <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
 </head>
 <body>
-<form action="PriCtrlConnexion" method="post">
+<form action="Connexion" method="post">
         <label id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
         <input name="nomGrimpeur" required ="true" size="64" type="text"/>
         <br>
