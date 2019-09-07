@@ -8,16 +8,23 @@
     <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
 </head>
 <body>
-<form action="Connexion" method="post">
-        <label id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
-        <input name="nomGrimpeur" required ="true" size="64" type="text"/>
+<form id="start"  action="Connexion" method="post">
+    <h1>Inscription &agrave; l'Escalade</h1>
+    <p>
+        <label for="name"id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
+        <input id="name" name="nomGrimpeur" required ="true" size="64" type="text"/>
+    </p>
+    <br>
+    <p>
+        <label for="password">Votre Mot de Passe :</label>
+        <input id="password" name="mdpGrimpeur"  required ="true"type="password" />
+    </p>
+
         <br>
-        <br>
-        <label id="mdpGrimpeur" > Votre Mot de Passe : </label>
-        <input  name="mdpGrimpeur" required ="true" size="64" type="password"/>
-        <br>
-        <br>
-        <input type="submit" value="Se connecter"/>
+
+    <input type="submit" value="Se connecter" /> ou <a href="home">annuler</a>
+
+
     </form>
 
 <footer>

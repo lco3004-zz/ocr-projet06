@@ -1,7 +1,6 @@
-*.iml
-.idea/*
-.m2/*
+
+
 lib/*
-logs/*
+
 target/*
-bd_data/*
+
