@@ -127,8 +127,8 @@ public class DbTopo implements Serializable {
                 .append(" Nom: ").append(getNom())
                 .append(" EtatResa: ").append(etatReservation.toString())
                 .append(" Publie: ").append(getEstPublie())
-                .append(" lieu: ").append(getLieu())
-                .append(" resume: ").append(getResume())
+                .append(" Lieu: ").append(getLieu())
+                .append(" Resumé: ").append(getResume())
                 .toString();
     }
 

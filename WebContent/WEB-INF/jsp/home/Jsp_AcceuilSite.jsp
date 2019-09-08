@@ -28,7 +28,15 @@
         <p>
           Topo (dernier ajouté : ${requestScope.dbTopo} )
           <b>
-            <a href="#" target="_self"> Enregistrer un Topo</a>
+            <a href="EnregistrerTopo" target="_self"> Enregistrer un Topo</a>
+          </b>
+        </p>
+      </article>
+      <article class="projet">
+        <p>
+          Topo (dernier ajouté : ${requestScope.dbTopo} )
+          <b>
+            <a href="ListerTopos" target="_self"> Lister les Topo</a>
           </b>
         </p>
       </article>

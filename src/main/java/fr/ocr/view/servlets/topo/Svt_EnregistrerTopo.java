@@ -1,7 +1,7 @@
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
-import fr.ocr.constantes.MessageDeBase;
+import fr.ocr.model.entities.DbGrimpeur;
 import fr.ocr.model.entities.DbTopo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
-
-import static fr.ocr.constantes.MessageDeBase.*;
 
 
 @WebServlet(name = "Svt_EnregistrerTopo", urlPatterns = {"/EnregistrerTopo"})
@@ -41,9 +38,10 @@ public class Svt_EnregistrerTopo extends HttpServlet {
             String resumeTopo = request.getParameter("resumeTopo");
 
             CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
+            DbGrimpeur dbGrimpeur = (DbGrimpeur) request.getSession().getAttribute("dbGrimpeur");
 
-            DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(2, lieuTopo, nomTopo, resumeTopo);
-            request.setAttribute("dbTopo", dbTopo.getNom());
+            DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(dbGrimpeur.getIdgrimpeur(), lieuTopo, nomTopo, resumeTopo);
+            request.setAttribute("dbTopo", dbTopo);
 
             RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/Jsp_AcceuilSite.jsp");
             requestDispatcher.forward(request,response);
@@ -58,19 +56,14 @@ public class Svt_EnregistrerTopo extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
-        try (PrintWriter out = response.getWriter()) {
-            response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
-            out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
-            out.print(BR.getValeur());
-            out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet : " +this.getServletName());
-            out.print(PFIN.getValeur());
-            out.print(BR.getValeur());
-
-            out.print(HTML_FIN.getValeur());
-            out.flush();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnTopo");
+            requestDispatcher.forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
         }
     }
 }
