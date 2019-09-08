@@ -38,17 +38,28 @@ public class Svt_EnregistrerTopo extends HttpServlet {
             String resumeTopo = request.getParameter("resumeTopo");
 
             CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
-            DbGrimpeur dbGrimpeur = (DbGrimpeur) request.getSession().getAttribute("dbGrimpeur");
 
-            DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(dbGrimpeur.getIdgrimpeur(), lieuTopo, nomTopo, resumeTopo);
-            request.setAttribute("dbTopo", dbTopo);
+            Object o =  request.getSession().getAttribute("dbGrimpeur");
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getRequestDispatcher("/Jsp_AcceuilSite.jsp");
-            requestDispatcher.forward(request,response);
+            DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+
+            if (dbGrimpeur !=null) {
+
+                logger.debug("Hello from :" + this.getClass().getSimpleName()+" Dbgrimpeur = " +dbGrimpeur.getUserName());
+                DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(dbGrimpeur.getIdgrimpeur(), lieuTopo, nomTopo, resumeTopo);
+                request.setAttribute("dbTopo", dbTopo);
+                RequestDispatcher requestDispatcher;
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AcceuilSite");
+                requestDispatcher.forward(request,response);
+            }
+            else {
+                logger.debug("Hello from :" + this.getClass().getSimpleName()+" Dbgrimpeur = NULL");
+                throw  new ServletException("dbGrimpeur est null");
+            }
+
 
         } catch (Exception e) {
             request.removeAttribute("dbTopo");
-
             request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
             requestDispatcher.forward(request,response);

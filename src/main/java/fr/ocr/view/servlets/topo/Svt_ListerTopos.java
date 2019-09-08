@@ -40,7 +40,7 @@ public class Svt_ListerTopos extends HttpServlet {
             List<DbTopo> dbTopos = ctrlMetierTopo.listerTousTopos();
             request.setAttribute("dbTopos",dbTopos);
 
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_ListeDesTopos");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ListeDesTopos");
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {

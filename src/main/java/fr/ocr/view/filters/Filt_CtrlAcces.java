@@ -36,13 +36,16 @@ public class Filt_CtrlAcces implements Filter {
         RequestDispatcher requestDispatcher;
 
         logger.debug(this.getClass().getSimpleName()+" doFilter");
+        Object o =  request.getSession().getAttribute("dbGrimpeur");
 
-        if ((DbGrimpeur) request.getSession().getAttribute("dbGrimpeur") == null) {
+        DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+
+        if ( dbGrimpeur == null) {
             logger.debug(this.getClass().getSimpleName()+" doFilter : session non ouverte");
             requestDispatcher = request.getServletContext().getNamedDispatcher("Svt_Connexion");
             requestDispatcher.forward(request,response);
         }
-        logger.debug(this.getClass().getSimpleName()+" doFilter ;: session ouverte => chain");
+        logger.debug(this.getClass().getSimpleName()+" doFilter ;: session ouverte => chain"+ " Nom grimpeur =" + dbGrimpeur.getUserName());
         chain.doFilter(req, resp);
     }
 

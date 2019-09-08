@@ -23,6 +23,5 @@
         <%@include file="/WEB-INF/fragments/Html_FooterPourHtml.html" %>
     </footer>
 
-
 </body>
 </html>

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Svt_AcceuilSite", urlPatterns = {"/home"})
+@WebServlet(name = "Svt_AcceuilSite", urlPatterns = {"/home","/"})
 public class Svt_AcceuilSite extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

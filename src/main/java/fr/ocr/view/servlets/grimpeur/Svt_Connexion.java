@@ -30,6 +30,9 @@ public class Svt_Connexion extends HttpServlet {
         try {
 
             try {
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " invalidation session");
+                HttpSession httpSession = request.getSession();
+                httpSession.removeAttribute("dbGrimpeur");
                 request.getSession().invalidate();
 
             } catch (IllegalStateException ex) {
@@ -70,6 +73,15 @@ public class Svt_Connexion extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            try {
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " invalidation session");
+                HttpSession httpSession = request.getSession();
+                httpSession.removeAttribute("dbGrimpeur");
+                request.getSession().invalidate();
+
+            } catch (IllegalStateException ex) {
+                //pas grave, on fera un log pour info
+            }
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_Connexion");
             requestDispatcher.forward(request, response);
         } catch (Exception e) {

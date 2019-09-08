@@ -26,7 +26,6 @@
       <!-- PROJET 1-->
       <article class="projet">
         <p>
-          Topo (dernier ajouté : ${requestScope.dbTopo} )
           <b>
             <a href="EnregistrerTopo" target="_self"> Enregistrer un Topo</a>
           </b>
@@ -34,7 +33,6 @@
       </article>
       <article class="projet">
         <p>
-          Topo (dernier ajouté : ${requestScope.dbTopo} )
           <b>
             <a href="ListerTopos" target="_self"> Lister les Topo</a>
           </b>
@@ -63,14 +61,12 @@
   <br/>
   <br/>
 
-
-
   <!-- Connexion -->
   <section class="contener">
     <h3> Connexion</h3>
     <div id="idCnx">
       <article class="projet">
-        <p> Connexion (actuel : ${requestScope.dbGrimpeur} )
+        <p> Connexion (actuel : ${sessionScope.dbGrimpeur} )
           <b>
             <a href="Connexion" target="_self">Connexion</a>
           </b>
