@@ -15,7 +15,7 @@
     <ul>
       <li><a href="#idSpots" target="_self" title="Nos Spots"> Nos Spots </a></li>
       <li><a href="#idTopos" target="_self" title="Les Topos "> Nos Topos </a></li>
-      <li><a href="#idCnx" target="_self" title="Connexion"> Se connecter</a></li>
+      <li><a href="#idCnx" target="_self" title="Connexion"> Connexion</a></li>
     </ul>
   </nav>
   <!-- Tpos-->
@@ -38,7 +38,7 @@
   <br/>
   <!-- Spots-->
   <section class="contener">
-    <h3> Nos Topos </h3>
+    <h3> Nos Spots </h3>
     <!-- DESCRIPTION-->
     <div id="idSpots">
       <!-- PROJET 1-->
@@ -54,6 +54,8 @@
   </section>
   <br/>
   <br/>
+
+
 
   <!-- Connexion -->
   <section class="contener">
@@ -71,20 +73,8 @@
   <br/>
   <br/>
 
-  <!-- Inscription -->
-  <section class="contener">
-    <h3> Identification</h3>
-    <div id="idInsc">
-      <article class="projet">
-        <p> Identification
-          <b>
-            <a href="Inscription" target="_self">Inscription</a>
-          </b>
-        </p>
-      </article>
-    </div>
-  </section>
-
+  <br/>
+  <br/>
   <footer>
     <%@include file="../../fragments/Html_FooterPourHtml.html" %>
   </footer>

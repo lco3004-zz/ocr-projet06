@@ -1,0 +1,12 @@
+
+<form id="login" action="Inscription" method="post">
+    <h1>Inscription au Site</h1>
+    <fieldset id="inputs">
+        <input id="username" type="text" placeholder="Votre Nom " autofocus required>
+        <input id="password" type="password" placeholder=" Mot de Passe " required>
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="S'enregistrer"/>
+        <a href="home">Retour acceuil?</a>
+    </fieldset>
+</form>

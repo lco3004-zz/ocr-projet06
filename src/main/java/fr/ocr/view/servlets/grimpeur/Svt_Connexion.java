@@ -50,10 +50,11 @@ public class Svt_Connexion extends HttpServlet {
                 httpSession.setAttribute("dbGrimpeur", dbGrimpeur);
                 request.setAttribute("dbGrimpeur", dbGrimpeur);
                 requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AcceuilSite");
-
             } else {
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrCnxOuIns");
+                request.setAttribute("messageCnx", "Erreur : Nom/Mdp incorrect");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_Connexion");
             }
+
             requestDispatcher.forward(request,response);
 
         } catch (Exception e) {

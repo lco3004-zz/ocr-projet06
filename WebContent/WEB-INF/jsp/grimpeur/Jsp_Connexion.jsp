@@ -5,30 +5,28 @@
 
 <html>
 <head>
-    <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
+    <%@include file="/WEB-INF/fragments/Html_EnteteFormulaire.html" %>
 </head>
 <body>
-<form id="start"  action="Connexion" method="post">
-    <h1>Inscription &agrave; l'Escalade</h1>
-    <p>
-        <label for="name"id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
-        <input id="name" name="nomGrimpeur" required ="true" size="64" type="text"/>
-    </p>
-    <br>
-    <p>
-        <label for="password">Votre Mot de Passe :</label>
-        <input id="password" name="mdpGrimpeur"  required ="true"type="password" />
-    </p>
 
-        <br>
+<form id="login" action="Connexion" method="post">
+    <h1>Connexion</h1>
+    <fieldset id="inputs">
+        <input id="username" name="nomGrimpeur" type="text" placeholder="Votre Nom " autofocus required>
+        <input id="password" name="mdpGrimpeur" type="password" placeholder=" Mot de Passe " required>
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="Se connecter">
+        <a href="home">mdp oublié ?</a><a href="Inscription">Inscription</a>
+    </fieldset>
+    <fieldset id="information">
+            <div id="infoerr">
+                <p >
+                        ${requestScope.messageCnx}
+                </p>
+            </div>
+    </fieldset>
+</form>
 
-    <input type="submit" value="Se connecter" /> ou <a href="home">annuler</a>
-
-
-    </form>
-
-<footer>
-    <%@include file="/WEB-INF/fragments/Html_FooterPourHtml.html" %>
-</footer>
 </body>
 </html>

@@ -7,26 +7,20 @@
 <html>
 <head>
 
-    <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
-    <title>Laurent Cordier | OpenClassrooms </title>
+        <%@include file="/WEB-INF/fragments/Html_EnteteFormulaire.html" %>
+
 </head>
-
 <body>
-<form action="Inscription" method="post">
-    <label id="nomGrimpeur" > Votre Nom de Grimpeur : </label>
-    <input name="nomGrimpeur"  required ="true" size="64" type="text"/>
-    <br>
-    <br>
-    <label id="mdpGrimpeur" > Votre Mot de Passe : </label>
-    <input name="mdpGrimpeur" required ="true" size="64" type="password"/>
-    <br>
-    <br>
-    <input type="submit" value="S'enregistrer"/>
+<form id="login" action="Inscription" method="post">
+    <h1>Inscription</h1>
+    <fieldset id="inputs">
+        <input id="username" name="nomGrimpeur" type="text" placeholder="Votre Nom " autofocus required>
+        <input id="password" name="mdpGrimpeur" type="password" placeholder=" Mot de Passe " required>
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="S'enregistrer"/>
+        <a href="home">Retour acceuil</a>
+    </fieldset>
 </form>
-
-<footer>
-    <%@include file="/WEB-INF/fragments/Html_FooterPourHtml.html" %>
-</footer>
-
 </body>
 </html>
