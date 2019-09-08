@@ -19,9 +19,10 @@
         ${requestScope.StackTrace}
     </p>
 
-    <footer>
-        <%@include file="/WEB-INF/fragments/Html_FooterPourHtml.html" %>
-    </footer>
+    <p>
+        Retour Acceuil <a href="${pageContext.request.contextPath}/home"> <b> Cliquez ici </b> </a>
+
+    </p>
 
 </body>
 </html>
