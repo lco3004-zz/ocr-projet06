@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="&#10;correction bug du footer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +64,9 @@
       </path>
     </expand>
     <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="projet06" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -237,22 +239,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab1659dc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab1659dc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7eaaa1b3" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab1659dc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@67bfdc55" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -271,7 +258,8 @@
       <workItem from="1567892432473" duration="2290000" />
       <workItem from="1567894754665" duration="3121000" />
       <workItem from="1567915286804" duration="9451000" />
-      <workItem from="1567947976731" duration="10350000" />
+      <workItem from="1567947976731" duration="11235000" />
+      <workItem from="1568029460027" duration="2305000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -308,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567956990192</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="&#10;correction bug du footer">
+      <created>1567960291580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567960291580</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +328,8 @@
     <MESSAGE value="préparation du filtre acces grimpeur (sur topo dans ce commit)" />
     <MESSAGE value="ajout fomr de saisie topo au même look que la cnx et identif" />
     <MESSAGE value="ajout forme de liste des topos&#10;filtrage ok - routage ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout forme de liste des topos&#10;filtrage ok - routage ok" />
+    <MESSAGE value="&#10;correction bug du footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;correction bug du footer" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
