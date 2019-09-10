@@ -106,6 +106,7 @@
         <artifactId>log4j-web</artifactId>
         <version>2.12.1</version>
       </dependency>
+
     </dependencies>
 
   <!-- =============================================================== -->
@@ -118,7 +119,6 @@
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
       </resource>
-
     </resources>
       <plugins>
         <plugin>

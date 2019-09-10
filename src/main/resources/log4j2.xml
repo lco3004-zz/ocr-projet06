@@ -4,16 +4,18 @@
         <Property name="framework_logs">../logs/project06/frameworks.log</Property>
         <Property name="projet06_logs">../logs/project06/project.log</Property>
         <Property name="filtreSurProjet"> ${project.build.finalName} </Property>
+
+        log4j.logger.org.thymeleaf
     </Properties>
 
     <Appenders>
         <File name="FileAppli" fileName="${projet06_logs}" append="false" bufferSize="32768" bufferedIO="true"
-              immediateFlush="false">
+              immediateFlush="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
         <File name="FileSql" fileName="${framework_logs}" append="false" bufferSize="32768" bufferedIO="true"
-              immediateFlush="false">
+              immediateFlush="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
