@@ -110,12 +110,7 @@ public class DbGrimpeur implements Serializable {
      */
     @Override
     public String toString() {
-        return (new StringBuilder(1024))
-                .append(" idUser: ").append(getIdgrimpeur())
-                .append(" Nom: ").append(getUserName())
-                .append(" Mdp: ").append(getUserPass())
-                .append(" Role: ").append(getRoleName().toString())
-                .toString();
+        return (new StringBuilder(1024)).append(getUserName()).toString();
     }
 
 }
