@@ -3,10 +3,12 @@
 #container {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    flex-wrap: nowrap;
+    padding: 0px;
     border: 2px solid black;
+    justify-content: space-between;
 }
 
 #container header, #container footer {
@@ -19,43 +21,39 @@
 }
 
 /* ***************  MAIN  ************************** */
-
 #container main {
     display: flex;
     flex-direction: row;
     border: 2px solid black;
+    padding: 0.5%;
+    margin: 0.5%;
+
 }
 
-#container main section {
-    flex: 5;
-    text-align: center;
-    background: whitesmoke;
-    border: 2px solid black;
-}
-
-#container main aside {
-    flex: 3;
-    border: 2px solid black;
-}
-
-#container main nav {
-    flex: 1;
-    border: 2px solid black;
-}
+/* ***************  MAIN  NAV ************************** */
 #container main nav {
     display: flex;
-    padding-left: 2px;
-    align-items: center;
-    margin: 2px;
     flex-direction: column;
+    flex: 1;
+    border: 2px solid black;
+    align-items: center;
+    padding: 0.5%;
+    margin: 0.5%;
+
 }
 
-#container main nav header, #container main nav footer {
+#container main nav header {
     background: whitesmoke;
     color: black;
     text-align: center;
     min-width: 100%;
+}
 
+#container main nav footer {
+    background: whitesmoke;
+    color: black;
+    text-align: center;
+    min-width: 100%;
 }
 
 #container main nav section {
@@ -84,7 +82,6 @@
     border-top: none;
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
-
 #container main nav section button::before {
     content: "> ";
 }
@@ -94,13 +91,23 @@
     color: darkblue;
 }
 
-
-
 /* ***************  MAIN SECTION ************************** */
+#container main section {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: whitesmoke;
+    border: 2px solid black;
+    padding: 0.5%;
+    margin: 0.5%;
+
+}
 
 #container main section table {
     border-spacing: 0;
     width: 100%;
+    overflow: scroll;
 }
 #container main section .bordered {
     border: solid #ccc 1px;
@@ -151,30 +158,36 @@
 #container main section .bordered tr:hover {
     background: #fbf8e9;
 }
-
 #container main section h3 {
     color: GrayText;
 }
 
 /* ***************  MAIN ASIDE **************************  */
+
 #container main aside {
+    flex: 3;
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0.5%;
+    margin: 0.5%;
+}
+
+#container main aside {
     border: 2px solid black;
 }
 
 #container main aside article {
     background: lightgrey;
-    margin: 0.5%;
-    padding: 0.5%;
     border: 2px dotted black;
+    margin-bottom: 0.5%;
 }
 
 #container main aside article {
     flex: 1;
 }
 
-#container main aside article:nth-of-type(3) {
-    flex: 2;
+#container main aside article:nth-of-type(1) {
+    flex: 3;
 }

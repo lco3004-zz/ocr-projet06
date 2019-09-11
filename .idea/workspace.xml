@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_GestionSpot.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +133,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -149,9 +149,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\css" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\css" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\html" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -291,7 +291,7 @@
       <workItem from="1568046025826" duration="3042000" />
       <workItem from="1568066745640" duration="95000" />
       <workItem from="1568134920049" duration="3779000" />
-      <workItem from="1568197898963" duration="5432000" />
+      <workItem from="1568197898963" duration="7564000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -377,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568207269413</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="page dédiée sppot ave cboutona ction sur form">
+      <created>1568211606753</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1568211606753</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +415,8 @@
     <MESSAGE value="ajout radio button pour selectionner un topov(ok)" />
     <MESSAGE value="ajout ccs flexbox + page landing en accord avec flexbox" />
     <MESSAGE value="ajout style table et page  spot (commenter, ajouter...)" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout style table et page  spot (commenter, ajouter...)" />
+    <MESSAGE value="page dédiée sppot ave cboutona ction sur form" />
+    <option name="LAST_COMMIT_MESSAGE" value="page dédiée sppot ave cboutona ction sur form" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
