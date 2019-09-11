@@ -18,13 +18,13 @@
     </header>
     <main>
         <nav class="nav">
-            <header> Visitez notre site</header>
+            <header> .</header>
             <section>
                 <a class="nav-link " href="#">Nos Topos</a>
-                <a class="nav-link" href="#">Nos Spots</a>
-                <a class="nav-link active" href="#">Connexion</a>
+                <a class="nav-link" href="AcceuilSpot">Nos Spots</a>
+                <a class="nav-link " href="Connexion">Connexion</a>
             </section>
-            <footer> le site des amis de l'escalade</footer>
+            <footer> .</footer>
         </nav>
 
         <section>
@@ -32,35 +32,39 @@
         </section>
         <aside>
             <article>
-                <h2>First article</h2>
-
-                <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday
-                    carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore
-                    hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia
-                    iPhone photo booth health goth gastropub hammock.</p>
+                <label style="ont-size: larger  ">Spots</label>
+                <table class="bordered">
+                    <thead>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>The Shawshank Redemption</td>
+                        <td>1994</td>
+                    </tr>
+                    </tbody>
+                </table>
             </article>
 
             <article>
-                <h2>Second article</h2>
-
-                <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday
-                    carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore
-                    hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia
-                    iPhone photo booth health goth gastropub hammock.</p>
-            </article>
-
-            <article>
-                <h2>Third article</h2>
-
-                <p>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday
-                    carry vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore
-                    hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia
-                    iPhone photo booth health goth gastropub hammock.</p>
-
-                <p>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo
-                    8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings
-                    cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art
-                    party.</p>
+                <label style="ont-size: larger  ">Topos</label>
+                <table class="bordered">
+                    <thead>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>The Shawshank Redemption</td>
+                        <td>1994</td>
+                    </tr>
+                    </tbody>
+                </table>
             </article>
         </aside>
     </main>
