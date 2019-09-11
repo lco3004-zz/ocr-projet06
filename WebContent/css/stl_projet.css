@@ -1,3 +1,4 @@
+
 /* ***************  CONTAINER ************************** */
 #container {
     display: flex;
@@ -72,13 +73,35 @@
     margin-left: 10%;
 }
 
+#container main nav section button {
+    font-size: large;
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: dodgerblue;
+    background-image: linear-gradient(top, #ebf3fc, #dce9f9);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+#container main nav section button::before {
+    content: "> ";
+}
+
+#container main nav section button:hover {
+    background: #fbf8e9;
+    color: darkblue;
+}
+
+
+
 /* ***************  MAIN SECTION ************************** */
 
 #container main section table {
     border-spacing: 0;
     width: 100%;
 }
-
 #container main section .bordered {
     border: solid #ccc 1px;
     -moz-border-radius: 20px;
@@ -96,7 +119,6 @@
     padding: 10px;
     text-align: left;
 }
-
 #container main section .bordered th {
     background-color: #dce9f9;
     background-image: linear-gradient(top, #ebf3fc, #dce9f9);
@@ -130,8 +152,8 @@
     background: #fbf8e9;
 }
 
-#container main section + h3 {
-    color: red;
+#container main section h3 {
+    color: GrayText;
 }
 
 /* ***************  MAIN ASIDE **************************  */
