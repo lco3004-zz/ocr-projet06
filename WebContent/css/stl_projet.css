@@ -1,0 +1,108 @@
+html {
+    font-family: sans-serif;
+}
+
+/* ***************  BODY ********************************/
+#container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    flex-wrap: nowrap;
+    border: 2px solid black;
+}
+
+#container header, #container footer {
+    background: lightgrey;
+    color: black;
+}
+
+#container header h1, #container footer h1 {
+    text-align: center;
+}
+
+/* ************** MAIN  ***************/
+
+#container main {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+}
+
+#container main section {
+    flex: 5;
+    text-align: center;
+    background: whitesmoke;
+    border: 2px solid black;
+}
+
+#container main aside {
+    flex: 3;
+    border: 2px solid black;
+}
+
+#container main nav {
+    flex: 1;
+    border: 2px solid black;
+}
+
+#container main nav header {
+    background: whitesmoke;
+    color: black;
+    text-align: center;
+    min-width: 100%;
+
+}
+
+#container main nav footer {
+    background: whitesmoke;
+    color: black;
+    text-align: center;
+    min-width: 100%;
+
+}
+
+#container main nav {
+    display: flex;
+    padding-left: 2px;
+    align-items: center;
+    margin: 2px;
+    flex-direction: column;
+}
+
+#container main nav section {
+    display: flex;
+    background-color: lightgrey;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    min-width: 100%;
+    border: 2px dotted black;
+}
+
+#container main nav section a {
+    color: darkblue;
+    margin-left: 10%;
+}
+
+/* ***************   main section */
+#container main aside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+#container main aside article {
+    background: lightgrey;
+    margin: 0.5%;
+    padding: 0.5%;
+    border: 2px dotted black;
+}
+
+#container main aside article {
+    flex: 1;
+}
+
+#container main aside article:nth-of-type(3) {
+    flex: 2;
+}
