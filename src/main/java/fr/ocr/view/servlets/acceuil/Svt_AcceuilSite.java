@@ -27,7 +27,7 @@ public class Svt_AcceuilSite extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AcceuilSite");
+        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_LandingPage");
         requestDispatcher.forward(request, response);
     }
 }

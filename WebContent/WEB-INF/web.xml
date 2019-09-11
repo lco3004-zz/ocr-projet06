@@ -19,6 +19,10 @@
         <servlet-name>Jsp_AcceuilSite</servlet-name>
         <jsp-file>/WEB-INF/jsp/home/Jsp_AcceuilSite.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>Jsp_LandingPage</servlet-name>
+        <jsp-file>/WEB-INF/jsp/home/Jsp_LandingPage.jsp</jsp-file>
+    </servlet>
 
     <!-- **************************************************************** -->
     <!-- TOPOS -->
