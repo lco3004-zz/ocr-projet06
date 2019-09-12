@@ -28,7 +28,7 @@
         <Logger name="fr" level="DEBUG" additivity="false">
             <AppenderRef ref="FileAppli" />
         </Logger>
-        <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+        <Logger name="org" level="DEBUG" additivity="false">
             <AppenderRef ref="FileSql" />
         </Logger>
         <Logger name="Console" level="INFO" additivity="false">

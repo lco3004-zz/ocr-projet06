@@ -70,18 +70,19 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
     @Override
     public DbTopo updateTopo(DbTopo x) throws Exception {
-        DbTopo dbTopo  = new DbTopo();
+
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
-                dbTopo.setIdtopo(x.getIdtopo());
+                DbTopo dbTopo = jpa.getEm().find(DbTopo.class, (x.getIdtopo()));
+
                 dbTopo.setDateDeParution(x.getDateDeParution());
                 dbTopo.setEstPublie(x.getEstPublie());
                 dbTopo.setEtatReservation(x.getEtatReservation());
                 dbTopo.setLieu(x.getLieu());
                 dbTopo.setNom(x.getNom());
                 dbTopo.setResume(x.getResume());
-                dbTopo.setGrimpeurByGrimpeurIdgrimpeur(x.getGrimpeurByGrimpeurIdgrimpeur());
+
                 jpa.getEm().getTransaction().commit();
 
             } catch (Exception ex) {
@@ -89,7 +90,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
                 throw new Exception(ex);
             }
         }
-        return  readTopo(dbTopo.getIdtopo());
+        return readTopo(x.getIdtopo());
     }
 
     @Override
