@@ -1,7 +1,6 @@
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
-import fr.ocr.model.entities.DbGrimpeur;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,22 +41,11 @@ public class Svt_DemanderResaTopo extends HttpServlet {
 
         try {
             Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+            ctrlMetierTopo.demanderResaCeTopo(idDuTopo);
 
-            Object o = request.getSession().getAttribute("dbGrimpeur");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
 
-            DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
-
-            if (dbGrimpeur != null) {
-
-                ctrlMetierTopo.demanderResaCeTopo(idDuTopo);
-
-                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
-
-                requestDispatcher.forward(request, response);
-            } else {
-                logger.debug("Hello from :" + this.getClass().getSimpleName() + " Dbgrimpeur = NULL");
-                throw new ServletException("dbGrimpeur est null");
-            }
+            requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
             request.removeAttribute("dbTopo");

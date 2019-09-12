@@ -12,8 +12,8 @@ import java.io.IOException;
 
 @WebFilter(filterName = "Filt_CtrlAcces",
         dispatcherTypes ={DispatcherType.FORWARD,DispatcherType.REQUEST,DispatcherType.ASYNC,DispatcherType.ERROR},
-        servletNames = {"Svt_AccepterResaTopo", "Svt_ListeDemandeResaTopo",
-                "Svt_EnregistrerTopo", "Svt_PublierTopo", "Svt_DemanderResaTopo" })
+        servletNames = {"Svt_GestionDemandeResaTopo", "Svt_EnregistrerTopo",
+                "Svt_PublierTopo", "Svt_DemanderResaTopo"})
 
 public class Filt_CtrlAcces implements Filter {
 

@@ -22,37 +22,6 @@
             <section>
 
                 <button class="boutonLateral"
-                        name="detailler"
-                        form="navSelectionRadio"
-                        type="submit"
-                        formaction="VoirDetailTopo"
-                        formmethod="post"
-                        value="detailler"
-                        formtarget="_self"> Détailler
-                </button>
-
-                <button class="boutonLateral"
-                        name="AccepterResa"
-                        form="navSelectionRadio"
-                        type="submit"
-                        formaction="AccepterResaTopo"
-                        formmethod="post"
-                        value="AccepterResa"
-                        formtarget="_self"> Accepter Resa
-                </button>
-
-
-                <button class="boutonLateral"
-                        name="ListerResa"
-                        form="navSelectionRadio"
-                        type="submit"
-                        formaction="ListeDemandeResaTopo"
-                        formmethod="post"
-                        value="ListerResa"
-                        formtarget="_self"> Lister Resa
-                </button>
-
-                <button class="boutonLateral"
                         name="DemanderResa"
                         form="navSelectionRadio"
                         type="submit"
@@ -62,15 +31,9 @@
                         formtarget="_self"> Demander Resa
                 </button>
 
-                <button class="boutonLateral"
-                        name="publier"
-                        form="navSelectionRadio"
-                        type="submit"
-                        formaction="PublierTopo"
-                        formmethod="post"
-                        value="publier"
-                        formtarget="_self"> Publier
-                </button>
+                <a class="nav-link " href="GestionDemandeResaTopo">Gérer demande Resa</a>
+
+                <a class="nav-link " href="PublierTopo">Publier</a>
 
                 <a class="nav-link " href="EnregistrerTopo">Enregistrer</a>
 

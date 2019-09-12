@@ -16,16 +16,14 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-
-@WebServlet(name = "Svt_PublierTopo", urlPatterns = {"/PublierTopo"})
-
-public class Svt_PublierTopo extends HttpServlet {
+@WebServlet(name = "Svt_GestionDemandeResaTopo", urlPatterns = {"/GestionDemandeResaTopo"})
+public class Svt_GestionDemandeResaTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
     private final Logger logger;
     private CtrlMetierTopo ctrlMetierTopo;
 
-    public Svt_PublierTopo() {
+    public Svt_GestionDemandeResaTopo() {
         super();
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
@@ -41,10 +39,10 @@ public class Svt_PublierTopo extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
-            ctrlMetierTopo.publierCeTopo(idDuTopo);
+
+            ctrlMetierTopo.accepterResaCeTopo(idDuTopo);
 
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
 
@@ -68,16 +66,14 @@ public class Svt_PublierTopo extends HttpServlet {
             if (dbGrimpeur != null) {
                 Integer idGrimpeur = dbGrimpeur.getIdgrimpeur();
 
-                List<DbTopo> dbToposNonPublies = ctrlMetierTopo.listerMesToposNonPublies(idGrimpeur);
-                request.setAttribute("dbToposNonPublies", dbToposNonPublies);
+                List<DbTopo> dbToposEnAttenteResa = ctrlMetierTopo.listerMesDemandeDeResa(idGrimpeur);
+                request.setAttribute("dbToposEnAttenteResa", dbToposEnAttenteResa);
+                request.setAttribute("dbDemandeDeResa", dbToposEnAttenteResa);
 
                 List<DbTopo> dbToposGrimpeur = ctrlMetierTopo.listerMesTopos(idGrimpeur);
                 request.setAttribute("dbToposGrimpeur", dbToposGrimpeur);
 
-                List<DbTopo> dbDemandeDeResa = ctrlMetierTopo.listerMesDemandeDeResa(idGrimpeur);
-                request.setAttribute("dbDemandeDeResa", dbDemandeDeResa);
-
-                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_PublierUnTopo");
+                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ListerDemandeDeResa");
                 requestDispatcher.forward(request, response);
             } else {
                 logger.debug("Hello from :" + this.getClass().getSimpleName() + " Dbgrimpeur = NULL");
@@ -91,6 +87,7 @@ public class Svt_PublierTopo extends HttpServlet {
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);
         }
+
 
     }
 }
