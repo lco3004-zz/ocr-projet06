@@ -35,7 +35,7 @@ public class Svt_AcceuilTopo extends HttpServlet {
 
         try {
             CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
-            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousTopos();
+            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousToposDisponibles();
 
             request.setAttribute("dbTopos", dbTopos);
 
@@ -46,7 +46,10 @@ public class Svt_AcceuilTopo extends HttpServlet {
             if (dbGrimpeur != null) {
                 List<DbTopo> dbToposGrimpeur = ctrlMetierTopo.listerMesTopos(dbGrimpeur.getIdgrimpeur());
                 request.setAttribute("dbToposGrimpeur", dbToposGrimpeur);
+                List<DbTopo> dbDemandeDeResa = ctrlMetierTopo.listerMesDemandeDeResa(dbGrimpeur.getIdgrimpeur());
+                request.setAttribute("dbDemandeDeResa", dbDemandeDeResa);
             }
+
 
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionTopo");
             requestDispatcher.forward(request, response);

@@ -1,5 +1,6 @@
 package fr.ocr.model.controllers;
 
+import fr.ocr.model.constantes.EtatsResaTopo;
 import fr.ocr.model.entities.DbGrimpeur;
 import fr.ocr.model.entities.DbTopo;
 import fr.ocr.model.entities.DbTopo_;
@@ -9,6 +10,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -20,6 +22,8 @@ public interface JpaCtrlTopo {
      DbTopo createTopo(Integer idUser, DbTopo dbTopo) throws Exception;
      DbTopo readTopo(Integer idTopo) throws Exception;
      DbTopo updateTopo(DbTopo dbTopo) throws Exception;
+
+    List<DbTopo> listerToposSelonFlag(Integer idGrimpeur, Boolean estPublie, EtatsResaTopo etatsResaTopo) throws Exception;
 }
 /*
 
@@ -28,32 +32,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
     @Override
     public List<DbTopo> findListeTopos(Integer idUser) throws Exception {
-        try (JpaEntityManager jpa = new JpaEntityManager()) {
-            jpa.getEm().getTransaction().begin();
-
-            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
-
-            CriteriaQuery<DbTopo> criteriaQuery = criteriaBuilder.createQuery(DbTopo.class);
-
-            Root<DbTopo> root = criteriaQuery.from(DbTopo.class);
-            criteriaQuery.select(root);
-
-            if (idUser != null) {
-                DbGrimpeur userByUserIduser = jpa.getEm().find(DbGrimpeur.class, idUser);
-                Predicate predicate = criteriaBuilder.equal(root.get(DbTopo_.GRIMPEUR_BY_GRIMPEUR_IDGRIMPEUR),userByUserIduser );
-                criteriaQuery.where(predicate);
-            }
-
-            Query query = jpa.getEm().createQuery(criteriaQuery);
-
-            List<DbTopo> dbTopos = (List<DbTopo>) query.getResultList();
-
-            jpa.getEm().getTransaction().commit();
-            return dbTopos;
-
-        } catch (Exception hex1) {
-            throw new Exception(hex1);
-        }
+        return listerToposSelonFlag(idUser, null, null);
     }
 
     @Override
@@ -111,5 +90,48 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
             }
         }
         return  readTopo(dbTopo.getIdtopo());
+    }
+
+    @Override
+    public List<DbTopo> listerToposSelonFlag(Integer idGrimpeur, Boolean estPublie, EtatsResaTopo etatsResaTopo) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+
+            CriteriaQuery<DbTopo> criteriaQuery = criteriaBuilder.createQuery(DbTopo.class);
+
+            Root<DbTopo> root = criteriaQuery.from(DbTopo.class);
+            criteriaQuery.select(root);
+
+            ArrayList<Predicate> predicateArrayList = new ArrayList<>();
+
+            if (idGrimpeur != null) {
+                DbGrimpeur userByUserIduser = jpa.getEm().find(DbGrimpeur.class, idGrimpeur);
+                predicateArrayList.add(criteriaBuilder.equal(root.get(DbTopo_.GRIMPEUR_BY_GRIMPEUR_IDGRIMPEUR), userByUserIduser));
+            }
+            if (estPublie != null) {
+                predicateArrayList.add(criteriaBuilder.equal(root.get(DbTopo_.EST_PUBLIE), estPublie));
+            }
+            if (etatsResaTopo != null) {
+                predicateArrayList.add(criteriaBuilder.equal(root.get(DbTopo_.ETAT_RESERVATION), etatsResaTopo));
+            }
+            Predicate[] predicates = new Predicate[predicateArrayList.size()];
+            int n = 0;
+            for (Predicate predicate : predicateArrayList) {
+                predicates[n++] = predicate;
+            }
+
+            criteriaQuery.where(predicates);
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+
+            List<DbTopo> dbTopos = (List<DbTopo>) query.getResultList();
+
+            jpa.getEm().getTransaction().commit();
+            return dbTopos;
+
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
+        }
     }
 }

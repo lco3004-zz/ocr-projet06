@@ -15,12 +15,12 @@ import java.io.PrintWriter;
 import static fr.ocr.constantes.MessageDeBase.*;
 
 @WebServlet(name = "Svt_ListeDemandeResaTopo", urlPatterns = {"/ListeDemandeResaTopo"})
-public class Svt_ListeDemandeResaTopo extends HttpServlet {
+public class Svt_ListerDemandeResaTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
     private final Logger logger;
 
-    public Svt_ListeDemandeResaTopo() {
+    public Svt_ListerDemandeResaTopo() {
         super();
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());

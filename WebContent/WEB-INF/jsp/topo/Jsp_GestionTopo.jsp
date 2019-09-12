@@ -28,7 +28,7 @@
                         formaction="VoirDetailTopo"
                         formmethod="post"
                         value="detailler"
-                        formtarget="_blank"> Détailler
+                        formtarget="_self"> Détailler
                 </button>
 
                 <button class="boutonLateral"
@@ -38,7 +38,7 @@
                         formaction="AccepterResaTopo"
                         formmethod="post"
                         value="AccepterResa"
-                        formtarget="_blank"> Accepter Resa
+                        formtarget="_self"> Accepter Resa
                 </button>
 
 
@@ -49,7 +49,7 @@
                         formaction="ListeDemandeResaTopo"
                         formmethod="post"
                         value="ListerResa"
-                        formtarget="_blank"> Lister Resa
+                        formtarget="_self"> Lister Resa
                 </button>
 
                 <button class="boutonLateral"
@@ -59,7 +59,7 @@
                         formaction="DemanderResaTopo"
                         formmethod="post"
                         value="DemanderResa"
-                        formtarget="_blank"> Demander Resa
+                        formtarget="_self"> Demander Resa
                 </button>
 
                 <button class="boutonLateral"
@@ -69,7 +69,7 @@
                         formaction="PublierTopo"
                         formmethod="post"
                         value="publier"
-                        formtarget="_blank"> Publier
+                        formtarget="_self"> Publier
                 </button>
 
                 <a class="nav-link " href="EnregistrerTopo">Enregistrer</a>
@@ -79,7 +79,7 @@
             <footer>.</footer>
         </nav>
         <section>
-            <h3> Nos Spots </h3>
+            <h3> Nos Topos Disponibles pour la Réservation </h3>
             <table class="bordered">
                 <thead>
                 <tr>
@@ -94,7 +94,7 @@
                 <form id="navSelectionRadio">
                     <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
                         <tr>
-                            <td><input type="radio" name="idValTopo" value="${dbTopo.getIdtopo()}"></td>
+                            <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
                             <td>${dbTopo.getNom()}</td>
                             <td>${dbTopo.getLieu()}</td>
                             <td>${dbTopo.getResume()}</td>
@@ -107,12 +107,10 @@
         </section>
         <aside>
             <article>
-
-                <label style="font-size: larger ">Topos</label>
+                <label style="font-size: larger ">Mes Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th> #</th>
                         <th> nom</th>
                         <th> lieu</th>
                         <th> resume</th>
@@ -122,7 +120,6 @@
                     <tbody>
                     <c:forEach var="dbTopo" items="${requestScope.dbToposGrimpeur}">
                         <tr>
-                            <td><input type="radio" name="idValTopo" value="${dbTopo.getIdtopo()}"></td>
                             <td>${dbTopo.getNom()}</td>
                             <td>${dbTopo.getLieu()}</td>
                             <td>${dbTopo.getResume()}</td>
@@ -133,58 +130,28 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Secteurs</label>
+                <label style="font-size: larger ">Mes Topos en Wait Resa</label>
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> nom</th>
+                        <th> lieu</th>
+                        <th> resume</th>
+                        <th> dateCreation</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <c:forEach var="dbTopo" items="${requestScope.dbDemandeDeResa}">
+                        <tr>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>
-
-            <article>
-                <label style="font-size: larger ">Voies</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article>
-                <label style="font-size: larger ">Longeurs</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
-
         </aside>
     </main>
     <footer>

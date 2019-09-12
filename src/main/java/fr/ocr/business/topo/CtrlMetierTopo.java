@@ -14,7 +14,11 @@ public interface CtrlMetierTopo  {
 
     List<DbTopo> listerMesTopos(Integer idGrimpeur) throws Exception;
 
-    List<DbTopo> listerTousTopos() throws Exception;
+    List<DbTopo> listerMesDemandeDeResa(Integer idGrimpeur) throws Exception;
+
+    List<DbTopo> listerTousToposDisponibles() throws Exception;
+
+    List<DbTopo> listerMesToposNonPublies(Integer idGrimpeur) throws Exception;
 
     DbTopo enregistrerCeTopo(Integer idGrimpeur, String lieuTopo, String nomTopo, String resumeTopo) throws Exception;
 
@@ -39,12 +43,23 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
 
     @Override
     public List<DbTopo> listerMesTopos(Integer idGrimpeur)  throws Exception {
-        return jpaCtrlTopo.findListeTopos(idGrimpeur);
+
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, null, null);
     }
 
     @Override
-    public List<DbTopo> listerTousTopos() throws Exception {
-        return listerMesTopos(null);
+    public List<DbTopo> listerMesDemandeDeResa(Integer idGrimpeur) throws Exception {
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, true, EtatsResaTopo.R_FR);
+    }
+
+    @Override
+    public List<DbTopo> listerTousToposDisponibles() throws Exception {
+        return jpaCtrlTopo.listerToposSelonFlag(null, true, EtatsResaTopo.W_FR);
+    }
+
+    @Override
+    public List<DbTopo> listerMesToposNonPublies(Integer idGrimpeur) throws Exception {
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, false, null);
     }
 
     @Override
