@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/fragments/Html_EnteteFormulaire.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/formulaire.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/formulaire.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/sql/create_tbl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/creation_asta_mysql/sql/create_tbl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet06.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projet06.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/entities/DbTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/entities/DbTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/formulaire.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,8 +159,9 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean compile package" />
       <command value="mvn clean" />
+      <command value="mvn clean compile package" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -293,7 +291,7 @@
       <workItem from="1568303719551" duration="79000" />
       <workItem from="1568304128465" duration="1865000" />
       <workItem from="1568306086940" duration="609000" />
-      <workItem from="1568306718988" duration="801000" />
+      <workItem from="1568306718988" duration="2627000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -421,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568283076149</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)">
+      <created>1568307559923</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1568307559923</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +462,8 @@
     <MESSAGE value="mise en place topo nouvelle forme html" />
     <MESSAGE value="correctionerreur jsp topo (gestion)" />
     <MESSAGE value="ajout article mes resa, mes topos - presentaion des topos dispo&#10;simplification jpaCtrlTopo avec un seul find idGrimepur, etatResa et estPublie&#10;note : le arraylist.toarray plante sur Predicate [] predicates = ...to array =&gt; foreach" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout article mes resa, mes topos - presentaion des topos dispo&#10;simplification jpaCtrlTopo avec un seul find idGrimepur, etatResa et estPublie&#10;note : le arraylist.toarray plante sur Predicate [] predicates = ...to array =&gt; foreach" />
+    <MESSAGE value="ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

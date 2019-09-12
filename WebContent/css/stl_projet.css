@@ -119,6 +119,7 @@
     width: 100%;
     overflow: scroll;
 }
+
 #container main section .bordered {
     border: solid #ccc 1px;
     -moz-border-radius: 20px;

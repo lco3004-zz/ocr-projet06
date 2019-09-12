@@ -28,7 +28,7 @@
         </nav>
         <section>
             <h3> Enregister un Topo </h3>
-            <form id="EnregistrerTopo" class="bordered" action="EnregistrerTopo" method="post">
+            <form id="EnregistrerTopo" class="formSimple" action="EnregistrerTopo" method="post">
                 <fieldset id="inputs">
                     <label for="nomTopo"> Nom du Topo : </label>
                     <input id="nomTopo" name="nomTopo" required="true" size="64" type="text"/>

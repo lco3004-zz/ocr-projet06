@@ -6,8 +6,8 @@
 
 <html>
 <head>
-
-        <%@include file="/WEB-INF/fragments/Html_EnteteFormulaire.html" %>
+    <link href="${pageContext.request.contextPath}/css/stl_projet.css" rel="stylesheet" type="text/css">
+    <title> Hi</title>
 
 </head>
 <body>
