@@ -7,7 +7,6 @@ import fr.ocr.model.converters.JpaConvEnumResaTopoToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 
 @Entity
@@ -15,10 +14,19 @@ import java.util.Objects;
 public class DbTopo implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    private int idtopo;
+    private Integer idEmprunteur;
+    private String nom;
+    private String lieu;
+    private String resume;
+    private Date dateDeParution;
+    private Boolean estPublie;
+    private EtatsResaTopo etatReservation;
+    private DbGrimpeur grimpeurByGrimpeurIdgrimpeur;
+
     @Id
     @Column(name = "idtopo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idtopo;
     public int getIdtopo() {
         return idtopo;
     }
@@ -28,7 +36,6 @@ public class DbTopo implements Serializable {
 
     @Basic
     @Column(name = "nom", length = 256, nullable = false)
-    private String nom;
     public String getNom() {
         return nom;
     }
@@ -39,7 +46,6 @@ public class DbTopo implements Serializable {
     @Basic
     @Column(name = "est_publie", nullable = false)
     @Convert(converter = JpaConvBoolInt.class)
-    private Boolean estPublie;
     public Boolean getEstPublie() {
         return estPublie;
     }
@@ -50,18 +56,16 @@ public class DbTopo implements Serializable {
     @Basic
     @Column(name = "etat_reservation", nullable = false)
     @Convert(converter = JpaConvEnumResaTopoToString.class)
-    private EtatsResaTopo etatReservation;
     public EtatsResaTopo getEtatReservation() {
         return etatReservation;
     }
-    public void setEtatReservation(EtatsResaTopo etatReservation) {
 
+    public void setEtatReservation(EtatsResaTopo etatReservation) {
         this.etatReservation = etatReservation;
     }
 
     @Basic
     @Column(name = "resume",  length = 256)
-    private String resume;
     public String getResume() {
         return resume;
     }
@@ -71,7 +75,6 @@ public class DbTopo implements Serializable {
 
     @Basic
     @Column(name = "lieu", length = 256, nullable = false)
-    private String lieu;
     public String getLieu() {
         return lieu;
     }
@@ -79,9 +82,18 @@ public class DbTopo implements Serializable {
         this.lieu = lieu;
     }
 
+    @Basic
+    @Column(name = "idemprunteur")
+    public Integer getIdEmprunteur() {
+        return idEmprunteur;
+    }
+
+    public void setIdEmprunteur(Integer idEmprunteur) {
+        this.idEmprunteur = idEmprunteur;
+    }
+
     @Temporal(TemporalType.DATE)
     @Column(name = "date_de_parution", nullable = false)
-    private Date dateDeParution;
     public Date getDateDeParution() {
         return dateDeParution;
     }
@@ -91,8 +103,6 @@ public class DbTopo implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "grimpeur_idgrimpeur", referencedColumnName = "idgrimpeur",nullable = false)
-    private DbGrimpeur grimpeurByGrimpeurIdgrimpeur;
-
     public DbGrimpeur getGrimpeurByGrimpeurIdgrimpeur() {
         return grimpeurByGrimpeurIdgrimpeur;
     }
@@ -100,29 +110,44 @@ public class DbTopo implements Serializable {
         this.grimpeurByGrimpeurIdgrimpeur = grimpeurByGrimpeurIdgrimpeur;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DbTopo that = (DbTopo) o;
-        return idtopo == that.idtopo &&
-                estPublie == that.estPublie &&
-                etatReservation == that.etatReservation &&
-                Objects.equals(nom, that.nom) &&
-                Objects.equals(resume, that.resume) &&
-                Objects.equals(lieu, that.lieu) &&
-                Objects.equals(dateDeParution, that.dateDeParution);
+
+        DbTopo dbTopo = (DbTopo) o;
+
+        if (idtopo != dbTopo.idtopo) return false;
+        if (estPublie != dbTopo.estPublie) return false;
+        if (dateDeParution != null ? !dateDeParution.equals(dbTopo.dateDeParution) : dbTopo.dateDeParution != null)
+            return false;
+        if (etatReservation != null ? !etatReservation.equals(dbTopo.etatReservation) : dbTopo.etatReservation != null)
+            return false;
+        if (lieu != null ? !lieu.equals(dbTopo.lieu) : dbTopo.lieu != null) return false;
+        if (nom != null ? !nom.equals(dbTopo.nom) : dbTopo.nom != null) return false;
+        if (resume != null ? !resume.equals(dbTopo.resume) : dbTopo.resume != null) return false;
+        return idEmprunteur != null ? idEmprunteur.equals(dbTopo.idEmprunteur) : dbTopo.idEmprunteur == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idtopo, nom, estPublie, etatReservation, resume, lieu, dateDeParution);
+        int result = idtopo;
+        result = 31 * result + (dateDeParution != null ? dateDeParution.hashCode() : 0);
+        result = 31 * result + (estPublie != null ? estPublie.hashCode() : 0);
+        result = 31 * result + (etatReservation != null ? etatReservation.hashCode() : 0);
+        result = 31 * result + (lieu != null ? lieu.hashCode() : 0);
+        result = 31 * result + (nom != null ? nom.hashCode() : 0);
+        result = 31 * result + (resume != null ? resume.hashCode() : 0);
+        result = 31 * result + (idEmprunteur != null ? idEmprunteur.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return (new StringBuilder(1024))
                 .append(" idGrimpeur: ").append(getGrimpeurByGrimpeurIdgrimpeur().getIdgrimpeur())
+                .append("idEmprunteur: ").append(idEmprunteur)
                 .append(" idTopo: ").append(getIdtopo())
                 .append(" Nom: ").append(getNom())
                 .append(" EtatResa: ").append(etatReservation.toString())

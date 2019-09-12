@@ -4,7 +4,6 @@
 
 DROP INDEX IF EXISTS  public.idx_user_name;
 
-
 DROP TABLE IF EXISTS public.longueur;
 DROP TABLE IF EXISTS public.voie;
 DROP TABLE  IF EXISTS public.secteur;
@@ -138,8 +137,6 @@ CREATE UNIQUE INDEX idx_user_name
         (user_name COLLATE pg_catalog."default")
     TABLESPACE ts_projet06;
    
-
-
 -- Table: public.spot
 
 CREATE TABLE public.spot
@@ -165,18 +162,19 @@ ALTER TABLE public.spot
 
 -- Table: public.topo
 
-
 CREATE TABLE public.topo
 (
-    idtopo integer NOT NULL DEFAULT nextval('topo_idtopo_seq'::regclass),
-    date_de_parution date  NOT NULL,
-    est_publie integer DEFAULT 0 NOT NULL,
-    etat_reservation character varying(16) DEFAULT 'W_FR' COLLATE pg_catalog."default"  NOT NULL,
-    lieu character varying(256)   COLLATE pg_catalog."default" NOT NULL,
-    nom character varying(256)   COLLATE pg_catalog."default" NOT NULL,
-    resume character varying(256) COLLATE pg_catalog."default",
-    grimpeur_idgrimpeur integer NOT NULL,
-    CONSTRAINT topo_pkey PRIMARY KEY (idtopo),
+    idtopo              integer                                             NOT NULL DEFAULT nextval('topo_idtopo_seq'::regclass),
+    date_de_parution    date                                                NOT NULL,
+    est_publie          integer                                             NOT NULL DEFAULT 0,
+    etat_reservation    character varying(16) COLLATE pg_catalog."default"  NOT NULL DEFAULT 'W_FR'::character varying,
+    lieu                character varying(256) COLLATE pg_catalog."default" NOT NULL,
+    nom                 character varying(256) COLLATE pg_catalog."default" NOT NULL,
+    resume              character varying(256) COLLATE pg_catalog."default",
+    grimpeur_idgrimpeur integer                                             NOT NULL,
+    idemprunteur        integer,
+    CONSTRAINT topo_pkey PRIMARY KEY (idtopo)
+        USING INDEX TABLESPACE ts_projet06,
     CONSTRAINT fkdk3dxm8445oyn4ernjibrvgd6 FOREIGN KEY (grimpeur_idgrimpeur)
         REFERENCES public.grimpeur (idgrimpeur) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -185,7 +183,7 @@ CREATE TABLE public.topo
     WITH (
         OIDS = FALSE
     )
-    TABLESPACE  ts_projet06;
+    TABLESPACE ts_projet06;
 
 ALTER TABLE public.topo
     OWNER to postgres;

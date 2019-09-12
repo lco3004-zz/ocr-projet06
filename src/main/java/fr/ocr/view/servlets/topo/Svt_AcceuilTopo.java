@@ -50,7 +50,6 @@ public class Svt_AcceuilTopo extends HttpServlet {
                 request.setAttribute("dbDemandeDeResa", dbDemandeDeResa);
             }
 
-
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionTopo");
             requestDispatcher.forward(request, response);
 
