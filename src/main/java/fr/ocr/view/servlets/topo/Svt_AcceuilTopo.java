@@ -48,6 +48,9 @@ public class Svt_AcceuilTopo extends HttpServlet {
                 request.setAttribute("dbToposGrimpeur", dbToposGrimpeur);
                 List<DbTopo> dbDemandeDeResa = ctrlMetierTopo.listerMesDemandeDeResa(dbGrimpeur.getIdgrimpeur());
                 request.setAttribute("dbDemandeDeResa", dbDemandeDeResa);
+
+                List<DbTopo> dbMesToposReserver = ctrlMetierTopo.listerMesToposReserver(dbGrimpeur.getIdgrimpeur());
+                request.setAttribute("dbMesToposReserver", dbMesToposReserver);
             }
 
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionTopo");

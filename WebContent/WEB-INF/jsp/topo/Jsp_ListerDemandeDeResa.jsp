@@ -25,7 +25,7 @@
                         name="AccepterResa"
                         form="navSelectionRadio"
                         type="submit"
-                        formaction="AccepterResaTopo"
+                        formaction="GestionDemandeResaTopo"
                         formmethod="post"
                         value="AccepterResa"
                         formtarget="_self"> Accepter Resa

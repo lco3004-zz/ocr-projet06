@@ -115,6 +115,29 @@
                     </tbody>
                 </table>
             </article>
+            <article>
+                <label style="font-size: larger ">Mes Topos Réserver</label>
+                <table class="bordered">
+                    <thead>
+                    <tr>
+                        <th> nom</th>
+                        <th> lieu</th>
+                        <th> resume</th>
+                        <th> dateCreation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="dbTopo" items="${requestScope.dbMesToposReserver}">
+                        <tr>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </article>
         </aside>
     </main>
     <footer>
