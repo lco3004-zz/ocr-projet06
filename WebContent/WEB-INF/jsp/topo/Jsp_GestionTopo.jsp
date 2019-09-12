@@ -25,40 +25,61 @@
                         name="detailler"
                         form="navSelectionRadio"
                         type="submit"
-                        formaction="VoirDetailSpot"
+                        formaction="VoirDetailTopo"
                         formmethod="post"
                         value="detailler"
-                        formtarget="_self"> Détailler
+                        formtarget="_blank"> Détailler
                 </button>
 
                 <button class="boutonLateral"
-                        name="commenter"
+                        name="AccepterResa"
                         form="navSelectionRadio"
                         type="submit"
-                        formaction="Commenter"
+                        formaction="AccepterResaTopo"
                         formmethod="post"
-                        value="commenter"
-                        formtarget="_self"> Commenter
+                        value="AccepterResa"
+                        formtarget="_blank"> Accepter Resa
+                </button>
+
+
+                <button class="boutonLateral"
+                        name="ListerResa"
+                        form="navSelectionRadio"
+                        type="submit"
+                        formaction="ListeDemandeResaTopo"
+                        formmethod="post"
+                        value="ListerResa"
+                        formtarget="_blank"> Lister Resa
                 </button>
 
                 <button class="boutonLateral"
-                        name="tagger"
+                        name="DemanderResa"
                         form="navSelectionRadio"
                         type="submit"
-                        formaction="TaggerSpot"
+                        formaction="DemanderResaTopo"
                         formmethod="post"
-                        value="tagger"
-                        formtarget="_self"> Tagger
+                        value="DemanderResa"
+                        formtarget="_blank"> Demander Resa
+                </button>
+
+                <button class="boutonLateral"
+                        name="publier"
+                        form="navSelectionRadio"
+                        type="submit"
+                        formaction="PublierTopo"
+                        formmethod="post"
+                        value="publier"
+                        formtarget="_blank"> Publier
                 </button>
 
                 <button class="boutonLateral"
                         name="Enregistrer"
                         form="navSelectionRadio"
                         type="submit"
-                        formaction="CreerSpot"
+                        formaction="EnregistrerTopo"
                         formmethod="post"
                         value="Enregistrer"
-                        formtarget="_self"> Enregistrer
+                        formtarget="_blank"> Enregistrer
                 </button>
 
                 <a class="nav-link " href="home">Vers l'Acceuil</a>
@@ -71,19 +92,21 @@
                 <thead>
                 <tr>
                     <th> #</th>
-                    <th> Nom</th>
-                    <th> Localisation</th>
-                    <th> Classification</th>
+                    <th> nom</th>
+                    <th> lieu</th>
+                    <th> resume</th>
+                    <th> dateCreation</th>
                 </tr>
                 </thead>
                 <tbody>
                 <form id="navSelectionRadio">
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                    <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
                         <tr>
-                            <td><input type="radio" name="idValSpot" value="${dbSpot.getIdSpot()}"></td>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
+                            <td><input type="radio" name="idValTopo" value="${dbTopo.getIdtopo()}"></td>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
                         </tr>
                     </c:forEach>
                 </form>
@@ -93,21 +116,25 @@
         <aside>
             <article>
 
-                <label style="font-size: larger ">Spots</label>
+                <label style="font-size: larger ">Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th> Nom</th>
-                        <th> Localisation</th>
-                        <th> Classification</th>
+                        <th> #</th>
+                        <th> nom</th>
+                        <th> lieu</th>
+                        <th> resume</th>
+                        <th> dateCreation</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                    <c:forEach var="dbTopo" items="${requestScope.dbToposGrimpeur}">
                         <tr>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
+                            <td><input type="radio" name="idValTopo" value="${dbTopo.getIdtopo()}"></td>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
                         </tr>
                     </c:forEach>
                     </tbody>

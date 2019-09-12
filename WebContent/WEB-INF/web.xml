@@ -25,14 +25,12 @@
     <!-- **************************************************************** -->
     <!-- TOPOS -->
     <!-- **************************************************************** -->
+
     <servlet>
-        <servlet-name>Jsp_AjouterUnTopo</servlet-name>
-        <jsp-file>/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp</jsp-file>
+        <servlet-name>Jsp_GestionTopo</servlet-name>
+        <jsp-file>/WEB-INF/jsp/spot/Jsp_GestionTopo.jsp</jsp-file>
     </servlet>
-    <servlet>
-        <servlet-name>Jsp_ListeDesTopos</servlet-name>
-        <jsp-file>/WEB-INF/jsp/topo/Jsp_ListeDesTopos.jsp</jsp-file>
-    </servlet>
+
 
     <!-- **************************************************************** -->
     <!-- SPOTS -->

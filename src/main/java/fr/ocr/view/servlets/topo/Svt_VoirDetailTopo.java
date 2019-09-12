@@ -26,6 +26,11 @@ public class Svt_VoirDetailTopo extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
             out.print(HTML_DEBUT.getValeur());
@@ -41,10 +46,5 @@ public class Svt_VoirDetailTopo extends HttpServlet {
             out.print(HTML_FIN.getValeur());
             out.flush();
         }
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

@@ -28,8 +28,8 @@ public class Svt_PublierTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {

@@ -49,7 +49,7 @@ public class Svt_EnregistrerTopo extends HttpServlet {
                 DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(dbGrimpeur.getIdgrimpeur(), lieuTopo, nomTopo, resumeTopo);
                 request.setAttribute("dbTopo", dbTopo);
                 RequestDispatcher requestDispatcher;
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AcceuilSite");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionSpot");
                 requestDispatcher.forward(request,response);
             }
             else {
@@ -57,11 +57,10 @@ public class Svt_EnregistrerTopo extends HttpServlet {
                 throw  new ServletException("dbGrimpeur est null");
             }
 
-
         } catch (Exception e) {
             request.removeAttribute("dbTopo");
             request.setAttribute("messageErreur",e.getCause()+" "+e.getLocalizedMessage()+" "+ Arrays.toString(e.getStackTrace()));
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Pri_PageErreurInterne");
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request,response);
         }
 
