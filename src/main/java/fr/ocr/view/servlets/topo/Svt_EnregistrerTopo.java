@@ -49,7 +49,7 @@ public class Svt_EnregistrerTopo extends HttpServlet {
                 DbTopo dbTopo = ctrlMetierTopo.enregistrerCeTopo(dbGrimpeur.getIdgrimpeur(), lieuTopo, nomTopo, resumeTopo);
                 request.setAttribute("dbTopo", dbTopo);
                 RequestDispatcher requestDispatcher;
-                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionSpot");
+                requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionTopo");
                 requestDispatcher.forward(request,response);
             }
             else {

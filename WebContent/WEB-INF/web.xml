@@ -28,9 +28,12 @@
 
     <servlet>
         <servlet-name>Jsp_GestionTopo</servlet-name>
-        <jsp-file>/WEB-INF/jsp/spot/Jsp_GestionTopo.jsp</jsp-file>
+        <jsp-file>/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp</jsp-file>
     </servlet>
-
+    <servlet>
+        <servlet-name>Jsp_AjouterUnTopo</servlet-name>
+        <jsp-file>/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp</jsp-file>
+    </servlet>
 
     <!-- **************************************************************** -->
     <!-- SPOTS -->

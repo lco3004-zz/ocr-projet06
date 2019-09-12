@@ -72,15 +72,7 @@
                         formtarget="_blank"> Publier
                 </button>
 
-                <button class="boutonLateral"
-                        name="Enregistrer"
-                        form="navSelectionRadio"
-                        type="submit"
-                        formaction="EnregistrerTopo"
-                        formmethod="post"
-                        value="Enregistrer"
-                        formtarget="_blank"> Enregistrer
-                </button>
+                <a class="nav-link " href="EnregistrerTopo">Enregistrer</a>
 
                 <a class="nav-link " href="home">Vers l'Acceuil</a>
             </section>
