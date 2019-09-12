@@ -34,6 +34,14 @@
         <servlet-name>Jsp_AjouterUnTopo</servlet-name>
         <jsp-file>/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>Jsp_PublierUnTopo</servlet-name>
+        <jsp-file>/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Jsp_ListerDemandeDeResa</servlet-name>
+        <jsp-file>/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp</jsp-file>
+    </servlet>
 
     <!-- **************************************************************** -->
     <!-- SPOTS -->

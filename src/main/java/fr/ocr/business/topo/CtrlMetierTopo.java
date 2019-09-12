@@ -24,7 +24,7 @@ public interface CtrlMetierTopo  {
 
     DbTopo publierCeTopo(int idTopo) throws Exception;
 
-    DbTopo demanderResaCeTopo(int idGrimpeur, int idTopo) throws Exception;
+    DbTopo demanderResaCeTopo(int idTopo) throws Exception;
 
     DbTopo accepterResaCeTopo(int idTopo) throws Exception;
 
@@ -85,7 +85,7 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
     }
 
     @Override
-    public DbTopo demanderResaCeTopo(int idGrimpeur, int idTopo) throws Exception {
+    public DbTopo demanderResaCeTopo(int idTopo) throws Exception {
         DbTopo dbTopo  = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEtatReservation(EtatsResaTopo.R_FR);
         return jpaCtrlTopo.updateTopo(dbTopo);

@@ -22,12 +22,21 @@ public class Svt_EnregistrerTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
     private final Logger logger;
-
+    private CtrlMetierTopo ctrlMetierTopo;
 
     public Svt_EnregistrerTopo() {
         super();
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
+    }
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+
+        super.service(req, resp);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,8 +45,6 @@ public class Svt_EnregistrerTopo extends HttpServlet {
 
             String lieuTopo   = request.getParameter("lieuTopo");
             String resumeTopo = request.getParameter("resumeTopo");
-
-            CtrlMetierTopo  ctrlMetierTopo =  CtrlMetierTopo.CTRL_METIER_TOPO;
 
             Object o =  request.getSession().getAttribute("dbGrimpeur");
 

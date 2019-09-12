@@ -1,17 +1,20 @@
 package fr.ocr.view.servlets.topo;
 
-import fr.ocr.constantes.MessageDeBase;
+import fr.ocr.business.topo.CtrlMetierTopo;
+import fr.ocr.model.entities.DbGrimpeur;
+import fr.ocr.model.entities.DbTopo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import static fr.ocr.constantes.MessageDeBase.*;
+import java.util.Arrays;
+import java.util.List;
 
 
 @WebServlet(name = "Svt_PublierTopo", urlPatterns = {"/PublierTopo"})
@@ -20,7 +23,7 @@ public class Svt_PublierTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
     private final Logger logger;
-
+    private CtrlMetierTopo ctrlMetierTopo;
 
     public Svt_PublierTopo() {
         super();
@@ -28,23 +31,78 @@ public class Svt_PublierTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        doGet(request, response);
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+
+        super.service(req, resp);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
-        try (PrintWriter out = response.getWriter()) {
-            response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
-            out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Topos </h3>");
-            out.print(BR.getValeur());
-            out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet : " +this.getServletName());
-            out.print(PFIN.getValeur());
-            out.print(BR.getValeur());
 
-            out.print(HTML_FIN.getValeur());
-            out.flush();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+
+            Object o = request.getSession().getAttribute("dbGrimpeur");
+
+            DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+
+            if (dbGrimpeur != null) {
+
+                ctrlMetierTopo.publierCeTopo(idDuTopo);
+
+                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
+
+                requestDispatcher.forward(request, response);
+            } else {
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " Dbgrimpeur = NULL");
+                throw new ServletException("dbGrimpeur est null");
+            }
+
+        } catch (Exception e) {
+            request.removeAttribute("dbTopo");
+            request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
         }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+
+            Object o = request.getSession().getAttribute("dbGrimpeur");
+
+            DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+
+            if (dbGrimpeur != null) {
+                Integer idGrimpeur = dbGrimpeur.getIdgrimpeur();
+
+                List<DbTopo> dbToposNonPublies = ctrlMetierTopo.listerMesToposNonPublies(idGrimpeur);
+                request.setAttribute("dbToposNonPublies", dbToposNonPublies);
+
+                List<DbTopo> dbToposGrimpeur = ctrlMetierTopo.listerMesTopos(idGrimpeur);
+                request.setAttribute("dbToposGrimpeur", dbToposGrimpeur);
+
+                List<DbTopo> dbDemandeDeResa = ctrlMetierTopo.listerMesDemandeDeResa(idGrimpeur);
+                request.setAttribute("dbDemandeDeResa", dbDemandeDeResa);
+
+                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_PublierUnTopo");
+                requestDispatcher.forward(request, response);
+            } else {
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " Dbgrimpeur = NULL");
+                throw new ServletException("dbGrimpeur est null");
+            }
+
+        } catch (Exception e) {
+            request.removeAttribute("dbTopos");
+            request.removeAttribute("dbToposGrimpeur");
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
+        }
+
     }
 }
