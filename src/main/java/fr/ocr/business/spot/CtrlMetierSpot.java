@@ -10,7 +10,6 @@ import fr.ocr.model.entities.DbVoie;
 import java.util.List;
 
 import static fr.ocr.model.constantes.SpotClassification.OFFICIEL;
-import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
 
@@ -57,7 +56,6 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
 
         DbSpot dbSpot = new DbSpot();
 
-        dbSpot.setClassification(STANDARD.name());
         dbSpot.setLocalisation(oldDbSpot.getLocalisation());
         dbSpot.setNom(oldDbSpot.getNom());
 

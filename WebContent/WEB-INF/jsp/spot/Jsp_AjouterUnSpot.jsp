@@ -63,8 +63,8 @@
         <section>
             <h3> Enregister un Spot </h3>
             <article class="ajouterInfosSpot">
-                <label style="font-size: larger ">Spots</label>
-                <table class="bordered">
+                <c:set var="afficheFormeSpot" value="true" scope="page"/>
+                <table class="bordered ajouterInfosSpot">
                     <thead>
                     <tr>
                         <th> Nom</th>
@@ -74,6 +74,7 @@
                     </thead>
                     <tbody>
                     <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                        <c:set var="afficheFormeSpot" value="false" scope="page"/>
                         <tr>
                             <td>${dbSpot.getNom()}</td>
                             <td>${dbSpot.getLocalisation()}</td>
@@ -82,29 +83,29 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <form id="formEnregistrerSpot" class="formSimple">
-                    <fieldset class="labels">
-                        <label for="nomTopo"> Nom du Topo : </label>
-                        <label for="lieuTopo"> lieuTopo : </label>
-                        <label for="resumeTopo"> Resumé : </label>
-                    </fieldset>
-                    <fieldset class="inputs">
-                        <input id="nomTopo" name="nomTopo" required="true" size="32" type="text"/>
-                        <input id="lieuTopo" name="lieuTopo" required="true" size="32" type="text"/>
-                        <input id="resumeTopo" name="resumeTopo" required="true" size="32" type="text"/>
-                    </fieldset>
-                    <fieldset class="actions">
-                        <button class="boutonFormSimple"
-                                name="AjouterSpot"
-                                form="formEnregistrerSpot"
-                                type="submit"
-                                formaction="AjouterSpot"
-                                formmethod="post"
-                                value="AjouterSpot"
-                                formtarget="_self"> Ajouter
-                        </button>
-                    </fieldset>
-                </form>
+                <c:if test="${afficheFormeSpot == true}" scope="page" var="none">
+                    <form id="formEnregistrerSpot" class="formSimple ajouterInfosSpot">
+                        <fieldset class="labels">
+                            <label for="nomSpot"> nom : </label>
+                            <label for="localisationSpot"> lieu : </label>
+                        </fieldset>
+                        <fieldset class="inputs">
+                            <input id="nomSpot" name="nomSpot" required="true" size="16" type="text"/>
+                            <input id="localisationSpot" name="localisationSpot" required="true" size="16" type="text"/>
+                        </fieldset>
+                        <fieldset class="actions">
+                            <button class="boutonFormSimple"
+                                    name="AjouterSpot"
+                                    form="formEnregistrerSpot"
+                                    type="submit"
+                                    formaction="AjouterSpot"
+                                    formmethod="post"
+                                    value="AjouterSpot"
+                                    formtarget="_self"> Ajouter
+                            </button>
+                        </fieldset>
+                    </form>
+                </c:if>
             </article>
         </section>
         <aside>
