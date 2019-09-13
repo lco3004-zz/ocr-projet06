@@ -20,40 +20,7 @@
         <nav class="nav">
             <header>.</header>
             <section>
-                <c:if test="${requestScope.saisieSecteurOk ==true}" scope="page" var="none">
-                    <button class="boutonLateral"
-                            name="CreerSecteur"
-                            form="formEnregistrerSecteur"
-                            type="submit"
-                            formaction="CreerSecteur"
-                            formmethod="post"
-                            value="CreerSecteur"
-                            formtarget="_self"> Creer Secteur
-                    </button>
-                </c:if>
-                <c:if test="${requestScope.saisieVoieOk ==true}" scope="page" var="none">
-                    <button class="boutonLateral"
-                            name="CreerVoie"
-                            form="xxx"
-                            type="submit"
-                            formaction="CreerVoie"
-                            formmethod="post"
-                            value="CreerVoie"
-                            formtarget="_self"> Creer Voie
-                    </button>
-                </c:if>
-                <c:if test="${requestScope.saisieLongueurOk ==true}" scope="page" var="none">
-                    <button class="boutonLateral"
-                            name="CreerLongeur"
-                            form="xxx"
-                            type="submit"
-                            formaction="CreerLongeur"
-                            formmethod="post"
-                            value="CreerLongeur"
-                            formtarget="_self"> Creer Longeur
-                    </button>
 
-                </c:if>
                 <c:if test="${requestScope.boutonValiderOk ==true}" scope="page" var="none">
                     <button class="boutonLateral"
                             name="Valider"
@@ -63,6 +30,7 @@
                             formmethod="post"
                             value="Valider"
                             formtarget="_self"> Valider
+                        <a class="boutonLateral" href="Valider" >Vers l'Acceuil</a>
                     </button>
 
                 </c:if>
@@ -71,37 +39,16 @@
             <footer>.</footer>
         </nav>
         <section>
-            <h3> Enregister un Spot </h3>
             <article>
-                <c:set var="afficheFormeSpot" value="true" scope="page"/>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> Nom</th>
-                        <th> Localisation</th>
-                        <th> Classification</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
-                        <c:set var="afficheFormeSpot" value="false" scope="page"/>
-                        <tr>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-                <c:if test="${afficheFormeSpot == true}" scope="page" var="none">
+                <c:if test="${requestScope.afficheFormeSpot == true}" scope="page" var="none">
                     <form id="formEnregistrerSpot" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSpot"> nom : </label>
                             <label for="localisationSpot"> lieu : </label>
                         </fieldset>
                         <fieldset class="inputs">
-                            <input id="nomSpot" name="nomSpot" required="true" size="16" type="text"/>
-                            <input id="localisationSpot" name="localisationSpot" required="true" size="16" type="text"/>
+                            <input id="nomSpot" name="nomSpot" required size="16" type="text"/>
+                            <input id="localisationSpot" name="localisationSpot" required size="16" type="text"/>
                         </fieldset>
                         <fieldset class="actions">
                             <button class="boutonFormSimple"
@@ -119,33 +66,17 @@
             </article>
             <article>
                 <c:if test="${requestScope.saisieSecteurOk ==true}" scope="page" var="none">
-                    <table class="bordered">
-                        <thead>
-                        <tr>
-                            <th> #</th>
-                            <th> Nom</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
-                            <tr>
-                                <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getIdsecteur()}"></td>
-                                <td>${dbSecteur.getNom()}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
                     <form id="formEnregistrerSecteur" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSecteur"> nom : </label>
                         </fieldset>
                         <fieldset class="inputs">
-                            <input id="nomSecteur" name="nomSecteur" required="true" size="16" type="text"/>
+                            <input id="nomSecteur" name="nomSecteur" required size="16" type="text"/>
                         </fieldset>
                         <fieldset class="actions">
                             <button class="boutonFormSimple"
                                     name="AjouterSecteur"
-                                    form="formEnregistrerSpot"
+                                    form="formEnregistrerSecteur"
                                     type="submit"
                                     formaction="AjouterSecteur"
                                     formmethod="post"
@@ -169,13 +100,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                    <c:if test="${not empty requestScope.dbSpot}" scope="page" var="non">
                         <tr>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
+                            <td>${requestScope.dbSpot.getNom()}</td>
+                            <td>${requestScope.dbSpot.getLocalisation()}</td>
+                            <td>${requestScope.dbSpot.getClassification()}</td>
                         </tr>
-                    </c:forEach>
+                    </c:if>
                     </tbody>
                 </table>
             </article>
@@ -184,15 +115,17 @@
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> #</th>
+                        <th> Nom</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                        <tr>
+                            <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getIdsecteur()}"></td>
+                            <td>${dbSecteur.getNom()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>

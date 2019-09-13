@@ -34,9 +34,9 @@
                     <label for="resumeTopo"> Resumé : </label>
                 </fieldset>
                 <fieldset class="inputs">
-                    <input id="nomTopo" name="nomTopo" required="true" size="64" type="text"/>
-                    <input id="lieuTopo" name="lieuTopo" required="true" size="64" type="text"/>
-                    <input id="resumeTopo" name="resumeTopo" required="true" size="64" type="text"/>
+                    <input id="nomTopo" name="nomTopo" required size="64" type="text"/>
+                    <input id="lieuTopo" name="lieuTopo" required size="64" type="text"/>
+                    <input id="resumeTopo" name="resumeTopo" required size="64" type="text"/>
                 </fieldset>
                 <fieldset class="actions">
                     <button class="boutonFormSimple"

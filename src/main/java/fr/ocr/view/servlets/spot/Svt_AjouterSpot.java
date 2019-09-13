@@ -67,6 +67,9 @@ public class Svt_AjouterSpot extends HttpServlet {
             ArrayList<DbSecteur> dbSecteurs;
             ArrayList<DbVoie> dbVoies;
 
+            request.setAttribute("afficheFormeSpot",false);
+
+
             switch (natureRequete) {
                 case "/Valider" :
                     Object o =  request.getSession().getAttribute("dbGrimpeur");
@@ -84,14 +87,8 @@ public class Svt_AjouterSpot extends HttpServlet {
                     dbSpot.setNom(request.getParameter("nomSpot"));
                     dbSpot.setClassification(STANDARD.name());
 
-                    ArrayList<DbSpot> dbSpots = new ArrayList<>();
-                    dbSpots.add(dbSpot);
-
                     request.setAttribute("saisieSecteurOk",true);
-                    request.setAttribute("dbSpots",dbSpots);
-
                     request.setAttribute("dbSpot",dbSpot);
-
                     break;
 
                 case "/AjouterSecteur":
@@ -102,6 +99,8 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                     dbSpot.getSecteursByIdspot().add(dbSecteur);
 
+                    request.setAttribute("dbSpot",dbSpot);
+                    request.setAttribute("saisieSecteurOk",true);
                     request.setAttribute("saisieVoieOk",true);
                     break;
 
@@ -119,6 +118,10 @@ public class Svt_AjouterSpot extends HttpServlet {
                     dbSecteur = dbSecteurs.get(idDuSecteur);
                     dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
+
+                    request.setAttribute("dbSpot",dbSpot);
+                    request.setAttribute("saisieSecteurOk",true);
+                    request.setAttribute("saisieVoieOk",true);
                     request.setAttribute("saisieLongueurOk",true);
                     break;
 
@@ -146,6 +149,10 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                     dbVoie.getLongueursByIdvoie().add(dbLongueur);
 
+                    request.setAttribute("dbSpot",dbSpot);
+                    request.setAttribute("saisieSecteurOk",true);
+                    request.setAttribute("saisieVoieOk",true);
+                    request.setAttribute("saisieLongueurOk",true);
                     request.setAttribute("boutonValiderOk",true);
                     break;
             }
@@ -165,6 +172,7 @@ public class Svt_AjouterSpot extends HttpServlet {
             String natureRequete = request.getServletPath();
             if (natureRequete.equals("/CreerSpot")) {
                 initNouveauSpot();
+                request.setAttribute("afficheFormeSpot",true);
                 RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
                 requestDispatcher.forward(request, response);
             } else {
