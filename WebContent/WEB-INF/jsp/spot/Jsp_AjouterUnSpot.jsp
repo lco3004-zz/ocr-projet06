@@ -21,7 +21,7 @@
             <header>.</header>
             <section>
 
-                <c:if test="${requestScope.boutonValiderOk ==true}" scope="page" var="none">
+                <c:if test="${requestScope.boutonValiderOk ==true}" scope="request" var="none">
                     <button class="boutonLateral"
                             name="Valider"
                             form="xxx"
@@ -30,17 +30,16 @@
                             formmethod="post"
                             value="Valider"
                             formtarget="_self"> Valider
-                        <a class="boutonLateral" href="Valider" >Vers l'Acceuil</a>
                     </button>
-
                 </c:if>
+
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
         <section>
-            <article>
                 <c:if test="${requestScope.afficheFormeSpot == true}" scope="page" var="none">
+                    <label for="formEnregistrerSpot" class="labels">Saisir infos Spot</label>
                     <form id="formEnregistrerSpot" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSpot"> nom : </label>
@@ -63,9 +62,8 @@
                         </fieldset>
                     </form>
                 </c:if>
-            </article>
-            <article>
                 <c:if test="${requestScope.saisieSecteurOk ==true}" scope="page" var="none">
+                    <label for="formEnregistrerSecteur" class="labels">Saisir infos Secteur</label>
                     <form id="formEnregistrerSecteur" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSecteur"> nom : </label>
@@ -86,7 +84,28 @@
                         </fieldset>
                     </form>
                 </c:if>
-            </article>
+            <c:if test="${requestScope.saisieVoieOk ==true}" scope="page" var="none">
+                <label for="formEnregistrerVoie" class="labels">Saisir infos Voies</label>
+                <form id="formEnregistrerVoie" class="formSimple">
+                    <fieldset class="labels">
+                        <label for="nomVoie"> nom : </label>
+                    </fieldset>
+                    <fieldset class="inputs">
+                        <input id="nomVoie" name="nomVoie" required size="16" type="text"/>
+                    </fieldset>
+                    <fieldset class="actions">
+                        <button class="boutonFormSimple"
+                                name="AjouterVoie"
+                                form="formEnregistrerVoie"
+                                type="submit"
+                                formaction="AjouterVoie"
+                                formmethod="post"
+                                value="AjouterVoie"
+                                formtarget="_self"> Ajouter
+                        </button>
+                    </fieldset>
+                </form>
+            </c:if>
         </section>
         <aside>
             <article>
@@ -120,12 +139,14 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <form id="navSelectionSecteur">
                     <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                         <tr>
                             <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getIdsecteur()}"></td>
                             <td>${dbSecteur.getNom()}</td>
                         </tr>
                     </c:forEach>
+                    </form>
                     </tbody>
                 </table>
             </article>
@@ -135,15 +156,17 @@
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> #</th>
+                        <th> Nom</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <c:forEach var="dbVoie" items="${requestScope.dbSecteur.getSecteursByIdspot()}">
+                        <tr>
+                            <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getVoiesByIdsecteur()}"></td>
+                            <td>${dbVoie.getNom()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>

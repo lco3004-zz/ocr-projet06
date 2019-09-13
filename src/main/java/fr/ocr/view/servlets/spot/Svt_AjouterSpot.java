@@ -23,9 +23,9 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 @WebServlet(name = "Svt_AjouterSpot",
         urlPatterns = {"/CreerSpot",
                 "/AjouterSpot",
-                "/CreerSecteur","/AjouterSecteur",
-                "/CreerVoie","/AjouterVoie",
-                "/CreerLongeur","/AjouterLongueur",
+                "/AjouterSecteur",
+               "/SelectionSecteur","/AjouterVoie",
+               "/AjouterLongueur",
                 "/Valider"})
 
 public class Svt_AjouterSpot extends HttpServlet {
@@ -119,6 +119,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
 
+                    request.setAttribute("dbSecteur",dbSecteur);
                     request.setAttribute("dbSpot",dbSpot);
                     request.setAttribute("saisieSecteurOk",true);
                     request.setAttribute("saisieVoieOk",true);
