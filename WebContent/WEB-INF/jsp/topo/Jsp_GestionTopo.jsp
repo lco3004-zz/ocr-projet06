@@ -20,7 +20,6 @@
         <nav class="nav">
             <header>.</header>
             <section>
-
                 <button class="boutonLateral"
                         name="DemanderResa"
                         form="navSelectionRadio"
@@ -31,13 +30,13 @@
                         formtarget="_self"> Demander Resa
                 </button>
 
-                <a class="nav-link " href="GestionDemandeResaTopo">Gérer demande Resa</a>
+                <a class="boutonLateral" href="GestionDemandeResaTopo">Gérer Resa</a>
 
-                <a class="nav-link " href="PublierTopo">Publier</a>
+                <a class="boutonLateral" href="PublierTopo">Publier</a>
 
-                <a class="nav-link " href="EnregistrerTopo">Enregistrer</a>
+                <a class="boutonLateral" href="EnregistrerTopo">Enregistrer</a>
 
-                <a class="nav-link " href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>

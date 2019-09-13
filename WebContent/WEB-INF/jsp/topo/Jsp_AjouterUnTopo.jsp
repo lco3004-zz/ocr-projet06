@@ -21,27 +21,33 @@
         <nav class="nav">
             <header>.</header>
             <section>
-
-                <a class="nav-link " href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
         <section>
             <h3> Enregister un Topo </h3>
-            <form id="EnregistrerTopo" class="formSimple" action="EnregistrerTopo" method="post">
-                <fieldset id="inputs">
+            <form id="formEnregistrerData" class="formSimple">
+                <fieldset class="labels">
                     <label for="nomTopo"> Nom du Topo : </label>
-                    <input id="nomTopo" name="nomTopo" required="true" size="64" type="text"/>
-
                     <label for="lieuTopo"> lieuTopo : </label>
-                    <input id="lieuTopo" name="lieuTopo" required="true" size="64" type="text"/>
-
                     <label for="resumeTopo"> Resumé : </label>
+                </fieldset>
+                <fieldset class="inputs">
+                    <input id="nomTopo" name="nomTopo" required="true" size="64" type="text"/>
+                    <input id="lieuTopo" name="lieuTopo" required="true" size="64" type="text"/>
                     <input id="resumeTopo" name="resumeTopo" required="true" size="64" type="text"/>
                 </fieldset>
-                <fieldset id="actions">
-                    <input type="submit" id="submit" value="Enregistrer">
-                    <a href="home">Acceuil </a>
+                <fieldset class="actions">
+                    <button class="boutonFormSimple"
+                            name="Enregistrer"
+                            form="formEnregistrerData"
+                            type="submit"
+                            formaction="EnregistrerTopo"
+                            formmethod="post"
+                            value="Enregistrer"
+                            formtarget="_self"> Enregistrer
+                    </button>
                 </fieldset>
             </form>
         </section>
@@ -100,24 +106,3 @@
 </div>
 </body>
 </html>
-
-
-<!--
-<form  id="login" action="EnregistrerTopo" method="post">
-    <h1>Enregistrement</h1>
-    <fieldset id="inputs">
-        <label for="nomTopo" > Nom du Topo : </label>
-        <input id="nomTopo"  name="nomTopo" required ="true" size="64" type="text"/>
-
-        <label for="lieuTopo" > lieuTopo : </label>
-        <input id="lieuTopo" name="lieuTopo" required ="true" size="64" type="text"/>
-
-        <label for="resumeTopo"> Resumé : </label>
-        <input id="resumeTopo" name="resumeTopo" required ="true" size="64"  type="text"/>
-    </fieldset>
-    <fieldset id="actions">
-        <input type="submit" id="submit" value="Enregistrer">
-        <a href="home">Acceuil </a>
-    </fieldset>
-</form>
--->

@@ -20,9 +20,9 @@
         <nav class="nav">
             <header> .</header>
             <section>
-                <a class="nav-link " href="AcceuilTopo">Nos Topos</a>
-                <a class="nav-link" href="AcceuilSpot">Nos Spots</a>
-                <a class="nav-link " href="Connexion">Connexion</a>
+                <a class="boutonLateral" href="AcceuilTopo">Nos Topos</a>
+                <a class="boutonLateral" href="AcceuilSpot">Nos Spots</a>
+                <a class="boutonLateral" href="Connexion">Connexion</a>
             </section>
             <footer> .</footer>
         </nav>
