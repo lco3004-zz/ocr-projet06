@@ -1,23 +1,24 @@
 package fr.ocr.view.servlets.topo;
 
-import fr.ocr.constantes.MessageDeBase;
+import fr.ocr.business.topo.CtrlMetierTopo;
+import fr.ocr.model.entities.DbGrimpeur;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import static fr.ocr.constantes.MessageDeBase.*;
+import java.util.Arrays;
 
 @WebServlet(name = "Svt_RestituerTopo", urlPatterns = {"/RestituerTopo"})
 public class Svt_RestituerTopo extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final Logger logger;
+    private CtrlMetierTopo ctrlMetierTopo;
 
     public Svt_RestituerTopo() {
         super();
@@ -25,26 +26,39 @@ public class Svt_RestituerTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+        logger.debug("Hello from :" + this.getClass().getSimpleName() + " methode service appelée");
+        super.service(req, resp);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        try {
+            Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+
+            Object o = request.getSession().getAttribute("dbGrimpeur");
+
+            DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+
+            ctrlMetierTopo.restituerResaCeTopo(idDuTopo);
+
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
+
+            requestDispatcher.forward(request, response);
+
+        } catch (Exception e) {
+            request.removeAttribute("dbTopo");
+            request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
-            out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : detail du topo </h3>");
-            out.print(BR.getValeur());
-            out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet : " + this.getServletName());
-            Integer idDuTop = Integer.valueOf(request.getParameter("idValTopo"));
-            out.print("Hello from servlet : le id topo = " + idDuTop);
-            out.print(PFIN.getValeur());
-            out.print(BR.getValeur());
-
-            out.print(HTML_FIN.getValeur());
-            out.flush();
-        }
-
+        doPost(request, response);
     }
 }

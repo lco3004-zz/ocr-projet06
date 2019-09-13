@@ -35,7 +35,7 @@ public class Svt_EnregistrerTopo extends HttpServlet {
             throws ServletException, IOException {
 
         ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
-
+        logger.debug("Hello from :" + this.getClass().getSimpleName() + " methode service appelée");
         super.service(req, resp);
     }
 

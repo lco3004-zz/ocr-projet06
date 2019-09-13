@@ -23,7 +23,10 @@ public interface JpaCtrlTopo {
      DbTopo readTopo(Integer idTopo) throws Exception;
      DbTopo updateTopo(DbTopo dbTopo) throws Exception;
 
-    List<DbTopo> listerToposSelonFlag(Integer idGrimpeur, Boolean estPublie, EtatsResaTopo etatsResaTopo) throws Exception;
+    List<DbTopo> listerToposSelonFlag(Integer idGrimpeur,
+                                      Boolean estPublie,
+                                      EtatsResaTopo etatsResaTopo,
+                                      Integer idEmprunteur) throws Exception;
 }
 /*
 
@@ -32,7 +35,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
 
     @Override
     public List<DbTopo> findListeTopos(Integer idUser) throws Exception {
-        return listerToposSelonFlag(idUser, null, null);
+        return listerToposSelonFlag(idUser, null, null, null);
     }
 
     @Override
@@ -82,6 +85,7 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
                 dbTopo.setLieu(x.getLieu());
                 dbTopo.setNom(x.getNom());
                 dbTopo.setResume(x.getResume());
+                dbTopo.setIdEmprunteur(x.getIdEmprunteur());
 
                 jpa.getEm().getTransaction().commit();
 
@@ -94,7 +98,10 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
     }
 
     @Override
-    public List<DbTopo> listerToposSelonFlag(Integer idGrimpeur, Boolean estPublie, EtatsResaTopo etatsResaTopo) throws Exception {
+    public List<DbTopo> listerToposSelonFlag(Integer idGrimpeur,
+                                             Boolean estPublie,
+                                             EtatsResaTopo etatsResaTopo,
+                                             Integer idEmprunteur) throws Exception {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             jpa.getEm().getTransaction().begin();
 
@@ -117,6 +124,10 @@ class JpaCtrlTopo_impl implements JpaCtrlTopo {
             if (etatsResaTopo != null) {
                 predicateArrayList.add(criteriaBuilder.equal(root.get(DbTopo_.ETAT_RESERVATION), etatsResaTopo));
             }
+            if (idEmprunteur != null) {
+                predicateArrayList.add(criteriaBuilder.equal(root.get(DbTopo_.ID_EMPRUNTEUR), idEmprunteur));
+            }
+
             Predicate[] predicates = new Predicate[predicateArrayList.size()];
             int n = 0;
             for (Predicate predicate : predicateArrayList) {

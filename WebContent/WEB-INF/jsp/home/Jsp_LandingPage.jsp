@@ -28,7 +28,14 @@
         </nav>
 
         <section>
-            <h3> detail</h3>
+            <h1> Bienvenue </h1>
+            <c:if test="${ not empty sessionScope.dbGrimpeur}" scope="page" var="cnxOk">
+                <p> Connexion réussie : ${cnxOk}</p>
+
+                <h2> Content de te revoir ${sessionScope.dbGrimpeur.getUserName()}</h2>
+
+            </c:if>
+
         </section>
         <aside>
             <article>
@@ -50,19 +57,25 @@
             </article>
 
             <article>
-                <label style="ont-size: larger  ">Topos</label>
+                <label style="font-size: larger ">Nos Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> nom</th>
+                        <th> lieu</th>
+                        <th> resume</th>
+                        <th> dateCreation</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+                        <tr>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>

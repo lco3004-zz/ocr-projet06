@@ -16,8 +16,10 @@ public interface CtrlMetierTopo  {
 
     List<DbTopo> listerMesDemandeDeResa(Integer idGrimpeur) throws Exception;
 
+
     List<DbTopo> listerMesToposReserver(Integer idGrimpeur) throws Exception;
 
+    List<DbTopo> listerMesReservationTopo(Integer idEmprunteur) throws Exception;
 
     List<DbTopo> listerTousToposDisponibles() throws Exception;
 
@@ -28,6 +30,8 @@ public interface CtrlMetierTopo  {
     DbTopo publierCeTopo(int idTopo) throws Exception;
 
     DbTopo demanderResaCeTopo(int idTopo, int idGrimpeurDemandeur) throws Exception;
+
+    DbTopo restituerResaCeTopo(int idTopo) throws Exception;
 
     DbTopo accepterResaCeTopo(int idTopo) throws Exception;
 
@@ -47,27 +51,32 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
     @Override
     public List<DbTopo> listerMesTopos(Integer idGrimpeur)  throws Exception {
 
-        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, null, null);
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, null, null, null);
     }
 
     @Override
     public List<DbTopo> listerMesDemandeDeResa(Integer idGrimpeur) throws Exception {
-        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, true, EtatsResaTopo.R_FR);
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, true, EtatsResaTopo.R_FR, null);
     }
 
     @Override
     public List<DbTopo> listerMesToposReserver(Integer idGrimpeur) throws Exception {
-        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, true, EtatsResaTopo.A_FR);
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, true, EtatsResaTopo.A_FR, null);
+    }
+
+    @Override
+    public List<DbTopo> listerMesReservationTopo(Integer idEmprunteur) throws Exception {
+        return jpaCtrlTopo.listerToposSelonFlag(null, true, EtatsResaTopo.A_FR, idEmprunteur);
     }
 
     @Override
     public List<DbTopo> listerTousToposDisponibles() throws Exception {
-        return jpaCtrlTopo.listerToposSelonFlag(null, true, EtatsResaTopo.W_FR);
+        return jpaCtrlTopo.listerToposSelonFlag(null, true, EtatsResaTopo.W_FR, null);
     }
 
     @Override
     public List<DbTopo> listerMesToposNonPublies(Integer idGrimpeur) throws Exception {
-        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, false, null);
+        return jpaCtrlTopo.listerToposSelonFlag(idGrimpeur, false, null, null);
     }
 
     @Override
@@ -97,6 +106,14 @@ class CtrlMetierTopo_impl implements CtrlMetierTopo{
         DbTopo dbTopo  = jpaCtrlTopo.readTopo(idTopo);
         dbTopo.setEtatReservation(EtatsResaTopo.R_FR);
         dbTopo.setIdEmprunteur(idGrimpeurDemandeur);
+        return jpaCtrlTopo.updateTopo(dbTopo);
+    }
+
+    @Override
+    public DbTopo restituerResaCeTopo(int idTopo) throws Exception {
+        DbTopo dbTopo = jpaCtrlTopo.readTopo(idTopo);
+        dbTopo.setEtatReservation(EtatsResaTopo.W_FR);
+        dbTopo.setIdEmprunteur(null);
         return jpaCtrlTopo.updateTopo(dbTopo);
     }
 

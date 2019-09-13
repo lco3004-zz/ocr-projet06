@@ -1,5 +1,7 @@
 package fr.ocr.view.servlets.acceuil;
 
+import fr.ocr.business.topo.CtrlMetierTopo;
+import fr.ocr.model.entities.DbTopo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @WebServlet(name = "Svt_AcceuilSite", urlPatterns = {"/home"})
 public class Svt_AcceuilSite extends HttpServlet {
@@ -26,8 +30,22 @@ public class Svt_AcceuilSite extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousToposDisponibles();
 
-        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_LandingPage");
-        requestDispatcher.forward(request, response);
+            request.setAttribute("dbTopos", dbTopos);
+
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_LandingPage");
+            requestDispatcher.forward(request, response);
+
+        } catch (Exception e) {
+            request.removeAttribute("dbTopos");
+            request.removeAttribute("dbToposGrimpeur");
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
+        }
+
     }
 }

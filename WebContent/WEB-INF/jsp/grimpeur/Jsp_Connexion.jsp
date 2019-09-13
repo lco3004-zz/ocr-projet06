@@ -76,22 +76,27 @@
                 </table>
             </article>
 
-            <article>
-                <label style="ont-size: larger  ">Topos</label>
-                <table class="bordered">
-                    <thead>
+            <label style="font-size: larger ">Nos Topos</label>
+            <table class="bordered">
+                <thead>
+                <tr>
+                    <th> nom</th>
+                    <th> lieu</th>
+                    <th> resume</th>
+                    <th> dateCreation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <td>${dbTopo.getNom()}</td>
+                        <td>${dbTopo.getLieu()}</td>
+                        <td>${dbTopo.getResume()}</td>
+                        <td>${dbTopo.getDateDeParution()}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
+                </c:forEach>
+                </tbody>
+            </table>
             </article>
         </aside>
     </main>

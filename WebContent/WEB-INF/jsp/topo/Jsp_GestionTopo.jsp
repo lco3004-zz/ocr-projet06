@@ -22,14 +22,22 @@
             <section>
                 <button class="boutonLateral"
                         name="DemanderResa"
-                        form="navSelectionRadio"
+                        form="navSelectionToposDispos"
                         type="submit"
                         formaction="DemanderResaTopo"
                         formmethod="post"
                         value="DemanderResa"
                         formtarget="_self"> Demander Resa
                 </button>
-
+                <button class="boutonLateral"
+                        name="RestituerTopo"
+                        form="navSelectionToposReservation"
+                        type="submit"
+                        formaction="RestituerTopo"
+                        formmethod="post"
+                        value="RestituerTopo"
+                        formtarget="_self"> Restituer Resa
+                </button>
                 <a class="boutonLateral" href="GestionDemandeResaTopo">Gérer Resa</a>
 
                 <a class="boutonLateral" href="PublierTopo">Publier</a>
@@ -53,8 +61,33 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form id="navSelectionRadio">
+                <form id="navSelectionToposDispos">
                     <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+                        <tr>
+                            <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
+                        </tr>
+                    </c:forEach>
+                </form>
+                </tbody>
+            </table>
+            <h3> Mes Réservation de Topos </h3>
+            <table class="bordered">
+                <thead>
+                <tr>
+                    <th> #</th>
+                    <th> nom</th>
+                    <th> lieu</th>
+                    <th> resume</th>
+                    <th> dateCreation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <form id="navSelectionToposReservation">
+                    <c:forEach var="dbTopo" items="${requestScope.dbToposMesReservation}">
                         <tr>
                             <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
                             <td>${dbTopo.getNom()}</td>
@@ -69,7 +102,7 @@
         </section>
         <aside>
             <article>
-                <label style="font-size: larger ">Mes Topos</label>
+                <label style="font-size: larger ">Tous Mes Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -92,7 +125,7 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Mes Topos en Wait Resa</label>
+                <label style="font-size: larger ">Les Dmde de Résa</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -115,7 +148,7 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Mes Topos Réserver</label>
+                <label style="font-size: larger ">Mes Topos Réservés</label>
                 <table class="bordered">
                     <thead>
                     <tr>
