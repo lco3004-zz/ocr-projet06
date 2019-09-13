@@ -287,7 +287,7 @@
       <workItem from="1568306718988" duration="2681000" />
       <workItem from="1568312500511" duration="8260000" />
       <workItem from="1568321173946" duration="731000" />
-      <workItem from="1568348150317" duration="24002000" />
+      <workItem from="1568348150317" duration="27000000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -492,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568382410163</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="ajout cookie et session pour secteur voie etc...">
+      <created>1568382960768</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1568382960768</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,8 +519,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="&#10;mise en forme formulaire&#10;chemin cnx/inscription changé (cnx et si existe pas inscription)&#10;ajout msg erreur cnx dans la forme de cnx" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="préparation du filtre acces grimpeur (sur topo dans ce commit)" />
     <MESSAGE value="ajout fomr de saisie topo au même look que la cnx et identif" />
     <MESSAGE value="ajout forme de liste des topos&#10;filtrage ok - routage ok" />
@@ -538,10 +546,9 @@
     <MESSAGE value="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide" />
     <MESSAGE value="ajout gestionspot - preparation jsp ajout spot" />
     <MESSAGE value="creation (en cours ) ajouter un Spot" />
-    <option name="LAST_COMMIT_MESSAGE" value="creation (en cours ) ajouter un Spot" />
+    <MESSAGE value="ajout cookie et session pour secteur voie etc..." />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout cookie et session pour secteur voie etc..." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
