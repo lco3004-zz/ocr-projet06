@@ -110,6 +110,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                             dbSecteur.setNom(request.getParameter("nomSecteur"));
                             i = Integer.valueOf(hashMap.get("indexSecteur"));
                             dbSecteur.setIdsecteur(i);
+                            response.addCookie(new Cookie("indexSecteur", String.valueOf(i++)));
                             dbSpot.getSecteursByIdspot().add(dbSecteur);
                             //activer bouton Voie
                             break;
@@ -146,9 +147,16 @@ public class Svt_AjouterSpot extends HttpServlet {
                 if (o == null) {
                     DbSpot dbSpot = new DbSpot();
                     httpSession.setAttribute("dbSpot", dbSpot);
-                    response.addCookie(new Cookie("indexSecteur", String.valueOf(0)));
-                    response.addCookie(new Cookie("indexVoie", String.valueOf(0)));
-
+                    Cookie [] cookies = request.getCookies();
+                    if (cookies.length == 0) {
+                        response.addCookie(new Cookie("indexSecteur", String.valueOf(0)));
+                        response.addCookie(new Cookie("indexVoie", String.valueOf(0)));
+                    }else {
+                        for (Cookie cookie :cookies) {
+                            if (cookie.getName() == "indexSecteur"  || cookie.getName() == "indexVoie" )
+                                cookie.setValue(String.valueOf(0));
+                        }
+                    }
                     RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
                     requestDispatcher.forward(request, response);
                 } else {
