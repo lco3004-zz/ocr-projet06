@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/error404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,8 +158,8 @@
     <option name="myCommands">
       <command value="mvn clean" />
       <command value="mvn  package" />
-      <command value="mvn clean package" />
       <command value="mvn clean compile package" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -292,7 +287,7 @@
       <workItem from="1568306718988" duration="2681000" />
       <workItem from="1568312500511" duration="8260000" />
       <workItem from="1568321173946" duration="731000" />
-      <workItem from="1568348150317" duration="33761000" />
+      <workItem from="1568348150317" duration="34551000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -525,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568389778153</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="ajout cif et set var dans  jsp creation Spot (en cours ..)">
+      <created>1568392769289</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1568392769289</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +550,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="&#10;correction bug du footer" />
     <MESSAGE value="correction bug du footer" />
     <MESSAGE value="ajout radio button pour selectionner un topov(ok)" />
     <MESSAGE value="ajout ccs flexbox + page landing en accord avec flexbox" />
@@ -573,7 +574,8 @@
     <MESSAGE value="suite ajout cookie et session pour secteur voie etc..." />
     <MESSAGE value="modif de Business ajouterSpot pour éliminer les id créer lors de la saisie JSP" />
     <MESSAGE value="ajout jsp creation Spot (en cours ..)" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout jsp creation Spot (en cours ..)" />
+    <MESSAGE value="ajout cif et set var dans  jsp creation Spot (en cours ..)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout cif et set var dans  jsp creation Spot (en cours ..)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

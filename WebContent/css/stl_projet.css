@@ -269,21 +269,6 @@
     justify-content: center;
     align-items: center;
 }
-/********/
-#container main section .ajouterInfosSpot {
-    display: flex;
-    flex-direction: row;
-
-}
-#container main section .ajouterInfosSpot .bordered.ajouterInfosSpot {
-    display: flex;
-    flex-basis: 60%;
-}
-#container main section .ajouterInfosSpot .formSimple.ajouterInfosSpot {
-    display: flex;
-    flex-basis: 40%;
-}
-/*******/
 
 #container main section .bordered th {
     background-color: #dce9f9;
@@ -320,6 +305,17 @@
 #container main section h3 {
     color: GrayText;
 }
+
+/********/
+#container main section .ajouterInfosSpot {
+    display: flex;
+    font-size: larger;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    border: 1px dotted black;
+}
+/*******/
 
 /* ***************  MAIN ASIDE **************************  */
 
