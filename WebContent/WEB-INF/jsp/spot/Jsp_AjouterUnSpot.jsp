@@ -20,41 +20,95 @@
         <nav class="nav">
             <header>.</header>
             <section>
+                <button class="boutonLateral"
+                        name="CreerSecteur"
+                        form="xxx"
+                        type="submit"
+                        formaction="CreerSecteur"
+                        formmethod="post"
+                        value="CreerSecteur"
+                        formtarget="_self"> Creer Secteur
+                </button>
+                <button class="boutonLateral"
+                        name="CreerVoie"
+                        form="xxx"
+                        type="submit"
+                        formaction="CreerVoie"
+                        formmethod="post"
+                        value="CreerVoie"
+                        formtarget="_self"> Creer Voie
+                </button>
+                <button class="boutonLateral"
+                        name="CreerLongeur"
+                        form="xxx"
+                        type="submit"
+                        formaction="CreerLongeur"
+                        formmethod="post"
+                        value="CreerLongeur"
+                        formtarget="_self"> Creer Longeur
+                </button>
+                <button class="boutonLateral"
+                        name="Valider"
+                        form="xxx"
+                        type="submit"
+                        formaction="Valider"
+                        formmethod="post"
+                        value="Valider"
+                        formtarget="_self"> Valider
+                </button>
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
         <section>
             <h3> Enregister un Spot </h3>
-            <!--
-            <form id="formEnregistrerData" class="formSimple">
-                <fieldset class="labels">
-                    <label for="nomTopo"> Nom du Topo : </label>
-                    <label for="lieuTopo"> lieuTopo : </label>
-                    <label for="resumeTopo"> Resumé : </label>
-                </fieldset>
-                <fieldset class="inputs">
-                    <input id="nomTopo" name="nomTopo" required="true" size="64" type="text"/>
-                    <input id="lieuTopo" name="lieuTopo" required="true" size="64" type="text"/>
-                    <input id="resumeTopo" name="resumeTopo" required="true" size="64" type="text"/>
-                </fieldset>
-                <fieldset class="actions">
-                    <button class="boutonFormSimple"
-                            name="CreerSpot"
-                            form="formEnregistrerData"
-                            type="submit"
-                            formaction="CreerSpot"
-                            formmethod="post"
-                            value="CreerSpot"
-                            formtarget="_self"> Enregistrer
-                    </button>
-                </fieldset>
-            </form>
-                -->
+            <article class="ajouterInfosSpot">
+                <label style="font-size: larger ">Spots</label>
+                <table class="bordered">
+                    <thead>
+                    <tr>
+                        <th> Nom</th>
+                        <th> Localisation</th>
+                        <th> Classification</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                        <tr>
+                            <td>${dbSpot.getNom()}</td>
+                            <td>${dbSpot.getLocalisation()}</td>
+                            <td>${dbSpot.getClassification()}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <form id="formEnregistrerSpot" class="formSimple">
+                    <fieldset class="labels">
+                        <label for="nomTopo"> Nom du Topo : </label>
+                        <label for="lieuTopo"> lieuTopo : </label>
+                        <label for="resumeTopo"> Resumé : </label>
+                    </fieldset>
+                    <fieldset class="inputs">
+                        <input id="nomTopo" name="nomTopo" required="true" size="32" type="text"/>
+                        <input id="lieuTopo" name="lieuTopo" required="true" size="32" type="text"/>
+                        <input id="resumeTopo" name="resumeTopo" required="true" size="32" type="text"/>
+                    </fieldset>
+                    <fieldset class="actions">
+                        <button class="boutonFormSimple"
+                                name="AjouterSpot"
+                                form="formEnregistrerSpot"
+                                type="submit"
+                                formaction="AjouterSpot"
+                                formmethod="post"
+                                value="AjouterSpot"
+                                formtarget="_self"> Ajouter
+                        </button>
+                    </fieldset>
+                </form>
+            </article>
         </section>
         <aside>
             <article>
-
                 <label style="font-size: larger ">Spots</label>
                 <table class="bordered">
                     <thead>

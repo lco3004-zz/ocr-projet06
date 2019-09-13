@@ -21,7 +21,12 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
 @WebServlet(name = "Svt_AjouterSpot",
-        urlPatterns = {"/CreerSpot", "/AjouterSpot", "/AjouterSecteur", "/AjouterVoie", "/AjouterLongueur", "/Valider"})
+        urlPatterns = {"/CreerSpot",
+                "/AjouterSpot",
+                "/CreerSecteur","/AjouterSecteur",
+                "/CreerVoie","/AjouterVoie",
+                "/CreerLongeur","/AjouterLongueur",
+                "/Valider"})
 
 public class Svt_AjouterSpot extends HttpServlet {
     private static final long serialVersionUID =1L;
@@ -107,14 +112,14 @@ public class Svt_AjouterSpot extends HttpServlet {
                 if (hashMap.size() > 0) {
                     Cookie cookie;
                     switch (natureRequete) {
-                        case "AjouterSpot":
+                        case "/AjouterSpot":
 
                             dbSpot.setLocalisation(request.getParameter("localisationSpot"));
                             dbSpot.setNom(request.getParameter("nomSpot"));
 
                             request.setAttribute("saisieSecteurOk",true);
                             break;
-                        case "AjouterSecteur":
+                        case "/AjouterSecteur":
                             dbSecteur = new DbSecteur();
 
                             dbSecteur.setNom(request.getParameter("nomSecteur"));
@@ -123,13 +128,13 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             cookie  = hashMap.get("indexSecteur");
                             cookie.setValue(String.valueOf(i++));
+                            response.addCookie(cookie);
 
                             dbSpot.getSecteursByIdspot().add(dbSecteur);
 
-                            response.addCookie(cookie);
                             request.setAttribute("saisieVoieOk",true);
                             break;
-                        case "AjouterVoie":
+                        case "/AjouterVoie":
                             dbVoie = new DbVoie();
                             idDuSecteur = Integer.valueOf(request.getParameter("idValSecteur"));
 
@@ -145,11 +150,11 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             cookie  = hashMap.get("indexVoie");
                             cookie.setValue(String.valueOf(i++));
-
+                            response.addCookie(cookie);
 
                             request.setAttribute("saisieLongueurOk",true);
                             break;
-                        case "AjouterLongeur":
+                        case "/AjouterLongeur":
                             dbLongueur = new DbLongueur();
 
                             dbLongueur.setNom(request.getParameter("nomLongueur"));
@@ -176,7 +181,7 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             request.setAttribute("boutonValiderOk",true);
                             break;
-                        case "Valider" :
+                        case "/Valider" :
                              o =  request.getSession().getAttribute("dbGrimpeur");
 
                             DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
@@ -209,7 +214,7 @@ public class Svt_AjouterSpot extends HttpServlet {
         try {
             String natureRequete = request.getServletPath();
             HttpSession httpSession = request.getSession();
-            if (natureRequete == "CreerSpot") {
+            if (natureRequete.equals("/CreerSpot")) {
                 Object o = request.getSession().getAttribute("dbSpot");
                 if (o == null) {
                     DbSpot dbSpot = new DbSpot();
@@ -219,9 +224,16 @@ public class Svt_AjouterSpot extends HttpServlet {
                         response.addCookie(new Cookie("indexSecteur", String.valueOf(0)));
                         response.addCookie(new Cookie("indexVoie", String.valueOf(0)));
                     }else {
+                        Boolean cookieTrouve = false;
                         for (Cookie cookie :cookies) {
-                            if (cookie.getName() == "indexSecteur"  || cookie.getName() == "indexVoie" )
+                            if (cookie.getName() == "indexSecteur"  || cookie.getName() == "indexVoie" ) {
                                 cookie.setValue(String.valueOf(0));
+                                cookieTrouve =true;
+                            }
+                        }
+                        if (! cookieTrouve) {
+                            response.addCookie(new Cookie("indexSecteur", String.valueOf(0)));
+                            response.addCookie(new Cookie("indexVoie", String.valueOf(0)));
                         }
                     }
                     RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
