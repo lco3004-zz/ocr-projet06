@@ -20,67 +20,37 @@
         <nav class="nav">
             <header>.</header>
             <section>
-
-                <button class="boutonLateral"
-                        name="commenter"
-                        form="navSelectionTopos"
-                        type="submit"
-                        formaction="Commenter"
-                        formmethod="post"
-                        value="commenter"
-                        formtarget="_self"> Commenter
-                </button>
-
-                <button class="boutonLateral"
-                        name="tagger"
-                        form="navSelectionTopos"
-                        type="submit"
-                        formaction="TaggerSpot"
-                        formmethod="post"
-                        value="tagger"
-                        formtarget="_self"> Tagger
-                </button>
-
-                <button class="boutonLateral"
-                        name="ModererCommentaire"
-                        form="navSelectionTopos"
-                        type="submit"
-                        formaction="ModererCommentaire"
-                        formmethod="post"
-                        value="ModererCommentaire"
-                        formtarget="_self"> Modérer
-                </button>
-
-                <a class="boutonLateral" href="CreerSpot">Enregistrer</a>
-
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
         <section>
-            <h3> Nos Spots </h3>
-            <table class="bordered">
-                <thead>
-                <tr>
-                    <th> #</th>
-                    <th> Nom</th>
-                    <th> Localisation</th>
-                    <th> Classification</th>
-                </tr>
-                </thead>
-                <tbody>
-                <form id="navSelectionTopos">
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
-                        <tr>
-                            <td><input type="radio" name="idValSpot" value="${dbSpot.getIdSpot()}"></td>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
-                        </tr>
-                    </c:forEach>
-                </form>
-                </tbody>
-            </table>
+            <h3> Enregister un Spot </h3>
+            <!--
+            <form id="formEnregistrerData" class="formSimple">
+                <fieldset class="labels">
+                    <label for="nomTopo"> Nom du Topo : </label>
+                    <label for="lieuTopo"> lieuTopo : </label>
+                    <label for="resumeTopo"> Resumé : </label>
+                </fieldset>
+                <fieldset class="inputs">
+                    <input id="nomTopo" name="nomTopo" required="true" size="64" type="text"/>
+                    <input id="lieuTopo" name="lieuTopo" required="true" size="64" type="text"/>
+                    <input id="resumeTopo" name="resumeTopo" required="true" size="64" type="text"/>
+                </fieldset>
+                <fieldset class="actions">
+                    <button class="boutonFormSimple"
+                            name="CreerSpot"
+                            form="formEnregistrerData"
+                            type="submit"
+                            formaction="CreerSpot"
+                            formmethod="post"
+                            value="CreerSpot"
+                            formtarget="_self"> Enregistrer
+                    </button>
+                </fieldset>
+            </form>
+                -->
         </section>
         <aside>
             <article>
@@ -157,7 +127,6 @@
                     </tbody>
                 </table>
             </article>
-
         </aside>
     </main>
     <footer>

@@ -50,7 +50,10 @@
         <servlet-name>Jsp_GestionSpot</servlet-name>
         <jsp-file>/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp</jsp-file>
     </servlet>
-
+    <servlet>
+        <servlet-name>Jsp_AjouterUnSpot</servlet-name>
+        <jsp-file>/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp</jsp-file>
+    </servlet>
     <!-- **************************************************************** -->
 
     <!-- **************************************************************** -->

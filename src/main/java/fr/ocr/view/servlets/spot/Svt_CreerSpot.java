@@ -1,19 +1,19 @@
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
-import fr.ocr.constantes.MessageDeBase;
 import fr.ocr.model.entities.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Arrays;
 
-import static fr.ocr.constantes.MessageDeBase.*;
 import static fr.ocr.model.constantes.CotationLongueur.SIX_APLUS;
 import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
@@ -31,6 +31,8 @@ public class Svt_CreerSpot extends HttpServlet {
     }
 
     public DbSpot ajouterSpot(Integer idUser) throws Exception {
+
+
         CtrlMetierSpot ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
 
         DbSpot dbSpot = new DbSpot();
@@ -73,27 +75,14 @@ public class Svt_CreerSpot extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                ajouterSpot(2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            response.setContentType(MessageDeBase.CONTENT_TYPE.getValeur());
-            out.print(HTML_DEBUT.getValeur());
-            out.print("<h3> Les amis de l'escalade : Les Spots </h3>");
-            out.print(BR.getValeur());
-            out.print(PDEBUT.getValeur());
-            out.print("Hello from servlet : " +this.getServletName());
-            out.print(PFIN.getValeur());
-            out.print(BR.getValeur());
-
-            out.print(HTML_FIN.getValeur());
-            out.flush();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
+            requestDispatcher.forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
         }
     }
 }

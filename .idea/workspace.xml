@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_ListeDesSpots.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_CreerSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_CreerSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_ListerSpots.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_TaggerSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_TaggerSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_VoirDetailSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_VoirDetailSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,8 +88,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="l" />
         <option value="Laurent Cordier &lt;laurent.cordier3004@gmail.com&gt;" />
+        <option value="l" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -158,8 +166,8 @@
     <option name="myCommands">
       <command value="mvn clean" />
       <command value="mvn  package" />
-      <command value="mvn clean package" />
       <command value="mvn clean compile package" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -287,7 +295,7 @@
       <workItem from="1568306718988" duration="2681000" />
       <workItem from="1568312500511" duration="8260000" />
       <workItem from="1568321173946" duration="731000" />
-      <workItem from="1568348150317" duration="13982000" />
+      <workItem from="1568348150317" duration="15800000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -471,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568365680202</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide">
+      <created>1568366323011</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1568366323011</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +530,8 @@
     <MESSAGE value="correction bug ResaTopo (resa ok)&#10;à faire : voir mes réservation accpetées, rejeter une demande de resa, restituer une resa" />
     <MESSAGE value="mise en place cnx dans nouveau format jsp" />
     <MESSAGE value="mise en place identification dans nouveau format jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="mise en place identification dans nouveau format jsp" />
+    <MESSAGE value="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide" />
+    <option name="LAST_COMMIT_MESSAGE" value="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
