@@ -62,9 +62,9 @@
         </nav>
         <section>
             <h3> Enregister un Spot </h3>
-            <article class="ajouterInfosSpot">
+            <article>
                 <c:set var="afficheFormeSpot" value="true" scope="page"/>
-                <table class="bordered ajouterInfosSpot">
+                <table class="bordered">
                     <thead>
                     <tr>
                         <th> Nom</th>
@@ -84,7 +84,7 @@
                     </tbody>
                 </table>
                 <c:if test="${afficheFormeSpot == true}" scope="page" var="none">
-                    <form id="formEnregistrerSpot" class="formSimple ajouterInfosSpot">
+                    <form id="formEnregistrerSpot" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSpot"> nom : </label>
                             <label for="localisationSpot"> lieu : </label>

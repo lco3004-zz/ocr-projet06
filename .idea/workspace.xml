@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -157,9 +158,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
-      <command value="mvn  package" />
-      <command value="mvn clean compile package" />
       <command value="mvn clean package" />
+      <command value="mvn clean compile package" />
+      <command value="mvn  package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -287,7 +288,8 @@
       <workItem from="1568306718988" duration="2681000" />
       <workItem from="1568312500511" duration="8260000" />
       <workItem from="1568321173946" duration="731000" />
-      <workItem from="1568348150317" duration="34551000" />
+      <workItem from="1568348150317" duration="34685000" />
+      <workItem from="1568393852009" duration="3657000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -527,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568392769289</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary=" suite ajout cif jsp ajoutSpot">
+      <created>1568393645773</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1568393645773</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +559,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="correction bug du footer" />
     <MESSAGE value="ajout radio button pour selectionner un topov(ok)" />
     <MESSAGE value="ajout ccs flexbox + page landing en accord avec flexbox" />
     <MESSAGE value="ajout style table et page  spot (commenter, ajouter...)" />
@@ -575,7 +583,8 @@
     <MESSAGE value="modif de Business ajouterSpot pour éliminer les id créer lors de la saisie JSP" />
     <MESSAGE value="ajout jsp creation Spot (en cours ..)" />
     <MESSAGE value="ajout cif et set var dans  jsp creation Spot (en cours ..)" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout cif et set var dans  jsp creation Spot (en cours ..)" />
+    <MESSAGE value=" suite ajout cif jsp ajoutSpot" />
+    <option name="LAST_COMMIT_MESSAGE" value=" suite ajout cif jsp ajoutSpot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
