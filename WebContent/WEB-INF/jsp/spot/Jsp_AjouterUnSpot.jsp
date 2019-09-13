@@ -20,42 +20,52 @@
         <nav class="nav">
             <header>.</header>
             <section>
-                <button class="boutonLateral"
-                        name="CreerSecteur"
-                        form="xxx"
-                        type="submit"
-                        formaction="CreerSecteur"
-                        formmethod="post"
-                        value="CreerSecteur"
-                        formtarget="_self"> Creer Secteur
-                </button>
-                <button class="boutonLateral"
-                        name="CreerVoie"
-                        form="xxx"
-                        type="submit"
-                        formaction="CreerVoie"
-                        formmethod="post"
-                        value="CreerVoie"
-                        formtarget="_self"> Creer Voie
-                </button>
-                <button class="boutonLateral"
-                        name="CreerLongeur"
-                        form="xxx"
-                        type="submit"
-                        formaction="CreerLongeur"
-                        formmethod="post"
-                        value="CreerLongeur"
-                        formtarget="_self"> Creer Longeur
-                </button>
-                <button class="boutonLateral"
-                        name="Valider"
-                        form="xxx"
-                        type="submit"
-                        formaction="Valider"
-                        formmethod="post"
-                        value="Valider"
-                        formtarget="_self"> Valider
-                </button>
+                <c:if test="${requestScope.saisieSecteurOk ==true}" scope="page" var="none">
+                    <button class="boutonLateral"
+                            name="CreerSecteur"
+                            form="formEnregistrerSecteur"
+                            type="submit"
+                            formaction="CreerSecteur"
+                            formmethod="post"
+                            value="CreerSecteur"
+                            formtarget="_self"> Creer Secteur
+                    </button>
+                </c:if>
+                <c:if test="${requestScope.saisieVoieOk ==true}" scope="page" var="none">
+                    <button class="boutonLateral"
+                            name="CreerVoie"
+                            form="xxx"
+                            type="submit"
+                            formaction="CreerVoie"
+                            formmethod="post"
+                            value="CreerVoie"
+                            formtarget="_self"> Creer Voie
+                    </button>
+                </c:if>
+                <c:if test="${requestScope.saisieLongueurOk ==true}" scope="page" var="none">
+                    <button class="boutonLateral"
+                            name="CreerLongeur"
+                            form="xxx"
+                            type="submit"
+                            formaction="CreerLongeur"
+                            formmethod="post"
+                            value="CreerLongeur"
+                            formtarget="_self"> Creer Longeur
+                    </button>
+
+                </c:if>
+                <c:if test="${requestScope.boutonValiderOk ==true}" scope="page" var="none">
+                    <button class="boutonLateral"
+                            name="Valider"
+                            form="xxx"
+                            type="submit"
+                            formaction="Valider"
+                            formmethod="post"
+                            value="Valider"
+                            formtarget="_self"> Valider
+                    </button>
+
+                </c:if>
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
@@ -101,6 +111,45 @@
                                     formaction="AjouterSpot"
                                     formmethod="post"
                                     value="AjouterSpot"
+                                    formtarget="_self"> Ajouter
+                            </button>
+                        </fieldset>
+                    </form>
+                </c:if>
+            </article>
+            <article>
+                <c:if test="${requestScope.saisieSecteurOk ==true}" scope="page" var="none">
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th> #</th>
+                            <th> Nom</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <tr>
+                                <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getIdsecteur()}"></td>
+                                <td>${dbSecteur.getNom()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    <form id="formEnregistrerSecteur" class="formSimple">
+                        <fieldset class="labels">
+                            <label for="nomSecteur"> nom : </label>
+                        </fieldset>
+                        <fieldset class="inputs">
+                            <input id="nomSecteur" name="nomSecteur" required="true" size="16" type="text"/>
+                        </fieldset>
+                        <fieldset class="actions">
+                            <button class="boutonFormSimple"
+                                    name="AjouterSecteur"
+                                    form="formEnregistrerSpot"
+                                    type="submit"
+                                    formaction="AjouterSecteur"
+                                    formmethod="post"
+                                    value="AjouterSecteur"
                                     formtarget="_self"> Ajouter
                             </button>
                         </fieldset>

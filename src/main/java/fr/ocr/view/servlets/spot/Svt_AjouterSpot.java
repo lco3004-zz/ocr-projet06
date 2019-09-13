@@ -10,13 +10,13 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
-import static fr.ocr.model.constantes.CotationLongueur.SIX_APLUS;
 import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
@@ -34,10 +34,18 @@ public class Svt_AjouterSpot extends HttpServlet {
 
     private CtrlMetierSpot ctrlMetierSpot;
 
+    private DbSpot dbSpot;
+    int indexSecteur;
+    int indexVoie;
+
     public Svt_AjouterSpot() {
         super();
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
+    }
+    private void initNouveauSpot(){
+        dbSpot=new DbSpot();
+        indexSecteur=indexVoie=0;
     }
 
     @Override
@@ -48,172 +56,101 @@ public class Svt_AjouterSpot extends HttpServlet {
         super.service(req, resp);
     }
 
-    public DbSpot ajouterSpot(Integer idUser) throws Exception {
-
-
-        CtrlMetierSpot ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
-
-        DbSpot dbSpot = new DbSpot();
-        DbSecteur dbSecteur = new DbSecteur();
-        DbVoie dbVoie = new DbVoie();
-        DbLongueur dbLongueur = new DbLongueur();
-        DbCommentaire dbCommentaire = new DbCommentaire();
-
-        dbCommentaire.setEstVisible(true);
-        dbCommentaire.setTexte("commentaire_par_pgm");
-        dbCommentaire.setNom("pas beau le spot");
-
-        dbLongueur.setNom("longueur_par_pgm");
-        dbLongueur.setCotation(SIX_APLUS);
-        dbLongueur.setNombreDeSpits(12);
-
-        dbVoie.setNom("voie_par_pgm");
-
-        dbSecteur.setNom("secteur_par_pgm");
-
-        dbSpot.setClassification(STANDARD.name());
-        dbSpot.setLocalisation("localisation_par_pgm");
-        dbSpot.setNom("spot_par_pgm");
-
-        dbSpot.getSecteursByIdspot().add(dbSecteur);
-
-        dbSecteur.getVoiesByIdsecteur().add(dbVoie);
-
-        dbVoie.getLongueursByIdvoie().add(dbLongueur);
-
-        dbSpot.getCommentairesByIdspot().add(dbCommentaire);
-
-        DbSpot dsp = ctrlMetierSpot.ajouterCeSpot(idUser, dbSpot) ;
-
-        return dsp;
-    }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();
-            Object o = request.getSession().getAttribute("dbSpot");
-            DbSpot dbSpot = (o instanceof DbSpot) ? (DbSpot) o : null;
             DbSecteur dbSecteur = null;
             DbVoie dbVoie = null;
             DbLongueur dbLongueur = null;
-            Integer i;
-            Integer idDuSecteur;
-            Integer idDeLaVoie;
+            int i, idDuSecteur, idDeLaVoie;
             ArrayList<DbSecteur> dbSecteurs;
             ArrayList<DbVoie> dbVoies;
 
-            if (dbSpot != null) {
-                HashMap<String, Cookie> hashMap = new HashMap<>();
-                for ( Cookie cookie : request.getCookies()) {
-                    hashMap.put(cookie.getName(), cookie);
-                }
-                if (hashMap.size() > 0) {
-                    Cookie cookie;
-                    switch (natureRequete) {
-                        case "/Valider" :
-                             o =  request.getSession().getAttribute("dbGrimpeur");
-
-                            DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
-                            if (dbGrimpeur !=null) {
-                                ctrlMetierSpot.ajouterCeSpot(dbGrimpeur.getIdgrimpeur(),dbSpot);
-                                request.getSession().removeAttribute("dbSpot");
-                            }else {
-                                logger.debug("Hello from :" + this.getClass().getSimpleName()+" Dbgrimpeur = NULL");
-                                throw  new ServletException("dbGrimpeur est null");
-                            }
-                        break;
-                        default: {
-                            switch (natureRequete){
-                                case "/AjouterSpot":
-
-                                    dbSpot.setLocalisation(request.getParameter("localisationSpot"));
-                                    dbSpot.setNom(request.getParameter("nomSpot"));
-                                    dbSpot.setClassification(STANDARD.name());
-
-                                    ArrayList<DbSpot> dbSpots = new ArrayList<>();
-                                    dbSpots.add(dbSpot);
-
-                                    request.setAttribute("saisieSecteurOk",true);
-                                    request.setAttribute("dbSpots",dbSpots);
-                                    break;
-                                case "/AjouterSecteur":
-                                    dbSecteur = new DbSecteur();
-
-                                    dbSecteur.setNom(request.getParameter("nomSecteur"));
-                                    i = Integer.valueOf(hashMap.get("indexSecteur").getValue());
-                                    dbSecteur.setIdsecteur(i);
-
-                                    cookie  = hashMap.get("indexSecteur");
-                                    cookie.setValue(String.valueOf(i++));
-                                    response.addCookie(cookie);
-
-                                    dbSpot.getSecteursByIdspot().add(dbSecteur);
-
-                                    request.setAttribute("saisieVoieOk",true);
-                                    break;
-                                case "/AjouterVoie":
-                                    dbVoie = new DbVoie();
-                                    idDuSecteur = Integer.valueOf(request.getParameter("idValSecteur"));
-
-                                    dbVoie.setNom(request.getParameter("nomVoie"));
-
-                                    i = Integer.valueOf(hashMap.get("indexVoie").getValue());
-                                    dbVoie.setIdvoie(i);
-
-                                    dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
-
-                                    dbSecteur = dbSecteurs.get(idDuSecteur);
-                                    dbSecteur.getVoiesByIdsecteur().add(dbVoie);
-
-                                    cookie  = hashMap.get("indexVoie");
-                                    cookie.setValue(String.valueOf(i++));
-                                    response.addCookie(cookie);
-
-                                    request.setAttribute("saisieLongueurOk",true);
-                                    break;
-                                case "/AjouterLongeur":
-                                    dbLongueur = new DbLongueur();
-
-                                    dbLongueur.setNom(request.getParameter("nomLongueur"));
-
-                                    String s  = request.getParameter("cotationLongueur");
-                                    JpaConvEnumCotationLgToString jpaConv = new JpaConvEnumCotationLgToString();
-                                    CotationLongueur cotationLongueur = jpaConv.convertToEntityAttribute(s);
-                                    dbLongueur.setCotation(cotationLongueur);
-
-                                    dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
-
-                                    idDeLaVoie = Integer.valueOf(request.getParameter("idValVoie"));
-                                    idDuSecteur = Integer.valueOf(request.getParameter("idValSecteur"));
-
-                                    dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
-                                    dbSecteur = dbSecteurs.get(idDuSecteur);
-
-                                    dbVoies = (ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur();
-
-                                    dbVoie = dbVoies.get(idDeLaVoie);
-
-                                    dbVoie.getLongueursByIdvoie().add(dbLongueur);
-
-                                    request.setAttribute("boutonValiderOk",true);
-                                    break;
-
-                            }
-                            request.getSession().removeAttribute("dbSpot");
-                            request.getSession().setAttribute("dbSpot", dbSpot);
-                        }
+            switch (natureRequete) {
+                case "/Valider" :
+                    Object o =  request.getSession().getAttribute("dbGrimpeur");
+                    DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+                    if (dbGrimpeur != null)
+                        ctrlMetierSpot.ajouterCeSpot(dbGrimpeur.getIdgrimpeur(),dbSpot);
+                    else {
+                        logger.debug("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est null " + natureRequete);
+                        throw new ServletException("dbGrimpeur est null");
                     }
-                    RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
-                    requestDispatcher.forward(request, response);
-                } else {
-                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " hasMap Cookie esy vide " + natureRequete);
-                    throw new ServletException("dbGrimpeur est null");
-                }
-            } else {
-                logger.debug("Hello from :" + this.getClass().getSimpleName() + " dbSpot est null " + natureRequete);
-                throw new ServletException("dbGrimpeur est null");
+                break;
+                case "/AjouterSpot":
+
+                    dbSpot.setLocalisation(request.getParameter("localisationSpot"));
+                    dbSpot.setNom(request.getParameter("nomSpot"));
+                    dbSpot.setClassification(STANDARD.name());
+
+                    ArrayList<DbSpot> dbSpots = new ArrayList<>();
+                    dbSpots.add(dbSpot);
+
+                    request.setAttribute("saisieSecteurOk",true);
+                    request.setAttribute("dbSpots",dbSpots);
+
+                    request.setAttribute("dbSpot",dbSpot);
+
+                    break;
+
+                case "/AjouterSecteur":
+                    dbSecteur = new DbSecteur();
+
+                    dbSecteur.setNom(request.getParameter("nomSecteur"));
+                    dbSecteur.setIdsecteur(indexSecteur++);
+
+                    dbSpot.getSecteursByIdspot().add(dbSecteur);
+
+                    request.setAttribute("saisieVoieOk",true);
+                    break;
+
+                case "/AjouterVoie":
+                    dbVoie = new DbVoie();
+
+                    idDuSecteur = Integer.parseInt(request.getParameter("idValSecteur"));
+
+                    dbVoie.setNom(request.getParameter("nomVoie"));
+
+                    dbVoie.setIdvoie(indexVoie++);
+
+                    dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
+
+                    dbSecteur = dbSecteurs.get(idDuSecteur);
+                    dbSecteur.getVoiesByIdsecteur().add(dbVoie);
+
+                    request.setAttribute("saisieLongueurOk",true);
+                    break;
+
+                case "/AjouterLongeur":
+                    dbLongueur = new DbLongueur();
+
+                    dbLongueur.setNom(request.getParameter("nomLongueur"));
+
+                    String s  = request.getParameter("cotationLongueur");
+                    JpaConvEnumCotationLgToString jpaConv = new JpaConvEnumCotationLgToString();
+                    CotationLongueur cotationLongueur = jpaConv.convertToEntityAttribute(s);
+                    dbLongueur.setCotation(cotationLongueur);
+
+                    dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
+
+                    idDeLaVoie = Integer.parseInt(request.getParameter("idValVoie"));
+                    idDuSecteur = Integer.parseInt(request.getParameter("idValSecteur"));
+
+                    dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
+                    dbSecteur = dbSecteurs.get(idDuSecteur);
+
+                    dbVoies = (ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur();
+
+                    dbVoie = dbVoies.get(idDeLaVoie);
+
+                    dbVoie.getLongueursByIdvoie().add(dbLongueur);
+
+                    request.setAttribute("boutonValiderOk",true);
+                    break;
             }
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
+            requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
             request.getSession().removeAttribute("dbSpot");
@@ -226,35 +163,10 @@ public class Svt_AjouterSpot extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String natureRequete = request.getServletPath();
-            HttpSession httpSession = request.getSession();
             if (natureRequete.equals("/CreerSpot")) {
-                Object o = request.getSession().getAttribute("dbSpot");
-                if (o == null) {
-                    DbSpot dbSpot = new DbSpot();
-                    httpSession.setAttribute("dbSpot", dbSpot);
-                    Cookie [] cookies = request.getCookies();
-                    if (cookies.length == 0) {
-                        response.addCookie(new Cookie("indexSecteur", String.valueOf(0)));
-                        response.addCookie(new Cookie("indexVoie", String.valueOf(0)));
-                    }else {
-                        Boolean cookieTrouve = false;
-                        for (Cookie cookie :cookies) {
-                            if (cookie.getName() == "indexSecteur"  || cookie.getName() == "indexVoie" ) {
-                                cookie.setValue(String.valueOf(0));
-                                cookieTrouve =true;
-                            }
-                        }
-                        if (! cookieTrouve) {
-                            response.addCookie(new Cookie("indexSecteur", String.valueOf(0)));
-                            response.addCookie(new Cookie("indexVoie", String.valueOf(0)));
-                        }
-                    }
-                    RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
-                    requestDispatcher.forward(request, response);
-                } else {
-                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " Objet Session.dbSpot non null " + natureRequete);
-                    throw new ServletException("dbSpot n'est pas null");
-                }
+                initNouveauSpot();
+                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
+                requestDispatcher.forward(request, response);
             } else {
                 logger.debug("Hello from :" + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
                 throw new ServletException("path incorrect");

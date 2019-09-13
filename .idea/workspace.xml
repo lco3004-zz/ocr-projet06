@@ -4,7 +4,7 @@
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +125,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -158,9 +159,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
-      <command value="mvn clean package" />
-      <command value="mvn clean compile package" />
       <command value="mvn  package" />
+      <command value="mvn clean compile package" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -289,7 +290,8 @@
       <workItem from="1568312500511" duration="8260000" />
       <workItem from="1568321173946" duration="731000" />
       <workItem from="1568348150317" duration="34685000" />
-      <workItem from="1568393852009" duration="3657000" />
+      <workItem from="1568393852009" duration="3752000" />
+      <workItem from="1568399605732" duration="3773000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -536,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568393645773</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="revue css ajout spot (non ok)">
+      <created>1568397643492</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1568397643492</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +568,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="ajout radio button pour selectionner un topov(ok)" />
     <MESSAGE value="ajout ccs flexbox + page landing en accord avec flexbox" />
     <MESSAGE value="ajout style table et page  spot (commenter, ajouter...)" />
     <MESSAGE value="page dédiée sppot ave cboutona ction sur form" />
@@ -584,7 +592,8 @@
     <MESSAGE value="ajout jsp creation Spot (en cours ..)" />
     <MESSAGE value="ajout cif et set var dans  jsp creation Spot (en cours ..)" />
     <MESSAGE value=" suite ajout cif jsp ajoutSpot" />
-    <option name="LAST_COMMIT_MESSAGE" value=" suite ajout cif jsp ajoutSpot" />
+    <MESSAGE value="revue css ajout spot (non ok)" />
+    <option name="LAST_COMMIT_MESSAGE" value="revue css ajout spot (non ok)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -592,18 +601,38 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>213</line>
-          <option name="timeStamp" value="14" />
+          <line>71</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>218</line>
-          <option name="timeStamp" value="15" />
+          <line>82</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="18" />
+          <line>155</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
