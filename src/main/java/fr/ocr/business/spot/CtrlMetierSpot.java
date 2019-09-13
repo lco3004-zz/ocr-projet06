@@ -2,7 +2,10 @@ package fr.ocr.business.spot;
 
 
 import fr.ocr.model.controllers.JpaCtrlSpot;
+import fr.ocr.model.entities.DbLongueur;
+import fr.ocr.model.entities.DbSecteur;
 import fr.ocr.model.entities.DbSpot;
+import fr.ocr.model.entities.DbVoie;
 
 import java.util.List;
 
@@ -50,10 +53,31 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     }
 
     @Override
-    public DbSpot ajouterCeSpot(Integer idUser,DbSpot dbSpot) throws Exception {
+    public DbSpot ajouterCeSpot(Integer idUser,DbSpot oldDbSpot) throws Exception {
+
+        DbSpot dbSpot = new DbSpot();
 
         dbSpot.setClassification(STANDARD.name());
+        dbSpot.setLocalisation(oldDbSpot.getLocalisation());
+        dbSpot.setNom(oldDbSpot.getNom());
 
+        for (DbSecteur oldSecteur :dbSpot.getSecteursByIdspot()) {
+            DbSecteur dbSecteur = new DbSecteur();
+            dbSecteur.setNom(oldSecteur.getNom());
+            for (DbVoie oldVoie: oldSecteur.getVoiesByIdsecteur()) {
+                DbVoie dbVoie = new DbVoie();
+                dbVoie.setNom(oldVoie.getNom());
+                for (DbLongueur oldLongeur :oldVoie.getLongueursByIdvoie()) {
+                    DbLongueur dbLongueur = new DbLongueur();
+                    dbLongueur.setCotation(oldLongeur.getCotation());
+                    dbLongueur.setNom(oldLongeur.getNom());
+                    dbLongueur.setNombreDeSpits(oldLongeur.getNombreDeSpits());
+                    dbVoie.getLongueursByIdvoie().add(dbLongueur);
+                }
+                dbSecteur.getVoiesByIdsecteur().add(dbVoie);
+            }
+            dbSpot.getSecteursByIdspot().add(dbSecteur);
+        }
         return jpaCtrlSpot.createSpot(idUser, dbSpot);
     }
 

@@ -95,7 +95,9 @@ public class Svt_AjouterSpot extends HttpServlet {
             DbLongueur dbLongueur = null;
             Integer i;
             Integer idDuSecteur;
+            Integer idDeLaVoie;
             ArrayList<DbSecteur> dbSecteurs;
+            ArrayList<DbVoie> dbVoies;
 
             if (dbSpot != null) {
                 HashMap<String, Cookie> hashMap = new HashMap<>();
@@ -106,7 +108,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     Cookie cookie;
                     switch (natureRequete) {
                         case "AjouterSpot":
-                            dbSpot.setClassification(STANDARD.name());
+
                             dbSpot.setLocalisation(request.getParameter("localisationSpot"));
                             dbSpot.setNom(request.getParameter("nomSpot"));
 
@@ -149,8 +151,6 @@ public class Svt_AjouterSpot extends HttpServlet {
                             break;
                         case "AjouterLongeur":
                             dbLongueur = new DbLongueur();
-                            Integer idDeLaVoie = Integer.valueOf(request.getParameter("idValVoie"));
-                            idDuSecteur = Integer.valueOf(request.getParameter("idValSecteur"));
 
                             dbLongueur.setNom(request.getParameter("nomLongueur"));
 
@@ -159,19 +159,20 @@ public class Svt_AjouterSpot extends HttpServlet {
                             CotationLongueur cotationLongueur = jpaConv.convertToEntityAttribute(s);
                             dbLongueur.setCotation(cotationLongueur);
 
-
                             dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
 
-                            ArrayList<DbVoie> dbVoies = (ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur();
 
+                            idDeLaVoie = Integer.valueOf(request.getParameter("idValVoie"));
+                            idDuSecteur = Integer.valueOf(request.getParameter("idValSecteur"));
+
+                            dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
                             dbSecteur = dbSecteurs.get(idDuSecteur);
-                            dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
-                            cookie  = hashMap.get("indexVoie");
-                            cookie.setValue(String.valueOf(i++));
+                            dbVoies = (ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur();
 
+                            dbVoie = dbVoies.get(idDeLaVoie);
 
-
+                            dbVoie.getLongueursByIdvoie().add(dbLongueur);
 
                             request.setAttribute("boutonValiderOk",true);
                             break;
