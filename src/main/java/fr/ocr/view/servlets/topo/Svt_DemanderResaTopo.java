@@ -21,7 +21,7 @@ public class Svt_DemanderResaTopo extends HttpServlet {
 
     private static final long serialVersionUID =1L;
     private final Logger logger;
-    private CtrlMetierTopo ctrlMetierTopo;
+
 
     public Svt_DemanderResaTopo() {
         super();
@@ -29,6 +29,7 @@ public class Svt_DemanderResaTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    private CtrlMetierTopo ctrlMetierTopo;
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

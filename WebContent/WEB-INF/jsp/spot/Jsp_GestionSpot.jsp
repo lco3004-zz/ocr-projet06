@@ -51,7 +51,7 @@
                         formtarget="_self"> Modérer
                 </button>
 
-                <a class="boutonLateral" href="CreerSpot">Enregistrer</a>
+                <a class="boutonLateral" href="CreerSpot">Créer</a>
 
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>

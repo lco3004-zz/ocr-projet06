@@ -1,5 +1,6 @@
 package fr.ocr.view.servlets.spot;
 
+import fr.ocr.business.spot.CtrlMetierSpot;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,12 +17,23 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
+
     public Svt_AcceuilSpot() {
         super();
         final Logger logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    private CtrlMetierSpot ctrlMetierSpot;
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
+
+        super.service(req, resp);
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

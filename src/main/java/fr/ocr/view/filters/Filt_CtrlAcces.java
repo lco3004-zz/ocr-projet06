@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebFilter(filterName = "Filt_CtrlAcces",
         dispatcherTypes ={DispatcherType.FORWARD,DispatcherType.REQUEST,DispatcherType.ASYNC,DispatcherType.ERROR},
         servletNames = {"Svt_GestionDemandeResaTopo", "Svt_EnregistrerTopo", "Svt_PublierTopo", "Svt_DemanderResaTopo",
-                "Svt_CreerSpot", "Svt_Commenter"})
+                "Svt_AjouterSpot", "Svt_Commenter"})
 
 public class Filt_CtrlAcces implements Filter {
 

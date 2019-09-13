@@ -27,6 +27,16 @@ public class Svt_AcceuilTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    private CtrlMetierTopo ctrlMetierTopo;
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+
+        super.service(req, resp);
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
@@ -34,7 +44,6 @@ public class Svt_AcceuilTopo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
             List<DbTopo> dbTopos = ctrlMetierTopo.listerTousToposDisponibles();
 
             request.setAttribute("dbTopos", dbTopos);
