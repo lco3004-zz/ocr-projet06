@@ -35,7 +35,8 @@ public class Svt_AjouterSpot extends HttpServlet {
     private static final String IDSECTEUR = "idSecteur";
     private static final String IDVOIE = "idVoie"  ;
     private static final String IDSELECTIONSECTEUR = "idValSecteur";
-
+    private static final String IDSELECTIONVOIE = "idValVoie";
+    private final  String DATASESSION = "dataSession";
 
     private final Logger logger;
 
@@ -43,18 +44,22 @@ public class Svt_AjouterSpot extends HttpServlet {
 
     private DataSession pourDataSession;
 
-    private final  String DATASESSION = "dataSession";
 
-    private class  DataSession extends DbSpot {
+    private class  DataSession   {
         private  int indexSecteur;
         private  int indexVoie;
         private  int idGrimpeur;
+        private  DbSpot dbSpot;
 
         DataSession() {
-            super();
             indexSecteur =indexVoie=0;
             idGrimpeur = -1;
+            dbSpot = new DbSpot();
         }
+
+        public DbSpot getDbSpot() { return dbSpot; }
+
+        public void setDbSpot(DbSpot dbSpot) { this.dbSpot = dbSpot; }
 
         public int getIdGrimpeur() { return idGrimpeur; }
 
@@ -76,17 +81,32 @@ public class Svt_AjouterSpot extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
-
-/*
-    if (request.getCookies() == null) {
-        return null;
-    }
-    for (int i = 0; i < request.getCookies().length; i++) {
-        if (request.getCookies()[i].getName().equals(name)) {
-            return request.getCookies()[i];
+    private void enregistrerCookie(HttpServletRequest request,Cookie [] cookies, String nomCookie, String nomParamRequest, String pathRequete) {
+        if (cookies != null) {
+            boolean isTrouvecookie =false;
+            boolean isSetIdSecteur =false;
+            for (int i = 0; i < cookies.length; i++) {
+                if (cookies[i].getName().equals(nomCookie)) {
+                    isTrouvecookie = true;
+                    String selectionSecteur = request.getParameter(nomParamRequest);
+                    if (selectionSecteur != null) {
+                        isSetIdSecteur=true;
+                        cookies[i].setValue(selectionSecteur);
+                    }
+                }
+            }
+            if (!isTrouvecookie) {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " cookie Voie non trouvé " + pathRequete);
+            }
+            if(!isSetIdSecteur ) {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide " + pathRequete);
+            }
+        }
+        else  {
+            logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookies Vide ! " + pathRequete);
         }
     }
-*/
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -98,9 +118,10 @@ public class Svt_AjouterSpot extends HttpServlet {
         boolean cookieTrouve = false;
 
         String natureRequete = req.getServletPath();
+        Object o = req.getSession().getAttribute(DATASESSION);
+
         if (natureRequete.equals("/CreerSpot")) {
 
-            Object o = req.getSession().getAttribute(DATASESSION);
             if (o == null) {
                 pourDataSession = new DataSession();
                 o =  req.getSession().getAttribute("dbGrimpeur");
@@ -134,9 +155,16 @@ public class Svt_AjouterSpot extends HttpServlet {
                 logger.debug("Hello from :" + this.getClass().getSimpleName() +" Création Cookies  ");
             }
         }
+        else {
+            if (o != null) {
+                pourDataSession = (o instanceof DataSession) ? (DataSession) o : null;
+            }
+            else {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " Session DataSession est NULL" + natureRequete);
+            }
+        }
         super.service(req, resp);
     }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -150,101 +178,94 @@ public class Svt_AjouterSpot extends HttpServlet {
 
             request.setAttribute("afficheFormeSpot",false);
 
-            //pour compiler
-            DbSpot dbSpot = new DbSpot();
-            int indexSecteur =0, indexVoie =0;
 
-            switch (natureRequete) {
-                case "/Valider" :
-                    if (pourDataSession.idGrimpeur != -1) {
-                        ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur,dbSpot);
-                        logger.debug("Hello from :" + this.getClass().getSimpleName() + " suppresion session pourDataSession " + natureRequete);
-                        request.getSession().removeAttribute("dataSession");
-                    }
-                    else {
-                        logger.error("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
-                    }
-                break;
-                default: {
-                    switch (natureRequete) {
-                        case "/AjouterSpot":
+            if ("/Valider".equals(natureRequete)) {
+                if (pourDataSession.idGrimpeur != -1) {
+                    ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
+                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " suppresion session pourDataSession " + natureRequete);
+                    request.getSession().removeAttribute("dataSession");
+                } else {
+                    logger.error("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
+                }
+            } else {
+                switch (natureRequete) {
+                    case "/AjouterSpot":
 
-                            dbSpot.setLocalisation(request.getParameter("localisationSpot"));
-                            dbSpot.setNom(request.getParameter("nomSpot"));
-                            dbSpot.setClassification(STANDARD.name());
+                        pourDataSession.dbSpot.setLocalisation(request.getParameter("localisationSpot"));
+                        pourDataSession.dbSpot.setNom(request.getParameter("nomSpot"));
+                        pourDataSession.dbSpot.setClassification(STANDARD.name());
 
-                            request.setAttribute("saisieSecteurOk",true);
-                            request.setAttribute("dbSpot",dbSpot);
-                            break;
+                        request.setAttribute("saisieSecteurOk", true);
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
+                        break;
 
-                        case "/AjouterSecteur":
-                            dbSecteur = new DbSecteur();
+                    case "/AjouterSecteur":
+                        dbSecteur = new DbSecteur();
 
-                            dbSecteur.setNom(request.getParameter("nomSecteur"));
-                            dbSecteur.setIdsecteur(indexSecteur++);
+                        dbSecteur.setNom(request.getParameter("nomSecteur"));
+                        dbSecteur.setIdsecteur(pourDataSession.indexSecteur++);
 
-                            dbSpot.getSecteursByIdspot().add(dbSecteur);
+                        pourDataSession.dbSpot.getSecteursByIdspot().add(dbSecteur);
 
-                            request.setAttribute("dbSpot",dbSpot);
-                            request.setAttribute("saisieSecteurOk",true);
-                            request.setAttribute("saisieVoieOk",true);
-                            break;
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
+                        request.setAttribute("saisieSecteurOk", true);
+                        request.setAttribute("saisieVoieOk", true);
+                        break;
 
-                        case "/AjouterVoie":
-                            dbVoie = new DbVoie();
+                    case "/AjouterVoie":
+                        dbVoie = new DbVoie();
 
-                            idDuSecteur = Integer.parseInt(request.getParameter("idValSecteur"));
+                        idDuSecteur = Integer.parseInt(request.getParameter("idValSecteur"));
 
-                            dbVoie.setNom(request.getParameter("nomVoie"));
+                        dbVoie.setNom(request.getParameter("nomVoie"));
 
-                            dbVoie.setIdvoie(indexVoie++);
+                        dbVoie.setIdvoie(pourDataSession.indexVoie++);
 
-                            dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
+                        dbSecteurs = (ArrayList<DbSecteur>) pourDataSession.dbSpot.getSecteursByIdspot();
 
-                            dbSecteur = dbSecteurs.get(idDuSecteur);
-                            dbSecteur.getVoiesByIdsecteur().add(dbVoie);
+                        dbSecteur = dbSecteurs.get(idDuSecteur);
+                        dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
 
-                            request.setAttribute("dbSecteur",dbSecteur);
-                            request.setAttribute("dbSpot",dbSpot);
-                            request.setAttribute("saisieSecteurOk",true);
-                            request.setAttribute("saisieVoieOk",true);
-                            request.setAttribute("saisieLongueurOk",true);
-                            break;
+                        request.setAttribute("dbSecteur", dbSecteur);
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
+                        request.setAttribute("saisieSecteurOk", true);
+                        request.setAttribute("saisieVoieOk", true);
+                        request.setAttribute("saisieLongueurOk", true);
+                        break;
 
-                        case "/AjouterLongeur":
-                            dbLongueur = new DbLongueur();
+                    case "/AjouterLongeur":
+                        dbLongueur = new DbLongueur();
 
-                            dbLongueur.setNom(request.getParameter("nomLongueur"));
+                        dbLongueur.setNom(request.getParameter("nomLongueur"));
 
-                            String s  = request.getParameter("cotationLongueur");
-                            JpaConvEnumCotationLgToString jpaConv = new JpaConvEnumCotationLgToString();
-                            CotationLongueur cotationLongueur = jpaConv.convertToEntityAttribute(s);
-                            dbLongueur.setCotation(cotationLongueur);
+                        String s = request.getParameter("cotationLongueur");
+                        JpaConvEnumCotationLgToString jpaConv = new JpaConvEnumCotationLgToString();
+                        CotationLongueur cotationLongueur = jpaConv.convertToEntityAttribute(s);
+                        dbLongueur.setCotation(cotationLongueur);
 
-                            dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
+                        dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
 
-                            idDeLaVoie = Integer.parseInt(request.getParameter("idValVoie"));
-                            idDuSecteur = Integer.parseInt(request.getParameter("idValSecteur"));
+                        idDeLaVoie = Integer.parseInt(request.getParameter("idValVoie"));
+                        idDuSecteur = Integer.parseInt(request.getParameter("idValSecteur"));
 
-                            dbSecteurs = (ArrayList<DbSecteur>) dbSpot.getSecteursByIdspot();
-                            dbSecteur = dbSecteurs.get(idDuSecteur);
+                        dbSecteurs = (ArrayList<DbSecteur>) pourDataSession.dbSpot.getSecteursByIdspot();
+                        dbSecteur = dbSecteurs.get(idDuSecteur);
 
-                            dbVoies = (ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur();
+                        dbVoies = (ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur();
 
-                            dbVoie = dbVoies.get(idDeLaVoie);
+                        dbVoie = dbVoies.get(idDeLaVoie);
 
-                            dbVoie.getLongueursByIdvoie().add(dbLongueur);
+                        dbVoie.getLongueursByIdvoie().add(dbLongueur);
 
-                            request.setAttribute("dbSpot",dbSpot);
-                            request.setAttribute("saisieSecteurOk",true);
-                            request.setAttribute("saisieVoieOk",true);
-                            request.setAttribute("saisieLongueurOk",true);
-                            request.setAttribute("boutonValiderOk",true);
-                            break;
-                        default:
-                            logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
-                    }
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
+                        request.setAttribute("saisieSecteurOk", true);
+                        request.setAttribute("saisieVoieOk", true);
+                        request.setAttribute("saisieLongueurOk", true);
+                        request.setAttribute("boutonValiderOk", true);
+                        break;
+                    default:
+                        logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
                 }
             }
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
@@ -260,45 +281,24 @@ public class Svt_AjouterSpot extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-
             String natureRequete = request.getServletPath();
             switch (natureRequete) {
                 case "/CreerSpot":
-
                     request.setAttribute("afficheFormeSpot",true);
-
-                    RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
-                    requestDispatcher.forward(request, response);
                     break;
 
                 case "/SelectionSecteur" :
-                    if (request.getCookies() != null) {
-                        boolean isTrouvecookie =false;
-                        boolean isSetIdSecteur =false;
-                        for (int i = 0; i < request.getCookies().length; i++) {
-                            if (request.getCookies()[i].getName().equals(IDSECTEUR)) {
-                                isTrouvecookie = true;
-                                String selectionSecteur = request.getParameter(IDSELECTIONSECTEUR);
-                                if (selectionSecteur != null) {
-                                    isSetIdSecteur=true;
-                                    request.getCookies()[i].setValue(selectionSecteur);
-                                }
-                            }
-                        }
-                        if (!isTrouvecookie) {
-                            logger.error("Erreur : " + this.getClass().getSimpleName() + " cookie Secteur non trouvé " + natureRequete);
-                        }
-                        if(!isSetIdSecteur ) {
-                            logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de secteur -- idSecteur est vide " + natureRequete);
-                        }
-                    }
-                    else  {
-                        logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookies Vide ! " + natureRequete);
-                    }
+                    enregistrerCookie(request,request.getCookies(), IDSECTEUR, IDSELECTIONSECTEUR, "/SelectionSecteur" );
+                    break;
+
+                case "/SelectionVoie" :
+                    enregistrerCookie(request,request.getCookies(), IDVOIE, IDSELECTIONVOIE, "/SelectionSecteur" );
                     break;
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
             }
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
+            requestDispatcher.forward(request, response);
         } catch (Exception e) {
             request.setAttribute("messageErreur", "erreur dans  "+this.getClass().getSimpleName() +" "+ e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");

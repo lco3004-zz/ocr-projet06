@@ -20,6 +20,30 @@
         <nav class="nav">
             <header>.</header>
             <section>
+                <c:if test="${requestScope.saisieVoieOk ==true}" scope="request" var="none">
+                    <button class="boutonLateral"
+                            name="SelectionSecteur"
+                            form="navSelectionSecteur"
+                            type="submit"
+                            formaction="SelectionSecteur"
+                            formmethod="post"
+                            value="SelectionSecteur"
+                            formtarget="_self"> Selection Secteur
+                    </button>
+                </c:if>
+
+                <c:if test="${requestScope.saisieLongueurOk ==true}" scope="request" var="none">
+                    <button class="boutonLateral"
+                            name="SelectionVoie"
+                            form="navSelectionVoie"
+                            type="submit"
+                            formaction="SelectionVoie"
+                            formmethod="post"
+                            value="SelectionVoie"
+                            formtarget="_self"> Selection Voie
+                    </button>
+                </c:if>
+
 
                 <c:if test="${requestScope.boutonValiderOk ==true}" scope="request" var="none">
                     <button class="boutonLateral"
@@ -161,12 +185,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="dbVoie" items="${requestScope.dbSecteur.getSecteursByIdspot()}">
-                        <tr>
-                            <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getVoiesByIdsecteur()}"></td>
-                            <td>${dbVoie.getNom()}</td>
-                        </tr>
-                    </c:forEach>
+                    <form id="navSelectionVoie">
+                        <c:forEach var="dbVoie" items="${requestScope.dbSecteur.getSecteursByIdspot()}">
+                            <tr>
+                                <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getVoiesByIdsecteur()}"></td>
+                                <td>${dbVoie.getNom()}</td>
+                            </tr>
+                        </c:forEach>
+                    </form>
                     </tbody>
                 </table>
             </article>
