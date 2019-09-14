@@ -62,7 +62,7 @@
             <footer>.</footer>
         </nav>
         <section>
-            <header style="display: flex ; flex-direction: row ; flex-wrap: nowrap ; height: 2% ;width: 100%; border: 1px solid black" >
+            <header style="display: flex ; flex-direction: row ; flex-wrap: nowrap ; justify-content: space-around;height: 2% ;width: 100%; border: 1px solid black" >
                 <p> Valeur Secteur : ${requestScope.idValSecteur}  | </p>
                 <p> Valeur Voie    : ${requestScope.idValSecteur}</p>
             </header>

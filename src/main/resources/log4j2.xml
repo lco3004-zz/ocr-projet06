@@ -9,12 +9,12 @@
     </Properties>
 
     <Appenders>
-        <File name="FileAppli" fileName="${projet06_logs}" append="false" bufferSize="32768" bufferedIO="true"
+        <File name="FileAppli" fileName="${projet06_logs}" append="false" bufferSize="32768" bufferedIO="false"
               immediateFlush="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
-        <File name="FileSql" fileName="${framework_logs}" append="false" bufferSize="32768" bufferedIO="true"
+        <File name="FileSql" fileName="${framework_logs}" append="false" bufferSize="32768" bufferedIO="false"
               immediateFlush="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
