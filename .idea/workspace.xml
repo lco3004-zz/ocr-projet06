@@ -161,6 +161,7 @@
       <command value="mvn clean compile package" />
       <command value="mvn clean package" />
       <command value="mvn  package" />
+      <command value="mvn clean compile" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -291,7 +292,7 @@
       <workItem from="1568348150317" duration="34685000" />
       <workItem from="1568393852009" duration="3752000" />
       <workItem from="1568399605732" duration="13818000" />
-      <workItem from="1568437733275" duration="3244000" />
+      <workItem from="1568437733275" duration="5776000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -566,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568413594120</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="remise en session d'un objet avec index, idse et id voire et dpspot">
+      <created>1568441032573</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1568441032573</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +597,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="mise en place nouvel page acceuil et nouvel page acceuilspot" />
     <MESSAGE value="mise en place topo nouvelle forme html" />
     <MESSAGE value="correctionerreur jsp topo (gestion)" />
     <MESSAGE value="ajout article mes resa, mes topos - presentaion des topos dispo&#10;simplification jpaCtrlTopo avec un seul find idGrimepur, etatResa et estPublie&#10;note : le arraylist.toarray plante sur Predicate [] predicates = ...to array =&gt; foreach" />
@@ -614,7 +621,8 @@
     <MESSAGE value="ajout table/forme secteur&#10;refonte ajouterSpot" />
     <MESSAGE value="correction ajoutspot - placement tables coté aside" />
     <MESSAGE value="revoir gestiondbSpot - à mettre en cookie, en session ou persister direct" />
-    <option name="LAST_COMMIT_MESSAGE" value="revoir gestiondbSpot - à mettre en cookie, en session ou persister direct" />
+    <MESSAGE value="remise en session d'un objet avec index, idse et id voire et dpspot" />
+    <option name="LAST_COMMIT_MESSAGE" value="remise en session d'un objet avec index, idse et id voire et dpspot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

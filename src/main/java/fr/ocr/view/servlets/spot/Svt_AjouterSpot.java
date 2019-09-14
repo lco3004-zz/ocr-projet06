@@ -32,12 +32,18 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 public class Svt_AjouterSpot extends HttpServlet {
 
     private static final long serialVersionUID =1L;
+    private static final String IDSECTEUR = "idSecteur";
+    private static final String IDVOIE = "idVoie"  ;
+    private static final String IDSELECTIONSECTEUR = "idValSecteur";
+
 
     private final Logger logger;
 
     private CtrlMetierSpot ctrlMetierSpot;
 
     private DataSession pourDataSession;
+
+    private final  String DATASESSION = "dataSession";
 
     private class  DataSession extends DbSpot {
         private  int indexSecteur;
@@ -94,15 +100,17 @@ public class Svt_AjouterSpot extends HttpServlet {
         String natureRequete = req.getServletPath();
         if (natureRequete.equals("/CreerSpot")) {
 
-            Object o = req.getSession().getAttribute("dataSession");
+            Object o = req.getSession().getAttribute(DATASESSION);
             if (o == null) {
                 pourDataSession = new DataSession();
                 o =  req.getSession().getAttribute("dbGrimpeur");
                 DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
                 if (dbGrimpeur != null) {
                     pourDataSession.idGrimpeur = dbGrimpeur.getIdgrimpeur();
-                    req.getSession().setAttribute("dataSession", pourDataSession);
-                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " création session pourDataSession " + natureRequete);)
+
+                    req.getSession().setAttribute(DATASESSION, pourDataSession);
+
+                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " création session pourDataSession " + natureRequete);
                 }
                 else  {
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
@@ -112,15 +120,18 @@ public class Svt_AjouterSpot extends HttpServlet {
             Cookie[] cookies = req.getCookies();
             if (req.getCookies() != null) {
                 for (Cookie cookie :cookies) {
-                    if (cookie.getName() == "idSecteur"  || cookie.getName() == "idVoie" ) {
+                    if (cookie.getName() == IDSECTEUR  || cookie.getName() == IDVOIE) {
                         cookie.setValue(String.valueOf(-1));
                         cookieTrouve =true;
+                        logger.debug("Hello from :" + this.getClass().getSimpleName() +"Cookie trouvé = "+cookie.getName());
                     }
                 }
             }
+
             if (! cookieTrouve) {
-                resp.addCookie(new Cookie("idSecteur", sIdSecteur));
-                resp.addCookie(new Cookie("idVoie", sIdVoie));
+                resp.addCookie(new Cookie(IDSECTEUR, sIdSecteur));
+                resp.addCookie(new Cookie(IDVOIE, sIdVoie));
+                logger.debug("Hello from :" + this.getClass().getSimpleName() +" Création Cookies  ");
             }
         }
         super.service(req, resp);
@@ -147,7 +158,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                 case "/Valider" :
                     if (pourDataSession.idGrimpeur != -1) {
                         ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur,dbSpot);
-                        logger.debug("Hello from :" + this.getClass().getSimpleName() + " suppresion session pourDataSession " + natureRequete);)
+                        logger.debug("Hello from :" + this.getClass().getSimpleName() + " suppresion session pourDataSession " + natureRequete);
                         request.getSession().removeAttribute("dataSession");
                     }
                     else {
@@ -231,7 +242,8 @@ public class Svt_AjouterSpot extends HttpServlet {
                             request.setAttribute("saisieLongueurOk",true);
                             request.setAttribute("boutonValiderOk",true);
                             break;
-
+                        default:
+                            logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
                     }
                 }
             }
@@ -250,14 +262,42 @@ public class Svt_AjouterSpot extends HttpServlet {
         try {
 
             String natureRequete = request.getServletPath();
-            if (natureRequete.equals("/CreerSpot")) {
+            switch (natureRequete) {
+                case "/CreerSpot":
 
-                request.setAttribute("afficheFormeSpot",true);
+                    request.setAttribute("afficheFormeSpot",true);
 
-                RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
-                requestDispatcher.forward(request, response);
-            } else {
-                logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
+                    RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
+                    requestDispatcher.forward(request, response);
+                    break;
+
+                case "/SelectionSecteur" :
+                    if (request.getCookies() != null) {
+                        boolean isTrouvecookie =false;
+                        boolean isSetIdSecteur =false;
+                        for (int i = 0; i < request.getCookies().length; i++) {
+                            if (request.getCookies()[i].getName().equals(IDSECTEUR)) {
+                                isTrouvecookie = true;
+                                String selectionSecteur = request.getParameter(IDSELECTIONSECTEUR);
+                                if (selectionSecteur != null) {
+                                    isSetIdSecteur=true;
+                                    request.getCookies()[i].setValue(selectionSecteur);
+                                }
+                            }
+                        }
+                        if (!isTrouvecookie) {
+                            logger.error("Erreur : " + this.getClass().getSimpleName() + " cookie Secteur non trouvé " + natureRequete);
+                        }
+                        if(!isSetIdSecteur ) {
+                            logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de secteur -- idSecteur est vide " + natureRequete);
+                        }
+                    }
+                    else  {
+                        logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookies Vide ! " + natureRequete);
+                    }
+                    break;
+                default:
+                    logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
             }
         } catch (Exception e) {
             request.setAttribute("messageErreur", "erreur dans  "+this.getClass().getSimpleName() +" "+ e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
