@@ -20,53 +20,43 @@
         <nav class="nav">
             <header>.</header>
             <section>
-                <c:if test="${requestScope.saisieVoieOk ==true}" scope="request" var="none">
-                    <button class="boutonLateral"
-                            name="SelectionSecteur"
-                            form="navSelectionSecteur"
-                            type="submit"
-                            formaction="SelectionSecteur"
-                            formmethod="get"
-                            value="SelectionSecteur"
-                            formtarget="_self"> Selection Secteur
-                    </button>
-                </c:if>
-
-                <c:if test="${requestScope.saisieLongueurOk ==true}" scope="request" var="none">
-                    <button class="boutonLateral"
-                            name="SelectionVoie"
-                            form="navSelectionVoie"
-                            type="submit"
-                            formaction="SelectionVoie"
-                            formmethod="get"
-                            value="SelectionVoie"
-                            formtarget="_self"> Selection Voie
-                    </button>
-                </c:if>
-
-
-                <c:if test="${requestScope.boutonValiderOk ==true}" scope="request" var="none">
-                    <button class="boutonLateral"
-                            name="Valider"
-                            form="xxx"
-                            type="submit"
-                            formaction="Valider"
-                            formmethod="post"
-                            value="Valider"
-                            formtarget="_self"> Valider
-                    </button>
-                </c:if>
-
+                <button class="boutonLateral"
+                        name="SelectionSecteur"
+                        form="navSelectionSecteur"
+                        type="submit"
+                        formaction="SelectionSecteur"
+                        formmethod="get"
+                        value="SelectionSecteur"
+                        formtarget="_self"> Selection Secteur
+                </button>
+                <button class="boutonLateral"
+                        name="SelectionVoie"
+                        form="navSelectionVoie"
+                        type="submit"
+                        formaction="SelectionVoie"
+                        formmethod="get"
+                        value="SelectionVoie"
+                        formtarget="_self"> Selection Voie
+                </button>
+                <button class="boutonLateral"
+                        name="Valider"
+                        form="xxx"
+                        type="submit"
+                        formaction="Valider"
+                        formmethod="post"
+                        value="Valider"
+                        formtarget="_self"> Valider
+                </button>
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
         <section>
-            <header style="display: flex ; flex-direction: row ; flex-wrap: nowrap ; justify-content: space-around;height: 2% ;width: 100%; border: 1px solid black" >
-                <p> Valeur Secteur : ${requestScope.idValSecteur}  | </p>
-                <p> Valeur Voie    : ${requestScope.idValSecteur}</p>
+            <header style="display: flex ; background-color: antiquewhite;flex-direction: row ; flex-wrap: nowrap ; justify-content: space-around;height: 2% ;width: 100%; border: 1px solid black">
+                <p style="border: 1px dotted red ; flex-basis: 50%"> Valeur Secteur : ${requestScope.idValSecteur}  </p>
+                <p style="border: 1px dotted red ; flex-basis: 50%"> Valeur Voie : ${requestScope.idValVoie}</p>
             </header>
-                <c:if test="${requestScope.afficheFormeSpot == true}" scope="page" var="none">
+            <c:if test="${requestScope.afficheFormeSpot == true}" scope="request" var="none">
                     <label for="formEnregistrerSpot" class="labels">Saisir infos Spot</label>
                     <form id="formEnregistrerSpot" class="formSimple">
                         <fieldset class="labels">
@@ -90,7 +80,7 @@
                         </fieldset>
                     </form>
                 </c:if>
-                <c:if test="${requestScope.saisieSecteurOk ==true}" scope="page" var="none">
+            <c:if test="${requestScope.afficheFormeSpot == false}" scope="request" var="none">
                     <label for="formEnregistrerSecteur" class="labels">Saisir infos Secteur</label>
                     <form id="formEnregistrerSecteur" class="formSimple">
                         <fieldset class="labels">
@@ -111,8 +101,7 @@
                             </button>
                         </fieldset>
                     </form>
-                </c:if>
-            <c:if test="${requestScope.saisieVoieOk ==true}" scope="page" var="none">
+
                 <label for="formEnregistrerVoie" class="labels">Saisir infos Voies</label>
                 <form id="formEnregistrerVoie" class="formSimple">
                     <fieldset class="labels">
@@ -147,7 +136,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:if test="${not empty requestScope.dbSpot}" scope="page" var="non">
+                    <c:if test="${not empty requestScope.dbSpot}" scope="request" var="non">
                         <tr>
                             <td>${requestScope.dbSpot.getNom()}</td>
                             <td>${requestScope.dbSpot.getLocalisation()}</td>
@@ -185,16 +174,21 @@
                     <thead>
                     <tr>
                         <th> #</th>
+                        <th> idSec</th>
                         <th> Nom</th>
                     </tr>
                     </thead>
                     <tbody>
                     <form id="navSelectionVoie">
-                        <c:forEach var="dbVoie" items="${requestScope.dbSecteur.getSecteursByIdspot()}">
-                            <tr>
-                                <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getVoiesByIdsecteur()}"></td>
-                                <td>${dbVoie.getNom()}</td>
-                            </tr>
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
+                                <tr>
+                                    <td><input type="radio" name="idValVoie" required value="${dbVoie.getIdvoie()}">
+                                    </td>
+                                    <td> ${dbSecteur.getIdsecteur()}</td>
+                                    <td>${dbVoie.getNom()}</td>
+                                </tr>
+                            </c:forEach>
                         </c:forEach>
                     </form>
                     </tbody>
@@ -205,15 +199,25 @@
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> idSec</th>
+                        <th> idVoie</th>
+                        <th> Nom</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <form id="navSelectionLongueur">
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
+                                <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
+                                    <tr>
+                                        <td> ${dbSecteur.getIdsecteur()}</td>
+                                        <td>${dbVoie.getIdvoie()}"></td>
+                                        <td>${dbLongueur.getNom()}</td>
+                                    </tr>
+                                </c:forEach>
+                            </c:forEach>
+                        </c:forEach>
+                    </form>
                     </tbody>
                 </table>
             </article>

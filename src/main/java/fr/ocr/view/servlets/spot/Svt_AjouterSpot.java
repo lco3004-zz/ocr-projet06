@@ -91,7 +91,7 @@ public class Svt_AjouterSpot extends HttpServlet {
         }
 
         if(selectionRadioButton == null ) {
-            logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide " );
+            logger.error("Erreur : " + this.getClass().getSimpleName() + " selectionRadio est vide ");
         }
 
         return  selectionRadioButton;
@@ -199,7 +199,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                         }
                     } catch ( Exception e){
                         request.getSession().removeAttribute("dataSession");
-                        logger.error("Hello from :" + this.getClass().getSimpleName() + " cause Exception " + e.getCause());
+                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
                         throw new RuntimeException(e);
                     }
                     finally {
@@ -213,14 +213,12 @@ public class Svt_AjouterSpot extends HttpServlet {
                         pourDataSession.dbSpot.setLocalisation(request.getParameter("localisationSpot"));
                         pourDataSession.dbSpot.setNom(request.getParameter("nomSpot"));
                         pourDataSession.dbSpot.setClassification(STANDARD.name());
+
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     } catch ( Exception e){
-                        logger.error("Hello from :" + this.getClass().getSimpleName() + " cause Exception " + e.getCause());
+                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
                         request.getSession().removeAttribute("dataSession");
                         throw new RuntimeException(e);
-                    }
-                    finally {
-                        request.setAttribute("saisieSecteurOk", true);
-                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     }
                     break;
 
@@ -232,23 +230,19 @@ public class Svt_AjouterSpot extends HttpServlet {
                         dbSecteur.setIdsecteur(pourDataSession.indexSecteur++);
 
                         pourDataSession.dbSpot.getSecteursByIdspot().add(dbSecteur);
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
 
                     }catch ( Exception e){
-                        logger.error("Hello from :" + this.getClass().getSimpleName() + " cause Exception " + e.getCause());
+                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
                         request.getSession().removeAttribute("dataSession");
                         throw new RuntimeException(e);
-                    }
-                    finally {
-                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                        request.setAttribute("saisieSecteurOk", true);
-                        request.setAttribute("saisieVoieOk", true);
                     }
                     break;
 
                 case "/AjouterVoie":
                     try {
                         idDuSecteur = getValParamReqFromCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
-                        if (idDuSecteur != null) {
+                        if (idDuSecteur != null && idDuSecteur >= 0) {
                             dbVoie = new DbVoie();
 
                             dbVoie.setNom(request.getParameter("nomVoie"));
@@ -259,24 +253,18 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             dbSecteur.getVoiesByIdsecteur().add(dbVoie);
 
+                            request.setAttribute("saisieLongueurOk", true);
+                            request.setAttribute("dbVoie", dbVoie);
+
                         } else {
                             logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Secteur " + natureRequete);
                         }
-
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     }catch ( Exception e){
-                        logger.error("Hello from :" + this.getClass().getSimpleName() + " cause Exception " + e.getCause());
+                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
                         request.getSession().removeAttribute("dataSession");
                         throw new RuntimeException(e);
                     }
-                    finally {
-                        request.setAttribute("dbVoie", dbVoie);
-                        request.setAttribute("dbSecteur", dbSecteur);
-                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                        request.setAttribute("saisieSecteurOk", true);
-                        request.setAttribute("saisieVoieOk", true);
-                        request.setAttribute("saisieLongueurOk", true);
-                    }
-
                     break;
 
                 case "/AjouterLongeur":
@@ -284,7 +272,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                         idDuSecteur = getValParamReqFromCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
                         idDeLaVoie = getValParamReqFromCookie(request,IDVOIE, IDSELECTIONVOIE );
 
-                        if (idDeLaVoie != null){
+                        if (idDeLaVoie != null && idDeLaVoie >= 0) {
                             dbLongueur = new DbLongueur();
 
                             dbLongueur.setNom(request.getParameter("nomLongueur"));
@@ -305,23 +293,12 @@ public class Svt_AjouterSpot extends HttpServlet {
                         } else {
                             logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Voie " + natureRequete);
                         }
-
+                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     }catch ( Exception e){
-                        logger.error("Hello from :" + this.getClass().getSimpleName() + " cause Exception " + e.getCause());
+                        logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Secteur " + natureRequete);
                         request.getSession().removeAttribute("dataSession");
                         throw new RuntimeException(e);
                     }
-                    finally {
-                        request.setAttribute("dbLongueur", dbLongueur);
-                        request.setAttribute("dbVoie", dbVoie);
-                        request.setAttribute("dbSecteur", dbSecteur);
-                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                        request.setAttribute("saisieSecteurOk", true);
-                        request.setAttribute("saisieVoieOk", true);
-                        request.setAttribute("saisieLongueurOk", true);
-                        request.setAttribute("boutonValiderOk", true);
-                    }
-
                     break;
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
@@ -331,8 +308,9 @@ public class Svt_AjouterSpot extends HttpServlet {
             requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
-            request.getSession().removeAttribute("dbSpot");
-            request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+
+            request.getSession().removeAttribute(DATASESSION);
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);
         }
@@ -342,6 +320,8 @@ public class Svt_AjouterSpot extends HttpServlet {
         try {
             String natureRequete = request.getServletPath();
             Cookie cookie;
+            DbSecteur dbSecteur;
+            Integer idDuSecteur;
 
             switch (natureRequete) {
                 case "/CreerSpot":
@@ -356,17 +336,25 @@ public class Svt_AjouterSpot extends HttpServlet {
                     request.setAttribute("afficheFormeSpot",false);
                     request.setAttribute("saisieSecteurOk", true);
                     request.setAttribute("saisieVoieOk", true);
+
+                    idDuSecteur = getValParamReqFromCookie(request, IDSECTEUR, IDSELECTIONSECTEUR);
+                    dbSecteur = ((ArrayList<DbSecteur>) (pourDataSession.dbSpot.getSecteursByIdspot())).get(idDuSecteur);
+                    request.setAttribute("dbSecteur", dbSecteur);
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
                 case "/SelectionVoie" :
                     cookie =  setValParamReqIntoCookie(request,IDVOIE, IDSELECTIONVOIE );
+                    idDuSecteur = getValParamReqFromCookie(request, IDSECTEUR, IDSELECTIONSECTEUR);
 
                     request.setAttribute("idValVoie",cookie.getValue());
                     response.addCookie(cookie);
 
-                    request.setAttribute("afficheFormeSpot",false);
+                    dbSecteur = ((ArrayList<DbSecteur>) (pourDataSession.dbSpot.getSecteursByIdspot())).get(idDuSecteur);
+                    request.setAttribute("dbSecteur", dbSecteur);
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
+
+                    request.setAttribute("afficheFormeSpot", false);
                     request.setAttribute("saisieSecteurOk", true);
                     request.setAttribute("saisieVoieOk", true);
                     request.setAttribute("saisieLongueurOk", true);
@@ -379,6 +367,12 @@ public class Svt_AjouterSpot extends HttpServlet {
             requestDispatcher.forward(request, response);
         } catch (Exception e) {
             request.setAttribute("messageErreur", "erreur dans  "+this.getClass().getSimpleName() +" "+ e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
+            logger.error("Hello from :" + this.getClass().getSimpleName() + " cause Exception " + e.getCause() +
+                    " localized " + e.getLocalizedMessage() +
+                    " msg " + e.getMessage() +
+                    " stack " + Arrays.toString(e.getStackTrace()) +
+                    " suppres " + Arrays.toString(e.getSuppressed()));
+            request.getSession().removeAttribute(DATASESSION);
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);
         }
