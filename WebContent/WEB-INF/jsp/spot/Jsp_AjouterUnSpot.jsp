@@ -26,7 +26,7 @@
                             form="navSelectionSecteur"
                             type="submit"
                             formaction="SelectionSecteur"
-                            formmethod="post"
+                            formmethod="get"
                             value="SelectionSecteur"
                             formtarget="_self"> Selection Secteur
                     </button>
@@ -38,7 +38,7 @@
                             form="navSelectionVoie"
                             type="submit"
                             formaction="SelectionVoie"
-                            formmethod="post"
+                            formmethod="get"
                             value="SelectionVoie"
                             formtarget="_self"> Selection Voie
                     </button>
@@ -62,6 +62,10 @@
             <footer>.</footer>
         </nav>
         <section>
+            <header style="display: flex ; flex-direction: row ; flex-wrap: nowrap ; height: 2% ;width: 100%; border: 1px solid black" >
+                <p> Valeur Secteur : ${requestScope.idValSecteur}  | </p>
+                <p> Valeur Voie    : ${requestScope.idValSecteur}</p>
+            </header>
                 <c:if test="${requestScope.afficheFormeSpot == true}" scope="page" var="none">
                     <label for="formEnregistrerSpot" class="labels">Saisir infos Spot</label>
                     <form id="formEnregistrerSpot" class="formSimple">

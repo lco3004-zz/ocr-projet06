@@ -293,7 +293,7 @@
       <workItem from="1568348150317" duration="34685000" />
       <workItem from="1568393852009" duration="3752000" />
       <workItem from="1568399605732" duration="13818000" />
-      <workItem from="1568437733275" duration="7838000" />
+      <workItem from="1568437733275" duration="9720000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -582,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568443922908</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="ajout bouton selecteur de idvoie et de idsecteur (sur form dans aside)">
+      <created>1568445890373</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1568445890373</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +612,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="correctionerreur jsp topo (gestion)" />
     <MESSAGE value="ajout article mes resa, mes topos - presentaion des topos dispo&#10;simplification jpaCtrlTopo avec un seul find idGrimepur, etatResa et estPublie&#10;note : le arraylist.toarray plante sur Predicate [] predicates = ...to array =&gt; foreach" />
     <MESSAGE value="ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)" />
     <MESSAGE value="corection bug db sur ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)" />
@@ -630,10 +636,20 @@
     <MESSAGE value="revoir gestiondbSpot - à mettre en cookie, en session ou persister direct" />
     <MESSAGE value="remise en session d'un objet avec index, idse et id voire et dpspot" />
     <MESSAGE value="correction dans methode service" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction dans methode service" />
+    <MESSAGE value="ajout bouton selecteur de idvoie et de idsecteur (sur form dans aside)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout bouton selecteur de idvoie et de idsecteur (sur form dans aside)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
+          <line>117</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="((StackTraceElement[])((TransactionException)e).stackTrace)[2]" language="JAVA" custom="java.lang.StackTraceElement[],org.hibernate.TransactionException" />
