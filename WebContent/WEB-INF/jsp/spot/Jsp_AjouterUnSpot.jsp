@@ -157,9 +157,8 @@
                 </form>
 
             </c:if>
-
-
         </section>
+
         <aside>
             <article>
                 <label style="font-size: larger ">Spots</label>
@@ -184,7 +183,7 @@
             </article>
             <article>
                 <form id="navSelectionSecteur">
-                    <label style="font-size: larger ">Secteurs : </label>
+                    <label style="font-size: larger ">Secteurs : ${param.idValSecteur}</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -214,7 +213,7 @@
             </article>
 
             <article>
-                <label style="font-size: larger ">Voies</label>
+                <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
                 <table class="bordered">
                     <thead>
                     <tr>

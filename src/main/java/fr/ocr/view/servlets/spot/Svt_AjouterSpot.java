@@ -384,10 +384,9 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/SelectionVoie" :
-                    cookie = setValParamReqIntoCookie(request, IDSECTEUR, IDSELECTIONSECTEUR);
+                    cookie = getCookieByName(request, IDSECTEUR);
                     if (cookie != null) {
                         request.setAttribute("idValSecteur", cookie.getValue());
-                        response.addCookie(cookie);
                     }
                     cookie =  setValParamReqIntoCookie(request,IDVOIE, IDSELECTIONVOIE );
                     if (cookie != null) {

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -306,14 +307,7 @@
       <workItem from="1568475997831" duration="15731000" />
       <workItem from="1568494401047" duration="5319000" />
       <workItem from="1568533849518" duration="201000" />
-      <workItem from="1568554319839" duration="26461000" />
-    </task>
-    <task id="LOCAL-00004" summary="ajout fomr de saisie topo au même look que la cnx et identif">
-      <created>1567951546019</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1567951546019</updated>
+      <workItem from="1568554319839" duration="28105000" />
     </task>
     <task id="LOCAL-00005" summary="ajout forme de liste des topos&#10;filtrage ok - routage ok">
       <created>1567956990192</created>
@@ -651,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568582222758</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="correction radio btn creatiion Spot : mettre idvoie , idsecteur sur les requetes ajoutervoie, ajouter longueur&#10;ajout de if secteur choisie == idsecteur dans le foreach">
+      <created>1568583202924</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1568583202924</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +673,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="ajout gestionspot - preparation jsp ajout spot" />
     <MESSAGE value="creation (en cours ) ajouter un Spot" />
     <MESSAGE value="ajout cookie et session pour secteur voie etc..." />
     <MESSAGE value="suite ajout cookie et session pour secteur voie etc..." />
@@ -697,7 +697,8 @@
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit) suite" />
     <MESSAGE value="checked sur radiobtn (OK - at that commit) suite et fin" />
     <MESSAGE value="correction radioBtn Spot : reset de cookie idVOie sur changment de secgteur" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction radioBtn Spot : reset de cookie idVOie sur changment de secgteur" />
+    <MESSAGE value="correction radio btn creatiion Spot : mettre idvoie , idsecteur sur les requetes ajoutervoie, ajouter longueur&#10;ajout de if secteur choisie == idsecteur dans le foreach" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction radio btn creatiion Spot : mettre idvoie , idsecteur sur les requetes ajoutervoie, ajouter longueur&#10;ajout de if secteur choisie == idsecteur dans le foreach" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
