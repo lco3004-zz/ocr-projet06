@@ -106,6 +106,25 @@ public class Svt_AjouterSpot extends HttpServlet {
         return  selectionRadioButton;
     }
 
+    private Cookie getCookieByName(HttpServletRequest request, String nomCookie) {
+        Cookie valRet = null;
+        try {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals(nomCookie)) {
+                    valRet = cookie;
+                }
+            }
+            if (valRet == null) {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide ");
+            }
+
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            throw new RuntimeException(ex);
+
+        }
+        return valRet;
+    }
     private Cookie setValParamReqIntoCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
         String selectionRadioButton;
         Cookie valRet=null;
@@ -256,7 +275,10 @@ public class Svt_AjouterSpot extends HttpServlet {
                 case "/AjouterVoie":
                     try {
                         idDuSecteur = getValParamReqFromCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
+
                         if (idDuSecteur != null && idDuSecteur >= 0) {
+
+                            request.setAttribute("idValSecteur", idDuSecteur);
                             dbVoie = new DbVoie();
 
                             dbVoie.setNom(request.getParameter("nomVoie"));
@@ -287,6 +309,9 @@ public class Svt_AjouterSpot extends HttpServlet {
                         idDeLaVoie = getValParamReqFromCookie(request,IDVOIE, IDSELECTIONVOIE );
 
                         if (idDeLaVoie != null && idDeLaVoie >= 0 && idDuSecteur != null && idDuSecteur >= 0) {
+                            request.setAttribute("idValSecteur", idDuSecteur);
+                            request.setAttribute("idValVoie", idDeLaVoie);
+
                             dbLongueur = new DbLongueur();
 
                             dbLongueur.setNom(request.getParameter("nomLongueur"));
@@ -329,6 +354,7 @@ public class Svt_AjouterSpot extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
     }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
