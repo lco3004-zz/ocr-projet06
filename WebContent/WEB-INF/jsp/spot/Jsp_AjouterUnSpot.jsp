@@ -60,8 +60,8 @@
                     <label for="formEnregistrerSpot" class="labels">Saisir infos Spot</label>
                     <form id="formEnregistrerSpot" class="formSimple">
                         <fieldset class="labels">
-                            <label for="nomSpot"> nom : </label>
-                            <label for="localisationSpot"> lieu : </label>
+                            <label for="nomSpot"> Nom : </label>
+                            <label for="localisationSpot"> Lieu : </label>
                         </fieldset>
                         <fieldset class="inputs">
                             <input id="nomSpot" name="nomSpot" required size="16" type="text"/>
@@ -84,7 +84,7 @@
                     <label for="formEnregistrerSecteur" class="labels">Saisir infos Secteur</label>
                     <form id="formEnregistrerSecteur" class="formSimple">
                         <fieldset class="labels">
-                            <label for="nomSecteur"> nom : </label>
+                            <label for="nomSecteur"> Nom : </label>
                         </fieldset>
                         <fieldset class="inputs">
                             <input id="nomSecteur" name="nomSecteur" required size="16" type="text"/>
@@ -105,7 +105,7 @@
                 <label for="formEnregistrerVoie" class="labels">Saisir infos Voies</label>
                 <form id="formEnregistrerVoie" class="formSimple">
                     <fieldset class="labels">
-                        <label for="nomVoie"> nom : </label>
+                        <label for="nomVoie"> Nom : </label>
                     </fieldset>
                     <fieldset class="inputs">
                         <input id="nomVoie" name="nomVoie" required size="16" type="text"/>
@@ -122,7 +122,45 @@
                         </button>
                     </fieldset>
                 </form>
+
+                <label for="formEnregistrerLongueur" class="labels">Saisir infos Longueur</label>
+                <form id="formEnregistrerLongueur" class="formSimple">
+                    <fieldset class="labels">
+                        <label for="nomLongueur"> Nom : </label>
+                        <label for="nombreDeSpits"> Spits : </label>
+                        <label for="cotationLongueur"> Cotation : </label>
+                    </fieldset>
+                    <fieldset class="inputs">
+                        <input id="nomLongueur" name="nomLongueur" required size="16" type="text"/>
+                        <input id="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="text"/>
+                        <select id="cotationLongueur" required name="cotationLongueur">
+                            <optgroup label="Cotation">
+                                <option value="QUATRE_A">QUATRE_A</option>
+                                <option value="QUATRE_B">QUATRE_B</option>
+                                <option value="QUATRE_C">QUATRE_C</option>
+                                <option value="SIX_A">SIX_A</option>
+                                <option value="SIX_APLUS">SIX_APLUS</option>
+                                <option value="SIX_BPLUS">SIX_BPLUS</option>
+                                <option value="SIX_CPLUS">SIX_CPLUS</option>
+                            </optgroup>
+                        </select>
+                    </fieldset>
+                    <fieldset class="actions">
+                        <button class="boutonFormSimple"
+                                name="AjouterLongueur"
+                                form="formEnregistrerLongueur"
+                                type="submit"
+                                formaction="AjouterLongueur"
+                                formmethod="post"
+                                value="AjouterLongueur"
+                                formtarget="_self"> Ajouter
+                        </button>
+                    </fieldset>
+                </form>
+
             </c:if>
+
+
         </section>
         <aside>
             <article>
@@ -147,11 +185,13 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Secteurs</label>
+                <label style="font-size: larger ">Secteurs : Cur = ${requestScope.idValSecteur}</label>
                 <table class="bordered">
                     <thead>
                     <tr>
                         <th> #</th>
+                        <th> reidSec</th>
+                        <th> idSec</th>
                         <th> Nom</th>
                     </tr>
                     </thead>
@@ -159,8 +199,22 @@
                     <form id="navSelectionSecteur">
                     <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                         <tr>
-                            <td><input type="radio" name="idValSecteur" required value="${dbSecteur.getIdsecteur()}"></td>
-                            <td>${dbSecteur.getNom()}</td>
+                            <c:choose>
+                                <c:when test="${requestScope.idValSecteur} == ${dbSecteur.getIdsecteur()}">
+                                    <td><input type="radio" checked name="idValSecteur" required
+                                               value="${dbSecteur.getIdsecteur()}"></td>
+                                    <td> a ${requestScope.idValSecteur}</td>
+                                    <td> a ${dbSecteur.getIdsecteur()} </td>
+                                    <td>${dbSecteur.getNom()}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><input type="radio" name="idValSecteur" required
+                                               value="${dbSecteur.getIdsecteur()}"></td>
+                                    <td> b ${requestScope.idValSecteur}</td>
+                                    <td> b ${dbSecteur.getIdsecteur()} </td>
+                                    <td>${dbSecteur.getNom()}</td>
+                                </c:otherwise>
+                            </c:choose>
                         </tr>
                     </c:forEach>
                     </form>
@@ -202,6 +256,8 @@
                         <th> idSec</th>
                         <th> idVoie</th>
                         <th> Nom</th>
+                        <th> Cotation</th>
+                        <th> Spits</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -211,8 +267,10 @@
                                 <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
                                     <tr>
                                         <td> ${dbSecteur.getIdsecteur()}</td>
-                                        <td>${dbVoie.getIdvoie()}"></td>
+                                        <td>${dbVoie.getIdvoie()}</td>
                                         <td>${dbLongueur.getNom()}</td>
+                                        <td>${dbLongueur.getCotation().name()}</td>
+                                        <td>${dbLongueur.getNombreDeSpits()}</td>
                                     </tr>
                                 </c:forEach>
                             </c:forEach>

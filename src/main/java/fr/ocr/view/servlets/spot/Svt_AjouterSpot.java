@@ -80,43 +80,56 @@ public class Svt_AjouterSpot extends HttpServlet {
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
-    private Integer getValParamReqFromCookie(HttpServletRequest request,String nomCookie, String nomParamRequest){
+
+    private Integer getValParamReqFromCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+
         Integer selectionRadioButton = null;
-
-        for (Cookie cookie:request.getCookies()) {
-            if (cookie.getName().equals(nomCookie)) {
-                selectionRadioButton = Integer.valueOf(cookie.getValue());
-                break;
+        try {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals(nomCookie)) {
+                    selectionRadioButton = Integer.valueOf(cookie.getValue());
+                    break;
+                }
             }
-        }
 
-        if(selectionRadioButton == null ) {
-            logger.error("Erreur : " + this.getClass().getSimpleName() + " selectionRadio est vide ");
+            if (selectionRadioButton == null) {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " selectionRadio est vide ");
+            }
+
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            throw new RuntimeException(ex);
+
         }
 
         return  selectionRadioButton;
     }
 
-    private Cookie setValParamReqIntoCookie(HttpServletRequest request,String nomCookie, String nomParamRequest) {
+    private Cookie setValParamReqIntoCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
         String selectionRadioButton;
         Cookie valRet=null;
-
-        for (Cookie cookie : request.getCookies()) {
-            if (cookie.getName().equals(nomCookie)) {
-                selectionRadioButton = request.getParameter(nomParamRequest);
-                if (selectionRadioButton != null) {
-                    cookie.setValue(selectionRadioButton);
-                    valRet= cookie;
+        try {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals(nomCookie)) {
+                    selectionRadioButton = request.getParameter(nomParamRequest);
+                    if (selectionRadioButton != null) {
+                        cookie.setValue(selectionRadioButton);
+                        valRet = cookie;
+                    }
                 }
             }
-        }
 
-        if (valRet == null) {
-            logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide ");
+            if (valRet == null) {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide ");
+            }
+
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            throw new RuntimeException(ex);
+
         }
 
         return valRet;
-
     }
 
     @Override
@@ -267,12 +280,12 @@ public class Svt_AjouterSpot extends HttpServlet {
                     }
                     break;
 
-                case "/AjouterLongeur":
+                case "/AjouterLongueur":
                     try {
                         idDuSecteur = getValParamReqFromCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
                         idDeLaVoie = getValParamReqFromCookie(request,IDVOIE, IDSELECTIONVOIE );
 
-                        if (idDeLaVoie != null && idDeLaVoie >= 0) {
+                        if (idDeLaVoie != null && idDeLaVoie >= 0 && idDuSecteur != null && idDuSecteur >= 0) {
                             dbLongueur = new DbLongueur();
 
                             dbLongueur.setNom(request.getParameter("nomLongueur"));
@@ -330,15 +343,21 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                 case "/SelectionSecteur" :
                     cookie =  setValParamReqIntoCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
-                    request.setAttribute("idValSecteur",cookie.getValue());
-                    response.addCookie(cookie);
+                    if (cookie != null) {
+                        request.setAttribute("idValSecteur", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
+
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
                 case "/SelectionVoie" :
                     cookie =  setValParamReqIntoCookie(request,IDVOIE, IDSELECTIONVOIE );
-                    request.setAttribute("idValVoie",cookie.getValue());
-                    response.addCookie(cookie);
+                    if (cookie != null) {
+                        request.setAttribute("idValVoie", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
+
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
                 default:
