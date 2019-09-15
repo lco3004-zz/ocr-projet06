@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta content="text/html; charset=iso-8859-15" http-equiv="content-type">
@@ -52,10 +53,7 @@
             <footer>.</footer>
         </nav>
         <section>
-            <header style="display: flex ; background-color: antiquewhite;flex-direction: row ; flex-wrap: nowrap ; justify-content: space-around;height: 2% ;width: 100%; border: 1px solid black">
-                <p style="border: 1px dotted red ; flex-basis: 50%"> Valeur Secteur : ${requestScope.idValSecteur}  </p>
-                <p style="border: 1px dotted red ; flex-basis: 50%"> Valeur Voie : ${requestScope.idValVoie}</p>
-            </header>
+
             <c:if test="${requestScope.afficheFormeSpot == true}" scope="request" var="none">
                     <label for="formEnregistrerSpot" class="labels">Saisir infos Spot</label>
                     <form id="formEnregistrerSpot" class="formSimple">
@@ -185,46 +183,34 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Secteurs : Cur = ${requestScope.idValSecteur}</label>
+                <form id="navSelectionSecteur">
+                    <label style="font-size: larger ">Secteurs : </label>
                 <table class="bordered">
                     <thead>
                     <tr>
                         <th> #</th>
-                        <th> reidSec</th>
-                        <th> idSec</th>
                         <th> Nom</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                         <tr>
-                            <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
-                                <td>
-                                    <c:set value="${requestScope.idValSecteur}" var="A"/>
-
-                                    <c:set value="${dbSecteur.getIdsecteur()}" var="B"/>
-                                    <form id="navSelectionSecteur" autocomplete="off">
-                                        <c:choose>
-                                            <c:when test="${A}==${B}">
-                                                <label for="UU">U</label>
-                                                <input id="UU" type="radio" checked name="idValSecteur" required
-                                                       value="${dbSecteur.getIdsecteur()}">
-                                            </c:when>
-                                            <c:otherwise>
-                                                <label for="KK">U</label>
-                                                <input id="KK" type="radio" name="idValSecteur" required
-                                                       value="${dbSecteur.getIdsecteur()}">
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </form>
-                                </td>
-                                <td>${A}</td>
-                                <td>${B} </td>
-                                <td>${dbSecteur.getNom()}</td>
-                            </c:forEach>
-
+                            <c:choose>
+                                <c:when test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}">
+                                    <td><input type="radio" checked name="idValSecteur" required
+                                               value="${dbSecteur.getIdsecteur()}"></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><input type="radio" name="idValSecteur" required
+                                               value="${dbSecteur.getIdsecteur()}"></td>
+                                </c:otherwise>
+                            </c:choose>
+                            <td>${dbSecteur.getNom()}</td>
                         </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
+                </form>
             </article>
 
             <article>
@@ -242,8 +228,17 @@
                         <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <tr>
-                                    <td><input type="radio" name="idValVoie" required value="${dbVoie.getIdvoie()}">
-                                    </td>
+                                    <c:choose>
+                                        <c:when test="${requestScope.idValVoie == dbVoie.getIdvoie()}">
+                                            <td><input type="radio" checked name="idValVoie" required
+                                                       value="${dbVoie.getIdvoie()}"></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td><input type="radio" name="idValVoie" required
+                                                       value="${dbVoie.getIdvoie()}"></td>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                     <td> ${dbSecteur.getIdsecteur()}</td>
                                     <td>${dbVoie.getNom()}</td>
                                 </tr>
@@ -274,8 +269,6 @@
                                         <td> ${dbSecteur.getIdsecteur()}</td>
                                         <td>${dbVoie.getIdvoie()}</td>
                                         <td>${dbLongueur.getNom()}</td>
-                                        <td>${dbLongueur.getCotation().name()}</td>
-                                        <td>${dbLongueur.getNombreDeSpits()}</td>
                                     </tr>
                                 </c:forEach>
                             </c:forEach>

@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +191,7 @@
   <component name="RunManager">
     <configuration name="Tomcat 9.0.24" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.24" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:/Program Files/Java/jdk-11.0.4" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8083/projet06_war/home" />
-      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="projet06:war">
@@ -306,14 +308,7 @@
       <workItem from="1568475997831" duration="15731000" />
       <workItem from="1568494401047" duration="5319000" />
       <workItem from="1568533849518" duration="201000" />
-      <workItem from="1568554319839" duration="12813000" />
-    </task>
-    <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
-      <created>1567896989164</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1567896989164</updated>
+      <workItem from="1568554319839" duration="23326000" />
     </task>
     <task id="LOCAL-00002" summary="&#10;mise en forme formulaire&#10;chemin cnx/inscription changé (cnx et si existe pas inscription)&#10;ajout msg erreur cnx dans la forme de cnx">
       <created>1567924725270</created>
@@ -651,7 +646,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568565045993</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="essai de checked sur radiobtn (ko - at that commit) suite">
+      <created>1568568122326</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1568568122326</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +674,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="mise en place cnx dans nouveau format jsp" />
     <MESSAGE value="mise en place identification dans nouveau format jsp" />
     <MESSAGE value="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide" />
     <MESSAGE value="ajout gestionspot - preparation jsp ajout spot" />
@@ -697,7 +698,8 @@
     <MESSAGE value="simplification jsp et servlet ajout topo (suite)" />
     <MESSAGE value="correction erreur sur gestion topo : si sélection vide (restituer,publier, ...) affiche msg (plus de plantage)" />
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit)" />
-    <option name="LAST_COMMIT_MESSAGE" value="essai de checked sur radiobtn (ko - at that commit)" />
+    <MESSAGE value="essai de checked sur radiobtn (ko - at that commit) suite" />
+    <option name="LAST_COMMIT_MESSAGE" value="essai de checked sur radiobtn (ko - at that commit) suite" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -714,11 +716,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
           <line>126</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>284</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
