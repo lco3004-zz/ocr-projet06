@@ -44,10 +44,17 @@ public class Svt_PublierTopo extends HttpServlet {
 
         try {
             String s = request.getParameter("idValTopo");
+            String msgResultat = " Demande envoyée ";
+
+
             if (s != null) {
                 Integer idDuTopo = Integer.valueOf(s);
                 ctrlMetierTopo.publierCeTopo(idDuTopo);
+            } else {
+                msgResultat = " Rien à publier ";
             }
+
+            request.setAttribute("msgResultat", msgResultat);
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
             requestDispatcher.forward(request, response);
 

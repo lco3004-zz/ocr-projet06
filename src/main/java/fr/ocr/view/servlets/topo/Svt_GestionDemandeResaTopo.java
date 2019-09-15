@@ -40,11 +40,17 @@ public class Svt_GestionDemandeResaTopo extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            String msgResultat = " Demande envoyée ";
+
             String s = request.getParameter("idValTopo");
+
             if (s != null) {
                 Integer idDuTopo = Integer.valueOf(s);
                 ctrlMetierTopo.accepterResaCeTopo(idDuTopo);
+            } else {
+                msgResultat = "Rien à Accepter";
             }
+            request.setAttribute("msgResultat", msgResultat);
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
             requestDispatcher.forward(request, response);
 

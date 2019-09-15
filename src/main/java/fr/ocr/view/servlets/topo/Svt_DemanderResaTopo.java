@@ -42,14 +42,20 @@ public class Svt_DemanderResaTopo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+            String msgResultat = " Demande envoyée ";
 
-            Object o = request.getSession().getAttribute("dbGrimpeur");
+            if (request.getParameter("idValTopo") != null) {
+                Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
 
-            DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+                Object o = request.getSession().getAttribute("dbGrimpeur");
 
-            ctrlMetierTopo.demanderResaCeTopo(idDuTopo, grimpeurDemandeur.getIdgrimpeur());
+                DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
 
+                ctrlMetierTopo.demanderResaCeTopo(idDuTopo, grimpeurDemandeur.getIdgrimpeur());
+            } else {
+                msgResultat = "Rien à réserver !";
+            }
+            request.setAttribute("msgResultat", msgResultat);
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
 
             requestDispatcher.forward(request, response);

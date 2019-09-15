@@ -50,6 +50,7 @@
         </nav>
         <section>
             <h3> Nos Topos Disponibles pour la Réservation </h3>
+            <h3>Information : ${msgResultat}</h3>
             <table class="bordered">
                 <thead>
                 <tr>

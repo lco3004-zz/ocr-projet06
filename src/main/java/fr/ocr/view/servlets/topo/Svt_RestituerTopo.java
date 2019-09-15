@@ -37,14 +37,21 @@ public class Svt_RestituerTopo extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+            String msgResultat = " Demande envoyée ";
+            if (request.getParameter("idValTopo") != null) {
+                Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
 
-            Object o = request.getSession().getAttribute("dbGrimpeur");
+                Object o = request.getSession().getAttribute("dbGrimpeur");
 
-            DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+                DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
 
-            ctrlMetierTopo.restituerResaCeTopo(idDuTopo);
+                ctrlMetierTopo.restituerResaCeTopo(idDuTopo);
 
+            } else {
+                msgResultat = "Rien à Restituer !";
+            }
+
+            request.setAttribute("msgResultat", msgResultat);
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
 
             requestDispatcher.forward(request, response);
