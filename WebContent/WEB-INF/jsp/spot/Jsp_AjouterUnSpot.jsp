@@ -196,28 +196,33 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <form id="navSelectionSecteur">
-                    <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                         <tr>
-                            <c:choose>
-                                <c:when test="${requestScope.idValSecteur} == ${dbSecteur.getIdsecteur()}">
-                                    <td><input type="radio" checked name="idValSecteur" required
-                                               value="${dbSecteur.getIdsecteur()}"></td>
-                                    <td> a ${requestScope.idValSecteur}</td>
-                                    <td> a ${dbSecteur.getIdsecteur()} </td>
-                                    <td>${dbSecteur.getNom()}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td><input type="radio" name="idValSecteur" required
-                                               value="${dbSecteur.getIdsecteur()}"></td>
-                                    <td> b ${requestScope.idValSecteur}</td>
-                                    <td> b ${dbSecteur.getIdsecteur()} </td>
-                                    <td>${dbSecteur.getNom()}</td>
-                                </c:otherwise>
-                            </c:choose>
+                            <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                                <td>
+                                    <c:set value="${requestScope.idValSecteur}" var="A"/>
+
+                                    <c:set value="${dbSecteur.getIdsecteur()}" var="B"/>
+                                    <form id="navSelectionSecteur" autocomplete="off">
+                                        <c:choose>
+                                            <c:when test="${A}==${B}">
+                                                <label for="UU">U</label>
+                                                <input id="UU" type="radio" checked name="idValSecteur" required
+                                                       value="${dbSecteur.getIdsecteur()}">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <label for="KK">U</label>
+                                                <input id="KK" type="radio" name="idValSecteur" required
+                                                       value="${dbSecteur.getIdsecteur()}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </form>
+                                </td>
+                                <td>${A}</td>
+                                <td>${B} </td>
+                                <td>${dbSecteur.getNom()}</td>
+                            </c:forEach>
+
                         </tr>
-                    </c:forEach>
-                    </form>
                     </tbody>
                 </table>
             </article>
