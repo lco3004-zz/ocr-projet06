@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,8 +91,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="l" />
         <option value="Laurent Cordier &lt;laurent.cordier3004@gmail.com&gt;" />
+        <option value="l" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -172,8 +171,8 @@
       <command value="mvn clean" />
       <command value="mvn clean compile" />
       <command value="mvn  package" />
-      <command value="mvn clean compile package" />
       <command value="mvn clean package" />
+      <command value="mvn clean compile package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -308,14 +307,7 @@
       <workItem from="1568475997831" duration="15731000" />
       <workItem from="1568494401047" duration="5319000" />
       <workItem from="1568533849518" duration="201000" />
-      <workItem from="1568554319839" duration="23326000" />
-    </task>
-    <task id="LOCAL-00002" summary="&#10;mise en forme formulaire&#10;chemin cnx/inscription changé (cnx et si existe pas inscription)&#10;ajout msg erreur cnx dans la forme de cnx">
-      <created>1567924725270</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1567924725270</updated>
+      <workItem from="1568554319839" duration="25757000" />
     </task>
     <task id="LOCAL-00003" summary="préparation du filtre acces grimpeur (sur topo dans ce commit)">
       <created>1567950550402</created>
@@ -653,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568568122326</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="checked sur radiobtn (OK - at that commit) suite et fin">
+      <created>1568579746134</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1568579746134</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +673,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="mise en place identification dans nouveau format jsp" />
     <MESSAGE value="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide" />
     <MESSAGE value="ajout gestionspot - preparation jsp ajout spot" />
     <MESSAGE value="creation (en cours ) ajouter un Spot" />
@@ -699,26 +697,13 @@
     <MESSAGE value="correction erreur sur gestion topo : si sélection vide (restituer,publier, ...) affiche msg (plus de plantage)" />
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit)" />
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit) suite" />
-    <option name="LAST_COMMIT_MESSAGE" value="essai de checked sur radiobtn (ko - at that commit) suite" />
+    <MESSAGE value="checked sur radiobtn (OK - at that commit) suite et fin" />
+    <option name="LAST_COMMIT_MESSAGE" value="checked sur radiobtn (OK - at that commit) suite et fin" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="((StackTraceElement[])((TransactionException)e).stackTrace)[2]" language="JAVA" custom="java.lang.StackTraceElement[],org.hibernate.TransactionException" />

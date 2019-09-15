@@ -57,21 +57,6 @@ public class Svt_AjouterSpot extends HttpServlet {
             dbSpot = new DbSpot();
         }
 
-        public DbSpot getDbSpot() { return dbSpot; }
-
-        public void setDbSpot(DbSpot dbSpot) { this.dbSpot = dbSpot; }
-
-        public int getIdGrimpeur() { return idGrimpeur; }
-
-        public void setIdGrimpeur(int idGrimpeur) { this.idGrimpeur = idGrimpeur; }
-
-        public int getIndexSecteur() { return indexSecteur; }
-
-        public void setIndexSecteur(int indexSecteur) { this.indexSecteur = indexSecteur; }
-
-        public int getIndexVoie() { return indexVoie; }
-
-        public void setIndexVoie(int indexVoie) { this.indexVoie = indexVoie; }
     }
 
 
@@ -79,6 +64,22 @@ public class Svt_AjouterSpot extends HttpServlet {
         super();
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
+    }
+
+    private Cookie resetThisCookie(HttpServletRequest request, String nomCookie) {
+        Cookie valRet = null;
+        try {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals(nomCookie)) {
+                    cookie.setValue(String.valueOf(-1));
+                    valRet = cookie;
+                }
+            }
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            throw new RuntimeException(ex);
+        }
+        return valRet;
     }
 
     private Integer getValParamReqFromCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
@@ -166,7 +167,7 @@ public class Svt_AjouterSpot extends HttpServlet {
             Cookie[] cookies = req.getCookies();
             if (req.getCookies() != null) {
                 for (Cookie cookie :cookies) {
-                    if (cookie.getName() == IDSECTEUR  || cookie.getName() == IDVOIE) {
+                    if (cookie.getName().equals(IDSECTEUR) || cookie.getName().equals(IDVOIE)) {
                         cookie.setValue(String.valueOf(-1));
                         cookieTrouve =true;
                         logger.debug("Hello from :" + this.getClass().getSimpleName() +"Cookie trouvé = "+cookie.getName());
@@ -347,11 +348,21 @@ public class Svt_AjouterSpot extends HttpServlet {
                         request.setAttribute("idValSecteur", cookie.getValue());
                         response.addCookie(cookie);
                     }
+                    cookie = resetThisCookie(request, IDVOIE);
+                    if (cookie != null) {
+                        request.setAttribute("idValVoie", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
 
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
                 case "/SelectionVoie" :
+                    cookie = setValParamReqIntoCookie(request, IDSECTEUR, IDSELECTIONSECTEUR);
+                    if (cookie != null) {
+                        request.setAttribute("idValSecteur", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
                     cookie =  setValParamReqIntoCookie(request,IDVOIE, IDSELECTIONVOIE );
                     if (cookie != null) {
                         request.setAttribute("idValVoie", cookie.getValue());

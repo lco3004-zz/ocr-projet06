@@ -228,19 +228,22 @@
                         <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <tr>
-                                    <c:choose>
-                                        <c:when test="${requestScope.idValVoie == dbVoie.getIdvoie()}">
-                                            <td><input type="radio" checked name="idValVoie" required
-                                                       value="${dbVoie.getIdvoie()}"></td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <td><input type="radio" name="idValVoie" required
-                                                       value="${dbVoie.getIdvoie()}"></td>
-                                        </c:otherwise>
-                                    </c:choose>
+                                    <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="resT">
+                                        <c:choose>
+                                            <c:when test="${requestScope.idValVoie == dbVoie.getIdvoie()}">
+                                                <td><input type="radio" checked name="idValVoie" required
+                                                           value="${dbVoie.getIdvoie()}"></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <td><input type="radio" name="idValVoie" required
+                                                           value="${dbVoie.getIdvoie()}"></td>
+                                            </c:otherwise>
+                                        </c:choose>
 
-                                    <td> ${dbSecteur.getIdsecteur()}</td>
-                                    <td>${dbVoie.getNom()}</td>
+                                        <td> ${dbSecteur.getIdsecteur()}</td>
+                                        <td>${dbVoie.getNom()}</td>
+
+                                    </c:if>
                                 </tr>
                             </c:forEach>
                         </c:forEach>
@@ -269,6 +272,8 @@
                                         <td> ${dbSecteur.getIdsecteur()}</td>
                                         <td>${dbVoie.getIdvoie()}</td>
                                         <td>${dbLongueur.getNom()}</td>
+                                        <td>${dbLongueur.getCotation()}</td>
+                                        <td>${dbLongueur.getNombreDeSpits()}</td>
                                     </tr>
                                 </c:forEach>
                             </c:forEach>
