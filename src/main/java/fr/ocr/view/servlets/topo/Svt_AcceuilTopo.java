@@ -71,8 +71,6 @@ public class Svt_AcceuilTopo extends HttpServlet {
             requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopos");
-            request.removeAttribute("dbToposGrimpeur");
             request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);

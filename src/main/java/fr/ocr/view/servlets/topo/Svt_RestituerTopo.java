@@ -50,12 +50,11 @@ public class Svt_RestituerTopo extends HttpServlet {
             requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopo");
+
             request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

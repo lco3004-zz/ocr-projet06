@@ -55,7 +55,6 @@ public class Svt_DemanderResaTopo extends HttpServlet {
             requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopo");
             request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);

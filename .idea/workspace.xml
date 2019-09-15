@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_EnregistrerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_EnregistrerTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -296,7 +300,7 @@
       <workItem from="1568399605732" duration="13818000" />
       <workItem from="1568437733275" duration="9927000" />
       <workItem from="1568475997831" duration="15731000" />
-      <workItem from="1568494401047" duration="2960000" />
+      <workItem from="1568494401047" duration="5319000" />
     </task>
     <task id="LOCAL-00001" summary="mise en forme CSS formulaire et page acceuil (à revoir avec flexbox)">
       <created>1567896989164</created>
@@ -613,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568483298811</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="simplification jsp et servlet ajout topo">
+      <created>1568497439565</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1568497439565</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +647,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="ajout publier topo" />
     <MESSAGE value="ajout gestion resa" />
     <MESSAGE value="correction bug update topo - ajout gestion publier topo (ok)&#10;ajout demande de resa (ok)&#10;bug sur ok a demande de resa (ko)" />
     <MESSAGE value="correction bug ResaTopo (resa ok)&#10;à faire : voir mes réservation accpetées, rejeter une demande de resa, restituer une resa" />
@@ -661,8 +671,11 @@
     <MESSAGE value="en cours : gestion bouton sur ajout secteur et ajout voie (ko)" />
     <MESSAGE value="revue gestion cookie (bug en cours de test)" />
     <MESSAGE value="revue gestion cookie (bug en cours de test) suite" />
-    <option name="LAST_COMMIT_MESSAGE" value="revue gestion cookie (bug en cours de test) suite" />
+    <MESSAGE value="simplification jsp et servlet ajout topo" />
+    <option name="LAST_COMMIT_MESSAGE" value="simplification jsp et servlet ajout topo" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

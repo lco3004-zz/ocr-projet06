@@ -43,15 +43,15 @@ public class Svt_PublierTopo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
-            ctrlMetierTopo.publierCeTopo(idDuTopo);
-
+            String s = request.getParameter("idValTopo");
+            if (s != null) {
+                Integer idDuTopo = Integer.valueOf(s);
+                ctrlMetierTopo.publierCeTopo(idDuTopo);
+            }
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilTopo");
-
             requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopo");
             request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);
@@ -85,8 +85,6 @@ public class Svt_PublierTopo extends HttpServlet {
             }
 
         } catch (Exception e) {
-            request.removeAttribute("dbTopos");
-            request.removeAttribute("dbToposGrimpeur");
             request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
             requestDispatcher.forward(request, response);
