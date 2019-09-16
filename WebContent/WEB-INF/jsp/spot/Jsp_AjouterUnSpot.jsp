@@ -53,9 +53,16 @@
             <footer>.</footer>
         </nav>
         <section>
+            <c:choose>
+                <c:when test="${requestScope.afficheFormeSpot == true}">
+                    <c:set var="choixEnable" scope="page" value="enabled"> </c:set>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="choixEnable" scope="page" value="disabled"> </c:set>
+                </c:otherwise>
+            </c:choose>
 
-            <c:if test="${requestScope.afficheFormeSpot == true}" scope="request" var="none">
-                    <label for="formEnregistrerSpot" class="labels">Saisir infos Spot</label>
+            <label for="formEnregistrerSpot">Saisir infos Spot</label>
                     <form id="formEnregistrerSpot" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSpot"> Nom : </label>
@@ -73,13 +80,13 @@
                                     formaction="AjouterSpot"
                                     formmethod="post"
                                     value="AjouterSpot"
-                                    formtarget="_self"> Ajouter
+                                    formtarget="_self"
+                            ${choixEnable} > Ajouter
                             </button>
                         </fieldset>
                     </form>
-                </c:if>
             <c:if test="${requestScope.afficheFormeSpot == false}" scope="request" var="none">
-                    <label for="formEnregistrerSecteur" class="labels">Saisir infos Secteur</label>
+                <label for="formEnregistrerSecteur">Saisir infos Secteur</label>
                     <form id="formEnregistrerSecteur" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSecteur"> Nom : </label>
@@ -100,7 +107,7 @@
                         </fieldset>
                     </form>
 
-                <label for="formEnregistrerVoie" class="labels">Saisir infos Voies</label>
+                <label for="formEnregistrerVoie">Saisir infos Voies</label>
                 <form id="formEnregistrerVoie" class="formSimple">
                     <fieldset class="labels">
                         <label for="nomVoie"> Nom : </label>
@@ -121,7 +128,7 @@
                     </fieldset>
                 </form>
 
-                <label for="formEnregistrerLongueur" class="labels">Saisir infos Longueur</label>
+                <label for="formEnregistrerLongueur">Saisir infos Longueur</label>
                 <form id="formEnregistrerLongueur" class="formSimple">
                     <fieldset class="labels">
                         <label for="nomLongueur"> Nom : </label>
@@ -268,11 +275,14 @@
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
                                     <tr>
-                                        <td> ${dbSecteur.getIdsecteur()}</td>
-                                        <td>${dbVoie.getIdvoie()}</td>
-                                        <td>${dbLongueur.getNom()}</td>
-                                        <td>${dbLongueur.getCotation()}</td>
-                                        <td>${dbLongueur.getNombreDeSpits()}</td>
+                                        <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="resT">
+                                            <td> ${dbSecteur.getIdsecteur()}</td>
+                                            <td>${dbVoie.getIdvoie()}</td>
+                                            <td>${dbLongueur.getNom()}</td>
+                                            <td>${dbLongueur.getCotation()}</td>
+                                            <td>${dbLongueur.getNombreDeSpits()}</td>
+
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
                             </c:forEach>

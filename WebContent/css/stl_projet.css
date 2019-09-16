@@ -175,9 +175,14 @@
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
+#container main section .formSimple .boutonFormSimple:disabled {
+    background-color: dimgray;
+    color: darkgray;
+    font-style: italic;
+}
 
 #container main section .formSimple .labels {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-end;
@@ -197,6 +202,7 @@
     justify-content: center;
     align-items: center;
 }
+
 
 #container main section .formSimple .informations {
     flex-basis: 10%;
