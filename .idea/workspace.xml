@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="refactor ajouterspot pour préparer arrivée de adminSpot">
+      <change afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,6 +92,7 @@
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -136,7 +145,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -151,18 +160,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\topo" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\css" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\html" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\src\main\resources" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\topo" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\css" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\html" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -307,14 +316,8 @@
       <workItem from="1568494401047" duration="5319000" />
       <workItem from="1568533849518" duration="201000" />
       <workItem from="1568554319839" duration="28447000" />
-      <workItem from="1568611753361" duration="3684000" />
-    </task>
-    <task id="LOCAL-00007" summary="correction bug du footer">
-      <created>1568031965559</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1568031965559</updated>
+      <workItem from="1568611753361" duration="3899000" />
+      <workItem from="1568619838238" duration="3120000" />
     </task>
     <task id="LOCAL-00008" summary="correction bug du footer">
       <created>1568135047952</created>
@@ -652,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568614168206</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="modif log pour trouver erreur lors du switch de spot en creation longeur (non fixée)">
+      <created>1568615904064</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1568615904064</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,8 +683,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="suite ajout cookie et session pour secteur voie etc..." />
-    <MESSAGE value="modif de Business ajouterSpot pour éliminer les id créer lors de la saisie JSP" />
     <MESSAGE value="ajout jsp creation Spot (en cours ..)" />
     <MESSAGE value="ajout cif et set var dans  jsp creation Spot (en cours ..)" />
     <MESSAGE value=" suite ajout cif jsp ajoutSpot" />
@@ -698,7 +706,9 @@
     <MESSAGE value="correction radio btn creatiion Spot : mettre idvoie , idsecteur sur les requetes ajoutervoie, ajouter longueur&#10;ajout de if secteur choisie == idsecteur dans le foreach" />
     <MESSAGE value="ajout info ${param.Idxxx} dans aside table (voit quel l'id selectionné)" />
     <MESSAGE value="ajout filtre sur affichage longueur dans ajoutspot" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout filtre sur affichage longueur dans ajoutspot" />
+    <MESSAGE value="modif log pour trouver erreur lors du switch de spot en creation longeur (non fixée)" />
+    <MESSAGE value="refactor ajouterspot pour préparer arrivée de adminSpot" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor ajouterspot pour préparer arrivée de adminSpot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

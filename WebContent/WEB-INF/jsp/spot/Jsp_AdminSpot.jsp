@@ -22,7 +22,7 @@
             <section>
 
                 <button class="boutonLateral"
-                        name="commenter"
+                        name="SupprimerCommentaire"
                         form="navSelectionSpot"
                         type="submit"
                         formaction="Commenter"
@@ -32,18 +32,26 @@
                 </button>
 
                 <button class="boutonLateral"
-                        name="rechercher"
+                        name="tagger"
                         form="navSelectionSpot"
                         type="submit"
-                        formaction="Rechercher"
+                        formaction="TaggerSpot"
                         formmethod="post"
-                        value="rechercher"
-                        formtarget="_self"> Rechercher
+                        value="tagger"
+                        formtarget="_self"> Tagger
                 </button>
 
-                <a class="boutonLateral" href="CreerSpot">Créer</a>
+                <button class="boutonLateral"
+                        name="ModererCommentaire"
+                        form="navSelectionSpot"
+                        type="submit"
+                        formaction="ModererCommentaire"
+                        formmethod="post"
+                        value="ModererCommentaire"
+                        formtarget="_self"> Modérer
+                </button>
 
-                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="AcceuilSpot">Vers l'Acceuil Spot</a>
             </section>
             <footer>.</footer>
         </nav>
@@ -73,28 +81,6 @@
             </table>
         </section>
         <aside>
-            <article>
-
-                <label style="font-size: larger ">Spots</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> Nom</th>
-                        <th> Localisation</th>
-                        <th> Classification</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
-                        <tr>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </article>
             <article>
                 <label style="font-size: larger ">Secteurs</label>
                 <table class="bordered">
