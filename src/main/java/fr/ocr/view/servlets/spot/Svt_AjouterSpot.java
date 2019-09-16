@@ -66,6 +66,16 @@ public class Svt_AjouterSpot extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+
+    private void traitementGeneriqueExcption(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+        request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
+        request.getSession().removeAttribute(DATASESSION);
+        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+        requestDispatcher.forward(request, response);
+    }
+
+
     private Cookie resetThisCookie(HttpServletRequest request, String nomCookie) {
         Cookie valRet = null;
         try {
@@ -224,39 +234,21 @@ public class Svt_AjouterSpot extends HttpServlet {
 
             switch (natureRequete) {
                 case  "/Valider":
-                    try {
                         if (pourDataSession.idGrimpeur != -1 ) {
                             ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
                         } else {
                             logger.error("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
                         }
-                    } catch ( Exception e){
-                        request.getSession().removeAttribute("dataSession");
-                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
-                        throw new RuntimeException(e);
-                    }
-                    finally {
-                        logger.debug("Hello from :" + this.getClass().getSimpleName() + " suppresion session pourDataSession " + natureRequete);
-                        request.getSession().removeAttribute("dataSession");
-                    }
                     break;
 
                 case "/AjouterSpot":
-                    try {
                         pourDataSession.dbSpot.setLocalisation(request.getParameter("localisationSpot"));
                         pourDataSession.dbSpot.setNom(request.getParameter("nomSpot"));
                         pourDataSession.dbSpot.setClassification(STANDARD.name());
-
                         request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                    } catch ( Exception e){
-                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
-                        request.getSession().removeAttribute("dataSession");
-                        throw new RuntimeException(e);
-                    }
                     break;
 
                 case "/AjouterSecteur":
-                    try {
                         dbSecteur = new DbSecteur();
 
                         dbSecteur.setNom(request.getParameter("nomSecteur"));
@@ -265,15 +257,9 @@ public class Svt_AjouterSpot extends HttpServlet {
                         pourDataSession.dbSpot.getSecteursByIdspot().add(dbSecteur);
                         request.setAttribute("dbSpot", pourDataSession.dbSpot);
 
-                    }catch ( Exception e){
-                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
-                        request.getSession().removeAttribute("dataSession");
-                        throw new RuntimeException(e);
-                    }
                     break;
 
                 case "/AjouterVoie":
-                    try {
                         idDuSecteur = getValParamReqFromCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
 
                         if (idDuSecteur != null && idDuSecteur >= 0) {
@@ -296,19 +282,14 @@ public class Svt_AjouterSpot extends HttpServlet {
                             logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Secteur " + natureRequete);
                         }
                         request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                    }catch ( Exception e){
-                        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + e.getLocalizedMessage() + "  " + Arrays.toString(e.getStackTrace()));
-                        request.getSession().removeAttribute("dataSession");
-                        throw new RuntimeException(e);
-                    }
                     break;
 
                 case "/AjouterLongueur":
-                    try {
                         idDuSecteur = getValParamReqFromCookie(request,IDSECTEUR, IDSELECTIONSECTEUR );
                         idDeLaVoie = getValParamReqFromCookie(request,IDVOIE, IDSELECTIONVOIE );
 
-                        if (idDeLaVoie != null && idDeLaVoie >= 0 && idDuSecteur != null && idDuSecteur >= 0) {
+                    if (idDuSecteur != null && idDuSecteur >= 0) {
+                        if (idDeLaVoie != null && idDeLaVoie >= 0) {
                             request.setAttribute("idValSecteur", idDuSecteur);
                             request.setAttribute("idValVoie", idDeLaVoie);
 
@@ -323,7 +304,7 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
 
-                            dbSecteur =  ((ArrayList<DbSecteur>)(pourDataSession.dbSpot.getSecteursByIdspot())).get(idDuSecteur);
+                            dbSecteur = ((ArrayList<DbSecteur>) (pourDataSession.dbSpot.getSecteursByIdspot())).get(idDuSecteur);
 
                             dbVoie = ((ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur()).get(idDeLaVoie);
 
@@ -332,12 +313,11 @@ public class Svt_AjouterSpot extends HttpServlet {
                         } else {
                             logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Voie " + natureRequete);
                         }
-                        request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                    }catch ( Exception e){
+
+                    } else {
                         logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Secteur " + natureRequete);
-                        request.getSession().removeAttribute("dataSession");
-                        throw new RuntimeException(e);
                     }
+                    request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
@@ -346,12 +326,8 @@ public class Svt_AjouterSpot extends HttpServlet {
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
             requestDispatcher.forward(request, response);
 
-        } catch (Exception e) {
-            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
-
-            request.getSession().removeAttribute(DATASESSION);
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-            requestDispatcher.forward(request, response);
+        } catch (Exception ex) {
+            traitementGeneriqueExcption(ex, request, response);
         }
     }
 
@@ -401,10 +377,10 @@ public class Svt_AjouterSpot extends HttpServlet {
             }
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
             requestDispatcher.forward(request, response);
-        } catch (Exception e) {
-            request.getSession().removeAttribute(DATASESSION);
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-            requestDispatcher.forward(request, response);
+        } catch (Exception ex) {
+            traitementGeneriqueExcption(ex, request, response);
+
         }
     }
+
 }
