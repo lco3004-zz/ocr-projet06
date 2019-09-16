@@ -33,12 +33,55 @@ import static fr.ocr.view.utile.ConstantesSvt.*;
 
 public class Svt_AjouterSpot extends HttpServlet {
 
+    private final Logger logger;
+
+    private CtrlMetierSpot ctrlMetierSpot;
+
+    private DataSession pourDataSession;
+
+    private GestionCookies gestionCookies;
+
+
+
+
+    private class DataSession {
+
+        private int indexSecteur;
+        private int indexVoie;
+        private int idGrimpeur;
+        private DbSpot dbSpot;
+
+        DataSession() {
+            indexSecteur = indexVoie = 0;
+            idGrimpeur = -1;
+            dbSpot = new DbSpot();
+            dbSpot.setNom("");
+            dbSpot.setLocalisation("");
+            dbSpot.setIdspot(-1);
+        }
+    }
+
+    public Svt_AjouterSpot() {
+        super();
+        logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
+        gestionCookies = new GestionCookies();
+    }
+
+
+    private void tr_ExceptionGenerique(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+        request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
+        request.getSession().removeAttribute(DATASESSION);
+        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+        requestDispatcher.forward(request, response);
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String natureRequete = request.getServletPath();
             Cookie cookie;
-            DbSecteur dbSecteur;
-            Integer idDuSecteur;
+
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
 
             request.setAttribute("afficheFormeSpot", false);
@@ -100,15 +143,6 @@ public class Svt_AjouterSpot extends HttpServlet {
 
         }
     }
-
-    private final Logger logger;
-
-    private CtrlMetierSpot ctrlMetierSpot;
-
-    private DataSession pourDataSession;
-
-    private GestionCookies gestionCookies;
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -188,11 +222,14 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             dbSecteur = ((ArrayList<DbSecteur>) (pourDataSession.dbSpot.getSecteursByIdspot())).get(idDuSecteur);
 
-                            dbVoie = ((ArrayList<DbVoie>) dbSecteur.getVoiesByIdsecteur()).get(idDeLaVoie);
 
-                            dbVoie.getLongueursByIdvoie().add(dbLongueur);
-
-                            request.setAttribute("activerValider", true);
+                            if (dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).count() == 1) {
+                                dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).forEach((z) -> {z.getLongueursByIdvoie().add(dbLongueur);});
+                                request.setAttribute("activerValider", true);
+                            }
+                            else {
+                                logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Voie " + natureRequete);
+                            }
 
                         } else {
                             logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Voie " + natureRequete);
@@ -215,21 +252,6 @@ public class Svt_AjouterSpot extends HttpServlet {
         }
     }
 
-    public Svt_AjouterSpot() {
-        super();
-        logger = LogManager.getLogger(this.getClass());
-        logger.debug("Hello from :" + this.getClass().getSimpleName());
-        gestionCookies = new GestionCookies();
-    }
-
-
-    private void tr_ExceptionGenerique(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-        request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
-        request.getSession().removeAttribute(DATASESSION);
-        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-        requestDispatcher.forward(request, response);
-    }
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
@@ -266,22 +288,6 @@ public class Svt_AjouterSpot extends HttpServlet {
             }
         }
         super.service(req, resp);
-    }
-
-    private class DataSession {
-        private int indexSecteur;
-        private int indexVoie;
-        private int idGrimpeur;
-        private DbSpot dbSpot;
-
-        DataSession() {
-            indexSecteur = indexVoie = 0;
-            idGrimpeur = -1;
-            dbSpot = new DbSpot();
-            dbSpot.setNom("");
-            dbSpot.setLocalisation("");
-            dbSpot.setIdspot(-1);
-        }
     }
 
 }
