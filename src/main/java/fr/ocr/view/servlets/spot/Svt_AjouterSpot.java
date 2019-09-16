@@ -221,8 +221,9 @@ public class Svt_AjouterSpot extends HttpServlet {
                             dbLongueur.setNombreDeSpits(Integer.valueOf(request.getParameter("nbreSpitsLongueur")));
 
                             dbSecteur = ((ArrayList<DbSecteur>) (pourDataSession.dbSpot.getSecteursByIdspot())).get(idDuSecteur);
-
-
+                            //
+                            // STREAM . What ELSE ?
+                            //
                             if (dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).count() == 1) {
                                 dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).forEach((z) -> {z.getLongueursByIdvoie().add(dbLongueur);});
                                 request.setAttribute("activerValider", true);
@@ -251,7 +252,6 @@ public class Svt_AjouterSpot extends HttpServlet {
             tr_ExceptionGenerique(ex, request, response);
         }
     }
-
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
