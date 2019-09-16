@@ -33,6 +33,72 @@ import static fr.ocr.view.utile.ConstantesSvt.*;
 
 public class Svt_AjouterSpot extends HttpServlet {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String natureRequete = request.getServletPath();
+            Cookie cookie;
+            DbSecteur dbSecteur;
+            Integer idDuSecteur;
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
+
+            request.setAttribute("afficheFormeSpot", false);
+
+            switch (natureRequete) {
+                case "/Valider":
+                    if (pourDataSession.idGrimpeur != -1) {
+                        if (pourDataSession.dbSpot.getIdspot() >= 0) {
+                            ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
+                            requestDispatcher = this.getServletContext().getNamedDispatcher("AcceuilSpot");
+                        } else {
+                            logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
+                        }
+                    } else {
+                        logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
+                    }
+                    break;
+                case "/CreerSpot":
+                    request.setAttribute("afficheFormeSpot", true);
+                    request.setAttribute("activerValider", false);
+                    break;
+
+                case "/SelectionSecteur":
+                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    if (cookie != null) {
+                        request.setAttribute("idValSecteur", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
+                    cookie = gestionCookies.resetThisCookie(request, IDDELAVOIE);
+                    if (cookie != null) {
+                        request.setAttribute("idValVoie", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
+                    request.setAttribute("activerValider", false);
+                    request.setAttribute("dbSpot", pourDataSession.dbSpot);
+                    break;
+
+                case "/SelectionVoie":
+                    cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
+                    if (cookie != null) {
+                        request.setAttribute("idValSecteur", cookie.getValue());
+                    }
+                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    if (cookie != null) {
+                        request.setAttribute("idValVoie", cookie.getValue());
+                        response.addCookie(cookie);
+                    }
+                    request.setAttribute("activerValider", false);
+                    request.setAttribute("dbSpot", pourDataSession.dbSpot);
+                    break;
+                default:
+                    logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
+            }
+            requestDispatcher.forward(request, response);
+        } catch (Exception ex) {
+            tr_ExceptionGenerique(ex, request, response);
+
+        }
+    }
+
     private final Logger logger;
 
     private CtrlMetierSpot ctrlMetierSpot;
@@ -200,69 +266,6 @@ public class Svt_AjouterSpot extends HttpServlet {
         super.service(req, resp);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        try {
-            String natureRequete = request.getServletPath();
-            Cookie cookie;
-            DbSecteur dbSecteur;
-            Integer idDuSecteur;
-            request.setAttribute("afficheFormeSpot", false);
-            switch (natureRequete) {
-                case "/Valider":
-                    if (pourDataSession.idGrimpeur != -1) {
-                        if (pourDataSession.dbSpot.getIdspot() >= 0) {
-                            ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
-                        } else {
-                            logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
-                        }
-                    } else {
-                        logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
-                    }
-                    break;
-                case "/CreerSpot":
-                    request.setAttribute("afficheFormeSpot",true);
-                    request.setAttribute("activerValider", false);
-                    break;
-
-                case "/SelectionSecteur" :
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
-                    if (cookie != null) {
-                        request.setAttribute("idValSecteur", cookie.getValue());
-                        response.addCookie(cookie);
-                    }
-                    cookie = gestionCookies.resetThisCookie(request, IDDELAVOIE);
-                    if (cookie != null) {
-                        request.setAttribute("idValVoie", cookie.getValue());
-                        response.addCookie(cookie);
-                    }
-                    request.setAttribute("activerValider", false);
-                    request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                    break;
-
-                case "/SelectionVoie" :
-                    cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
-                    if (cookie != null) {
-                        request.setAttribute("idValSecteur", cookie.getValue());
-                    }
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
-                    if (cookie != null) {
-                        request.setAttribute("idValVoie", cookie.getValue());
-                        response.addCookie(cookie);
-                    }
-                    request.setAttribute("activerValider", false);
-                    request.setAttribute("dbSpot", pourDataSession.dbSpot);
-                    break;
-                default:
-                    logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
-            }
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnSpot");
-            requestDispatcher.forward(request, response);
-        } catch (Exception ex) {
-            tr_ExceptionGenerique(ex, request, response);
-
-        }
-    }
-
     private class DataSession {
         private int indexSecteur;
         private int indexVoie;
@@ -277,6 +280,6 @@ public class Svt_AjouterSpot extends HttpServlet {
             dbSpot.setLocalisation("");
             dbSpot.setIdspot(-1);
         }
-
     }
+
 }

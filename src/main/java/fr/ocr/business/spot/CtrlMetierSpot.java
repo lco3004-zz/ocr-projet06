@@ -58,8 +58,9 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
 
         dbSpot.setLocalisation(oldDbSpot.getLocalisation());
         dbSpot.setNom(oldDbSpot.getNom());
+        dbSpot.setClassification(oldDbSpot.getClassification());
 
-        for (DbSecteur oldSecteur :dbSpot.getSecteursByIdspot()) {
+        for (DbSecteur oldSecteur : oldDbSpot.getSecteursByIdspot()) {
             DbSecteur dbSecteur = new DbSecteur();
             dbSecteur.setNom(oldSecteur.getNom());
             for (DbVoie oldVoie: oldSecteur.getVoiesByIdsecteur()) {

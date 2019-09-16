@@ -48,20 +48,22 @@
                     </c:otherwise>
                 </c:choose>
 
-                <form>
+                <form id="formHidenValider" style="display: none">
                     <input hidden name="vide" value="0" type="text"/>
-                    <button class="boutonLateral"
-                            name="Valider"
-                            type="submit"
-                            formaction="Valider"
-                            formmethod="get"
-                            value="Valider"
-                            formtarget="_self"
-                    ${choixValiderEnable}> Valider
-                    </button>
                 </form>
 
-                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
+                <button class="boutonLateral"
+                        name="Valider"
+                        type="submit"
+                        form="formHidenValider"
+                        formaction="Valider"
+                        formmethod="get"
+                        value="Valider"
+                        formtarget="_self"
+                ${choixValiderEnable}> Valider
+                </button>
+
+                <a class="boutonLateral" href="/AcceuilSpot">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>

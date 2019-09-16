@@ -62,7 +62,7 @@
                 <form id="navSelectionSpot">
                     <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
                         <tr>
-                            <td><input type="radio" name="idValSpot" value="${dbSpot.getIdSpot()}"></td>
+                            <td><input type="radio" name="idValSpot" value="${dbSpot.getIdspot()}"></td>
                             <td>${dbSpot.getNom()}</td>
                             <td>${dbSpot.getLocalisation()}</td>
                             <td>${dbSpot.getClassification()}</td>
