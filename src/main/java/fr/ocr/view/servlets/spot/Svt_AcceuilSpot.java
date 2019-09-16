@@ -2,6 +2,7 @@ package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
 import fr.ocr.model.entities.DbSpot;
+import fr.ocr.view.utile.GestionCookies;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+
+import static fr.ocr.view.utile.ConstantesSvt.DATASESSION;
 
 @WebServlet(name = "Svt_AcceuilSpot", urlPatterns = {"/AcceuilSpot"})
 public class Svt_AcceuilSpot extends HttpServlet {
@@ -34,6 +37,14 @@ public class Svt_AcceuilSpot extends HttpServlet {
             throws ServletException, IOException {
 
         ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
+
+        Object o = req.getSession().getAttribute(DATASESSION);
+
+        if (o != null) {
+            req.getSession().removeAttribute(DATASESSION);
+        }
+        GestionCookies gestionCookies = new GestionCookies();
+        gestionCookies.supprimeCookiesSpot(req,resp);
 
         super.service(req, resp);
     }

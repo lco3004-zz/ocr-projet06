@@ -35,7 +35,7 @@ public class GestionCookies {
         return valRet;
     }
 
-    public Integer getValParamReqFromCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+    public Integer getValParamReqFromCookieSpot(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
 
         Integer selectionRadioButton = null;
         try {
@@ -68,7 +68,7 @@ public class GestionCookies {
                 }
             }
             if (valRet == null) {
-                logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide ");
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun cookie");
             }
 
         } catch (Exception ex) {
@@ -79,7 +79,7 @@ public class GestionCookies {
         return valRet;
     }
 
-    public Cookie setValParamReqIntoCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+    public Cookie setValParamReqIntoCookieSpot(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
         String selectionRadioButton;
         Cookie valRet = null;
         try {
@@ -106,7 +106,28 @@ public class GestionCookies {
         return valRet;
     }
 
-    public void createCookies(HttpServletRequest req, HttpServletResponse resp) throws RuntimeException {
+    public  void supprimeCookiesSpot(HttpServletRequest req, HttpServletResponse resp) throws RuntimeException  {
+        try {
+            String sIdSecteur = "-1";
+            String sIdVoie = "-1";
+            Cookie[] cookies = req.getCookies();
+            if (req.getCookies() != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals(IDDUSECTEUR) || cookie.getName().equals(IDDELAVOIE)) {
+                        cookie.setMaxAge(0);
+                        resp.addCookie(cookie);
+                        logger.debug("Hello from :" + this.getClass().getSimpleName() + "Cookie efffé = " + cookie.getName());
+                    }
+                }
+            }
+
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            throw new RuntimeException(ex);
+        }
+
+    }
+    public void createCookiesSpot(HttpServletRequest req, HttpServletResponse resp) throws RuntimeException {
         try {
             String sIdSecteur = "-1";
             String sIdVoie = "-1";

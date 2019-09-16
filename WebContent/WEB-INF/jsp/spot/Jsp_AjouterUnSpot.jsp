@@ -63,7 +63,7 @@
                 ${choixValiderEnable}> Valider
                 </button>
 
-                <a class="boutonLateral" href="/AcceuilSpot">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="AcceuilSpot">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>

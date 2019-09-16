@@ -48,7 +48,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     if (pourDataSession.idGrimpeur != -1) {
                         if (pourDataSession.dbSpot.getIdspot() >= 0) {
                             ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
-                            requestDispatcher = this.getServletContext().getNamedDispatcher("AcceuilSpot");
+                            requestDispatcher = this.getServletContext().getNamedDispatcher("Svt_AcceuilSpot");
                         } else {
                             logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
                         }
@@ -62,16 +62,18 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/SelectionSecteur":
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    cookie = gestionCookies.setValParamReqIntoCookieSpot(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
                     if (cookie != null) {
                         request.setAttribute("idValSecteur", cookie.getValue());
                         response.addCookie(cookie);
                     }
                     cookie = gestionCookies.resetThisCookie(request, IDDELAVOIE);
+                    /*
                     if (cookie != null) {
                         request.setAttribute("idValVoie", cookie.getValue());
                         response.addCookie(cookie);
                     }
+                    */
                     request.setAttribute("activerValider", false);
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
@@ -81,7 +83,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     if (cookie != null) {
                         request.setAttribute("idValSecteur", cookie.getValue());
                     }
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    cookie = gestionCookies.setValParamReqIntoCookieSpot(request, IDDELAVOIE, IDSELECTIONVOIE);
                     if (cookie != null) {
                         request.setAttribute("idValVoie", cookie.getValue());
                         response.addCookie(cookie);
@@ -124,7 +126,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                         pourDataSession.dbSpot.setLocalisation(request.getParameter("localisationSpot"));
                         pourDataSession.dbSpot.setNom(request.getParameter("nomSpot"));
                         pourDataSession.dbSpot.setClassification(STANDARD.name());
-                    pourDataSession.dbSpot.setIdspot(0);
+                        pourDataSession.dbSpot.setIdspot(0);
                         request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
@@ -140,7 +142,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/AjouterVoie":
-                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    idDuSecteur = gestionCookies.getValParamReqFromCookieSpot(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
 
                         if (idDuSecteur != null && idDuSecteur >= 0) {
 
@@ -165,8 +167,8 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/AjouterLongueur":
-                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
-                    idDeLaVoie = gestionCookies.getValParamReqFromCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    idDuSecteur = gestionCookies.getValParamReqFromCookieSpot(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    idDeLaVoie = gestionCookies.getValParamReqFromCookieSpot(request, IDDELAVOIE, IDSELECTIONVOIE);
 
                     if (idDuSecteur != null && idDuSecteur >= 0) {
                         if (idDeLaVoie != null && idDeLaVoie >= 0) {
@@ -255,7 +257,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                 }
             }
 
-            gestionCookies.createCookies(req, resp);
+            gestionCookies.createCookiesSpot(req, resp);
         } else {
             if (o != null) {
                 pourDataSession = (o instanceof DataSession) ? (DataSession) o : null;
