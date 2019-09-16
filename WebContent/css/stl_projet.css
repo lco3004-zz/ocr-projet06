@@ -103,6 +103,12 @@
     color: white;
 }
 
+#container main nav section .boutonLateral:disabled {
+    background-color: dimgray;
+    color: darkgray;
+    font-style: italic;
+}
+
 /* ***************  MAIN SECTION ************************** */
 #container main section {
     flex: 5;

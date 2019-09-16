@@ -42,78 +42,6 @@ public class Svt_AjouterSpot extends HttpServlet {
     private GestionCookies gestionCookies;
 
 
-    private class  DataSession   {
-        private  int indexSecteur;
-        private  int indexVoie;
-        private  int idGrimpeur;
-        private  DbSpot dbSpot;
-
-        DataSession() {
-            indexSecteur =indexVoie=0;
-            idGrimpeur = -1;
-            dbSpot = new DbSpot();
-        }
-
-    }
-
-    public Svt_AjouterSpot() {
-        super();
-        logger = LogManager.getLogger(this.getClass());
-        logger.debug("Hello from :" + this.getClass().getSimpleName());
-        gestionCookies = new GestionCookies();
-    }
-
-
-    private void tr_ExceptionGenerique(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-        request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
-        request.getSession().removeAttribute(DATASESSION);
-        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-        requestDispatcher.forward(request, response);
-    }
-
-
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
-
-        String natureRequete = req.getServletPath();
-        Object o = req.getSession().getAttribute(DATASESSION);
-
-        if (natureRequete.equals("/CreerSpot")) {
-
-            if (o == null) {
-                pourDataSession = new DataSession();
-                o =  req.getSession().getAttribute("dbGrimpeur");
-                DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
-                if (dbGrimpeur != null) {
-                    pourDataSession.idGrimpeur = dbGrimpeur.getIdgrimpeur();
-
-                    req.getSession().setAttribute(DATASESSION, pourDataSession);
-
-                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " création session pourDataSession " + natureRequete);
-                }
-                else  {
-                    logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
-                }
-            }
-
-            gestionCookies.createCookies(req, resp);
-
-        }
-        else {
-            if (o != null) {
-                pourDataSession = (o instanceof DataSession) ? (DataSession) o : null;
-            }
-            else {
-                logger.error("Erreur : " + this.getClass().getSimpleName() + " Session DataSession est NULL" + natureRequete);
-            }
-        }
-        super.service(req, resp);
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();
@@ -126,18 +54,11 @@ public class Svt_AjouterSpot extends HttpServlet {
             request.setAttribute("afficheFormeSpot",false);
 
             switch (natureRequete) {
-                case  "/Valider":
-                        if (pourDataSession.idGrimpeur != -1 ) {
-                            ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
-                        } else {
-                            logger.error("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
-                        }
-                    break;
-
                 case "/AjouterSpot":
                         pourDataSession.dbSpot.setLocalisation(request.getParameter("localisationSpot"));
                         pourDataSession.dbSpot.setNom(request.getParameter("nomSpot"));
                         pourDataSession.dbSpot.setClassification(STANDARD.name());
+                    pourDataSession.dbSpot.setIdspot(0);
                         request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
@@ -203,6 +124,8 @@ public class Svt_AjouterSpot extends HttpServlet {
 
                             dbVoie.getLongueursByIdvoie().add(dbLongueur);
 
+                            request.setAttribute("activerValider", true);
+
                         } else {
                             logger.warn("WARN : " + this.getClass().getSimpleName() + " aucune selection de Voie " + natureRequete);
                         }
@@ -224,6 +147,58 @@ public class Svt_AjouterSpot extends HttpServlet {
         }
     }
 
+    public Svt_AjouterSpot() {
+        super();
+        logger = LogManager.getLogger(this.getClass());
+        logger.debug("Hello from :" + this.getClass().getSimpleName());
+        gestionCookies = new GestionCookies();
+    }
+
+
+    private void tr_ExceptionGenerique(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+        request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
+        request.getSession().removeAttribute(DATASESSION);
+        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+        requestDispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
+
+        String natureRequete = req.getServletPath();
+        Object o = req.getSession().getAttribute(DATASESSION);
+
+        if (natureRequete.equals("/CreerSpot")) {
+
+            if (o == null) {
+                pourDataSession = new DataSession();
+                o = req.getSession().getAttribute("dbGrimpeur");
+                DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+                if (dbGrimpeur != null) {
+                    pourDataSession.idGrimpeur = dbGrimpeur.getIdgrimpeur();
+
+                    req.getSession().setAttribute(DATASESSION, pourDataSession);
+
+                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " création session pourDataSession " + natureRequete);
+                } else {
+                    logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
+                }
+            }
+
+            gestionCookies.createCookies(req, resp);
+        } else {
+            if (o != null) {
+                pourDataSession = (o instanceof DataSession) ? (DataSession) o : null;
+            } else {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " Session DataSession est NULL" + natureRequete);
+            }
+        }
+        super.service(req, resp);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
@@ -233,8 +208,20 @@ public class Svt_AjouterSpot extends HttpServlet {
             Integer idDuSecteur;
             request.setAttribute("afficheFormeSpot", false);
             switch (natureRequete) {
+                case "/Valider":
+                    if (pourDataSession.idGrimpeur != -1) {
+                        if (pourDataSession.dbSpot.getIdspot() >= 0) {
+                            ctrlMetierSpot.ajouterCeSpot(pourDataSession.idGrimpeur, pourDataSession.dbSpot);
+                        } else {
+                            logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
+                        }
+                    } else {
+                        logger.warn("Hello from :" + this.getClass().getSimpleName() + " dbGrimpeur est vide " + natureRequete);
+                    }
+                    break;
                 case "/CreerSpot":
                     request.setAttribute("afficheFormeSpot",true);
+                    request.setAttribute("activerValider", false);
                     break;
 
                 case "/SelectionSecteur" :
@@ -248,7 +235,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                         request.setAttribute("idValVoie", cookie.getValue());
                         response.addCookie(cookie);
                     }
-
+                    request.setAttribute("activerValider", false);
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
@@ -262,7 +249,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                         request.setAttribute("idValVoie", cookie.getValue());
                         response.addCookie(cookie);
                     }
-
+                    request.setAttribute("activerValider", false);
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
                 default:
@@ -274,5 +261,22 @@ public class Svt_AjouterSpot extends HttpServlet {
             tr_ExceptionGenerique(ex, request, response);
 
         }
+    }
+
+    private class DataSession {
+        private int indexSecteur;
+        private int indexVoie;
+        private int idGrimpeur;
+        private DbSpot dbSpot;
+
+        DataSession() {
+            indexSecteur = indexVoie = 0;
+            idGrimpeur = -1;
+            dbSpot = new DbSpot();
+            dbSpot.setNom("");
+            dbSpot.setLocalisation("");
+            dbSpot.setIdspot(-1);
+        }
+
     }
 }

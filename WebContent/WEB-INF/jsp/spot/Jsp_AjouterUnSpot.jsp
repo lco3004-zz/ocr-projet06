@@ -39,15 +39,28 @@
                         value="SelectionVoie"
                         formtarget="_self"> Selection Voie
                 </button>
-                <button class="boutonLateral"
-                        name="Valider"
-                        form="xxx"
-                        type="submit"
-                        formaction="Valider"
-                        formmethod="post"
-                        value="Valider"
-                        formtarget="_self"> Valider
-                </button>
+                <c:choose>
+                    <c:when test="${requestScope.activerValider == true}">
+                        <c:set var="choixValiderEnable" scope="page" value="enabled"> </c:set>
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="choixValiderEnable" scope="page" value="disabled"> </c:set>
+                    </c:otherwise>
+                </c:choose>
+
+                <form>
+                    <input hidden name="vide" value="0" type="text"/>
+                    <button class="boutonLateral"
+                            name="Valider"
+                            type="submit"
+                            formaction="Valider"
+                            formmethod="get"
+                            value="Valider"
+                            formtarget="_self"
+                    ${choixValiderEnable}> Valider
+                    </button>
+                </form>
+
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
