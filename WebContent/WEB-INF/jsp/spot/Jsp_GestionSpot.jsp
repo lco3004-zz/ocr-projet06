@@ -74,7 +74,6 @@
         </section>
         <aside>
             <article>
-
                 <label style="font-size: larger ">Spots</label>
                 <table class="bordered">
                     <thead>
