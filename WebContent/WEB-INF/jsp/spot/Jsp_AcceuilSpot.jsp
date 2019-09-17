@@ -53,10 +53,10 @@
             <table class="bordered">
                 <thead>
                 <tr>
-                    <th> Nom</th>
-                    <th> Localisation</th>
-                    <th> Classification</th>
-                    <th> - </th>
+                    <th>Nom</th>
+                    <th>Localisation</th>
+                    <th>Classification</th>
+                    <th>#</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -151,7 +151,7 @@
                                                 formaction="AcceuilSelectionVoie"
                                                 formmethod="get"
                                                 value="${dbVoie.getIdvoie()}"
-                                                formtarget="_self"> Select
+                                                formtarget="_self"> ${labelBoutton}
                                         </button>
                             </tr>
                         </c:forEach>

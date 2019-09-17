@@ -113,7 +113,13 @@
     margin: 0.2%;
 }
 
-#container main  .bordered {
+#container main section table {
+    border-spacing: 0;
+    width: 100%;
+    overflow: scroll;
+}
+
+#container main section .bordered {
     justify-content: center;
     align-items: center;
     border: solid #ccc 1px;
@@ -123,20 +129,17 @@
     -webkit-box-shadow: 0 3px 3px #ccc;
     -moz-box-shadow: 0 3px 3px #ccc;
     box-shadow: 0 3px 3px #ccc;
-    border-spacing: 0;
-    width: 100%;
-    overflow: scroll;
 }
 
-#container main  .bordered td,
-#container main  .bordered th {
+#container main section .bordered td,
+#container main section .bordered th {
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
 
-#container main  .formSimple {
+#container main section .formSimple {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -144,7 +147,7 @@
     border: solid #ccc 1px;
 }
 
-#container main  .formSimple .boutonFormSimple {
+#container main section .formSimple .boutonFormSimple {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -162,23 +165,23 @@
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
-#container main  .formSimple .boutonFormSimple:hover {
+#container main section .formSimple .boutonFormSimple:hover {
     background-color: rgba(255, 0, 0, 1);
     color: white;
 }
 
-#container main  .formSimple .boutonFormSimple:active {
+#container main section .formSimple .boutonFormSimple:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-#container main  .formSimple .boutonFormSimple:disabled {
+#container main section .formSimple .boutonFormSimple:disabled {
     background-color: dimgray;
     color: darkgray;
     font-style: italic;
 }
 
-#container main  .formSimple .labels {
+#container main section .formSimple .labels {
     display: inline-flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -186,7 +189,7 @@
     flex-basis: 40%;
 }
 
-#container main  .formSimple .inputs {
+#container main section .formSimple .inputs {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -194,21 +197,21 @@
     justify-content: flex-start;
 }
 
-#container main  .formSimple .actions {
+#container main section .formSimple .actions {
     flex-basis: 10%;
     justify-content: center;
     align-items: center;
 }
 
 
-#container main  .formSimple .informations {
+#container main section .formSimple .informations {
     flex-basis: 10%;
     justify-content: center;
     align-items: center;
 }
 
 
-#container main  .formSimpleLogin {
+#container main section .formSimpleLogin {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -216,7 +219,7 @@
     border: solid #ccc 1px;
 }
 
-#container main  .formSimpleLogin .boutonFormSimple {
+#container main section .formSimpleLogin .boutonFormSimple {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -234,17 +237,17 @@
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
-#container main  .formSimpleLogin .boutonFormSimple:hover {
+#container main section .formSimpleLogin .boutonFormSimple:hover {
     background-color: rgba(255, 0, 0, 1);
     color: black;
 }
 
-#container main  .formSimpleLogin .boutonFormSimple:active {
+#container main section .formSimpleLogin .boutonFormSimple:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-#container main  .formSimpleLogin .labels {
+#container main section .formSimpleLogin .labels {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -252,7 +255,7 @@
     flex-basis: 40%;
 }
 
-#container main  .formSimpleLogin .inputs {
+#container main section .formSimpleLogin .inputs {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -260,19 +263,19 @@
     justify-content: space-between;
 }
 
-#container main  .formSimpleLogin .actions {
+#container main section .formSimpleLogin .actions {
     flex-basis: 20%;
     justify-content: center;
     align-items: center;
 }
 
-#container main  .formSimpleLogin .informations {
+#container main section .formSimpleLogin .informations {
     flex-basis: 20%;
     justify-content: center;
     align-items: center;
 }
 
-#container main  .bordered th {
+#container main section .bordered th {
     background-color: #dce9f9;
     background-image: linear-gradient(top, #ebf3fc, #dce9f9);
     box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
@@ -280,31 +283,31 @@
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
-#container main  .bordered td:first-child,
-#container main  .bordered th:first-child {
+#container main section .bordered td:first-child,
+#container main section .bordered th:first-child {
     border-left: none;
 }
 
-#container main  .bordered th:first-child {
+#container main section .bordered th:first-child {
     border-radius: 20px 0 0 0;
 }
 
-#container main  .bordered th:last-child {
+#container main section .bordered th:last-child {
     border-radius: 0 20px 0 0;
 }
 
-#container main  .bordered tr:last-child td:first-child {
+#container main section .bordered tr:last-child td:first-child {
     border-radius: 0 0 0 20px;
 }
 
-#container main  .bordered tr:last-child td:last-child {
+#container main section .bordered tr:last-child td:last-child {
     border-radius: 0 0 20px 0;
 }
 
-#container main  .bordered tr:hover {
+#container main section .bordered tr:hover {
     background: #fbf8e9;
 }
-#container main  h3 {
+#container main section h3 {
     color: GrayText;
 }
 
@@ -320,6 +323,21 @@
     margin: 0.2%;
 }
 
+#container main aside table {
+    border-spacing: 0;
+    width: 100%;
+    overflow: scroll;
+}
+
+#container main aside .bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 3px 3px #ccc;
+    -moz-box-shadow: 0 3px 3px #ccc;
+    box-shadow: 0 3px 3px #ccc;
+}
 #container main aside article {
 
     border: 2px dotted black;
@@ -329,3 +347,55 @@
 #container main aside article {
     flex: 1;
 }
+
+#container main aside .bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 3px 3px #ccc;
+    -moz-box-shadow: 0 3px 3px #ccc;
+    box-shadow: 0 3px 3px #ccc;
+}
+
+#container main aside .bordered td,
+#container main aside .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#container main aside .bordered th {
+    background-color: #dce9f9;
+    background-image: linear-gradient(top, #ebf3fc, #dce9f9);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+#container main aside .bordered td:first-child,
+#container main aside .bordered th:first-child {
+    border-left: none;
+}
+
+#container main aside .bordered th:first-child {
+    border-radius: 20px 0 0 0;
+}
+
+#container main aside .bordered th:last-child {
+    border-radius: 0 20px 0 0;
+}
+
+#container main aside .bordered tr:last-child td:first-child {
+    border-radius: 0 0 0 20px;
+}
+
+#container main aside .bordered tr:last-child td:last-child {
+    border-radius: 0 0 20px 0;
+}
+
+
+<!--
+
+-->
