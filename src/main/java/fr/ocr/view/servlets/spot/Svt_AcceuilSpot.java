@@ -25,9 +25,9 @@ import java.util.List;
 import static fr.ocr.view.utile.ConstantesSvt.*;
 
 @WebServlet(name = "Svt_AcceuilSpot", urlPatterns = {"/AcceuilSpot",
-        "/AcceuilSpot/SelectionSecteur",
-        "/AcceuilSpot/SelectionSpot",
-        "/AcceuilSpot/SelectionVoie"})
+        "/AcceuilSelectionSecteur",
+        "/AcceuilSelectionSpot",
+        "/AcceuilSelectionVoie"})
 
 public class Svt_AcceuilSpot extends HttpServlet {
 
@@ -104,7 +104,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
         return cookie;
     }
 
-    private  Cookie cookieVoieArticleLongueur(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    private  Cookie cookieVoieArticleLongueurs(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
         if (cookie != null) {
             int idSelectionVoie = Integer.parseInt(cookie.getValue());
@@ -113,6 +113,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
             if (cookieSecteurArticleVoies(request,response) != null) {
                 DbVoie dbVoie = ctrlMetierSpot.consulterCetteVoie(idSelectionVoie);
+
                 Collection<DbLongueur> dbLongueurs = dbVoie.getLongueursByIdvoie();
                 request.setAttribute("dbLongueurs", dbLongueurs);
             }
@@ -138,7 +139,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
                 case "/AcceuilSpot":
                     break;
 
-                case "/AcceuilSpot/SelectionSpot":
+                case "/AcceuilSelectionSpot":
                     gestionCookies.resetThisCookie(request, IDDUSECTEUR);
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
 
@@ -149,7 +150,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
                     break;
 
-                case "/AcceuilSpot/SelectionSecteur":
+                case "/AcceuilSelectionSecteur":
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
 
                     cookie =  cookieSecteurArticleVoies(request,response);
@@ -159,9 +160,9 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
                    break;
 
-                case "/AcceuilSpot/SelectionVoie":
+                case "/AcceuilSelectionVoie":
 
-                    cookie =  cookieVoieArticleLongueur(request,response);
+                    cookie =  cookieVoieArticleLongueurs(request,response);
                     if (cookie != null) {
                         response.addCookie(cookie);
                     }

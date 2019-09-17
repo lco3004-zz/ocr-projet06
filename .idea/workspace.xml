@@ -4,9 +4,9 @@
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,9 +172,9 @@
       <command value="mvn clean" />
       <command value="mvn clean compile" />
       <command value="mvn compile package" />
-      <command value="mvn  package" />
       <command value="mvn compile" />
       <command value="mvn clean package" />
+      <command value="mvn  package" />
       <command value="mvn clean compile package" />
     </option>
   </component>
@@ -317,14 +317,7 @@
       <workItem from="1568634167081" duration="11546000" />
       <workItem from="1568651046663" duration="4286000" />
       <workItem from="1568699289732" duration="4629000" />
-      <workItem from="1568704196080" duration="21383000" />
-    </task>
-    <task id="LOCAL-00020" summary="corection bug db sur ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)">
-      <created>1568309405412</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1568309405412</updated>
+      <workItem from="1568704196080" duration="25342000" />
     </task>
     <task id="LOCAL-00021" summary="ajout publier topo">
       <created>1568315109671</created>
@@ -662,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568729039603</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="refactoring complet de acceuilSpot (encours de test)">
+      <created>1568734187153</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1568734187153</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +684,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="revue gestion cookie (bug en cours de test)" />
     <MESSAGE value="revue gestion cookie (bug en cours de test) suite" />
     <MESSAGE value="simplification jsp et servlet ajout topo" />
     <MESSAGE value="simplification jsp et servlet ajout topo (suite)" />
@@ -709,7 +708,19 @@
     <MESSAGE value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
     <MESSAGE value="ecriture doget de acceuilSpot" />
     <MESSAGE value="pb avec Lazzy - modif ctrlreadSpot - accès par boucle aux descendant (sinon...je mettrai eager)" />
-    <option name="LAST_COMMIT_MESSAGE" value="pb avec Lazzy - modif ctrlreadSpot - accès par boucle aux descendant (sinon...je mettrai eager)" />
+    <MESSAGE value="refactoring complet de acceuilSpot (encours de test)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring complet de acceuilSpot (encours de test)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

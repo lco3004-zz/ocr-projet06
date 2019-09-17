@@ -25,8 +25,8 @@ import static fr.ocr.view.utile.ConstantesSvt.*;
 
 @WebServlet(name = "Svt_AjouterSpot",
         urlPatterns = {"/CreerSpot", "/AjouterSpot", "/AjouterSecteur",
-               "/AjouterSpot/SelectionSecteur","/AjouterVoie",
-                "/AjouterSpot/SelectionVoie","/AjouterLongueur",
+               "/AjouterSelectionSecteur","/AjouterVoie",
+                "/AjouterSelectionVoie","/AjouterLongueur",
                 "/Valider"})
 
 public class Svt_AjouterSpot extends HttpServlet {
@@ -138,7 +138,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     request.setAttribute("activerValider", false);
                     break;
 
-                case "/AjouterSpot/SelectionSecteur":
+                case "/AjouterSelectionSecteur":
                     cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
                     if (cookie != null) {
                         request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
@@ -149,7 +149,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
-                case "/AjouterSpot/SelectionVoie":
+                case "/AjouterSelectionVoie":
                     cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
                     if (cookie != null) {
                         request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());

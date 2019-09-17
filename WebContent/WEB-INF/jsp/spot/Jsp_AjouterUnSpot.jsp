@@ -25,7 +25,7 @@
                         name="SelectionSecteur"
                         form="navSelectionSecteur"
                         type="submit"
-                        formaction="AjouterSpot/SelectionSecteur"
+                        formaction="AjouterSelectionSecteur"
                         formmethod="get"
                         value="SelectionSecteur"
                         formtarget="_self"> Selection Secteur
@@ -34,7 +34,7 @@
                         name="SelectionVoie"
                         form="navSelectionVoie"
                         type="submit"
-                        formaction="AjouterSpot/SelectionVoie"
+                        formaction="AjouterSelectionVoie"
                         formmethod="get"
                         value="SelectionVoie"
                         formtarget="_self"> Selection Voie

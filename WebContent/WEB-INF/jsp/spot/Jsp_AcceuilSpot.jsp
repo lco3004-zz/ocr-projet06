@@ -62,20 +62,23 @@
                 <tbody>
                     <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
                         <tr>
+                            <c:set var="labelBoutton" scope="page" value="-"/>
+                            <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black;  font-size: 18px;"/>
                             <c:if test="${requestScope.idValSpot == dbSpot.getIdspot()}" var="nope">
-                                <c:set var="couleurFond" scope="page" value="background-color: darkblue;color: lightgrey;font-style: oblique;"/>
+                                <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 20px;"/>
+                                <c:set var="labelBoutton" scope="page" value="+"/>
                             </c:if>
-                            <td style="${couleurFond}">${dbSpot.getNom()}</td>
-                            <td style="${couleurFond}">${dbSpot.getLocalisation()}</td>
-                            <td style="${couleurFond}">${dbSpot.getClassification()}</td>
-                            <td style="${couleurFond}">
-                                <button class="boutonFormSimple"
+                            <td>${dbSpot.getNom()}</td>
+                            <td>${dbSpot.getLocalisation()}</td>
+                            <td>${dbSpot.getClassification()}</td>
+                            <td >
+                                <button style="${couleurFond} border-radius: 30%;"
                                         name="idValSpot"
                                         type="submit"
-                                        formaction="AcceuilSpot/SelectionSpot"
+                                        formaction="AcceuilSelectionSpot"
                                         formmethod="get"
                                         value="${dbSpot.getIdspot()}"
-                                        formtarget="_self"> Select
+                                        formtarget="_self"> ${labelBoutton}
                                 </button>
                             </td>
                         </tr>
@@ -98,18 +101,21 @@
                         <tbody>
                         <c:forEach var="dbSecteur" items="${requestScope.dbSecteurs}">
                             <tr>
+                                <c:set var="labelBoutton" scope="page" value="-"/>
+                                <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black;  font-size: 15px;"/>
                                 <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="nope">
-                                    <c:set var="couleurFond" scope="page" value="background-color: darkblue;color: lightgrey;font-style: oblique;"/>
+                                    <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 18px;"/>
+                                    <c:set var="labelBoutton" scope="page" value="+"/>
                                 </c:if>
-                                <td style="${couleurFond}">${dbSecteur.getNom()}</td>
-                                <td style="${couleurFond}">
-                                    <button class="boutonFormSimple"
+                                <td >${dbSecteur.getNom()}</td>
+                                <td >
+                                    <button style="${couleurFond} border-radius: 30%;"
                                             name="idValSecteur"
                                             type="submit"
-                                            formaction="AcceuilSpot/SelectionSecteur"
+                                            formaction="AcceuilSelectionSecteur"
                                             formmethod="get"
                                             value="${dbSecteur.getIdsecteur()}"
-                                            formtarget="_self"> Select
+                                            formtarget="_self"> ${labelBoutton}
                                     </button>
                                 </td>
                             </tr>
@@ -131,21 +137,22 @@
                         <tbody>
                         <c:forEach var="dbVoie" items="${requestScope.dbVoies}">
                             <tr>
-                                <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="resT">
-                                    <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="nope">
-                                        <c:set var="couleurFond" scope="page" value="background-color: darkblue;color: lightgrey;font-style: oblique;"/>
-                                    </c:if>
-                                    <td style="${couleurFond}">${dbVoie.getNom()}</td>
-                                    <td style="${couleurFond}">
-                                        <button class="boutonFormSimple"
+                                <c:set var="labelBoutton" scope="page" value="-"/>
+                                <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black;  font-size: 15px;"/>
+                                <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="nope">
+                                    <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 18px;"/>
+                                    <c:set var="labelBoutton" scope="page" value="+"/>
+                                </c:if>
+                                    <td >${dbVoie.getNom()}</td>
+                                    <td >
+                                        <button style="${couleurFond} border-radius: 30%;"
                                                 name="idValVoie"
                                                 type="submit"
-                                                formaction="AcceuilSpot/SelectionVoie"
+                                                formaction="AcceuilSelectionVoie"
                                                 formmethod="get"
-                                                value="${dbSecteur.getIdsecteur()}"
+                                                value="${dbVoie.getIdvoie()}"
                                                 formtarget="_self"> Select
                                         </button>
-                                </c:if>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -164,19 +171,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
-                            <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
-                                <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
+                                <c:forEach var="dbLongueur" items="${requestScope.dbLongueurs}">
                                     <tr>
-                                        <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="resT">
                                             <td>${dbLongueur.getNom()}</td>
                                             <td>${dbLongueur.getCotation()}</td>
                                             <td>${dbLongueur.getNombreDeSpits()}</td>
-                                        </c:if>
                                     </tr>
                                 </c:forEach>
-                            </c:forEach>
-                        </c:forEach>
                         </tbody>
                     </table>
                 </form>
