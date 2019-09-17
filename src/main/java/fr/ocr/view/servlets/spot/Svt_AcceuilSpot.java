@@ -1,7 +1,10 @@
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
+import fr.ocr.model.entities.DbLongueur;
+import fr.ocr.model.entities.DbSecteur;
 import fr.ocr.model.entities.DbSpot;
+import fr.ocr.model.entities.DbVoie;
 import fr.ocr.view.utile.GestionCookies;
 import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
@@ -16,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static fr.ocr.view.utile.ConstantesSvt.*;
@@ -61,11 +65,61 @@ public class Svt_AcceuilSpot extends HttpServlet {
         }
         try {
             dbSpots = ctrlMetierSpot.listerTousSpots();
-//            req.setAttribute("dbSpots", dbSpots);
+            req.setAttribute("dbSpots", dbSpots);
         } catch (Exception e) {
             (new MsgExcpStd()).execute(this,e,logger,req,resp);
         }
         super.service(req, resp);
+    }
+    private  Cookie cookieSpotArticleSecteurs(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSPOT, IDSELECTIONSPOT);
+        if (cookie != null) {
+
+            int idSelectionSpot = Integer.parseInt(cookie.getValue());
+            request.setAttribute(IDSELECTIONSPOT, idSelectionSpot);
+            DbSpot dbSpot = ctrlMetierSpot.consulterCeSpot(idSelectionSpot);
+            Collection<DbSecteur> dbSecteurs = dbSpot.getSecteursByIdspot();
+            request.setAttribute("dbSecteurs",dbSecteurs );
+
+        } else {
+            logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Spot est NULL" + request.getServletPath());
+        }
+        return cookie;
+    }
+    private  Cookie cookieSecteurArticleVoies(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+        if (cookie != null) {
+            int idSelectionSecteur = Integer.parseInt(cookie.getValue());
+            request.setAttribute(IDSELECTIONSECTEUR, idSelectionSecteur);
+
+            if (cookieSpotArticleSecteurs(request,response) != null) {
+                DbSecteur dbSecteur  = ctrlMetierSpot.consulterCeSecteur(idSelectionSecteur);
+                Collection<DbVoie> dbVoies = dbSecteur.getVoiesByIdsecteur();
+                request.setAttribute("dbVoies", dbVoies);
+            }
+
+        }else {
+            logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Secteur est tNULL" +  request.getServletPath());
+        }
+        return cookie;
+    }
+
+    private  Cookie cookieVoieArticleLongueur(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
+        if (cookie != null) {
+            int idSelectionVoie = Integer.parseInt(cookie.getValue());
+            request.setAttribute(IDSELECTIONVOIE, idSelectionVoie);
+            response.addCookie(cookie);
+
+            if (cookieSecteurArticleVoies(request,response) != null) {
+                DbVoie dbVoie = ctrlMetierSpot.consulterCetteVoie(idSelectionVoie);
+                Collection<DbLongueur> dbLongueurs = dbVoie.getLongueursByIdvoie();
+                request.setAttribute("dbLongueurs", dbLongueurs);
+            }
+        }else {
+            logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Voie est tNULL" +  request.getServletPath());
+        }
+        return cookie;
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -76,75 +130,43 @@ public class Svt_AcceuilSpot extends HttpServlet {
             (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();
             Cookie cookie;
-
             switch (natureRequete) {
                 case "/AcceuilSpot":
-                    dbSpots = ctrlMetierSpot.listerTousSpots();
-                    request.setAttribute("dbSpots", dbSpots);
                     break;
+
                 case "/AcceuilSpot/SelectionSpot":
-                    dbSpots = ctrlMetierSpot.listerTousSpots();
-                    request.setAttribute("dbSpots", dbSpots);
-
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSPOT, IDSELECTIONSPOT);
-                    if (cookie != null) {
-
-                        request.setAttribute(IDSELECTIONSPOT, cookie.getValue());
-                        response.addCookie(cookie);
-
-                        gestionCookies.resetThisCookie(request, IDDUSECTEUR);
-                        gestionCookies.resetThisCookie(request, IDDELAVOIE);
-
-                        int idSpot = Integer.parseInt(cookie.getValue());
-
-                        DbSpot dbSpot = ctrlMetierSpot.consulterCeSpot(idSpot);
-                        request.setAttribute("dbSpot", dbSpot);
-
-                    } else {
-                        logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Spot estNULL" + natureRequete);
-                    }
-
-                    break;
-                case "/AcceuilSpot/SelectionSecteur":
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
-                    if (cookie != null) {
-                        request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
-                        response.addCookie(cookie);
-                    }
+                    gestionCookies.resetThisCookie(request, IDDUSECTEUR);
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
 
-                    cookie = gestionCookies.getCookieByName(request, IDDUSPOT);
+                   cookie = cookieSpotArticleSecteurs(request,response);
                     if (cookie != null) {
-                        request.setAttribute(IDSELECTIONSPOT, cookie.getValue());
+                        response.addCookie(cookie);
                     }
-                    request.setAttribute("dbSpot", ctrlMetierSpot.consulterCeSpot(Integer.valueOf(cookie.getValue())));
 
                     break;
+
+                case "/AcceuilSpot/SelectionSecteur":
+                    gestionCookies.resetThisCookie(request, IDDELAVOIE);
+
+                    cookie =  cookieSecteurArticleVoies(request,response);
+                    if (cookie != null) {
+                        response.addCookie(cookie);
+                    }
+
+                   break;
 
                 case "/AcceuilSpot/SelectionVoie":
 
-                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    cookie =  cookieVoieArticleLongueur(request,response);
                     if (cookie != null) {
-                        request.setAttribute(IDSELECTIONVOIE, cookie.getValue());
                         response.addCookie(cookie);
                     }
-
-                    cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
-                    if (cookie != null) {
-                        request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
-                    }
-
-                    cookie = gestionCookies.getCookieByName(request, IDDUSPOT);
-                    if (cookie != null) {
-                        request.setAttribute(IDSELECTIONSPOT, cookie.getValue());
-                    }
-                    request.setAttribute("dbSpot", ctrlMetierSpot.consulterCeSpot(Integer.valueOf(cookie.getValue())));
                     break;
+
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
             }

@@ -21,6 +21,8 @@ public interface CtrlMetierSpot {
     DbSpot taggerCeSpot(Integer  idSpot) throws Exception;
     DbSpot ajouterCeSpot(Integer idUser,DbSpot dbSpot) throws Exception ;
     DbSpot consulterCeSpot(Integer idSpot) throws  Exception;
+    DbSecteur consulterCeSecteur(int idSelectionSecteur) throws Exception;
+    DbVoie consulterCetteVoie(int idVoie) throws Exception;
 
 }
 
@@ -84,4 +86,15 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     public DbSpot consulterCeSpot(Integer idSpot) throws Exception {
         return jpaCtrlSpot.readSpot(idSpot);
     }
+
+    @Override
+    public DbSecteur consulterCeSecteur(int idSecteur) throws Exception {
+        return jpaCtrlSpot.readSecteur(idSecteur);
+    }
+
+    @Override
+    public DbVoie consulterCetteVoie(int idVoie) throws Exception {
+        return jpaCtrlSpot.readVoie(idVoie);
+    }
+
 }

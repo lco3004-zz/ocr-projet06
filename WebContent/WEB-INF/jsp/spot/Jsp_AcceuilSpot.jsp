@@ -91,12 +91,12 @@
                     <table class="bordered">
                         <thead>
                         <tr>
-                            <th> # </th>
                             <th> Nom</th>
+                            <th> # </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSecteurs}">
                             <tr>
                                 <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="nope">
                                     <c:set var="couleurFond" scope="page" value="background-color: darkblue;color: lightgrey;font-style: oblique;"/>
@@ -124,33 +124,29 @@
                     <table class="bordered">
                         <thead>
                         <tr>
-                            <th> #</th>
-                            <th> idSec</th>
                             <th> Nom</th>
+                            <th> # </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
-                            <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
-                                <tr>
-                                    <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="resT">
-                                        <c:choose>
-                                            <c:when test="${requestScope.idValVoie == dbVoie.getIdvoie()}">
-                                                <td><input type="radio" checked name="idValVoie" required
-                                                           value="${dbVoie.getIdvoie()}"></td>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <td><input type="radio" name="idValVoie" required
-                                                           value="${dbVoie.getIdvoie()}"></td>
-                                            </c:otherwise>
-                                        </c:choose>
-
-                                        <td> ${dbSecteur.getIdsecteur()}</td>
-                                        <td>${dbVoie.getNom()}</td>
-
+                        <c:forEach var="dbVoie" items="${requestScope.dbVoies}">
+                            <tr>
+                                <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="resT">
+                                    <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="nope">
+                                        <c:set var="couleurFond" scope="page" value="background-color: darkblue;color: lightgrey;font-style: oblique;"/>
                                     </c:if>
-                                </tr>
-                            </c:forEach>
+                                    <td style="${couleurFond}">${dbVoie.getNom()}</td>
+                                    <td style="${couleurFond}">
+                                        <button class="boutonFormSimple"
+                                                name="idValVoie"
+                                                type="submit"
+                                                formaction="AcceuilSpot/SelectionVoie"
+                                                formmethod="get"
+                                                value="${dbSecteur.getIdsecteur()}"
+                                                formtarget="_self"> Select
+                                        </button>
+                                </c:if>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>
@@ -162,8 +158,6 @@
                     <table class="bordered">
                         <thead>
                         <tr>
-                            <th> idSec</th>
-                            <th> idVoie</th>
                             <th> Nom</th>
                             <th> Cotation</th>
                             <th> Spits</th>
@@ -175,12 +169,9 @@
                                 <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
                                     <tr>
                                         <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="resT">
-                                            <td> ${dbSecteur.getIdsecteur()}</td>
-                                            <td>${dbVoie.getIdvoie()}</td>
                                             <td>${dbLongueur.getNom()}</td>
                                             <td>${dbLongueur.getCotation()}</td>
                                             <td>${dbLongueur.getNombreDeSpits()}</td>
-
                                         </c:if>
                                     </tr>
                                 </c:forEach>

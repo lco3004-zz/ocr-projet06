@@ -129,20 +129,65 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbSecteur readSecteur(Integer idSecteur) throws Exception {
-        DbSecteur dbSecteur ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
-            dbSecteur = jpa.getEm().find(DbSecteur.class,idSecteur);
+            DbSecteur dbSecteur ;
+
+            jpa.getEm().getTransaction().begin();
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+            CriteriaQuery<DbSecteur> criteriaQuery = criteriaBuilder.createQuery(DbSecteur.class);
+
+            Root<DbSecteur> root = criteriaQuery.from(DbSecteur.class);
+            criteriaQuery.select(root);
+
+            Predicate predicate = criteriaBuilder.equal(root.get(DbSecteur_.idsecteur),idSecteur);
+            criteriaQuery.where(predicate);
+
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+            dbSecteur = (DbSecteur) query.getSingleResult();
+
+            jpa.getEm().getTransaction().commit();
+
+            for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
+                for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                    int i = dbSecteur.getIdsecteur();
+                    int k = dbVoie.getIdvoie();
+                    int l = dbLongueur.getIdlongueur();
+                }
+            }
+            return dbSecteur;
+         } catch (Exception hex1) {
+           throw new Exception(hex1);
         }
-        return dbSecteur;
     }
 
     @Override
     public DbVoie readVoie(Integer idVoie) throws Exception {
-        DbVoie dbVoie ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
-            dbVoie = jpa.getEm().find(DbVoie.class,idVoie);
+            DbVoie dbVoie ;
+
+            jpa.getEm().getTransaction().begin();
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+            CriteriaQuery<DbVoie> criteriaQuery = criteriaBuilder.createQuery(DbVoie.class);
+
+            Root<DbVoie> root = criteriaQuery.from(DbVoie.class);
+            criteriaQuery.select(root);
+
+            Predicate predicate = criteriaBuilder.equal(root.get(DbVoie_.idvoie),idVoie);
+            criteriaQuery.where(predicate);
+
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+            dbVoie = (DbVoie) query.getSingleResult();
+
+            jpa.getEm().getTransaction().commit();
+
+                for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                    int k = dbVoie.getIdvoie();
+                    int l = dbLongueur.getIdlongueur();
+                }
+            return dbVoie;
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
         }
-        return dbVoie;
     }
 
     @Override
