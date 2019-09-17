@@ -1,9 +1,11 @@
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
+import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,10 +36,22 @@ public class Svt_AdminSpot extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
 
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("");
+            requestDispatcher.forward(request, response);
+        } catch (Exception e) {
+            (new MsgExcpStd()).execute(this,e,logger,request,response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
 
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("");
+            requestDispatcher.forward(request, response);
+        } catch (Exception e) {
+            (new MsgExcpStd()).execute(this,e,logger,request,response);
+        }
     }
 }

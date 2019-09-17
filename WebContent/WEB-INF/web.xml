@@ -48,8 +48,8 @@
     <!-- SPOTS -->
     <!-- **************************************************************** -->
     <servlet>
-        <servlet-name>Jsp_GestionSpot</servlet-name>
-        <jsp-file>/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp</jsp-file>
+        <servlet-name>Jsp_AcceuilSpot</servlet-name>
+        <jsp-file>/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>Jsp_AjouterUnSpot</servlet-name>
@@ -57,7 +57,7 @@
     </servlet>
     <servlet>
         <servlet-name>Jsp_AdminSpot</servlet-name>
-        <jsp-file>/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp</jsp-file>
+        <jsp-file>/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp</jsp-file>
     </servlet>
     <!-- **************************************************************** -->
 

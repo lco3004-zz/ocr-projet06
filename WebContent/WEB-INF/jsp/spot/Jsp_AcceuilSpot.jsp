@@ -70,8 +70,8 @@
                                 <button class="boutonFormSimple"
                                         name="idValSpot"
                                         type="submit"
-                                        formaction="VoirDetails"
-                                        formmethod="post"
+                                        formaction="AcceuilSpot/SelectionSpot"
+                                        formmethod="get"
                                         value="${dbSpot.getIdspot()}"
                                         formtarget="_self"> details
                                 </button>

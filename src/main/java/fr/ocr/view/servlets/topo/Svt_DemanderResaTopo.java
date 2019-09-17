@@ -2,6 +2,7 @@ package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
 import fr.ocr.model.entities.DbGrimpeur;
+import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 
 
 @WebServlet(name = "Svt_DemanderResaTopo", urlPatterns = {"/DemanderResaTopo"})
@@ -61,9 +61,7 @@ public class Svt_DemanderResaTopo extends HttpServlet {
             requestDispatcher.forward(request, response);
 
         } catch (Exception e) {
-            request.setAttribute("messageErreur", e.getCause() + " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-            requestDispatcher.forward(request, response);
+            (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
     }
 

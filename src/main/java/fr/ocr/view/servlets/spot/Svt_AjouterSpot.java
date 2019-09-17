@@ -5,6 +5,7 @@ import fr.ocr.model.constantes.CotationLongueur;
 import fr.ocr.model.converters.JpaConvEnumCotationLgToString;
 import fr.ocr.model.entities.*;
 import fr.ocr.view.utile.GestionCookies;
+import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,11 +25,9 @@ import static fr.ocr.view.utile.ConstantesSvt.*;
 
 
 @WebServlet(name = "Svt_AjouterSpot",
-        urlPatterns = {"/CreerSpot",
-                "/AjouterSpot",
-                "/AjouterSecteur",
-               "/SelectionSecteur","/AjouterVoie",
-                "/SelectionVoie","/AjouterLongueur",
+        urlPatterns = {"/CreerSpot", "/AjouterSpot", "/AjouterSecteur",
+               "/AjouterSpot/SelectionSecteur","/AjouterVoie",
+                "/AjouterSpot/SelectionVoie","/AjouterLongueur",
                 "/Valider"})
 
 public class Svt_AjouterSpot extends HttpServlet {
@@ -40,8 +39,6 @@ public class Svt_AjouterSpot extends HttpServlet {
     private DataSession pourDataSession;
 
     private GestionCookies gestionCookies;
-
-
 
 
     private class DataSession {
@@ -68,13 +65,50 @@ public class Svt_AjouterSpot extends HttpServlet {
         gestionCookies = new GestionCookies();
     }
 
-
-    private void tr_ExceptionGenerique(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-        request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
+    private void tr_ExceptionGenerique(Exception e, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().removeAttribute(DATASESSION);
-        RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-        requestDispatcher.forward(request, response);
+        (new MsgExcpStd()).execute(this,e,logger,request,response);
+    }
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
+
+        String natureRequete = req.getServletPath();
+        Object objDtaSess = req.getSession().getAttribute(DATASESSION);
+
+        if (natureRequete.equals("/CreerSpot")) {
+            if (objDtaSess != null) {
+                req.getSession().removeAttribute(DATASESSION);
+                objDtaSess=null;
+            }
+
+            pourDataSession = new DataSession();
+            Object objGrimp = req.getSession().getAttribute("dbGrimpeur");
+            DbGrimpeur dbGrimpeur = (objGrimp instanceof DbGrimpeur) ? (DbGrimpeur) objGrimp : null;
+            if (dbGrimpeur != null) {
+                pourDataSession.idGrimpeur = dbGrimpeur.getIdgrimpeur();
+                req.getSession().setAttribute(DATASESSION, pourDataSession);
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " création session pourDataSession " + natureRequete);
+            } else {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
+            }
+
+            gestionCookies.supprimeCookies(req,resp,
+                    (ArrayList<String>) Arrays.asList((new String[]{IDDUSECTEUR, IDDELAVOIE})));
+            gestionCookies.createCookies(resp,
+                    (ArrayList<String>) Arrays.asList((new String[]{IDDUSECTEUR, IDDELAVOIE})));
+
+        } else {
+            if (objDtaSess != null) {
+                pourDataSession = (objDtaSess instanceof DataSession) ? (DataSession) objDtaSess : null;
+            } else {
+                logger.error("Erreur : " + this.getClass().getSimpleName() + " Session DataSession est NULL" + natureRequete);
+            }
+        }
+        super.service(req, resp);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -104,31 +138,25 @@ public class Svt_AjouterSpot extends HttpServlet {
                     request.setAttribute("activerValider", false);
                     break;
 
-                case "/SelectionSecteur":
-                    cookie = gestionCookies.setValParamReqIntoCookieSpot(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                case "/AjouterSpot/SelectionSecteur":
+                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
                     if (cookie != null) {
-                        request.setAttribute("idValSecteur", cookie.getValue());
+                        request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
                         response.addCookie(cookie);
                     }
-                    cookie = gestionCookies.resetThisCookie(request, IDDELAVOIE);
-                    /*
-                    if (cookie != null) {
-                        request.setAttribute("idValVoie", cookie.getValue());
-                        response.addCookie(cookie);
-                    }
-                    */
+                    gestionCookies.resetThisCookie(request, IDDELAVOIE);
                     request.setAttribute("activerValider", false);
                     request.setAttribute("dbSpot", pourDataSession.dbSpot);
                     break;
 
-                case "/SelectionVoie":
+                case "/AjouterSpot/SelectionVoie":
                     cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
                     if (cookie != null) {
-                        request.setAttribute("idValSecteur", cookie.getValue());
+                        request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
                     }
-                    cookie = gestionCookies.setValParamReqIntoCookieSpot(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
                     if (cookie != null) {
-                        request.setAttribute("idValVoie", cookie.getValue());
+                        request.setAttribute(IDSELECTIONVOIE, cookie.getValue());
                         response.addCookie(cookie);
                     }
                     request.setAttribute("activerValider", false);
@@ -140,7 +168,6 @@ public class Svt_AjouterSpot extends HttpServlet {
             requestDispatcher.forward(request, response);
         } catch (Exception ex) {
             tr_ExceptionGenerique(ex, request, response);
-
         }
     }
 
@@ -176,7 +203,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/AjouterVoie":
-                    idDuSecteur = gestionCookies.getValParamReqFromCookieSpot(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
 
                         if (idDuSecteur != null && idDuSecteur >= 0) {
 
@@ -201,8 +228,8 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/AjouterLongueur":
-                    idDuSecteur = gestionCookies.getValParamReqFromCookieSpot(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
-                    idDeLaVoie = gestionCookies.getValParamReqFromCookieSpot(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    idDeLaVoie = gestionCookies.getValParamReqFromCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
 
                     if (idDuSecteur != null && idDuSecteur >= 0) {
                         if (idDeLaVoie != null && idDeLaVoie >= 0) {
@@ -253,41 +280,5 @@ public class Svt_AjouterSpot extends HttpServlet {
         }
     }
 
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
-
-        String natureRequete = req.getServletPath();
-        Object o = req.getSession().getAttribute(DATASESSION);
-
-        if (natureRequete.equals("/CreerSpot")) {
-
-            if (o == null) {
-                pourDataSession = new DataSession();
-                o = req.getSession().getAttribute("dbGrimpeur");
-                DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
-                if (dbGrimpeur != null) {
-                    pourDataSession.idGrimpeur = dbGrimpeur.getIdgrimpeur();
-
-                    req.getSession().setAttribute(DATASESSION, pourDataSession);
-
-                    logger.debug("Hello from :" + this.getClass().getSimpleName() + " création session pourDataSession " + natureRequete);
-                } else {
-                    logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
-                }
-            }
-
-            gestionCookies.createCookiesSpot(req, resp);
-        } else {
-            if (o != null) {
-                pourDataSession = (o instanceof DataSession) ? (DataSession) o : null;
-            } else {
-                logger.error("Erreur : " + this.getClass().getSimpleName() + " Session DataSession est NULL" + natureRequete);
-            }
-        }
-        super.service(req, resp);
-    }
 
 }

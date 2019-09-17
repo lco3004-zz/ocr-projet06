@@ -6,10 +6,8 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.Arrays;
-
-import static fr.ocr.view.utile.ConstantesSvt.IDDELAVOIE;
-import static fr.ocr.view.utile.ConstantesSvt.IDDUSECTEUR;
 
 public class GestionCookies {
     private final Logger logger;
@@ -19,52 +17,73 @@ public class GestionCookies {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
-    public Cookie resetThisCookie(HttpServletRequest request, String nomCookie) {
-        Cookie valRet = null;
+    public Cookie resetThisCookie(HttpServletRequest request, String nomCookie) throws RuntimeException {
+        Cookie cookie = getCookieByName(request,nomCookie);
+        if (cookie != null)
+            cookie.setValue(String.valueOf(-1));
+        return  cookie;
+    }
+
+    public Integer getValParamReqFromCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+        Cookie cookie= getCookieByName(request,nomCookie);
+        return  (cookie !=null)?Integer.valueOf(cookie.getValue()) : null;
+    }
+
+    public Cookie setValParamReqIntoCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+        String selectionRadioButton;
+        Cookie cookie= getCookieByName(request,nomCookie);
+        selectionRadioButton = request.getParameter(nomParamRequest);
+
+        if (cookie != null && selectionRadioButton != null) {
+                cookie.setValue(selectionRadioButton);
+        }
+
+        return cookie;
+    }
+
+    public  void supprimeCookies(HttpServletRequest req,
+                                     HttpServletResponse resp,
+                                     ArrayList<String> nomDesCookies) throws RuntimeException  {
         try {
-            for (Cookie cookie : request.getCookies()) {
-                if (cookie.getName().equals(nomCookie)) {
-                    cookie.setValue(String.valueOf(-1));
-                    valRet = cookie;
+            Cookie[] cookies = req.getCookies();
+            if (req.getCookies() != null) {
+                for (Cookie cookie : cookies) {
+                    nomDesCookies.stream().
+                            filter(w-> w.equals(cookie.getName())).
+                            forEach((z) -> {
+                                cookie.setMaxAge(0); resp.addCookie(cookie);
+                                logger.debug("Hello from :" + this.getClass().getSimpleName() + "Cookie effacé = " + cookie.getName());
+                            });
                 }
             }
         } catch (Exception ex) {
             logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
             throw new RuntimeException(ex);
         }
-        return valRet;
     }
 
-    public Integer getValParamReqFromCookieSpot(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+    public void createCookies (HttpServletResponse resp,
+                              ArrayList<String> nomDesCookies) throws RuntimeException {
+        try {
 
-        Integer selectionRadioButton = null;
+            for (String nomCookie :nomDesCookies) {
+                resp.addCookie(new Cookie(nomCookie, String.valueOf(-1)));
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " Création Cookies : " + nomCookie);
+            }
+
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public Cookie getCookieByName(HttpServletRequest request, String nomCookie) throws RuntimeException{
+        Cookie valRet = null;
         try {
             for (Cookie cookie : request.getCookies()) {
                 if (cookie.getName().equals(nomCookie)) {
-                    selectionRadioButton = Integer.valueOf(cookie.getValue());
+                    valRet = cookie;
                     break;
-                }
-            }
-
-            if (selectionRadioButton == null) {
-                logger.error("Erreur : " + this.getClass().getSimpleName() + " selectionRadio est vide ");
-            }
-
-        } catch (Exception ex) {
-            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-            throw new RuntimeException(ex);
-
-        }
-
-        return selectionRadioButton;
-    }
-
-    public Cookie getCookieByName(HttpServletRequest request, String nomCookie) {
-        Cookie valRet = null;
-        try {
-            for (Cookie cookie : request.getCookies()) {
-                if (cookie.getName().equals(nomCookie)) {
-                    valRet = cookie;
                 }
             }
             if (valRet == null) {
@@ -74,85 +93,7 @@ public class GestionCookies {
         } catch (Exception ex) {
             logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
             throw new RuntimeException(ex);
-
         }
         return valRet;
-    }
-
-    public Cookie setValParamReqIntoCookieSpot(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
-        String selectionRadioButton;
-        Cookie valRet = null;
-        try {
-            for (Cookie cookie : request.getCookies()) {
-                if (cookie.getName().equals(nomCookie)) {
-                    selectionRadioButton = request.getParameter(nomParamRequest);
-                    if (selectionRadioButton != null) {
-                        cookie.setValue(selectionRadioButton);
-                        valRet = cookie;
-                    }
-                }
-            }
-
-            if (valRet == null) {
-                logger.error("Erreur : " + this.getClass().getSimpleName() + " aucun choix de Voie -- idVoie est vide ");
-            }
-
-        } catch (Exception ex) {
-            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-            throw new RuntimeException(ex);
-
-        }
-
-        return valRet;
-    }
-
-    public  void supprimeCookiesSpot(HttpServletRequest req, HttpServletResponse resp) throws RuntimeException  {
-        try {
-            String sIdSecteur = "-1";
-            String sIdVoie = "-1";
-            Cookie[] cookies = req.getCookies();
-            if (req.getCookies() != null) {
-                for (Cookie cookie : cookies) {
-                    if (cookie.getName().equals(IDDUSECTEUR) || cookie.getName().equals(IDDELAVOIE)) {
-                        cookie.setMaxAge(0);
-                        resp.addCookie(cookie);
-                        logger.debug("Hello from :" + this.getClass().getSimpleName() + "Cookie efffé = " + cookie.getName());
-                    }
-                }
-            }
-
-        } catch (Exception ex) {
-            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-            throw new RuntimeException(ex);
-        }
-
-    }
-    public void createCookiesSpot(HttpServletRequest req, HttpServletResponse resp) throws RuntimeException {
-        try {
-            String sIdSecteur = "-1";
-            String sIdVoie = "-1";
-            boolean cookieTrouve = false;
-
-            Cookie[] cookies = req.getCookies();
-            if (req.getCookies() != null) {
-                for (Cookie cookie : cookies) {
-                    if (cookie.getName().equals(IDDUSECTEUR) || cookie.getName().equals(IDDELAVOIE)) {
-                        cookie.setValue(String.valueOf(-1));
-                        cookieTrouve = true;
-                        logger.debug("Hello from :" + this.getClass().getSimpleName() + "Cookie trouvé = " + cookie.getName());
-                    }
-                }
-            }
-
-            if (!cookieTrouve) {
-                resp.addCookie(new Cookie(IDDUSECTEUR, sIdSecteur));
-                resp.addCookie(new Cookie(IDDELAVOIE, sIdVoie));
-                logger.debug("Hello from :" + this.getClass().getSimpleName() + " Création Cookies  ");
-            }
-
-        } catch (Exception ex) {
-            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
-            throw new RuntimeException(ex);
-        }
     }
 }
