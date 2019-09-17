@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/WebContent/img/btn_checked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebContent/img/btn_unchecked.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,8 +128,11 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectId" id="1QWhnupUvIY0WpwTUfRk3822lq3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -165,10 +173,10 @@
     <option name="myCommands">
       <command value="mvn clean" />
       <command value="mvn clean compile" />
-      <command value="mvn clean package" />
       <command value="mvn compile package" />
       <command value="mvn  package" />
       <command value="mvn compile" />
+      <command value="mvn clean package" />
       <command value="mvn clean compile package" />
     </option>
   </component>
@@ -264,7 +272,22 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@52f65c8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@52f65c8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7f822c40" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@52f65c8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@78f9bb35" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -311,14 +334,7 @@
       <workItem from="1568634167081" duration="11546000" />
       <workItem from="1568651046663" duration="4286000" />
       <workItem from="1568699289732" duration="4629000" />
-      <workItem from="1568704196080" duration="10744000" />
-    </task>
-    <task id="LOCAL-00018" summary="ajout article mes resa, mes topos - presentaion des topos dispo&#10;simplification jpaCtrlTopo avec un seul find idGrimepur, etatResa et estPublie&#10;note : le arraylist.toarray plante sur Predicate [] predicates = ...to array =&gt; foreach">
-      <created>1568283076149</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1568283076149</updated>
+      <workItem from="1568704196080" duration="16270000" />
     </task>
     <task id="LOCAL-00019" summary="ajout idemprunteur dans DbTopo (nécessiare pour restituer un topo)">
       <created>1568307559923</created>
@@ -656,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568717228786</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="ecriture doget de acceuilSpot">
+      <created>1568722821327</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1568722821327</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +700,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="ajout bouton selecteur de idvoie et de idsecteur (sur form dans aside)" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="en cours : gestion bouton sur ajout secteur et ajout voie (ko)" />
     <MESSAGE value="revue gestion cookie (bug en cours de test)" />
     <MESSAGE value="revue gestion cookie (bug en cours de test) suite" />
@@ -702,7 +725,8 @@
     <MESSAGE value="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme" />
     <MESSAGE value="reformatage des jsp contenant table + forme (topo et spot)" />
     <MESSAGE value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
-    <option name="LAST_COMMIT_MESSAGE" value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
+    <MESSAGE value="ecriture doget de acceuilSpot" />
+    <option name="LAST_COMMIT_MESSAGE" value="ecriture doget de acceuilSpot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

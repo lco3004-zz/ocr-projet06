@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 import static fr.ocr.view.utile.ConstantesSvt.*;
@@ -95,11 +94,12 @@ public class Svt_AjouterSpot extends HttpServlet {
             } else {
                 logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
             }
+            ArrayList<String> strings = new ArrayList<>();
+            strings.add(IDDUSECTEUR);
+            strings.add(IDDELAVOIE);
 
-            gestionCookies.supprimeCookies(req,resp,
-                    (ArrayList<String>) Arrays.asList((new String[]{IDDUSECTEUR, IDDELAVOIE})));
-            gestionCookies.createCookies(resp,
-                    (ArrayList<String>) Arrays.asList((new String[]{IDDUSECTEUR, IDDELAVOIE})));
+            gestionCookies.supprimeCookies(req,resp,strings);
+            gestionCookies.createCookies(resp,strings);
 
         } else {
             if (objDtaSess != null) {

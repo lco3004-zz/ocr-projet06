@@ -51,6 +51,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
     @Override
     public List<DbSpot> findListeSpots(Integer idUser) throws Exception {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
+
             jpa.getEm().getTransaction().begin();
 
             CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
@@ -58,6 +59,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
             CriteriaQuery<DbSpot> criteriaQuery = criteriaBuilder.createQuery(DbSpot.class);
 
             Root<DbSpot> root = criteriaQuery.from(DbSpot.class);
+
             criteriaQuery.select(root);
 
             if (idUser != null) {
@@ -80,12 +82,45 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbSpot readSpot(Integer idSpot) throws Exception {
-        DbSpot dbSpot ;
         try (JpaEntityManager jpa = new JpaEntityManager()) {
-            dbSpot = jpa.getEm().find(DbSpot.class,idSpot);
-        }
-        return dbSpot;
+
+            DbSpot dbSpot ;
+
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+
+            CriteriaQuery<DbSpot> criteriaQuery = criteriaBuilder.createQuery(DbSpot.class);
+
+            Root<DbSpot> root = criteriaQuery.from(DbSpot.class);
+            criteriaQuery.select(root);
+
+            Predicate predicate = criteriaBuilder.equal(root.get(DbSpot_.idspot),idSpot);
+            criteriaQuery.where(predicate);
+
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+
+            dbSpot = (DbSpot) query.getSingleResult();
+
+            for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
+                for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
+                    for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                     int j = dbSpot.getIdspot();
+                     int i = dbSecteur.getIdsecteur();
+                     int k = dbVoie.getIdvoie();
+                     int l = dbLongueur.getIdlongueur();
+                    }
+                }
+            }
+
+            jpa.getEm().getTransaction().commit();
+
+            return dbSpot;
+
+    } catch (Exception hex1) {
+        throw new Exception(hex1);
     }
+}
 
     @Override
     public DbSpot updateSpot(DbSpot dbSpot)  {

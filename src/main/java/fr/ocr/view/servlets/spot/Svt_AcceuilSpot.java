@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static fr.ocr.view.utile.ConstantesSvt.*;
@@ -52,18 +51,20 @@ public class Svt_AcceuilSpot extends HttpServlet {
         String natureRequete = req.getServletPath();
 
         if (natureRequete.equals("/AcceuilSpot")) {
+            ArrayList<String> strings = new ArrayList<>();
+            strings.add(IDDUSPOT);
+            strings.add(IDDUSECTEUR);
+            strings.add(IDDELAVOIE);
 
-            gestionCookies.supprimeCookies(req,resp,
-                    (ArrayList<String>) Arrays.asList((new String[]{IDDUSPOT,IDDUSECTEUR, IDDELAVOIE})));
-            gestionCookies.createCookies(resp,
-                    (ArrayList<String>) Arrays.asList((new String[]{IDDUSPOT,IDDUSECTEUR, IDDELAVOIE})));
+            gestionCookies.supprimeCookies(req,resp,strings);
+            gestionCookies.createCookies(resp,strings);
         }
         try {
             dbSpots = ctrlMetierSpot.listerTousSpots();
+//            req.setAttribute("dbSpots", dbSpots);
         } catch (Exception e) {
             (new MsgExcpStd()).execute(this,e,logger,req,resp);
         }
-        req.setAttribute("dbSpots", dbSpots);
         super.service(req, resp);
     }
 
@@ -83,17 +84,30 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
             switch (natureRequete) {
                 case "/AcceuilSpot":
+                    dbSpots = ctrlMetierSpot.listerTousSpots();
+                    request.setAttribute("dbSpots", dbSpots);
                     break;
                 case "/AcceuilSpot/SelectionSpot":
+                    dbSpots = ctrlMetierSpot.listerTousSpots();
+                    request.setAttribute("dbSpots", dbSpots);
+
                     cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSPOT, IDSELECTIONSPOT);
                     if (cookie != null) {
+
                         request.setAttribute(IDSELECTIONSPOT, cookie.getValue());
                         response.addCookie(cookie);
-                    }
-                    gestionCookies.resetThisCookie(request, IDDUSECTEUR);
-                    gestionCookies.resetThisCookie(request, IDDELAVOIE);
 
-                    request.setAttribute("dbSpot", ctrlMetierSpot.consulterCeSpot(Integer.valueOf(cookie.getValue())));
+                        gestionCookies.resetThisCookie(request, IDDUSECTEUR);
+                        gestionCookies.resetThisCookie(request, IDDELAVOIE);
+
+                        int idSpot = Integer.parseInt(cookie.getValue());
+
+                        DbSpot dbSpot = ctrlMetierSpot.consulterCeSpot(idSpot);
+                        request.setAttribute("dbSpot", dbSpot);
+
+                    } else {
+                        logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Spot estNULL" + natureRequete);
+                    }
 
                     break;
                 case "/AcceuilSpot/SelectionSecteur":
