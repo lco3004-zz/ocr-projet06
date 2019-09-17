@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/MsgExcpStd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_TaggerSpot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_EnregistrerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_EnregistrerTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -328,14 +311,7 @@
       <workItem from="1568634167081" duration="11546000" />
       <workItem from="1568651046663" duration="4286000" />
       <workItem from="1568699289732" duration="4629000" />
-      <workItem from="1568704196080" duration="8770000" />
-    </task>
-    <task id="LOCAL-00017" summary="correctionerreur jsp topo (gestion)">
-      <created>1568276370699</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1568276370699</updated>
+      <workItem from="1568704196080" duration="10744000" />
     </task>
     <task id="LOCAL-00018" summary="ajout article mes resa, mes topos - presentaion des topos dispo&#10;simplification jpaCtrlTopo avec un seul find idGrimepur, etatResa et estPublie&#10;note : le arraylist.toarray plante sur Predicate [] predicates = ...to array =&gt; foreach">
       <created>1568283076149</created>
@@ -673,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568703963720</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)">
+      <created>1568717228786</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1568717228786</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="correction dans methode service" />
     <MESSAGE value="ajout bouton selecteur de idvoie et de idsecteur (sur form dans aside)" />
     <MESSAGE value="en cours : gestion bouton sur ajout secteur et ajout voie (ko)" />
     <MESSAGE value="revue gestion cookie (bug en cours de test)" />
@@ -719,7 +701,8 @@
     <MESSAGE value="ajout stream sur collection voie dans ajouter longueur" />
     <MESSAGE value="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme" />
     <MESSAGE value="reformatage des jsp contenant table + forme (topo et spot)" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatage des jsp contenant table + forme (topo et spot)" />
+    <MESSAGE value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
+    <option name="LAST_COMMIT_MESSAGE" value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

@@ -31,6 +31,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final Logger logger;
     private GestionCookies gestionCookies;
+    private  List<DbSpot> dbSpots = null;
 
 
     public Svt_AcceuilSpot() {
@@ -57,7 +58,12 @@ public class Svt_AcceuilSpot extends HttpServlet {
             gestionCookies.createCookies(resp,
                     (ArrayList<String>) Arrays.asList((new String[]{IDDUSPOT,IDDUSECTEUR, IDDELAVOIE})));
         }
-
+        try {
+            dbSpots = ctrlMetierSpot.listerTousSpots();
+        } catch (Exception e) {
+            (new MsgExcpStd()).execute(this,e,logger,req,resp);
+        }
+        req.setAttribute("dbSpots", dbSpots);
         super.service(req, resp);
     }
 
@@ -77,8 +83,6 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
             switch (natureRequete) {
                 case "/AcceuilSpot":
-                    List<DbSpot> dbSpots = ctrlMetierSpot.listerTousSpots();
-                    request.setAttribute("dbSpots", dbSpots);
                     break;
                 case "/AcceuilSpot/SelectionSpot":
                     cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSPOT, IDSELECTIONSPOT);
@@ -88,6 +92,9 @@ public class Svt_AcceuilSpot extends HttpServlet {
                     }
                     gestionCookies.resetThisCookie(request, IDDUSECTEUR);
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
+
+                    request.setAttribute("dbSpot", ctrlMetierSpot.consulterCeSpot(Integer.valueOf(cookie.getValue())));
+
                     break;
                 case "/AcceuilSpot/SelectionSecteur":
                     cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
@@ -96,18 +103,33 @@ public class Svt_AcceuilSpot extends HttpServlet {
                         response.addCookie(cookie);
                     }
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
+
+                    cookie = gestionCookies.getCookieByName(request, IDDUSPOT);
+                    if (cookie != null) {
+                        request.setAttribute(IDSELECTIONSPOT, cookie.getValue());
+                    }
+                    request.setAttribute("dbSpot", ctrlMetierSpot.consulterCeSpot(Integer.valueOf(cookie.getValue())));
+
                     break;
 
                 case "/AcceuilSpot/SelectionVoie":
-                    cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
-                    if (cookie != null) {
-                        request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
-                    }
+
                     cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
                     if (cookie != null) {
                         request.setAttribute(IDSELECTIONVOIE, cookie.getValue());
                         response.addCookie(cookie);
                     }
+
+                    cookie = gestionCookies.getCookieByName(request, IDDUSECTEUR);
+                    if (cookie != null) {
+                        request.setAttribute(IDSELECTIONSECTEUR, cookie.getValue());
+                    }
+
+                    cookie = gestionCookies.getCookieByName(request, IDDUSPOT);
+                    if (cookie != null) {
+                        request.setAttribute(IDSELECTIONSPOT, cookie.getValue());
+                    }
+                    request.setAttribute("dbSpot", ctrlMetierSpot.consulterCeSpot(Integer.valueOf(cookie.getValue())));
                     break;
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
