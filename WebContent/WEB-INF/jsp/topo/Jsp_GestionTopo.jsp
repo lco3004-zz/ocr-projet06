@@ -51,6 +51,7 @@
         <section>
             <h3> Nos Topos Disponibles pour la Réservation </h3>
             <h3>Information : ${msgResultat}</h3>
+            <form id="navSelectionToposDispos">
             <table class="bordered">
                 <thead>
                 <tr>
@@ -62,7 +63,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form id="navSelectionToposDispos">
                     <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
                         <tr>
                             <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
@@ -72,10 +72,11 @@
                             <td>${dbTopo.getDateDeParution()}</td>
                         </tr>
                     </c:forEach>
-                </form>
                 </tbody>
             </table>
+            </form>
             <h3> Mes Réservation de Topos </h3>
+            <form id="navSelectionToposReservation">
             <table class="bordered">
                 <thead>
                 <tr>
@@ -87,7 +88,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form id="navSelectionToposReservation">
                     <c:forEach var="dbTopo" items="${requestScope.dbToposMesReservation}">
                         <tr>
                             <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
@@ -97,9 +97,9 @@
                             <td>${dbTopo.getDateDeParution()}</td>
                         </tr>
                     </c:forEach>
-                </form>
                 </tbody>
             </table>
+            </form>
         </section>
         <aside>
             <article>

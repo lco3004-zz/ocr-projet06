@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,8 +168,8 @@
       <command value="mvn clean compile" />
       <command value="mvn clean package" />
       <command value="mvn compile package" />
-      <command value="mvn clean compile package" />
       <command value="mvn  package" />
+      <command value="mvn clean compile package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -311,14 +310,7 @@
       <workItem from="1568628299156" duration="2929000" />
       <workItem from="1568634167081" duration="11546000" />
       <workItem from="1568651046663" duration="4286000" />
-      <workItem from="1568699289732" duration="4116000" />
-    </task>
-    <task id="LOCAL-00015" summary="mise en place nouvel page acceuil et nouvel page acceuilspot">
-      <created>1568225048794</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1568225048794</updated>
+      <workItem from="1568699289732" duration="4464000" />
     </task>
     <task id="LOCAL-00016" summary="mise en place topo nouvelle forme html">
       <created>1568274010545</created>
@@ -656,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568657233009</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme">
+      <created>1568703597634</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1568703597634</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +676,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="revoir gestiondbSpot - à mettre en cookie, en session ou persister direct" />
     <MESSAGE value="remise en session d'un objet avec index, idse et id voire et dpspot" />
     <MESSAGE value="correction dans methode service" />
     <MESSAGE value="ajout bouton selecteur de idvoie et de idsecteur (sur form dans aside)" />
@@ -702,7 +700,8 @@
     <MESSAGE value="dernier commit branche_V6" />
     <MESSAGE value="premier commit" />
     <MESSAGE value="ajout stream sur collection voie dans ajouter longueur" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout stream sur collection voie dans ajouter longueur" />
+    <MESSAGE value="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

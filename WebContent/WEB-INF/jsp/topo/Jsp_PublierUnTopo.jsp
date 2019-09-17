@@ -35,6 +35,7 @@
         </nav>
         <section>
             <h3> Liste des vos topos non publiés</h3>
+            <form id="navSelectionRadio">
             <table class="bordered">
                 <thead>
                 <tr>
@@ -46,7 +47,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form id="navSelectionRadio">
                     <c:forEach var="dbTopo" items="${requestScope.dbToposNonPublies}">
                         <tr>
                             <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
@@ -56,9 +56,9 @@
                             <td>${dbTopo.getDateDeParution()}</td>
                         </tr>
                     </c:forEach>
-                </form>
                 </tbody>
             </table>
+            </form>
         </section>
         <aside>
             <article>
