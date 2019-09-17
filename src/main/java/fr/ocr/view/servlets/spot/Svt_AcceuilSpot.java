@@ -18,7 +18,7 @@ import java.util.List;
 
 import static fr.ocr.view.utile.ConstantesSvt.DATASESSION;
 
-@WebServlet(name = "Svt_AcceuilSpot", urlPatterns = {"/AcceuilSpot"})
+@WebServlet(name = "Svt_AcceuilSpot", urlPatterns = {"/AcceuilSpot", "/VoirDetails"})
 public class Svt_AcceuilSpot extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -50,8 +50,22 @@ public class Svt_AcceuilSpot extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
+        try {
+            String idValSpot = request.getParameter("idValSpot");
+
+            List<DbSpot> dbSpots = ctrlMetierSpot.listerTousSpots();
+
+            request.setAttribute("dbSpots", dbSpots);
+
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionSpot");
+            requestDispatcher.forward(request, response);
+
+        } catch (Exception ex) {
+            logger.error("ERROR" + this.getClass().getSimpleName() + "  " + ex.getLocalizedMessage() + "  " + Arrays.toString(ex.getStackTrace()));
+            request.setAttribute("messageErreur", " " + ex.getLocalizedMessage() + " " + Arrays.toString(ex.getStackTrace()));
+            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
+            requestDispatcher.forward(request, response);
+        }    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

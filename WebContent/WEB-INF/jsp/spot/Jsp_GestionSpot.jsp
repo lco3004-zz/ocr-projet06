@@ -49,104 +49,143 @@
         </nav>
         <section>
             <h3> Nos Spots </h3>
+            <form id="navSelectionSpot" class="formSimple">
             <table class="bordered">
                 <thead>
                 <tr>
-                    <th> #</th>
                     <th> Nom</th>
                     <th> Localisation</th>
                     <th> Classification</th>
+                    <th> Click me !</th>
                 </tr>
                 </thead>
                 <tbody>
-                <form id="navSelectionSpot">
                     <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
                         <tr>
-                            <td><input type="radio" name="idValSpot" value="${dbSpot.getIdspot()}"></td>
+                            <!--  <td><input hidden type="text" name="idValSpot" value="${dbSpot.getIdspot()}"></td> -->
                             <td>${dbSpot.getNom()}</td>
                             <td>${dbSpot.getLocalisation()}</td>
                             <td>${dbSpot.getClassification()}</td>
+                            <td>
+                                <button class="boutonFormSimple"
+                                        name="idValSpot"
+                                        type="submit"
+                                        formaction="VoirDetails"
+                                        formmethod="post"
+                                        value="${dbSpot.getIdspot()}"
+                                        formtarget="_self"> details
+                                </button>
+                            </td>
                         </tr>
                     </c:forEach>
-                </form>
                 </tbody>
             </table>
+            </form>
         </section>
         <aside>
             <article>
-                <label style="font-size: larger ">Spots</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> Nom</th>
-                        <th> Localisation</th>
-                        <th> Classification</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                <form id="navSelectionSecteur">
+                    <label style="font-size: larger ">Secteurs : ${param.idValSecteur}</label>
+                    <table class="bordered">
+                        <thead>
                         <tr>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
+                            <th> #</th>
+                            <th> Nom</th>
                         </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </article>
-            <article>
-                <label style="font-size: larger ">Secteurs</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <tr>
+                                <c:choose>
+                                    <c:when test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}">
+                                        <td><input type="radio" checked name="idValSecteur" required
+                                                   value="${dbSecteur.getIdsecteur()}"></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td><input type="radio" name="idValSecteur" required
+                                                   value="${dbSecteur.getIdsecteur()}"></td>
+                                    </c:otherwise>
+                                </c:choose>
+                                <td>${dbSecteur.getNom()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </form>
             </article>
 
             <article>
-                <label style="font-size: larger ">Voies</label>
+                <form id="navSelectionVoie">
+                <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> #</th>
+                        <th> idSec</th>
+                        <th> Nom</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
+                                <tr>
+                                    <c:if test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}" var="resT">
+                                        <c:choose>
+                                            <c:when test="${requestScope.idValVoie == dbVoie.getIdvoie()}">
+                                                <td><input type="radio" checked name="idValVoie" required
+                                                           value="${dbVoie.getIdvoie()}"></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <td><input type="radio" name="idValVoie" required
+                                                           value="${dbVoie.getIdvoie()}"></td>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                        <td> ${dbSecteur.getIdsecteur()}</td>
+                                        <td>${dbVoie.getNom()}</td>
+
+                                    </c:if>
+                                </tr>
+                            </c:forEach>
+                        </c:forEach>
                     </tbody>
                 </table>
+                </form>
             </article>
             <article>
+                <form id="navSelectionLongueur">
                 <label style="font-size: larger ">Longeurs</label>
                 <table class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th> idSec</th>
+                        <th> idVoie</th>
+                        <th> Nom</th>
+                        <th> Cotation</th>
+                        <th> Spits</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
+                                <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
+                                    <tr>
+                                        <c:if test="${requestScope.idValVoie == dbVoie.getIdvoie()}" var="resT">
+                                            <td> ${dbSecteur.getIdsecteur()}</td>
+                                            <td>${dbVoie.getIdvoie()}</td>
+                                            <td>${dbLongueur.getNom()}</td>
+                                            <td>${dbLongueur.getCotation()}</td>
+                                            <td>${dbLongueur.getNombreDeSpits()}</td>
+
+                                        </c:if>
+                                    </tr>
+                                </c:forEach>
+                            </c:forEach>
+                        </c:forEach>
                     </tbody>
                 </table>
+                </form>
             </article>
-
         </aside>
     </main>
     <footer>

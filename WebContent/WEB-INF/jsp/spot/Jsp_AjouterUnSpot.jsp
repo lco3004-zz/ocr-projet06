@@ -206,35 +206,36 @@
             <article>
                 <form id="navSelectionSecteur">
                     <label style="font-size: larger ">Secteurs : ${param.idValSecteur}</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> #</th>
-                        <th> Nom</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                    <table class="bordered">
+                        <thead>
                         <tr>
-                            <c:choose>
-                                <c:when test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}">
-                                    <td><input type="radio" checked name="idValSecteur" required
-                                               value="${dbSecteur.getIdsecteur()}"></td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td><input type="radio" name="idValSecteur" required
-                                               value="${dbSecteur.getIdsecteur()}"></td>
-                                </c:otherwise>
-                            </c:choose>
-                            <td>${dbSecteur.getNom()}</td>
+                            <th> #</th>
+                            <th> Nom</th>
                         </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
+                            <tr>
+                                <c:choose>
+                                    <c:when test="${requestScope.idValSecteur == dbSecteur.getIdsecteur()}">
+                                        <td><input type="radio" checked name="idValSecteur" required
+                                                   value="${dbSecteur.getIdsecteur()}"></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td><input type="radio" name="idValSecteur" required
+                                                   value="${dbSecteur.getIdsecteur()}"></td>
+                                    </c:otherwise>
+                                </c:choose>
+                                <td>${dbSecteur.getNom()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </form>
             </article>
 
             <article>
+                <form id="navSelectionVoie">
                 <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
                 <table class="bordered">
                     <thead>
@@ -245,7 +246,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <form id="navSelectionVoie">
                         <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <tr>
@@ -268,11 +268,12 @@
                                 </tr>
                             </c:forEach>
                         </c:forEach>
-                    </form>
                     </tbody>
                 </table>
+                </form>
             </article>
             <article>
+                <form id="navSelectionLongueur">
                 <label style="font-size: larger ">Longeurs</label>
                 <table class="bordered">
                     <thead>
@@ -285,7 +286,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <form id="navSelectionLongueur">
                         <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
@@ -302,9 +302,9 @@
                                 </c:forEach>
                             </c:forEach>
                         </c:forEach>
-                    </form>
                     </tbody>
                 </table>
+                </form>
             </article>
         </aside>
     </main>

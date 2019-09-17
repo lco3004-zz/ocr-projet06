@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="" />
+    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_GestionSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,11 +166,11 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
-      <command value="mvn  package" />
       <command value="mvn clean compile" />
       <command value="mvn clean package" />
       <command value="mvn compile package" />
       <command value="mvn clean compile package" />
+      <command value="mvn  package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -305,14 +310,8 @@
       <workItem from="1568619838238" duration="5694000" />
       <workItem from="1568628299156" duration="2929000" />
       <workItem from="1568634167081" duration="11546000" />
-      <workItem from="1568651046663" duration="4108000" />
-    </task>
-    <task id="LOCAL-00014" summary="page dédiée sppot ave cboutona ction sur form">
-      <created>1568217787946</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1568217787946</updated>
+      <workItem from="1568651046663" duration="4286000" />
+      <workItem from="1568699289732" duration="4116000" />
     </task>
     <task id="LOCAL-00015" summary="mise en place nouvel page acceuil et nouvel page acceuilspot">
       <created>1568225048794</created>
@@ -650,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568656800651</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="ajout stream sur collection voie dans ajouter longueur">
+      <created>1568657233009</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1568657233009</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="correction ajoutspot - placement tables coté aside" />
     <MESSAGE value="revoir gestiondbSpot - à mettre en cookie, en session ou persister direct" />
     <MESSAGE value="remise en session d'un objet avec index, idse et id voire et dpspot" />
     <MESSAGE value="correction dans methode service" />
@@ -696,19 +701,17 @@
     <MESSAGE value="ajout - suppression session Spot et cookies en entrée de Acceuil Spot" />
     <MESSAGE value="dernier commit branche_V6" />
     <MESSAGE value="premier commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="premier commit" />
+    <MESSAGE value="ajout stream sur collection voie dans ajouter longueur" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout stream sur collection voie dans ajouter longueur" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>225</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
