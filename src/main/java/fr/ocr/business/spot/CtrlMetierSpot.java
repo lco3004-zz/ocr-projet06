@@ -6,7 +6,9 @@ import fr.ocr.model.entities.DbLongueur;
 import fr.ocr.model.entities.DbSecteur;
 import fr.ocr.model.entities.DbSpot;
 import fr.ocr.model.entities.DbVoie;
+import fr.ocr.model.utile.JpaCtrlRecherche;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static fr.ocr.model.constantes.SpotClassification.OFFICIEL;
@@ -23,6 +25,8 @@ public interface CtrlMetierSpot {
     DbSpot consulterCeSpot(Integer idSpot) throws  Exception;
     DbSecteur consulterCeSecteur(int idSelectionSecteur) throws Exception;
     DbVoie consulterCetteVoie(int idVoie) throws Exception;
+
+    List<DbSpot> chercherCeSpot(JpaCtrlRecherche recherche) throws Exception;
 
 }
 
@@ -97,4 +101,26 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
         return jpaCtrlSpot.readVoie(idVoie);
     }
 
+    @Override
+    public List<DbSpot> chercherCeSpot(JpaCtrlRecherche recherche) throws Exception {
+        List<DbSpot> dbSpots = new ArrayList<>();
+
+        if (recherche.getNomSpot() != null) {
+             DbSpot dbSpot   = jpaCtrlSpot.findSpotByName(recherche.getNomSpot());
+             if (dbSpot != null) {
+                 dbSpots.add(dbSpot);
+             }
+             else {
+                 dbSpots = null;
+             }
+        } else if (recherche.getSpotClassification() != null) {
+            dbSpots = jpaCtrlSpot.findListSpotByClassification(recherche.getSpotClassification());
+        } else if (recherche.getNombreSpitsLongeur() != null ||
+                recherche.getCotationLongueur() != null ) {
+            dbSpots = jpaCtrlSpot.findListeByLongeur(recherche);
+        } else {
+            dbSpots = listerMesSpots(null);
+        }
+        return dbSpots;
+    }
 }

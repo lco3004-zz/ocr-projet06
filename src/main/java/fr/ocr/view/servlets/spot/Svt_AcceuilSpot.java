@@ -1,10 +1,15 @@
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
+import fr.ocr.model.constantes.CotationLongueur;
+import fr.ocr.model.constantes.SpotClassification;
+import fr.ocr.model.converters.JpaConvEnumClassificationSpToString;
+import fr.ocr.model.converters.JpaConvEnumCotationLgToString;
 import fr.ocr.model.entities.DbLongueur;
 import fr.ocr.model.entities.DbSecteur;
 import fr.ocr.model.entities.DbSpot;
 import fr.ocr.model.entities.DbVoie;
+import fr.ocr.model.utile.JpaCtrlRecherche;
 import fr.ocr.view.utile.GestionCookies;
 import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +32,8 @@ import static fr.ocr.view.utile.ConstantesSvt.*;
 @WebServlet(name = "Svt_AcceuilSpot", urlPatterns = {"/AcceuilSpot",
         "/AcceuilSelectionSecteur",
         "/AcceuilSelectionSpot",
-        "/AcceuilSelectionVoie"})
+        "/AcceuilSelectionVoie",
+        "/RechercheSpot"})
 
 public class Svt_AcceuilSpot extends HttpServlet {
 
@@ -136,6 +142,28 @@ public class Svt_AcceuilSpot extends HttpServlet {
             String natureRequete = request.getServletPath();
             Cookie cookie;
             switch (natureRequete) {
+                case "/RechercheSpot" :
+                    JpaCtrlRecherche recherche = JpaCtrlRecherche.JPA_CTRL_RECHERCHE;
+
+                    recherche.setNomSpot(request.getParameter("inputNomSpot"));
+
+                    String inputNbreDeSpits = request.getParameter("inputNbreDeSpits");
+                    if (inputNbreDeSpits != null)
+                        recherche.setNombreSpitsLongeur(Integer.valueOf(inputNbreDeSpits));
+
+                    JpaConvEnumClassificationSpToString jpaConvEnumClassificationSpToString = new JpaConvEnumClassificationSpToString();
+                    SpotClassification spotClassification = jpaConvEnumClassificationSpToString.convertToEntityAttribute(request.getParameter("inputClassification"));
+                    recherche.setSpotClassification(spotClassification);
+
+                    JpaConvEnumCotationLgToString jpaConv = new JpaConvEnumCotationLgToString();
+                    CotationLongueur cotationLongueur = jpaConv.convertToEntityAttribute(request.getParameter("inputCotation"));
+                    recherche.setCotationLongueur(cotationLongueur);
+
+                    List<DbSpot> dbSpots = ctrlMetierSpot.chercherCeSpot(recherche);
+
+                    request.setAttribute("dbSpots", dbSpots);
+
+                    break;
                 case "/AcceuilSpot":
                     break;
 

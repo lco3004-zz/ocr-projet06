@@ -85,12 +85,12 @@
                         </fieldset>
                         <fieldset class="actions">
                             <button class="boutonFormSimple"
-                                    name="cherche"
+                                    name="Cherche"
                                     form="formRecherche"
                                     type="submit"
-                                    formaction="RechercheET"
+                                    formaction="RechercheSpot"
                                     formmethod="get"
-                                    value="cherche"
+                                    value="Cherche"
                                     formtarget="_self"> Cherche
                             </button>
                         </fieldset>

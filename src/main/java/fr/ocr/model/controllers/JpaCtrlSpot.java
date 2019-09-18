@@ -1,12 +1,13 @@
 package fr.ocr.model.controllers;
 
+import fr.ocr.model.constantes.SpotClassification;
 import fr.ocr.model.entities.*;
+import fr.ocr.model.utile.JpaCtrlRecherche;
 
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,8 +22,11 @@ public interface JpaCtrlSpot {
     DbSecteur readSecteur(Integer idSecteur) throws Exception;
     DbVoie readVoie (Integer idVoie) throws Exception;
     DbLongueur readLongueur (Integer idLongueur) throws Exception;
+    List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
+    DbSpot findSpotByName(String name) throws Exception;
+    List<DbSpot> findListSpotByClassification(SpotClassification spotClassification) throws Exception;
+    }
 
-}
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
@@ -197,6 +201,140 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
             dbLongueur = jpa.getEm().find(DbLongueur.class,idLongueur);
         }
         return dbLongueur;
+    }
+
+    @Override
+    public List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+
+            CriteriaQuery<DbSpot> criteriaQuery = criteriaBuilder.createQuery(DbSpot.class);
+
+            Root<DbSpot> root = criteriaQuery.from(DbSpot.class);
+
+            criteriaQuery.select(root);
+
+            CollectionJoin<DbSpot, DbSecteur> joinSecteur = root.join(DbSpot_.secteursByIdspot);
+
+            CollectionJoin<DbSecteur, DbVoie> joinVoie = joinSecteur.join(DbSecteur_.voiesByIdsecteur);
+
+            CollectionJoin<DbVoie, DbLongueur> joinLongueur = joinVoie.join(DbVoie_.longueursByIdvoie);
+
+            ArrayList<Predicate> predicateArrayList = new ArrayList<>();
+
+            if (recherche.getCotationLongueur() != null) {
+                predicateArrayList.add(criteriaBuilder.equal(joinLongueur.get(DbLongueur_.COTATION), recherche.getCotationLongueur()));
+            }
+            if (recherche.getNombreSpitsLongeur() != null) {
+                predicateArrayList.add(criteriaBuilder.equal(joinLongueur.get(DbLongueur_.NOMBRE_DE_SPITS), recherche.getNombreSpitsLongeur()));
+            }
+
+            List<DbSpot> dbSpots = null;
+
+            if (predicateArrayList.size()>0) {
+
+                Predicate[] predicates = new Predicate[predicateArrayList.size()];
+                int n = 0;
+                for (Predicate predicate : predicateArrayList) {
+                    predicates[n++] = predicate;
+                }
+                criteriaQuery.where(predicates);
+                TypedQuery<DbSpot> typedQuery = jpa.getEm().createQuery(criteriaQuery);
+                dbSpots = typedQuery.getResultList();
+            }
+
+            jpa.getEm().getTransaction().commit();
+            return dbSpots;
+
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
+        }
+    }
+
+    @Override
+    public DbSpot findSpotByName(String name) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+
+            DbSpot dbSpot ;
+
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+
+            CriteriaQuery<DbSpot> criteriaQuery = criteriaBuilder.createQuery(DbSpot.class);
+
+            Root<DbSpot> root = criteriaQuery.from(DbSpot.class);
+            criteriaQuery.select(root);
+
+            Predicate predicate = criteriaBuilder.equal(root.get(DbSpot_.NOM),name);
+            criteriaQuery.where(predicate);
+
+            Query query = jpa.getEm().createQuery(criteriaQuery);
+
+            dbSpot = (DbSpot) query.getSingleResult();
+
+            for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
+                for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
+                    for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                        int j = dbSpot.getIdspot();
+                        int i = dbSecteur.getIdsecteur();
+                        int k = dbVoie.getIdvoie();
+                        int l = dbLongueur.getIdlongueur();
+                    }
+                }
+            }
+
+            jpa.getEm().getTransaction().commit();
+
+            return dbSpot;
+
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
+        }
+    }
+
+    @Override
+    public List<DbSpot> findListSpotByClassification(SpotClassification spotClassification) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+
+            jpa.getEm().getTransaction().begin();
+
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+
+            CriteriaQuery<DbSpot> criteriaQuery = criteriaBuilder.createQuery(DbSpot.class);
+
+            Root<DbSpot> root = criteriaQuery.from(DbSpot.class);
+            criteriaQuery.select(root);
+
+            Predicate predicate = criteriaBuilder.equal(root.get(DbSpot_.CLASSIFICATION),spotClassification);
+            criteriaQuery.where(predicate);
+
+            TypedQuery<DbSpot>  typedQuery = jpa.getEm().createQuery(criteriaQuery);
+
+            List<DbSpot> dbSpotArrayList = typedQuery.getResultList();
+            for (DbSpot dbSpot :dbSpotArrayList) {
+                for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
+                    for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
+                        for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                            int j = dbSpot.getIdspot();
+                            int i = dbSecteur.getIdsecteur();
+                            int k = dbVoie.getIdvoie();
+                            int l = dbLongueur.getIdlongueur();
+                        }
+                    }
+                }
+            }
+
+            jpa.getEm().getTransaction().commit();
+
+            return dbSpotArrayList;
+
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
+        }
     }
 
 }

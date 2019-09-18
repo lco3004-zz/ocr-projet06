@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/converters/JpaConvEnumClassificationSpToString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/utile/JpaCtrlRecherche.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,8 +78,8 @@
       <list>
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -321,14 +321,7 @@
       <workItem from="1568699289732" duration="4629000" />
       <workItem from="1568704196080" duration="26535000" />
       <workItem from="1568739574523" duration="1912000" />
-      <workItem from="1568790257433" duration="17850000" />
-    </task>
-    <task id="LOCAL-00026" summary="mise en place identification dans nouveau format jsp">
-      <created>1568365680202</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1568365680202</updated>
+      <workItem from="1568790257433" duration="29543000" />
     </task>
     <task id="LOCAL-00027" summary="cnx ok topos ok inscription ok - landing page ok&#10;todo : éviter erreur sur click boutton si liste vide">
       <created>1568366323011</created>
@@ -666,7 +659,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568811967089</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="ok prep mise en forme (tout ok)">
+      <created>1568813035321</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1568813035321</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +710,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="essai de checked sur radiobtn (ko - at that commit) suite" />
     <MESSAGE value="checked sur radiobtn (OK - at that commit) suite et fin" />
     <MESSAGE value="correction radioBtn Spot : reset de cookie idVOie sur changment de secgteur" />
     <MESSAGE value="correction radio btn creatiion Spot : mettre idvoie , idsecteur sur les requetes ajoutervoie, ajouter longueur&#10;ajout de if secteur choisie == idsecteur dans le foreach" />
@@ -735,18 +734,8 @@
     <MESSAGE value="mise en place de la fonction &quot;recherche Spot&quot;" />
     <MESSAGE value="revue Css pour recherche" />
     <MESSAGE value="ajout div pour recherche (fonction en cours)" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout div pour recherche (fonction en cours)" />
+    <MESSAGE value="ok prep mise en forme (tout ok)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok prep mise en forme (tout ok)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java</url>
-          <line>153</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
