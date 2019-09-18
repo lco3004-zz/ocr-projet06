@@ -60,7 +60,7 @@
                         <fieldset class="inputs">
                             <input id="inputNomSpot" type="text" size="8" name="inputNomSpot">
 
-                            <input id="inputNbreDeSpits" name="inputNbreDeSpits" size="2" type="number" min="1" max="10" value="1"/>
+                            <input id="inputNbreDeSpits" name="inputNbreDeSpits" size="2" type="number" min="1" max="10"/>
 
                             <select id="inputClassification" name="inputClassification">
                                 <optgroup label="Classification">

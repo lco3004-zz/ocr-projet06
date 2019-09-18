@@ -105,7 +105,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     public List<DbSpot> chercherCeSpot(JpaCtrlRecherche recherche) throws Exception {
         List<DbSpot> dbSpots = new ArrayList<>();
 
-        if (recherche.getNomSpot() != null) {
+        if (recherche.getNomSpot() != null && recherche.getNomSpot() != "") {
              DbSpot dbSpot   = jpaCtrlSpot.findSpotByName(recherche.getNomSpot());
              if (dbSpot != null) {
                  dbSpots.add(dbSpot);
@@ -114,7 +114,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
                  dbSpots = null;
              }
         } else if (recherche.getSpotClassification() != null) {
-            dbSpots = jpaCtrlSpot.findListSpotByClassification(recherche.getSpotClassification());
+            dbSpots = jpaCtrlSpot.findListSpotByClassification(recherche.getSpotClassification().name());
         } else if (recherche.getNombreSpitsLongeur() != null ||
                 recherche.getCotationLongueur() != null ) {
             dbSpots = jpaCtrlSpot.findListeByLongeur(recherche);

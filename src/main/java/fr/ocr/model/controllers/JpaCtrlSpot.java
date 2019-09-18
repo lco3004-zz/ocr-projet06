@@ -1,6 +1,5 @@
 package fr.ocr.model.controllers;
 
-import fr.ocr.model.constantes.SpotClassification;
 import fr.ocr.model.entities.*;
 import fr.ocr.model.utile.JpaCtrlRecherche;
 
@@ -13,18 +12,18 @@ import java.util.List;
 
 public interface JpaCtrlSpot {
 
-    JpaCtrlSpot JPA_CTRL_SPOT = new JpaCtrlSpot_impl();
+        JpaCtrlSpot JPA_CTRL_SPOT = new JpaCtrlSpot_impl();
 
-    DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception;
-    List<DbSpot> findListeSpots(Integer idUser) throws  Exception;
-    DbSpot readSpot(Integer idSpot) throws Exception;
-    DbSpot updateSpot(DbSpot dbSpot) throws Exception;
-    DbSecteur readSecteur(Integer idSecteur) throws Exception;
-    DbVoie readVoie (Integer idVoie) throws Exception;
-    DbLongueur readLongueur (Integer idLongueur) throws Exception;
-    List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
-    DbSpot findSpotByName(String name) throws Exception;
-    List<DbSpot> findListSpotByClassification(SpotClassification spotClassification) throws Exception;
+        DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception;
+        List<DbSpot> findListeSpots(Integer idUser) throws  Exception;
+        DbSpot readSpot(Integer idSpot) throws Exception;
+        DbSpot updateSpot(DbSpot dbSpot) throws Exception;
+        DbSecteur readSecteur(Integer idSecteur) throws Exception;
+        DbVoie readVoie (Integer idVoie) throws Exception;
+        DbLongueur readLongueur (Integer idLongueur) throws Exception;
+        List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
+        DbSpot findSpotByName(String name) throws Exception;
+        List<DbSpot> findListSpotByClassification(String spotClassification) throws Exception;
     }
 
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
@@ -121,10 +120,10 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
             return dbSpot;
 
-    } catch (Exception hex1) {
-        throw new Exception(hex1);
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
+        }
     }
-}
 
     @Override
     public DbSpot updateSpot(DbSpot dbSpot)  {
@@ -297,7 +296,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
     }
 
     @Override
-    public List<DbSpot> findListSpotByClassification(SpotClassification spotClassification) throws Exception {
+    public List<DbSpot> findListSpotByClassification(String spotClassification) throws Exception {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
 
             jpa.getEm().getTransaction().begin();

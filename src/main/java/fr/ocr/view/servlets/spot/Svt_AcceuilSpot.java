@@ -148,7 +148,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
                     recherche.setNomSpot(request.getParameter("inputNomSpot"));
 
                     String inputNbreDeSpits = request.getParameter("inputNbreDeSpits");
-                    if (inputNbreDeSpits != null)
+                    if (inputNbreDeSpits != null && inputNbreDeSpits !="")
                         recherche.setNombreSpitsLongeur(Integer.valueOf(inputNbreDeSpits));
 
                     JpaConvEnumClassificationSpToString jpaConvEnumClassificationSpToString = new JpaConvEnumClassificationSpToString();
