@@ -20,24 +20,7 @@
         <nav>
             <header>.</header>
             <section>
-                <button class="boutonLateral"
-                        name="commenter"
-                        form="navSelectionSpot"
-                        type="submit"
-                        formaction="Commenter"
-                        formmethod="post"
-                        value="commenter"
-                        formtarget="_self"> Commenter
-                </button>
-                <button class="boutonLateral"
-                        name="rechercher"
-                        form="navSelectionSpot"
-                        type="submit"
-                        formaction="Rechercher"
-                        formmethod="post"
-                        value="rechercher"
-                        formtarget="_self"> Rechercher
-                </button>
+                <a class="boutonLateral" href="AdminSpot">AdminSpot</a>
                 <a class="boutonLateral" href="CreerSpot">Créer</a>
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
@@ -106,6 +89,7 @@
                                 <th>Localisation</th>
                                 <th>Classification</th>
                                 <th>#</th>
+                                <th>Cmt</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -125,6 +109,16 @@
                                                 name="idValSpot"
                                                 type="submit"
                                                 formaction="AcceuilSelectionSpot"
+                                                formmethod="get"
+                                                value="${dbSpot.getIdspot()}"
+                                                formtarget="_self"> ${labelBoutton}
+                                        </button>
+                                    </td>
+                                    <td >
+                                        <button style="${couleurFond} border-radius: 30%;"
+                                                name="idValSpot"
+                                                type="submit"
+                                                formaction="AcceuilCommentSpot"
                                                 formmethod="get"
                                                 value="${dbSpot.getIdspot()}"
                                                 formtarget="_self"> ${labelBoutton}

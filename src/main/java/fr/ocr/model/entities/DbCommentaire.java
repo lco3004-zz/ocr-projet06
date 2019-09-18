@@ -43,8 +43,6 @@ public class DbCommentaire implements Serializable {
         this.nom = nom;
     }
 
-
-
     @Basic
     @Column(name = "texte", length = 256)
     public String getTexte() {
