@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" beforeDir="false" afterPath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,9 +176,9 @@
       <command value="mvn clean compile" />
       <command value="mvn compile package" />
       <command value="mvn compile" />
+      <command value="mvn  package" />
       <command value="mvn clean package" />
       <command value="mvn clean compile package" />
-      <command value="mvn  package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -188,8 +194,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.24" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.24" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:/Program Files/Java/jdk-11.0.4" nameIsGenerated="true" show_console_on_std_err="true" show_console_on_std_out="true">
+    <configuration name="Tomcat 9.0.24" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.24" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:/Program Files/Java/jdk-11.0.4" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8083/projet06_war/home" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="projet06:war">
@@ -202,11 +209,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_projet06" />
         <option name="HTTP_PORT" value="8083" />
       </server-settings>
-      <log_file alias="Tomcat Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/manager.*" />
-      <log_file alias="Tomcat Host Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/host-manager.*" />
-      <log_file alias="Tomcat Localhost Access Log" path="%IDEA_RUN:CATALINA_BASE%/logs/localhost_access_log.*" />
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="54175" />
       </RunnerSettings>
@@ -266,17 +273,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@34a252dd" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@34a252dd" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@41ce779f" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -324,15 +321,8 @@
       <workItem from="1568651046663" duration="4286000" />
       <workItem from="1568699289732" duration="4629000" />
       <workItem from="1568704196080" duration="26535000" />
-      <workItem from="1568739574523" duration="1685000" />
-      <workItem from="1568782320746" duration="2211000" />
-    </task>
-    <task id="LOCAL-00022" summary="ajout gestion resa">
-      <created>1568317020528</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1568317020528</updated>
+      <workItem from="1568739574523" duration="1912000" />
+      <workItem from="1568790257433" duration="10746000" />
     </task>
     <task id="LOCAL-00023" summary="correction bug update topo - ajout gestion publier topo (ok)&#10;ajout demande de resa (ok)&#10;bug sur ok a demande de resa (ko)">
       <created>1568318942551</created>
@@ -670,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568738390188</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre">
+      <created>1568741494838</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1568741494838</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,6 +676,23 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="range">
+                    <value>
+                      <list>
+                        <option value="de29d7db9cbf507871a812e5f4b3bff0959ae76e..144c5105c279e7654acf309c51f35e6f59d8ef08" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -688,11 +702,15 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="simplification jsp et servlet ajout topo" />
     <MESSAGE value="simplification jsp et servlet ajout topo (suite)" />
     <MESSAGE value="correction erreur sur gestion topo : si sélection vide (restituer,publier, ...) affiche msg (plus de plantage)" />
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit)" />
@@ -717,7 +735,8 @@
     <MESSAGE value="pb avec Lazzy - modif ctrlreadSpot - accès par boucle aux descendant (sinon...je mettrai eager)" />
     <MESSAGE value="refactoring complet de acceuilSpot (encours de test)" />
     <MESSAGE value="correction bug JSP" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction bug JSP" />
+    <MESSAGE value="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

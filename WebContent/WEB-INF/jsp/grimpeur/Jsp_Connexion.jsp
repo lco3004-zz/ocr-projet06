@@ -11,52 +11,58 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
-
+<div class="container">
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+    <div class="corpsDePage">
+        <nav >
             <header>.</header>
             <section>
                 <a class="boutonLateral" href="Inscription">Inscription</a>
-                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="home">Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
-        <section>
-            <h3> Connexion </h3>
-            <form id="login" class="formSimpleLogin">
-                <fieldset class="labels">
-                    <label for="username">Votre Nom : </label>
-                    <label for="password">Mot de Passe : </label>
-                </fieldset>
-                <fieldset class="inputs">
-                    <input id="username" name="nomGrimpeur" size="64" type="text" placeholder="Nom" autofocus required>
-                    <input id="password" name="mdpGrimpeur" size="64" type="password" placeholder="Mot de Passe"
-                           required>
-                </fieldset>
-                <fieldset class="actions">
-                    <button class="boutonFormSimple"
-                            name="login"
-                            form="login"
-                            type="submit"
-                            formaction="Connexion"
-                            formmethod="post"
-                            value="login"
-                            formtarget="_self"> Se connecter
-                    </button>
-                </fieldset>
-                <fieldset class="informations">
-                    <div id="infoerr">
-                        <p>
-                            ${requestScope.messageCnx}
-                        </p>
-                    </div>
-                </fieldset>
-            </form>
-        </section>
+        <main>
+            <header>
+                <h3> Connexion </h3>
+            </header>
+            <section>
+                <form id="login" class="formSimpleLogin">
+                    <fieldset class="labels">
+                        <label for="username">Votre Nom : </label>
+                        <label for="password">Mot de Passe : </label>
+                    </fieldset>
+                    <fieldset class="inputs">
+                        <input id="username" name="nomGrimpeur" size="16" type="text" placeholder="Nom" autofocus required>
+                        <input id="password" name="mdpGrimpeur" size="16" type="password" placeholder="Mot de Passe"
+                               required>
+                    </fieldset>
+                    <fieldset class="actions">
+                        <button class="boutonFormSimple"
+                                name="login"
+                                form="login"
+                                type="submit"
+                                formaction="Connexion"
+                                formmethod="post"
+                                value="login"
+                                formtarget="_self"> Se connecter
+                        </button>
+                    </fieldset>
+                    <fieldset class="informations">
+                        <div id="infoerr">
+                            <p>
+                                ${requestScope.messageCnx}
+                            </p>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <label style="ont-size: larger  ">Spots</label>
@@ -75,31 +81,31 @@
                     </tbody>
                 </table>
             </article>
-
-            <label style="font-size: larger ">Nos Topos</label>
-            <table class="bordered">
-                <thead>
-                <tr>
-                    <th> nom</th>
-                    <th> lieu</th>
-                    <th> resume</th>
-                    <th> dateCreation</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+            <article>
+                <label style="font-size: larger ">Nos Topos</label>
+                <table class="bordered">
+                    <thead>
                     <tr>
-                        <td>${dbTopo.getNom()}</td>
-                        <td>${dbTopo.getLieu()}</td>
-                        <td>${dbTopo.getResume()}</td>
-                        <td>${dbTopo.getDateDeParution()}</td>
+                        <th> nom</th>
+                        <th> lieu</th>
+                        <th> resume</th>
+                        <th> dateCreation</th>
                     </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+                        <tr>
+                            <td>${dbTopo.getNom()}</td>
+                            <td>${dbTopo.getLieu()}</td>
+                            <td>${dbTopo.getResume()}</td>
+                            <td>${dbTopo.getDateDeParution()}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </article>
-        </aside>
-    </main>
+         </aside>
+    </div>
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>

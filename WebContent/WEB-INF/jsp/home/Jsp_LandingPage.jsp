@@ -11,13 +11,12 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
-
+<div class="container">
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+    <div class="corpsDePage">
+        <nav>
             <header> .</header>
             <section>
                 <a class="boutonLateral" href="AcceuilTopo">Nos Topos</a>
@@ -26,17 +25,20 @@
             </section>
             <footer> .</footer>
         </nav>
-
-        <section>
-            <h1> Bienvenue </h1>
-            <c:if test="${ not empty sessionScope.dbGrimpeur}" scope="page" var="cnxOk">
+        <main>
+            <header>
+                <h1> Bienvenue </h1>
+            </header>
+            <section>
+                <c:if test="${ not empty sessionScope.dbGrimpeur}" scope="page" var="cnxOk">
                 <p> Connexion réussie : ${cnxOk}</p>
-
                 <h2> Content de te revoir ${sessionScope.dbGrimpeur.getUserName()}</h2>
-
-            </c:if>
-
-        </section>
+                </c:if>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <label style="ont-size: larger  ">Spots</label>
@@ -55,7 +57,6 @@
                     </tbody>
                 </table>
             </article>
-
             <article>
                 <label style="font-size: larger ">Nos Topos</label>
                 <table class="bordered">
@@ -80,7 +81,7 @@
                 </table>
             </article>
         </aside>
-    </main>
+    </div>
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>

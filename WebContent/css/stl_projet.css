@@ -1,6 +1,6 @@
 
 /* ***************  CONTAINER ************************** */
-#container {
+.container {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
@@ -11,69 +11,79 @@
     width: auto;
     min-height: 1058px;
 }
-
-#container header {
+.container header {
     color: black;
     flex-basis: 1%;
 }
-
-#container footer {
+.container footer {
     color: black;
     flex-basis: 1%;
 }
-
-#container header h1, #container footer h1 {
+.container header h1, .container footer h1 {
     text-align: center;
     width: 75%;
 }
-
-/* ***************  MAIN  ************************** */
-#container main {
+/* ***************  CORPS   ************************** */
+.container .corpsDePage {
     display: flex;
     flex-direction: row;
     border: 1px solid black;
     flex: 1;
-    flex-basis: 100%;
 }
-
-/* ***************  MAIN  NAV ************************** */
-#container main nav {
+.container .corpsDePage  h3 {
+    color: GrayText;
+}
+.container .corpsDePage nav {
     display: flex;
-    flex-direction: column;
     flex: 1;
+    flex-direction: column;
     border: 1px solid black;
     align-items: center;
     padding: 0.2%;
     margin: 0.2%;
-
 }
-
-#container main nav header {
-    color: black;
-    text-align: center;
-    flex-basis: 1%;
-    min-width: 100%;
-    border: 1px dotted black;
-}
-
-#container main nav footer {
-    color: black;
-    text-align: center;
-    flex-basis: 1%;
-    min-width: 100%;
-    border: 1px dotted black;
-}
-
-#container main nav section {
+.container .corpsDePage aside {
     display: flex;
+    flex: 3;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 0.2%;
+    margin: 0.2%;
+}
+.container .corpsDePage main {
+    display: flex;
+    flex: 5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 0.2%;
+    margin: 0.2%;
+}
+/* *************** NAV ************************** */
+.container  nav header {
+    color: black;
+    text-align: center;
+    border: 1px dotted black;
+}
+.container nav footer {
+    color: black;
+    text-align: center;
+    border: 1px dotted black;
+}
+.container nav section {
+    list-style: none;
+    border: 1px dotted black;
     flex-direction: column;
     justify-content: space-around;
-    list-style: none;
     min-width: 100%;
-    border: 1px dotted black;
+    display: flex;
+    flex-grow: 3;
 }
 
-#container main nav section .boutonLateral {
+.container  nav section .boutonLateral {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -90,61 +100,65 @@
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
-
-#container main nav section .boutonLateral:hover {
+.container  nav section .boutonLateral:hover {
     background-color: rgba(255, 0, 0, 1);
     color: white;
 }
-
-#container main nav section .boutonLateral:disabled {
+.container  nav section .boutonLateral:disabled {
     background-color: dimgray;
     color: darkgray;
     font-style: italic;
 }
 
-/* ***************  MAIN SECTION ************************** */
-#container main section {
-    flex: 5;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border: 1px solid black;
-    padding: 0.2%;
-    margin: 0.2%;
-}
-
-#container main  .bordered {
-    justify-content: center;
-    align-items: center;
+/* ************************************* */
+.container .bordered {
     border: solid #ccc 1px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
-    -webkit-box-shadow: 0 3px 3px #ccc;
-    -moz-box-shadow: 0 3px 3px #ccc;
     box-shadow: 0 3px 3px #ccc;
     border-spacing: 0;
-    width: 100%;
     overflow: scroll;
+    width: 100%;
 }
 
-#container main  .bordered td,
-#container main  .bordered th {
+.container   .bordered td,
+.container   .bordered th {
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
-
-#container main  .formSimple {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
-    border: solid #ccc 1px;
+.container   .bordered th {
+    background-color: #dce9f9;
+    background-image: linear-gradient(top, #ebf3fc, #dce9f9);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
+.container .bordered td:first-child,
+.container  .bordered th:first-child {
+    border-left: none;
+}
+.container   .bordered th:first-child {
+    border-radius: 20px 0 0 0;
+}
+.container   .bordered th:last-child {
+    border-radius: 0 20px 0 0;
+}
+.container   .bordered tr:last-child td:first-child {
+    border-radius: 0 0 0 20px;
+}
+.container   .bordered tr:last-child td:last-child {
+    border-radius: 0 0 20px 0;
+}
+.container   .bordered tr:hover {
+    background: #fbf8e9;
 }
 
-#container main  .formSimple .boutonFormSimple {
+/* ********************  formSimple ********************************** */
+.container   .formSimple {
+    border: solid #ccc 1px;
+}
+.container   .formSimple .boutonFormSimple {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -161,62 +175,37 @@
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
-
-#container main  .formSimple .boutonFormSimple:hover {
+.container  .formSimple .boutonFormSimple:hover {
     background-color: rgba(255, 0, 0, 1);
     color: white;
 }
-
-#container main  .formSimple .boutonFormSimple:active {
+.container   .formSimple .boutonFormSimple:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
-
-#container main  .formSimple .boutonFormSimple:disabled {
+.container   .formSimple .boutonFormSimple:disabled {
     background-color: dimgray;
     color: darkgray;
     font-style: italic;
 }
-
-#container main  .formSimple .labels {
-    display: inline-flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    flex-basis: 40%;
+.container   .formSimple .labels {
+    align-items: flex-end;
 }
-
-#container main  .formSimple .inputs {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    flex-basis: 60%;
-    justify-content: flex-start;
+.container   .formSimple .inputs {
+    align-items: stretch;
 }
-
-#container main  .formSimple .actions {
-    flex-basis: 10%;
+.container   .formSimple .actions {
+    align-items: center;
+}
+.container   .formSimple .informations {
     justify-content: center;
     align-items: center;
 }
-
-
-#container main  .formSimple .informations {
-    flex-basis: 10%;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#container main  .formSimpleLogin {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
+/* ********************  formSimpleLogin ********************************** */
+.container   .formSimpleLogin {
     border: solid #ccc 1px;
 }
-
-#container main  .formSimpleLogin .boutonFormSimple {
+.container   .formSimpleLogin .boutonFormSimple {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -233,99 +222,38 @@
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
-
-#container main  .formSimpleLogin .boutonFormSimple:hover {
+.container   .formSimpleLogin .boutonFormSimple:hover {
     background-color: rgba(255, 0, 0, 1);
     color: black;
 }
-
-#container main  .formSimpleLogin .boutonFormSimple:active {
+.container   .formSimpleLogin .boutonFormSimple:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
-
-#container main  .formSimpleLogin .labels {
+.container   .formSimpleLogin .labels {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
     flex-basis: 40%;
 }
-
-#container main  .formSimpleLogin .inputs {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    flex-basis: 30%;
-    justify-content: space-between;
-}
-
-#container main  .formSimpleLogin .actions {
-    flex-basis: 20%;
-    justify-content: center;
+.container   .formSimpleLogin .inputs {
     align-items: center;
 }
-
-#container main  .formSimpleLogin .informations {
-    flex-basis: 20%;
-    justify-content: center;
+.container   .formSimpleLogin .actions {
     align-items: center;
 }
-
-#container main  .bordered th {
-    background-color: #dce9f9;
-    background-image: linear-gradient(top, #ebf3fc, #dce9f9);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
-    border-top: none;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+.container   .formSimpleLogin .informations {
+    align-items: center;
 }
-
-#container main  .bordered td:first-child,
-#container main  .bordered th:first-child {
-    border-left: none;
-}
-
-#container main  .bordered th:first-child {
-    border-radius: 20px 0 0 0;
-}
-
-#container main  .bordered th:last-child {
-    border-radius: 0 20px 0 0;
-}
-
-#container main  .bordered tr:last-child td:first-child {
-    border-radius: 0 0 0 20px;
-}
-
-#container main  .bordered tr:last-child td:last-child {
-    border-radius: 0 0 20px 0;
-}
-
-#container main  .bordered tr:hover {
-    background: #fbf8e9;
-}
-#container main  h3 {
-    color: GrayText;
-}
-
-/* ***************  MAIN ASIDE **************************  */
-
-#container main aside {
-    flex: 3;
+/* ***************  MAIN  ************************** */
+.container  main section .divrecherche{
     border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     padding: 0.2%;
     margin: 0.2%;
 }
-
-#container main aside article {
-
+/* ***************  ASIDE **************************  */
+.container  aside article {
     border: 2px dotted black;
     margin-bottom: 0.5%;
-}
-
-#container main aside article {
-    flex: 1;
 }
