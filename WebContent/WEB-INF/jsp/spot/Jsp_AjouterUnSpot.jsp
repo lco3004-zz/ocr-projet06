@@ -152,9 +152,10 @@
                     </fieldset>
                     <fieldset class="inputs">
                         <input id="nomLongueur" name="nomLongueur" required size="16" type="text"/>
-                        <input id="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="text"/>
+                        <input id="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="number" min="1" max="10" value="1"/>
                         <select id="cotationLongueur" required name="cotationLongueur">
                             <optgroup label="Cotation">
+                                <option disabled selected value> -- Choisir Cotation -- </option>
                                 <option value="QUATRE_A">QUATRE_A</option>
                                 <option value="QUATRE_B">QUATRE_B</option>
                                 <option value="QUATRE_C">QUATRE_C</option>
