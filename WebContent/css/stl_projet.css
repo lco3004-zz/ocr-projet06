@@ -56,8 +56,6 @@
     display: flex;
     flex: 5;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
     border: 1px solid black;
     padding: 0.2%;
     margin: 0.2%;
@@ -155,9 +153,11 @@
 }
 
 /* ********************  formSimple ********************************** */
-.container   .formSimple {
+.container .formSimpleLogin {
     border: solid #ccc 1px;
+    display: flex;
 }
+
 .container   .formSimple .boutonFormSimple {
     border: 0;
     line-height: 2.5;
@@ -188,11 +188,21 @@
     color: darkgray;
     font-style: italic;
 }
-.container   .formSimple .labels {
-    align-items: flex-end;
+
+.container .formSimple .labels {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: end;
+    flex-basis: 20%;
 }
-.container   .formSimple .inputs {
-    align-items: stretch;
+.container .formSimple .inputs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 2;
 }
 .container   .formSimple .actions {
     align-items: center;
@@ -204,6 +214,28 @@
 /* ********************  formSimpleLogin ********************************** */
 .container   .formSimpleLogin {
     border: solid #ccc 1px;
+}
+.container .formSimpleLogin .labels {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: end;
+    flex-basis: 20%;
+}
+.container .formSimpleLogin .inputs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 2;
+}
+.container   .formSimpleLogin .actions {
+    align-items: center;
+}
+.container   .formSimpleLogin .informations {
+    justify-content: center;
+    align-items: center;
 }
 .container   .formSimpleLogin .boutonFormSimple {
     border: 0;
@@ -230,28 +262,17 @@
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
-.container   .formSimpleLogin .labels {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    flex-basis: 40%;
-}
-.container   .formSimpleLogin .inputs {
-    align-items: center;
-}
-.container   .formSimpleLogin .actions {
-    align-items: center;
-}
-.container   .formSimpleLogin .informations {
-    align-items: center;
-}
+
 /* ***************  MAIN  ************************** */
 .container  main section .divrecherche{
     border: 1px solid black;
     padding: 0.2%;
     margin: 0.2%;
 }
+.container  main header{
+    text-align: center;
+}
+
 /* ***************  ASIDE **************************  */
 .container  aside article {
     border: 2px dotted black;

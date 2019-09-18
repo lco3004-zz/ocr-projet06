@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre">
+    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" beforeDir="false" afterPath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -322,14 +318,7 @@
       <workItem from="1568699289732" duration="4629000" />
       <workItem from="1568704196080" duration="26535000" />
       <workItem from="1568739574523" duration="1912000" />
-      <workItem from="1568790257433" duration="10746000" />
-    </task>
-    <task id="LOCAL-00023" summary="correction bug update topo - ajout gestion publier topo (ok)&#10;ajout demande de resa (ok)&#10;bug sur ok a demande de resa (ko)">
-      <created>1568318942551</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1568318942551</updated>
+      <workItem from="1568790257433" duration="13003000" />
     </task>
     <task id="LOCAL-00024" summary="correction bug ResaTopo (resa ok)&#10;à faire : voir mes réservation accpetées, rejeter une demande de resa, restituer une resa">
       <created>1568320798138</created>
@@ -667,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568741494838</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="mise en place de la fonction &quot;recherche Spot&quot;">
+      <created>1568801175216</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1568801175216</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +707,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="simplification jsp et servlet ajout topo (suite)" />
     <MESSAGE value="correction erreur sur gestion topo : si sélection vide (restituer,publier, ...) affiche msg (plus de plantage)" />
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit)" />
     <MESSAGE value="essai de checked sur radiobtn (ko - at that commit) suite" />
@@ -736,7 +731,8 @@
     <MESSAGE value="refactoring complet de acceuilSpot (encours de test)" />
     <MESSAGE value="correction bug JSP" />
     <MESSAGE value="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok - Spot (voir /ajouter) - à faire tagger - gestion commentaire avec filtre sur user profil membre" />
+    <MESSAGE value="mise en place de la fonction &quot;recherche Spot&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="mise en place de la fonction &quot;recherche Spot&quot;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

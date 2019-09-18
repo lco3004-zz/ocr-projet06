@@ -31,12 +31,12 @@
             <section>
                 <form id="login" class="formSimpleLogin">
                     <fieldset class="labels">
-                        <label for="username">Votre Nom : </label>
-                        <label for="password">Mot de Passe : </label>
+                        <label for="username">Nom :</label>
+                        <label for="password">MdP :</label>
                     </fieldset>
                     <fieldset class="inputs">
-                        <input id="username" name="nomGrimpeur" size="16" type="text" placeholder="Nom" autofocus required>
-                        <input id="password" name="mdpGrimpeur" size="16" type="password" placeholder="Mot de Passe"
+                        <input id="username" name="nomGrimpeur" type="text" placeholder="Nom" autofocus required>
+                        <input id="password" name="mdpGrimpeur"  type="password" placeholder="Mot de Passe"
                                required>
                     </fieldset>
                     <fieldset class="actions">
