@@ -12,45 +12,51 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
-
+<div class="container">
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+    <div class="corpsDePage">
+        <nav >
             <header>.</header>
             <section>
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>
-        <section>
-            <h3> Enregister un Topo </h3>
-            <form id="formEnregistrerData" class="formSimple">
-                <fieldset class="labels">
-                    <label for="nomTopo"> Nom du Topo : </label>
-                    <label for="lieuTopo"> lieuTopo : </label>
-                    <label for="resumeTopo"> Resumé : </label>
-                </fieldset>
-                <fieldset class="inputs">
-                    <input id="nomTopo" name="nomTopo" required size="64" type="text"/>
-                    <input id="lieuTopo" name="lieuTopo" required size="64" type="text"/>
-                    <input id="resumeTopo" name="resumeTopo" required size="64" type="text"/>
-                </fieldset>
-                <fieldset class="actions">
-                    <button class="boutonFormSimple"
-                            name="Enregistrer"
-                            form="formEnregistrerData"
-                            type="submit"
-                            formaction="EnregistrerTopo"
-                            formmethod="post"
-                            value="Enregistrer"
-                            formtarget="_self"> Enregistrer
-                    </button>
-                </fieldset>
-            </form>
-        </section>
+        <main>
+            <header>
+                <h3> Enregister un Topo </h3>
+            </header>
+            <section>
+                <form id="formEnregistrerData" class="formSimple">
+                    <fieldset class="labels">
+                        <label for="nomTopo">Nom :</label>
+                        <label for="lieuTopo">Lieu :</label>
+                        <label for="resumeTopo">Résumé :</label>
+                    </fieldset>
+                    <fieldset class="inputs">
+                        <input id="nomTopo" name="nomTopo" required size="40%" type="text"/>
+                        <input id="lieuTopo" name="lieuTopo" required size="40%" type="text"/>
+                        <input id="resumeTopo" name="resumeTopo" required size="40%" type="text"/>
+                    </fieldset>
+                    <fieldset class="actions">
+                        <button class="boutonFormSimple"
+                                name="Enregistrer"
+                                form="formEnregistrerData"
+                                type="submit"
+                                formaction="EnregistrerTopo"
+                                formmethod="post"
+                                value="Enregistrer"
+                                formtarget="_self"> Enregistrer
+                        </button>
+                    </fieldset>
+                </form>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <label style="font-size: larger ">Mes Topos</label>
@@ -99,7 +105,8 @@
                 </table>
             </article>
         </aside>
-    </main>
+    </div>
+
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>

@@ -12,13 +12,13 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
-
+<div class="container">
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+
+    <div class="corpsDePage">
+        <nav>
             <header>.</header>
             <section>
                 <button class="boutonLateral"
@@ -67,41 +67,45 @@
             </section>
             <footer>.</footer>
         </nav>
-        <section>
-            <c:choose>
-                <c:when test="${requestScope.afficheFormeSpot == true}">
-                    <c:set var="choixEnable" scope="page" value="enabled"> </c:set>
-                </c:when>
-                <c:otherwise>
-                    <c:set var="choixEnable" scope="page" value="disabled"> </c:set>
-                </c:otherwise>
-            </c:choose>
+        <main>
+            <header>
+                .
+            </header>
+            <section>
+                <c:choose>
+                    <c:when test="${requestScope.afficheFormeSpot == true}">
+                        <c:set var="choixEnable" scope="page" value="enabled"> </c:set>
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="choixEnable" scope="page" value="disabled"> </c:set>
+                    </c:otherwise>
+                </c:choose>
 
-            <label for="formEnregistrerSpot">Saisir infos Spot</label>
-                    <form id="formEnregistrerSpot" class="formSimple">
-                        <fieldset class="labels">
-                            <label for="nomSpot"> Nom : </label>
-                            <label for="localisationSpot"> Lieu : </label>
-                        </fieldset>
-                        <fieldset class="inputs">
-                            <input id="nomSpot" name="nomSpot" required size="16" type="text"/>
-                            <input id="localisationSpot" name="localisationSpot" required size="16" type="text"/>
-                        </fieldset>
-                        <fieldset class="actions">
-                            <button class="boutonFormSimple"
-                                    name="AjouterSpot"
-                                    form="formEnregistrerSpot"
-                                    type="submit"
-                                    formaction="AjouterSpot"
-                                    formmethod="post"
-                                    value="AjouterSpot"
-                                    formtarget="_self"
-                            ${choixEnable} > Ajouter
-                            </button>
-                        </fieldset>
-                    </form>
-            <c:if test="${requestScope.afficheFormeSpot == false}" scope="request" var="none">
-                <label for="formEnregistrerSecteur">Saisir infos Secteur</label>
+                <label for="formEnregistrerSpot">Saisir infos Spot</label>
+                <form id="formEnregistrerSpot" class="formSimple">
+                    <fieldset class="labels">
+                        <label for="nomSpot"> Nom : </label>
+                        <label for="localisationSpot"> Lieu : </label>
+                    </fieldset>
+                    <fieldset class="inputs">
+                        <input id="nomSpot" name="nomSpot" required size="16" type="text"/>
+                        <input id="localisationSpot" name="localisationSpot" required size="16" type="text"/>
+                    </fieldset>
+                    <fieldset class="actions">
+                        <button class="boutonFormSimple"
+                                name="AjouterSpot"
+                                form="formEnregistrerSpot"
+                                type="submit"
+                                formaction="AjouterSpot"
+                                formmethod="post"
+                                value="AjouterSpot"
+                                formtarget="_self"
+                        ${choixEnable} > Ajouter
+                        </button>
+                    </fieldset>
+                </form>
+                <c:if test="${requestScope.afficheFormeSpot == false}" scope="request" var="none">
+                    <label for="formEnregistrerSecteur">Saisir infos Secteur</label>
                     <form id="formEnregistrerSecteur" class="formSimple">
                         <fieldset class="labels">
                             <label for="nomSecteur"> Nom : </label>
@@ -122,66 +126,68 @@
                         </fieldset>
                     </form>
 
-                <label for="formEnregistrerVoie">Saisir infos Voies</label>
-                <form id="formEnregistrerVoie" class="formSimple">
-                    <fieldset class="labels">
-                        <label for="nomVoie"> Nom : </label>
-                    </fieldset>
-                    <fieldset class="inputs">
-                        <input id="nomVoie" name="nomVoie" required size="16" type="text"/>
-                    </fieldset>
-                    <fieldset class="actions">
-                        <button class="boutonFormSimple"
-                                name="AjouterVoie"
-                                form="formEnregistrerVoie"
-                                type="submit"
-                                formaction="AjouterVoie"
-                                formmethod="post"
-                                value="AjouterVoie"
-                                formtarget="_self"> Ajouter
-                        </button>
-                    </fieldset>
-                </form>
+                    <label for="formEnregistrerVoie">Saisir infos Voies</label>
+                    <form id="formEnregistrerVoie" class="formSimple">
+                        <fieldset class="labels">
+                            <label for="nomVoie"> Nom : </label>
+                        </fieldset>
+                        <fieldset class="inputs">
+                            <input id="nomVoie" name="nomVoie" required size="16" type="text"/>
+                        </fieldset>
+                        <fieldset class="actions">
+                            <button class="boutonFormSimple"
+                                    name="AjouterVoie"
+                                    form="formEnregistrerVoie"
+                                    type="submit"
+                                    formaction="AjouterVoie"
+                                    formmethod="post"
+                                    value="AjouterVoie"
+                                    formtarget="_self"> Ajouter
+                            </button>
+                        </fieldset>
+                    </form>
 
-                <label for="formEnregistrerLongueur">Saisir infos Longueur</label>
-                <form id="formEnregistrerLongueur" class="formSimple">
-                    <fieldset class="labels">
-                        <label for="nomLongueur"> Nom : </label>
-                        <label for="nombreDeSpits"> Spits : </label>
-                        <label for="cotationLongueur"> Cotation : </label>
-                    </fieldset>
-                    <fieldset class="inputs">
-                        <input id="nomLongueur" name="nomLongueur" required size="16" type="text"/>
-                        <input id="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="number" min="1" max="10" value="1"/>
-                        <select id="cotationLongueur" required name="cotationLongueur">
-                            <optgroup label="Cotation">
-                                <option disabled selected value> -- Choisir Cotation -- </option>
-                                <option value="QUATRE_A">QUATRE_A</option>
-                                <option value="QUATRE_B">QUATRE_B</option>
-                                <option value="QUATRE_C">QUATRE_C</option>
-                                <option value="SIX_A">SIX_A</option>
-                                <option value="SIX_APLUS">SIX_APLUS</option>
-                                <option value="SIX_BPLUS">SIX_BPLUS</option>
-                                <option value="SIX_CPLUS">SIX_CPLUS</option>
-                            </optgroup>
-                        </select>
-                    </fieldset>
-                    <fieldset class="actions">
-                        <button class="boutonFormSimple"
-                                name="AjouterLongueur"
-                                form="formEnregistrerLongueur"
-                                type="submit"
-                                formaction="AjouterLongueur"
-                                formmethod="post"
-                                value="AjouterLongueur"
-                                formtarget="_self"> Ajouter
-                        </button>
-                    </fieldset>
-                </form>
-
-            </c:if>
-        </section>
-
+                    <label for="formEnregistrerLongueur">Saisir infos Longueur</label>
+                    <form id="formEnregistrerLongueur" class="formSimple">
+                        <fieldset class="labels">
+                            <label for="nomLongueur"> Nom : </label>
+                            <label for="nombreDeSpits"> Spits : </label>
+                            <label for="cotationLongueur"> Cotation : </label>
+                        </fieldset>
+                        <fieldset class="inputs">
+                            <input id="nomLongueur" name="nomLongueur" required size="16" type="text"/>
+                            <input id="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="number" min="1" max="10" value="1"/>
+                            <select id="cotationLongueur" required name="cotationLongueur">
+                                <optgroup label="Cotation">
+                                    <option disabled selected value> -- Choisir Cotation -- </option>
+                                    <option value="QUATRE_A">QUATRE_A</option>
+                                    <option value="QUATRE_B">QUATRE_B</option>
+                                    <option value="QUATRE_C">QUATRE_C</option>
+                                    <option value="SIX_A">SIX_A</option>
+                                    <option value="SIX_APLUS">SIX_APLUS</option>
+                                    <option value="SIX_BPLUS">SIX_BPLUS</option>
+                                    <option value="SIX_CPLUS">SIX_CPLUS</option>
+                                </optgroup>
+                            </select>
+                        </fieldset>
+                        <fieldset class="actions">
+                            <button class="boutonFormSimple"
+                                    name="AjouterLongueur"
+                                    form="formEnregistrerLongueur"
+                                    type="submit"
+                                    formaction="AjouterLongueur"
+                                    formmethod="post"
+                                    value="AjouterLongueur"
+                                    formtarget="_self"> Ajouter
+                            </button>
+                        </fieldset>
+                    </form>
+                </c:if>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <label style="font-size: larger ">Spots</label>
@@ -237,16 +243,16 @@
 
             <article>
                 <form id="navSelectionVoie">
-                <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> #</th>
-                        <th> idSec</th>
-                        <th> Nom</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                    <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th> #</th>
+                            <th> idSec</th>
+                            <th> Nom</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <tr>
@@ -269,24 +275,24 @@
                                 </tr>
                             </c:forEach>
                         </c:forEach>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </form>
             </article>
             <article>
                 <form id="navSelectionLongueur">
-                <label style="font-size: larger ">Longeurs</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> idSec</th>
-                        <th> idVoie</th>
-                        <th> Nom</th>
-                        <th> Cotation</th>
-                        <th> Spits</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                    <label style="font-size: larger ">Longeurs</label>
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th> idSec</th>
+                            <th> idVoie</th>
+                            <th> Nom</th>
+                            <th> Cotation</th>
+                            <th> Spits</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <c:forEach var="dbSecteur" items="${requestScope.dbSpot.getSecteursByIdspot()}">
                             <c:forEach var="dbVoie" items="${dbSecteur.getVoiesByIdsecteur()}">
                                 <c:forEach var="dbLongueur" items="${dbVoie.getLongueursByIdvoie()}">
@@ -303,12 +309,12 @@
                                 </c:forEach>
                             </c:forEach>
                         </c:forEach>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </form>
             </article>
         </aside>
-    </main>
+    </div>
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>

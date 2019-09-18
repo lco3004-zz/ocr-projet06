@@ -17,9 +17,9 @@ import java.io.IOException;
 @WebServlet(name = "Svt_RestituerTopo", urlPatterns = {"/RestituerTopo"})
 public class Svt_RestituerTopo extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private final Logger logger;
     private CtrlMetierTopo ctrlMetierTopo;
 
+    private final Logger logger;
     public Svt_RestituerTopo() {
         super();
         logger = LogManager.getLogger(this.getClass());

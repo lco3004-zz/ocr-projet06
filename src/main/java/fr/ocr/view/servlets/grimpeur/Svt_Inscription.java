@@ -1,6 +1,11 @@
 package fr.ocr.view.servlets.grimpeur;
 
 import fr.ocr.business.grimpeur.CtrlMetierGrimpeur;
+import fr.ocr.business.spot.CtrlMetierSpot;
+import fr.ocr.business.topo.CtrlMetierTopo;
+import fr.ocr.model.entities.DbSpot;
+import fr.ocr.model.entities.DbTopo;
+import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 
 @WebServlet(name = "Svt_Inscription", urlPatterns = {"/Inscription"})
@@ -24,6 +30,24 @@ public class Svt_Inscription extends HttpServlet {
         super();
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
+    }
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        try {
+            CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
+            CtrlMetierSpot ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
+
+            List<DbSpot> dbSpots = ctrlMetierSpot.listerTousSpots();
+            req.setAttribute("dbSpots", dbSpots);
+
+            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousToposDisponibles();
+            req.setAttribute("dbTopos", dbTopos);
+
+        } catch (Exception e) {
+            (new MsgExcpStd()).execute(this,e,logger,req,resp);
+        }
+        super.service(req, resp);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

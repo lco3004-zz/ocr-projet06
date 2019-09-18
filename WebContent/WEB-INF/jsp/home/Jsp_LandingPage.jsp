@@ -27,13 +27,13 @@
         </nav>
         <main>
             <header>
-                <h1> Bienvenue </h1>
+                <c:set var="msgWelcome" value="Bienvenue Visiteur"/>
+                <c:if test="${ not empty sessionScope.dbGrimpeur}" scope="page" var="cnxOk">
+                    <c:set var="msgWelcome" value="Bonjour  ${sessionScope.dbGrimpeur.getUserName()}"/>
+                </c:if>
+                <h2> ${msgWelcome}</h2>
             </header>
             <section>
-                <c:if test="${ not empty sessionScope.dbGrimpeur}" scope="page" var="cnxOk">
-                <p> Connexion réussie : ${cnxOk}</p>
-                <h2> Content de te revoir ${sessionScope.dbGrimpeur.getUserName()}</h2>
-                </c:if>
             </section>
             <footer>
                 .
@@ -41,19 +41,22 @@
         </main>
         <aside>
             <article>
-                <label style="ont-size: larger  ">Spots</label>
-                <table class="bordered">
+                <table id="tableSelectionSpot"  class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th>Nom</th>
+                        <th>Localisation</th>
+                        <th>Classification</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                        <tr>
+                            <td>${dbSpot.getNom()}</td>
+                            <td>${dbSpot.getLocalisation()}</td>
+                            <td>${dbSpot.getClassification()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>

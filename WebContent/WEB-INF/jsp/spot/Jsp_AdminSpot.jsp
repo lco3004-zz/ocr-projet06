@@ -11,16 +11,16 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
+<div class="container">
 
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+
+    <div class="corpsDePage">
+        <nav>
             <header>.</header>
             <section>
-
                 <button class="boutonLateral"
                         name="SupprimerCommentaire"
                         form="navSelectionSpot"
@@ -30,7 +30,6 @@
                         value="commenter"
                         formtarget="_self"> Commenter
                 </button>
-
                 <button class="boutonLateral"
                         name="tagger"
                         form="navSelectionSpot"
@@ -40,7 +39,6 @@
                         value="tagger"
                         formtarget="_self"> Tagger
                 </button>
-
                 <button class="boutonLateral"
                         name="ModererCommentaire"
                         form="navSelectionSpot"
@@ -50,36 +48,42 @@
                         value="ModererCommentaire"
                         formtarget="_self"> Modérer
                 </button>
-
                 <a class="boutonLateral" href="AcceuilSpot">Vers l'Acceuil Spot</a>
             </section>
             <footer>.</footer>
         </nav>
-        <section>
-            <h3> Nos Spots </h3>
-            <table class="bordered">
-                <thead>
-                <tr>
-                    <th> #</th>
-                    <th> Nom</th>
-                    <th> Localisation</th>
-                    <th> Classification</th>
-                </tr>
-                </thead>
-                <tbody>
-                <form id="navSelectionSpot">
-                    <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
-                        <tr>
-                            <td><input type="radio" name="idValSpot" value="${dbSpot.getIdSpot()}"></td>
-                            <td>${dbSpot.getNom()}</td>
-                            <td>${dbSpot.getLocalisation()}</td>
-                            <td>${dbSpot.getClassification()}</td>
-                        </tr>
-                    </c:forEach>
-                </form>
-                </tbody>
-            </table>
-        </section>
+        <main>
+            <header>
+                <h3> Nos Spots </h3>
+            </header>
+            <section>
+                <table class="bordered">
+                    <thead>
+                    <tr>
+                        <th> #</th>
+                        <th> Nom</th>
+                        <th> Localisation</th>
+                        <th> Classification</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <form id="navSelectionSpot">
+                        <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                            <tr>
+                                <td><input type="radio" name="idValSpot" value="${dbSpot.getIdSpot()}"></td>
+                                <td>${dbSpot.getNom()}</td>
+                                <td>${dbSpot.getLocalisation()}</td>
+                                <td>${dbSpot.getClassification()}</td>
+                            </tr>
+                        </c:forEach>
+                    </form>
+                    </tbody>
+                </table>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <label style="font-size: larger ">Secteurs</label>
@@ -135,7 +139,7 @@
             </article>
 
         </aside>
-    </main>
+    </div>
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>

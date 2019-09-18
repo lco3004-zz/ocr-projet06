@@ -1,7 +1,10 @@
 package fr.ocr.view.servlets.acceuil;
 
+import fr.ocr.business.spot.CtrlMetierSpot;
 import fr.ocr.business.topo.CtrlMetierTopo;
+import fr.ocr.model.entities.DbSpot;
 import fr.ocr.model.entities.DbTopo;
+import fr.ocr.view.utile.MsgExcpStd;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,16 +15,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "Svt_AcceuilSite", urlPatterns = {"/home"})
 public class Svt_AcceuilSite extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    final Logger logger;
 
     public Svt_AcceuilSite() {
         super();
-        final Logger logger = LogManager.getLogger(this.getClass());
+        logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
@@ -32,8 +35,12 @@ public class Svt_AcceuilSite extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
-            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousToposDisponibles();
+            CtrlMetierSpot ctrlMetierSpot = CtrlMetierSpot.CTRL_METIER_SPOT;
 
+            List<DbSpot> dbSpots = ctrlMetierSpot.listerTousSpots();
+            request.setAttribute("dbSpots", dbSpots);
+
+            List<DbTopo> dbTopos = ctrlMetierTopo.listerTousToposDisponibles();
             request.setAttribute("dbTopos", dbTopos);
 
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_LandingPage");
@@ -41,11 +48,8 @@ public class Svt_AcceuilSite extends HttpServlet {
 
         } catch (Exception e) {
             request.removeAttribute("dbTopos");
-            request.removeAttribute("dbToposGrimpeur");
-            request.setAttribute("messageErreur", " " + e.getLocalizedMessage() + " " + Arrays.toString(e.getStackTrace()));
-            RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_ErrInterne");
-            requestDispatcher.forward(request, response);
+            request.removeAttribute("dbSpots");
+            (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
-
     }
 }

@@ -11,13 +11,12 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
-
+<div class="container">
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+    <div class="corpsDePage">
+        <nav>
             <header>.</header>
             <section>
                 <button class="boutonLateral"
@@ -48,59 +47,66 @@
             </section>
             <footer>.</footer>
         </nav>
-        <section>
-            <h3> Nos Topos Disponibles pour la Réservation </h3>
-            <h3>Information : ${msgResultat}</h3>
-            <form id="navSelectionToposDispos">
-            <table class="bordered">
-                <thead>
-                <tr>
-                    <th> #</th>
-                    <th> nom</th>
-                    <th> lieu</th>
-                    <th> resume</th>
-                    <th> dateCreation</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+        <main>
+            <header>
+                <h3>  Les Topos </h3>
+            </header>
+            <section>
+                <label for="navSelectionToposDispos">Nos Topos Disponibles : ${msgResultat}</label>
+                <form id="navSelectionToposDispos" class="formSimple">
+                    <table class="bordered">
+                        <thead>
                         <tr>
-                            <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
-                            <td>${dbTopo.getNom()}</td>
-                            <td>${dbTopo.getLieu()}</td>
-                            <td>${dbTopo.getResume()}</td>
-                            <td>${dbTopo.getDateDeParution()}</td>
+                            <th> #</th>
+                            <th> nom</th>
+                            <th> lieu</th>
+                            <th> resume</th>
+                            <th> dateCreation</th>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            </form>
-            <h3> Mes Réservation de Topos </h3>
-            <form id="navSelectionToposReservation">
-            <table class="bordered">
-                <thead>
-                <tr>
-                    <th> #</th>
-                    <th> nom</th>
-                    <th> lieu</th>
-                    <th> resume</th>
-                    <th> dateCreation</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="dbTopo" items="${requestScope.dbToposMesReservation}">
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+                            <tr>
+                                <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
+                                <td>${dbTopo.getNom()}</td>
+                                <td>${dbTopo.getLieu()}</td>
+                                <td>${dbTopo.getResume()}</td>
+                                <td>${dbTopo.getDateDeParution()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </form>
+                <label for="navSelectionToposReservation"> Mes Réservation de Topos </label>
+                <form id="navSelectionToposReservation">
+                    <table class="bordered">
+                        <thead>
                         <tr>
-                            <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
-                            <td>${dbTopo.getNom()}</td>
-                            <td>${dbTopo.getLieu()}</td>
-                            <td>${dbTopo.getResume()}</td>
-                            <td>${dbTopo.getDateDeParution()}</td>
+                            <th> #</th>
+                            <th> nom</th>
+                            <th> lieu</th>
+                            <th> resume</th>
+                            <th> dateCreation</th>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            </form>
-        </section>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbTopo" items="${requestScope.dbToposMesReservation}">
+                            <tr>
+                                <td><input type="radio" name="idValTopo" required value="${dbTopo.getIdtopo()}"></td>
+                                <td>${dbTopo.getNom()}</td>
+                                <td>${dbTopo.getLieu()}</td>
+                                <td>${dbTopo.getResume()}</td>
+                                <td>${dbTopo.getDateDeParution()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </form>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <label style="font-size: larger ">Tous Mes Topos</label>
@@ -172,7 +178,7 @@
                 </table>
             </article>
         </aside>
-    </main>
+    </div>
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>

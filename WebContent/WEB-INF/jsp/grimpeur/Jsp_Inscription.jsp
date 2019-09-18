@@ -68,46 +68,51 @@
             </footer>
         </main>
         <aside>
-            <article>
-                <label style="ont-size: larger  ">Spots</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article>
-            <label style="font-size: larger ">Nos Topos</label>
-            <table class="bordered">
-                <thead>
-                <tr>
-                    <th> nom</th>
-                    <th> lieu</th>
-                    <th> resume</th>
-                    <th> dateCreation</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
-                    <tr>
-                        <td>${dbTopo.getNom()}</td>
-                        <td>${dbTopo.getLieu()}</td>
-                        <td>${dbTopo.getResume()}</td>
-                        <td>${dbTopo.getDateDeParution()}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            </article>
+            <aside>
+                <article>
+                    <table id="tableSelectionSpot"  class="bordered">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Localisation</th>
+                            <th>Classification</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                            <tr>
+                                <td>${dbSpot.getNom()}</td>
+                                <td>${dbSpot.getLocalisation()}</td>
+                                <td>${dbSpot.getClassification()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </article>
+                <article>
+                    <label style="font-size: larger ">Nos Topos</label>
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th> nom</th>
+                            <th> lieu</th>
+                            <th> resume</th>
+                            <th> dateCreation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dbTopo" items="${requestScope.dbTopos}">
+                            <tr>
+                                <td>${dbTopo.getNom()}</td>
+                                <td>${dbTopo.getLieu()}</td>
+                                <td>${dbTopo.getResume()}</td>
+                                <td>${dbTopo.getDateDeParution()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </article>
+            </aside>
         </aside>
     </div>
     <footer>

@@ -23,7 +23,7 @@
     text-align: center;
     width: 75%;
 }
-/* ***************  CORPS   ************************** */
+/* ***************  CORPSDEPAGE   ************************** */
 .container .corpsDePage {
     display: flex;
     flex-direction: row;
@@ -107,6 +107,21 @@
     color: darkgray;
     font-style: italic;
 }
+/* ***************  MAIN  ************************** */
+.container  main section .divrecherche{
+    border: 1px solid black;
+    padding: 0.2%;
+    margin: 0.2%;
+}
+.container  main header{
+    text-align: center;
+}
+
+/* ***************  ASIDE **************************  */
+.container  aside article {
+    border: 2px dotted black;
+    margin-bottom: 0.5%;
+}
 
 /* ************************************* */
 .container .bordered {
@@ -151,13 +166,11 @@
 .container   .bordered tr:hover {
     background: #fbf8e9;
 }
-
 /* ********************  formSimple ********************************** */
-.container .formSimpleLogin {
+.container  .formSimple {
     border: solid #ccc 1px;
     display: flex;
 }
-
 .container   .formSimple .boutonFormSimple {
     border: 0;
     line-height: 2.5;
@@ -214,6 +227,7 @@
 /* ********************  formSimpleLogin ********************************** */
 .container   .formSimpleLogin {
     border: solid #ccc 1px;
+    display: flex;
 }
 .container .formSimpleLogin .labels {
     display: flex;
@@ -263,18 +277,3 @@
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-/* ***************  MAIN  ************************** */
-.container  main section .divrecherche{
-    border: 1px solid black;
-    padding: 0.2%;
-    margin: 0.2%;
-}
-.container  main header{
-    text-align: center;
-}
-
-/* ***************  ASIDE **************************  */
-.container  aside article {
-    border: 2px dotted black;
-    margin-bottom: 0.5%;
-}

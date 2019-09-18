@@ -11,13 +11,13 @@
     <title>Le Site de L'escalade</title>
 </head>
 <body>
-<div id="container">
+<div class="container">
 
     <header>
         <h1>Les amis de l'escalade</h1>
     </header>
-    <main>
-        <nav class="nav">
+    <div class="corpsDePage">
+        <nav>
             <header>.</header>
             <section>
 
@@ -47,108 +47,113 @@
             </section>
             <footer>.</footer>
         </nav>
+        <main>
+            <header>
+                .
+            </header>
+            <section>
+                <div class="divrecherche" id="divrecherche">
+                    <label for="divrecherche">Recherche multi-criètes</label>
+                    <form id="formRecherche" class="formSimple">
+                        <fieldset class="labels">
+                            <label for="inputNomSpot">NomSpot</label>
+                            <label for="inputNbreDeSpits">Spits</label>
+                            <label for="inputClassification">Classification</label>
+                            <label for="inputCotation">Cotation</label>
+                        </fieldset>
+                        <fieldset class="inputs">
+                            <input id="inputNomSpot" type="text" size="8" name="inputNomSpot">
 
-        <section>
-            <div class="divrecherche" id="divrecherche">
-                <label for="divrecherche">Recherche multi-criètes</label>
-                <form id="formRecherche" class="formSimple">
-                    <fieldset class="labels">
-                        <label for="inputNomSpot">NomSpot</label>
-                        <label for="inputNbreDeSpits">Spits</label>
-                        <label for="inputClassification">Classification</label>
-                        <label for="inputCotation">Cotation</label>
-                    </fieldset>
-                    <fieldset class="inputs">
-                        <input id="inputNomSpot" type="text" size="8" name="inputNomSpot">
+                            <input id="inputNbreDeSpits" name="inputNbreDeSpits" size="2" type="number" min="1" max="10" value="1"/>
 
-                        <input id="inputNbreDeSpits" name="inputNbreDeSpits" size="2" type="number" min="1" max="10" value="1"/>
+                            <select id="inputClassification" name="inputClassification">
+                                <optgroup label="Classification">
+                                    <option disabled selected value> -- Choisir Classification -- </option>
+                                    <option value="STANDARD">STANDARD</option>
+                                    <option value="OFFICIEL">OFFICIEL</option>
+                                </optgroup>
+                            </select>
 
-                        <select id="inputClassification" name="inputClassification">
-                            <optgroup label="Classification">
-                                <option disabled selected value> -- Choisir Classification -- </option>
-                                <option value="STANDARD">STANDARD</option>
-                                <option value="OFFICIEL">OFFICIEL</option>
-                            </optgroup>
-                        </select>
-
-                        <select id="inputCotation" name="inputCotation">
-                            <optgroup label="Cotation">
-                                <option disabled selected value> -- Choisir Cotation -- </option>
-                                <option value="QUATRE_A">QUATRE_A</option>
-                                <option value="QUATRE_B">QUATRE_B</option>
-                                <option value="QUATRE_C">QUATRE_C</option>
-                                <option value="SIX_A">SIX_A</option>
-                                <option value="SIX_APLUS">SIX_APLUS</option>
-                                <option value="SIX_BPLUS">SIX_BPLUS</option>
-                                <option value="SIX_CPLUS">SIX_CPLUS</option>
-                            </optgroup>
-                        </select>
-                    </fieldset>
-                    <fieldset class="actions">
-                        <button class="boutonFormSimple"
-                                name="rechercheET"
-                                form="formRecherche"
-                                type="submit"
-                                formaction="RechercheET"
-                                formmethod="get"
-                                value="rechercheEt"
-                                formtarget="_self"> ET
-                        </button>
-                        <button class="boutonFormSimple"
-                                name="rechercheOU"
-                                form="formRecherche"
-                                type="submit"
-                                formaction="RechercheOU"
-                                formmethod="get"
-                                value="rechercheOU"
-                                formtarget="_self"> OU
-                        </button>
-                    </fieldset>
-
-                </form>
-            </div>
-            <div>
-                <label for="navSelectionSpot"><h3> Nos Spots </h3> </label>
-                <form id="navSelectionSpot" class="formSimple">
-                    <table id="tableSelectionSpot"  class="bordered">
-                        <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Localisation</th>
-                            <th>Classification</th>
-                            <th>#</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                            <select id="inputCotation" name="inputCotation">
+                                <optgroup label="Cotation">
+                                    <option disabled selected value> -- Choisir Cotation -- </option>
+                                    <option value="QUATRE_A">QUATRE_A</option>
+                                    <option value="QUATRE_B">QUATRE_B</option>
+                                    <option value="QUATRE_C">QUATRE_C</option>
+                                    <option value="SIX_A">SIX_A</option>
+                                    <option value="SIX_APLUS">SIX_APLUS</option>
+                                    <option value="SIX_BPLUS">SIX_BPLUS</option>
+                                    <option value="SIX_CPLUS">SIX_CPLUS</option>
+                                </optgroup>
+                            </select>
+                        </fieldset>
+                        <fieldset class="actions">
+                            <button class="boutonFormSimple"
+                                    name="rechercheET"
+                                    form="formRecherche"
+                                    type="submit"
+                                    formaction="RechercheET"
+                                    formmethod="get"
+                                    value="rechercheEt"
+                                    formtarget="_self"> ET
+                            </button>
+                            <button class="boutonFormSimple"
+                                    name="rechercheOU"
+                                    form="formRecherche"
+                                    type="submit"
+                                    formaction="RechercheOU"
+                                    formmethod="get"
+                                    value="rechercheOU"
+                                    formtarget="_self"> OU
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div>
+                    <label for="navSelectionSpot"><h3> Nos Spots </h3> </label>
+                    <form id="navSelectionSpot" class="formSimple">
+                        <table id="tableSelectionSpot"  class="bordered">
+                            <thead>
                             <tr>
-                                <c:set var="labelBoutton" scope="page" value="-"/>
-                                <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black;  font-size: 18px;"/>
-                                <c:if test="${requestScope.idValSpot == dbSpot.getIdspot()}" var="nope">
-                                    <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 20px;"/>
-                                    <c:set var="labelBoutton" scope="page" value="+"/>
-                                </c:if>
-                                <td>${dbSpot.getNom()}</td>
-                                <td>${dbSpot.getLocalisation()}</td>
-                                <td>${dbSpot.getClassification()}</td>
-                                <td >
-                                    <button style="${couleurFond} border-radius: 30%;"
-                                            name="idValSpot"
-                                            type="submit"
-                                            formaction="AcceuilSelectionSpot"
-                                            formmethod="get"
-                                            value="${dbSpot.getIdspot()}"
-                                            formtarget="_self"> ${labelBoutton}
-                                    </button>
-                                </td>
+                                <th>Nom</th>
+                                <th>Localisation</th>
+                                <th>Classification</th>
+                                <th>#</th>
                             </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </form>
-
-            </div>
-        </section>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                                <tr>
+                                    <c:set var="labelBoutton" scope="page" value="-"/>
+                                    <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black;  font-size: 18px;"/>
+                                    <c:if test="${requestScope.idValSpot == dbSpot.getIdspot()}" var="nope">
+                                        <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 20px;"/>
+                                        <c:set var="labelBoutton" scope="page" value="+"/>
+                                    </c:if>
+                                    <td>${dbSpot.getNom()}</td>
+                                    <td>${dbSpot.getLocalisation()}</td>
+                                    <td>${dbSpot.getClassification()}</td>
+                                    <td >
+                                        <button style="${couleurFond} border-radius: 30%;"
+                                                name="idValSpot"
+                                                type="submit"
+                                                formaction="AcceuilSelectionSpot"
+                                                formmethod="get"
+                                                value="${dbSpot.getIdspot()}"
+                                                formtarget="_self"> ${labelBoutton}
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </section>
+            <footer>
+                .
+            </footer>
+        </main>
         <aside>
             <article>
                 <form id="navSelectionSecteur">
@@ -205,16 +210,16 @@
                                     <c:set var="couleurFond" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 18px;"/>
                                     <c:set var="labelBoutton" scope="page" value="+"/>
                                 </c:if>
-                                    <td >${dbVoie.getNom()}</td>
-                                    <td >
-                                        <button style="${couleurFond} border-radius: 30%;"
-                                                name="idValVoie"
-                                                type="submit"
-                                                formaction="AcceuilSelectionVoie"
-                                                formmethod="get"
-                                                value="${dbVoie.getIdvoie()}"
-                                                formtarget="_self"> ${labelBoutton}
-                                        </button>
+                                <td >${dbVoie.getNom()}</td>
+                                <td >
+                                    <button style="${couleurFond} border-radius: 30%;"
+                                            name="idValVoie"
+                                            type="submit"
+                                            formaction="AcceuilSelectionVoie"
+                                            formmethod="get"
+                                            value="${dbVoie.getIdvoie()}"
+                                            formtarget="_self"> ${labelBoutton}
+                                    </button>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -233,20 +238,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                                <c:forEach var="dbLongueur" items="${requestScope.dbLongueurs}">
-                                    <tr>
-                                            <td>${dbLongueur.getNom()}</td>
-                                            <td>${dbLongueur.getCotation()}</td>
-                                            <td>${dbLongueur.getNombreDeSpits()}</td>
-                                    </tr>
-                                </c:forEach>
+                        <c:forEach var="dbLongueur" items="${requestScope.dbLongueurs}">
+                            <tr>
+                                <td>${dbLongueur.getNom()}</td>
+                                <td>${dbLongueur.getCotation()}</td>
+                                <td>${dbLongueur.getNombreDeSpits()}</td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </form>
             </article>
-
         </aside>
-    </main>
+    </div>
     <footer>
         <h1>@2019 Projet 06</h1>
     </footer>
