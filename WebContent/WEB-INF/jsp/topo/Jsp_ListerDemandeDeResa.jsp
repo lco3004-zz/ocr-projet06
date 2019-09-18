@@ -32,7 +32,7 @@
                         formtarget="_self"> Accepter Resa
                 </button>
 
-                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="AcceuilTopo">Up</a>
 
             </section>
             <footer>.</footer>

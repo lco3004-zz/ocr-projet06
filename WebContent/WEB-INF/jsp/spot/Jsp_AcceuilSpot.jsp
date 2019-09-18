@@ -20,7 +20,6 @@
         <nav>
             <header>.</header>
             <section>
-
                 <button class="boutonLateral"
                         name="commenter"
                         form="navSelectionSpot"
@@ -30,7 +29,6 @@
                         value="commenter"
                         formtarget="_self"> Commenter
                 </button>
-
                 <button class="boutonLateral"
                         name="rechercher"
                         form="navSelectionSpot"
@@ -40,9 +38,7 @@
                         value="rechercher"
                         formtarget="_self"> Rechercher
                 </button>
-
                 <a class="boutonLateral" href="CreerSpot">Créer</a>
-
                 <a class="boutonLateral" href="home">Vers l'Acceuil</a>
             </section>
             <footer>.</footer>
@@ -53,7 +49,7 @@
             </header>
             <section>
                 <div class="divrecherche" id="divrecherche">
-                    <label for="divrecherche">Recherche multi-criètes</label>
+                    <label for="divrecherche"><h3>Recherche</h3></label>
                     <form id="formRecherche" class="formSimple">
                         <fieldset class="labels">
                             <label for="inputNomSpot">NomSpot</label>
@@ -89,22 +85,13 @@
                         </fieldset>
                         <fieldset class="actions">
                             <button class="boutonFormSimple"
-                                    name="rechercheET"
+                                    name="cherche"
                                     form="formRecherche"
                                     type="submit"
                                     formaction="RechercheET"
                                     formmethod="get"
-                                    value="rechercheEt"
-                                    formtarget="_self"> ET
-                            </button>
-                            <button class="boutonFormSimple"
-                                    name="rechercheOU"
-                                    form="formRecherche"
-                                    type="submit"
-                                    formaction="RechercheOU"
-                                    formmethod="get"
-                                    value="rechercheOU"
-                                    formtarget="_self"> OU
+                                    value="cherche"
+                                    formtarget="_self"> Cherche
                             </button>
                         </fieldset>
                     </form>

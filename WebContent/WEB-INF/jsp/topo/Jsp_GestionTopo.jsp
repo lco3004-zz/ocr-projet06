@@ -43,7 +43,7 @@
 
                 <a class="boutonLateral" href="EnregistrerTopo">Enregistrer</a>
 
-                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="home">Acceuil</a>
             </section>
             <footer>.</footer>
         </nav>

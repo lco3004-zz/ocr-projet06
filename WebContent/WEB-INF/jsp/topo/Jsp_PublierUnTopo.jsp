@@ -29,7 +29,7 @@
                         value="publier"
                         formtarget="_self"> Publier
                 </button>
-                <a class="boutonLateral" href="home">Vers l'Acceuil</a>
+                <a class="boutonLateral" href="AcceuilTopo">Up</a>
             </section>
             <footer>.</footer>
         </nav>

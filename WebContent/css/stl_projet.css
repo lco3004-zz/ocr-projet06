@@ -211,7 +211,6 @@
     flex-basis: 20%;
 }
 .container .formSimple .inputs {
-    align-items: center;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -238,7 +237,6 @@
     flex-basis: 20%;
 }
 .container .formSimpleLogin .inputs {
-    align-items: center;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
