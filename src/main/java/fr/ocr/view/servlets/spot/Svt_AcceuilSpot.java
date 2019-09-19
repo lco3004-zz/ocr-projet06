@@ -83,14 +83,13 @@ public class Svt_AcceuilSpot extends HttpServlet {
             int idSelectionSpot = Integer.parseInt(cookie.getValue());
             request.setAttribute(IDSELECTIONSPOT, idSelectionSpot);
             DbSpot dbSpot = ctrlMetierSpot.consulterCeSpot(idSelectionSpot);
-            Collection<DbSecteur> dbSecteurs = dbSpot.getSecteursByIdspot();
+
+            Collection<DbSecteur> dbSecteurs =  ctrlMetierSpot.listerSecteurDuSpot(dbSpot);
             request.setAttribute("dbSecteurs",dbSecteurs );
-            Collection<DbCommentaire> dbCommentaires = dbSpot.getCommentairesByIdspot();
+
+            Collection<DbCommentaire> dbCommentaires =  ctrlMetierSpot.listerCommentairesDuSpot(dbSpot);
             if (dbCommentaires != null && dbCommentaires.size()>0) {
-                //du fectch !!
-                for (DbCommentaire x : dbCommentaires) {
-                    x.getNom(); x.getTexte();
-                }
+
                 request.setAttribute("dbCommentaires",dbCommentaires );
             }
 
@@ -107,7 +106,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
             if (cookieSpotArticleSecteurs(request,response) != null) {
                 DbSecteur dbSecteur  = ctrlMetierSpot.consulterCeSecteur(idSelectionSecteur);
-                Collection<DbVoie> dbVoies = dbSecteur.getVoiesByIdsecteur();
+                Collection<DbVoie> dbVoies =  ctrlMetierSpot.listerVoiesDuSecteur(dbSecteur);
                 request.setAttribute("dbVoies", dbVoies);
             }
 
@@ -127,7 +126,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
             if (cookieSecteurArticleVoies(request,response) != null) {
                 DbVoie dbVoie = ctrlMetierSpot.consulterCetteVoie(idSelectionVoie);
 
-                Collection<DbLongueur> dbLongueurs = dbVoie.getLongueursByIdvoie();
+                Collection<DbLongueur> dbLongueurs =   ctrlMetierSpot.listerLongueursDeCetteVoie(dbVoie) ;
                 request.setAttribute("dbLongueurs", dbLongueurs);
             }
         }else {

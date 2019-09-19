@@ -2,12 +2,11 @@ package fr.ocr.business.spot;
 
 
 import fr.ocr.model.controllers.JpaCtrlSpot;
-import fr.ocr.model.entities.DbSecteur;
-import fr.ocr.model.entities.DbSpot;
-import fr.ocr.model.entities.DbVoie;
+import fr.ocr.model.entities.*;
 import fr.ocr.model.utile.JpaCtrlRecherche;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static fr.ocr.model.constantes.SpotClassification.OFFICIEL;
@@ -26,6 +25,18 @@ public interface CtrlMetierSpot {
     DbVoie consulterCetteVoie(int idVoie) throws Exception;
     List<DbSpot> chercherCeSpot(JpaCtrlRecherche recherche) throws Exception;
     DbSpot ajouterCommentaireCeSpot(String commentaireSpot, String titre ,Integer idSpot) throws Exception;
+
+    Collection<DbSecteur> listerSecteurDuSpot( DbSpot dbSpot) throws Exception;
+
+    Collection<DbCommentaire> listerCommentairesDuSpot(DbSpot dbSpot) throws Exception;
+
+    Collection<DbVoie> listerVoiesDuSecteur(DbSecteur dbSecteur);
+
+    Collection<DbLongueur> listerLongueursDeCetteVoie(DbVoie dbVoie);
+
+    void supprimeCeCommentaire(Integer idCommentaire) throws Exception;
+
+    void modereCeCommentaire(Integer idCommentaire, String txtCommentaire) throws Exception;
 }
 
 class CtrlMetierSpot_impl implements CtrlMetierSpot {
@@ -36,7 +47,6 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
 
         this.jpaCtrlSpot = jpaCtrlSpot.JPA_CTRL_SPOT;
     }
-
 
     @Override
     public List<DbSpot> listerMesSpots(Integer idGrimpeur) throws Exception {
@@ -128,5 +138,41 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     @Override
     public DbSpot ajouterCommentaireCeSpot(String commentaireSpot,String titre ,Integer idSpot) throws Exception {
         return jpaCtrlSpot.addCommentaireSpot(idSpot,titre,commentaireSpot);
+    }
+
+    @Override
+    public Collection<DbSecteur> listerSecteurDuSpot( DbSpot dbSpot) throws Exception {
+        return  dbSpot.getSecteursByIdspot();
+    }
+
+    @Override
+    public Collection<DbCommentaire> listerCommentairesDuSpot( DbSpot dbSpot) throws Exception {
+        Collection <DbCommentaire> commentaires = new ArrayList<>();
+
+        for ( DbCommentaire dbCommentaire  :dbSpot.getCommentairesByIdspot()) {
+            if(dbCommentaire.getEstVisible()) {
+                commentaires.add(dbCommentaire);
+            }
+        }
+        return commentaires;
+    }
+
+    @Override
+    public Collection<DbVoie> listerVoiesDuSecteur(DbSecteur dbSecteur) {
+        return  dbSecteur.getVoiesByIdsecteur();
+    }
+
+    @Override
+    public Collection<DbLongueur> listerLongueursDeCetteVoie(DbVoie dbVoie) {
+        return dbVoie.getLongueursByIdvoie();
+    }
+
+    @Override
+    public void supprimeCeCommentaire(Integer idCommentaire) throws Exception {
+        jpaCtrlSpot.updateCommentaire(idCommentaire, false, null);
+    }
+    @Override
+    public void modereCeCommentaire(Integer idCommentaire, String txtCommentaire) throws Exception {
+        jpaCtrlSpot.updateCommentaire(idCommentaire,null, txtCommentaire);
     }
 }

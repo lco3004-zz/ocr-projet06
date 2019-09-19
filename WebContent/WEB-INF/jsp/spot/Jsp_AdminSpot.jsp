@@ -22,15 +22,6 @@
             <header>.</header>
             <section>
                 <button class="boutonLateral"
-                        name="SupprimerCommentaire"
-                        form="navSelectionSpot"
-                        type="submit"
-                        formaction="Commenter"
-                        formmethod="post"
-                        value="commenter"
-                        formtarget="_self"> Commenter
-                </button>
-                <button class="boutonLateral"
                         name="tagger"
                         form="navSelectionSpot"
                         type="submit"
@@ -38,15 +29,6 @@
                         formmethod="post"
                         value="tagger"
                         formtarget="_self"> Tagger
-                </button>
-                <button class="boutonLateral"
-                        name="ModererCommentaire"
-                        form="navSelectionSpot"
-                        type="submit"
-                        formaction="ModererCommentaire"
-                        formmethod="post"
-                        value="ModererCommentaire"
-                        formtarget="_self"> Modérer
                 </button>
                 <a class="boutonLateral" href="AcceuilSpot">Vers l'Acceuil Spot</a>
             </section>
@@ -57,28 +39,86 @@
                 <h3> Nos Spots </h3>
             </header>
             <section>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th> #</th>
-                        <th> Nom</th>
-                        <th> Localisation</th>
-                        <th> Classification</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <form id="navSelectionSpot">
-                        <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                <div>
+                    <label for="navSelectionSpot"><h3> Nos Spots </h3> </label>
+                    <form id="navSelectionSpot" class="formSimple">
+                        <table id="tableSelectionSpot"  class="bordered">
+                            <thead>
                             <tr>
-                                <td><input type="radio" name="idValSpot" value="${dbSpot.getIdSpot()}"></td>
-                                <td>${dbSpot.getNom()}</td>
-                                <td>${dbSpot.getLocalisation()}</td>
-                                <td>${dbSpot.getClassification()}</td>
+                                <th>Nom</th>
+                                <th>Localisation</th>
+                                <th>Classification</th>
+                                <th>#</th>
                             </tr>
-                        </c:forEach>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="dbSpot" items="${requestScope.dbSpots}">
+                                <tr>
+                                    <c:set var="labelBouttonSpot" scope="page" value="-"/>
+                                    <c:set var="couleurFondSpot" scope="page" value="background-color: slategray; color: black;  font-size: 18px;"/>
+                                    <c:if test="${requestScope.idValSpot == dbSpot.getIdspot()}" var="nope">
+                                        <c:set var="couleurFondSpot" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 20px;"/>
+                                        <c:set var="labelBouttonSpot" scope="page" value="+"/>
+                                    </c:if>
+                                    <td>${dbSpot.getNom()}</td>
+                                    <td>${dbSpot.getLocalisation()}</td>
+                                    <td>${dbSpot.getClassification()}</td>
+                                    <td >
+                                        <button style="${couleurFondSpot}  border-radius: 30%; align-self: center;"
+                                                name="idValSpot"
+                                                type="submit"
+                                                formaction="AdminSelectionSpot"
+                                                formmethod="get"
+                                                value="${dbSpot.getIdspot()}"
+                                                formtarget="_self"> ${labelBouttonSpot}
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
                     </form>
-                    </tbody>
-                </table>
+                </div>
+                <div>
+                    <label for="navSelectionComments" >Commentaires</label>
+                    <form id="navSelectionComments" class="formSimple">
+                        <table id="tableComments" class="bordered">
+                            <thead>
+                            <tr>
+                                <c:set var="labelBouttonCmt" scope="page" value="-"/>
+                                <c:set var="couleurFondCmt" scope="page" value="background-color: slategray; color: black;  font-size: 18px;"/>
+                                <c:if test="${requestScope.idValSpot == dbSpot.getIdspot()}" var="nope">
+                                    <c:set var="couleurFondCmt" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 20px;"/>
+                                    <c:set var="labelBouttonCmt" scope="page" value="+"/>
+                                </c:if>
+
+                                <th>Titre</th>
+                                <th>Commentaire</th>
+                                <th>Suppr.</th>
+                                <th>Modér.</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="dbCommentaire" items="${requestScope.dbCommentaires}">
+                                <tr>
+                                    <td>${dbCommentaire.getNom()}</td>
+                                    <td>${dbCommentaire.getTexte()}</td>
+                                    <td >
+                                        <button style="${couleurFondCmt}  border-radius: 30%; align-self: center;"
+                                                name="idValCmt"
+                                                type="submit"
+                                                formaction="AdminSupprimerCmt"
+                                                formmethod="post"
+                                                value="${dbCommentaire.getIdcommentaire()}"
+                                                formtarget="_self"> ${labelBouttonCmt}
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                    </table>
+                    </form>
+                </div>
             </section>
             <footer>
                 .
@@ -86,58 +126,24 @@
         </main>
         <aside>
             <article>
-                <label style="font-size: larger ">Secteurs</label>
-                <table class="bordered">
+                <label for="tableAsideComments"  style="font-size: larger ">Commentaires</label>
+                <table id="tableAsideComments" class="bordered">
                     <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
+                        <th>Titre</th>
+                        <th>Commentaire</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
+                    <c:forEach var="dbCommentaire" items="${requestScope.dbCommentaires}">
+                        <tr>
+                            <td>${dbCommentaire.getNom()}</td>
+                            <td>${dbCommentaire.getTexte()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>
-
-            <article>
-                <label style="font-size: larger ">Voies</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article>
-                <label style="font-size: larger ">Longeurs</label>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>The Shawshank Redemption</td>
-                        <td>1994</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </article>
-
         </aside>
     </div>
     <footer>

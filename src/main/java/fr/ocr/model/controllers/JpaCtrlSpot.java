@@ -12,19 +12,20 @@ import java.util.List;
 
 public interface JpaCtrlSpot {
 
-        JpaCtrlSpot JPA_CTRL_SPOT = new JpaCtrlSpot_impl();
+    JpaCtrlSpot JPA_CTRL_SPOT = new JpaCtrlSpot_impl();
+    DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception;
+    List<DbSpot> findListeSpots(Integer idUser) throws  Exception;
+    DbSpot readSpot(Integer idSpot) throws Exception;
+    DbSpot updateSpot(DbSpot dbSpot) throws Exception;
+    DbSecteur readSecteur(Integer idSecteur) throws Exception;
+    DbVoie readVoie (Integer idVoie) throws Exception;
+    List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
+    DbSpot findSpotByName(String name) throws Exception;
+    List<DbSpot> findListSpotByClassification(String spotClassification) throws Exception;
+    DbSpot addCommentaireSpot(Integer idSpot, String nomcmt, String texteCmt) throws Exception ;
+    void updateCommentaire(Integer idCommentaire, Boolean estVisible,String txtCommentaire)  throws Exception;
 
-        DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception;
-        List<DbSpot> findListeSpots(Integer idUser) throws  Exception;
-        DbSpot readSpot(Integer idSpot) throws Exception;
-        DbSpot updateSpot(DbSpot dbSpot) throws Exception;
-        DbSecteur readSecteur(Integer idSecteur) throws Exception;
-        DbVoie readVoie (Integer idVoie) throws Exception;
-        List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
-        DbSpot findSpotByName(String name) throws Exception;
-        List<DbSpot> findListSpotByClassification(String spotClassification) throws Exception;
-        DbSpot addCommentaireSpot(Integer idSpot, String nomcmt, String texteCmt) throws Exception ;
-    }
+}
 
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
@@ -167,6 +168,29 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
             }
         }
         return readSpot(idSpot);
+    }
+
+    @Override
+    public void updateCommentaire(Integer idCommentaire, Boolean estVisible, String txtCommentaire)  throws Exception{
+
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            try {
+                jpa.getEm().getTransaction().begin();
+
+                DbCommentaire dbCommentaire = jpa.getEm().find(DbCommentaire.class, idCommentaire);
+
+                if (estVisible != null)
+                    dbCommentaire.setEstVisible(estVisible);
+
+                if (txtCommentaire != null)
+                    dbCommentaire.setTexte(txtCommentaire);
+
+                jpa.getEm().getTransaction().commit();
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        }
     }
 
     @Override

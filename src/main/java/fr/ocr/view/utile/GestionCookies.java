@@ -96,4 +96,6 @@ public class GestionCookies {
         }
         return valRet;
     }
+
+
 }

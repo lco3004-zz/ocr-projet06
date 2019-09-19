@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -327,13 +325,8 @@
       <workItem from="1568790257433" duration="29610000" />
       <workItem from="1568831812012" duration="5074000" />
       <workItem from="1568875714083" duration="13057000" />
-    </task>
-    <task id="LOCAL-00031" summary="suite ajout cookie et session pour secteur voie etc...">
-      <created>1568385984629</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1568385984629</updated>
+      <workItem from="1568889224849" duration="300000" />
+      <workItem from="1568896310555" duration="5580000" />
     </task>
     <task id="LOCAL-00032" summary="modif de Business ajouterSpot pour éliminer les id créer lors de la saisie JSP">
       <created>1568387199233</created>
@@ -671,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568888366595</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Saisie Commentaire : OK">
+      <created>1568889337460</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1568889337460</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +710,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="modif log pour trouver erreur lors du switch de spot en creation longeur (non fixée)" />
     <MESSAGE value="refactor ajouterspot pour préparer arrivée de adminSpot" />
     <MESSAGE value="préparation valider dans ajoutspot" />
     <MESSAGE value="modif flow ajouter spot -ko)" />
@@ -735,7 +734,8 @@
     <MESSAGE value="ajout bouton commentaire - ajout bouton adminspot" />
     <MESSAGE value="ajout saisie commentaire, test update en cours" />
     <MESSAGE value="Saisie Commentaire OK - todo : modération/suppression)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saisie Commentaire OK - todo : modération/suppression)" />
+    <MESSAGE value="Saisie Commentaire : OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saisie Commentaire : OK" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -743,30 +743,30 @@
     <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/1920.1080" />
     <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser" />
     <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.0.bottom" />
-    <state width="1865" height="253" key="GridCell.Tab.0.bottom/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.0.center" />
-    <state width="1865" height="253" key="GridCell.Tab.0.center/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.0.left" />
-    <state width="1865" height="253" key="GridCell.Tab.0.left/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.0.right" />
-    <state width="1865" height="253" key="GridCell.Tab.0.right/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.1.bottom" />
-    <state width="1865" height="253" key="GridCell.Tab.1.bottom/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.1.center" />
-    <state width="1865" height="253" key="GridCell.Tab.1.center/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.1.left" />
-    <state width="1865" height="253" key="GridCell.Tab.1.left/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.1.right" />
-    <state width="1865" height="253" key="GridCell.Tab.1.right/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.2.bottom" />
-    <state width="1865" height="253" key="GridCell.Tab.2.bottom/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.2.center" />
-    <state width="1865" height="253" key="GridCell.Tab.2.center/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.2.left" />
-    <state width="1865" height="253" key="GridCell.Tab.2.left/1920.1080" />
-    <state width="1865" height="253" key="GridCell.Tab.2.right" />
-    <state width="1865" height="253" key="GridCell.Tab.2.right/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.0.bottom" />
+    <state width="1865" height="299" key="GridCell.Tab.0.bottom/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.0.center" />
+    <state width="1865" height="299" key="GridCell.Tab.0.center/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.0.left" />
+    <state width="1865" height="299" key="GridCell.Tab.0.left/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.0.right" />
+    <state width="1865" height="299" key="GridCell.Tab.0.right/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.1.bottom" />
+    <state width="1865" height="299" key="GridCell.Tab.1.bottom/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.1.center" />
+    <state width="1865" height="299" key="GridCell.Tab.1.center/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.1.left" />
+    <state width="1865" height="299" key="GridCell.Tab.1.left/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.1.right" />
+    <state width="1865" height="299" key="GridCell.Tab.1.right/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.2.bottom" />
+    <state width="1865" height="299" key="GridCell.Tab.2.bottom/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.2.center" />
+    <state width="1865" height="299" key="GridCell.Tab.2.center/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.2.left" />
+    <state width="1865" height="299" key="GridCell.Tab.2.left/1920.1080" />
+    <state width="1865" height="299" key="GridCell.Tab.2.right" />
+    <state width="1865" height="299" key="GridCell.Tab.2.right/1920.1080" />
     <state width="1865" height="253" key="GridCell.Tab.3.bottom" />
     <state width="1865" height="253" key="GridCell.Tab.3.bottom/1920.1080" />
     <state width="1865" height="253" key="GridCell.Tab.3.center" />
@@ -787,11 +787,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
           <line>124</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java</url>
-          <line>151</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
