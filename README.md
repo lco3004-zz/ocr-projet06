@@ -1,14 +1,19 @@
-#  MODEL_V6
+#  MODEL_V7 - au 19/09/2019
+
+# Couverture fonctionnelle 100%
+# Responsive TODO : pourquoi du responsive (UX/Ergonomie) sur un projet qui ne prend pas en compte l'IHM donc qui n'évalue pas ... l'UX/ergonomie ??
+
 ##
 ## Log4J- V2.12.1 ${CATALINA_HOME}/logs/projet06 
 ## PostgreSql 11
 ## JPA 2.1
 ## Hibernate 5.4.4.Final
-## JSP EI+JSTL (mavenisé)
+## JSP EI+JSTL - pas de fragment , pas d'include pas de tag spécialisé - pas de js
+## jUnit : hors scope - sera traité au projet 7 ou 8 (je ne sais plus)
 
 # Architecture :  
 ## Model :  (Jpa/Hibernate) - fournit des controleurs Entitées pour gérer CRUD
-## Business : (appel controleurs du Model selon la table/Entité concernée) avec cntrome validaté de la demande (webapp)
+## Business : (appel controleurs du Model selon la table/Entité concernée) 
 ## View  : Presentation (JSP) et Controller webapp (servlets)
 ### aucune JSP accesible via un client (tous sous WEB-INF)
 ### aucune page html accesible depuis un client
@@ -21,9 +26,10 @@
 ### "post"-> servlet(dopost) {traitement[DAO, session] forward{[Jsp,Servlet]}}
 
 # Contrôle Accès (filter):
-## L'accès aux  ressources (servlet) qui sont réservés aux users connectés est "filtré"
+## L'accès aux  ressources (servlet) qui sont réservés aux Grimpeurs et aux membres est "filtré"
 ### "get"-> filter(?connecté) -> servlet(doget)....
 ### "post"-> filter(?connecté) -> servlet(dopost)....
+## Deux niveaux d'accsè  Grimpeur (user droit restrein ), Membre (admin : tager, modérer, supprimer)
  
 # DAO (listener) :
 ## Listener  déclenché :
@@ -42,23 +48,14 @@
 # Maven
 ## filtering
 ### Properties : nom de l'unité de persistance 
-## mutli-modules : abandon - aucun intérêt dans le contexte maquette type OCR (pas de suivi : one shoot)
-## méta-modèle (DAO)
-### plugin helper et processor mis en oeuvre
+## mutli-modules : aucun intérêt  pour projet 06 (sera utilisé en projet 07)
+## méta-modèle statique (mavenisé) 
 
 # Sécurité
 ## TODO : javax.security pour hash mdp
-## TODO : https 
-## TODO : rétiré le mdp en clair dans les traces
 
 # Déploiement
 ## tomcat : TODO
-
-# Refactoring
-## annotation sur Entity du modèle DAO : décision selon temps restant
-## Spring Sécurité : Abandon 
-## Thymeleaf : ? 
-## Page dynamique (js) - hors scope maquette type  OCR
 
 
 
