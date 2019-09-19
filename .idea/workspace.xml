@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/fragments/Html_FooterPourHtml.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" afterDir="false" />
-    </list>
+    <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -327,14 +318,7 @@
       <workItem from="1568831812012" duration="5074000" />
       <workItem from="1568875714083" duration="13057000" />
       <workItem from="1568889224849" duration="300000" />
-      <workItem from="1568896310555" duration="12560000" />
-    </task>
-    <task id="LOCAL-00033" summary="ajout jsp creation Spot (en cours ..)">
-      <created>1568389778153</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1568389778153</updated>
+      <workItem from="1568896310555" duration="13346000" />
     </task>
     <task id="LOCAL-00034" summary="ajout cif et set var dans  jsp creation Spot (en cours ..)">
       <created>1568392769289</created>
@@ -672,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568901993886</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="En cours :  modèration commentaire (read/update/selection,jsp,cookie :ok) - ko url en entete de Svt_AdminSpot (fixé mais à tester)">
+      <created>1568909153833</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1568909153833</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +702,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="préparation valider dans ajoutspot" />
     <MESSAGE value="modif flow ajouter spot -ko)" />
     <MESSAGE value="ajout - suppression session Spot et cookies en entrée de Acceuil Spot" />
     <MESSAGE value="dernier commit branche_V6" />
@@ -736,7 +726,8 @@
     <MESSAGE value="Saisie Commentaire OK - todo : modération/suppression)" />
     <MESSAGE value="Saisie Commentaire : OK" />
     <MESSAGE value="ok admin spot - suppression commentaire" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok admin spot - suppression commentaire" />
+    <MESSAGE value="En cours :  modèration commentaire (read/update/selection,jsp,cookie :ok) - ko url en entete de Svt_AdminSpot (fixé mais à tester)" />
+    <option name="LAST_COMMIT_MESSAGE" value="En cours :  modèration commentaire (read/update/selection,jsp,cookie :ok) - ko url en entete de Svt_AdminSpot (fixé mais à tester)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -795,13 +786,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java</url>
-          <line>122</line>
+          <line>120</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
