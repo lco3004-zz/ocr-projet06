@@ -5,10 +5,7 @@ import fr.ocr.model.constantes.CotationLongueur;
 import fr.ocr.model.constantes.SpotClassification;
 import fr.ocr.model.converters.JpaConvEnumClassificationSpToString;
 import fr.ocr.model.converters.JpaConvEnumCotationLgToString;
-import fr.ocr.model.entities.DbLongueur;
-import fr.ocr.model.entities.DbSecteur;
-import fr.ocr.model.entities.DbSpot;
-import fr.ocr.model.entities.DbVoie;
+import fr.ocr.model.entities.*;
 import fr.ocr.model.utile.JpaCtrlRecherche;
 import fr.ocr.view.utile.GestionCookies;
 import fr.ocr.view.utile.MsgExcpStd;
@@ -25,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import static fr.ocr.view.utile.ConstantesSvt.*;
@@ -33,7 +31,8 @@ import static fr.ocr.view.utile.ConstantesSvt.*;
         "/AcceuilSelectionSecteur",
         "/AcceuilSelectionSpot",
         "/AcceuilSelectionVoie",
-        "/RechercheSpot"})
+        "/AcceuilRechercheSpot",
+        "/AcceuilCommenterSpot"})
 
 public class Svt_AcceuilSpot extends HttpServlet {
 
@@ -86,6 +85,14 @@ public class Svt_AcceuilSpot extends HttpServlet {
             DbSpot dbSpot = ctrlMetierSpot.consulterCeSpot(idSelectionSpot);
             Collection<DbSecteur> dbSecteurs = dbSpot.getSecteursByIdspot();
             request.setAttribute("dbSecteurs",dbSecteurs );
+            Collection<DbCommentaire> dbCommentaires = dbSpot.getCommentairesByIdspot();
+            if (dbCommentaires != null && dbCommentaires.size()>0) {
+                //du fectch !!
+                for (DbCommentaire x : dbCommentaires) {
+                    x.getNom(); x.getTexte();
+                }
+                request.setAttribute("dbCommentaires",dbCommentaires );
+            }
 
         } else {
             logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Spot est NULL" + request.getServletPath());
@@ -142,13 +149,13 @@ public class Svt_AcceuilSpot extends HttpServlet {
             String natureRequete = request.getServletPath();
             Cookie cookie;
             switch (natureRequete) {
-                case "/RechercheSpot" :
+                case "/AcceuilRechercheSpot" :
                     JpaCtrlRecherche recherche = JpaCtrlRecherche.JPA_CTRL_RECHERCHE;
 
                     recherche.setNomSpot(request.getParameter("inputNomSpot"));
 
                     String inputNbreDeSpits = request.getParameter("inputNbreDeSpits");
-                    if (inputNbreDeSpits != null && inputNbreDeSpits !="")
+                    if (inputNbreDeSpits != null && ! inputNbreDeSpits.equals(""))
                         recherche.setNombreSpitsLongeur(Integer.valueOf(inputNbreDeSpits));
 
                     JpaConvEnumClassificationSpToString jpaConvEnumClassificationSpToString = new JpaConvEnumClassificationSpToString();
@@ -165,13 +172,14 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
                     break;
                 case "/AcceuilSpot":
+                    request.setAttribute("voirSaisieCommentaire",false);
                     break;
 
                 case "/AcceuilSelectionSpot":
                     gestionCookies.resetThisCookie(request, IDDUSECTEUR);
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
-
-                   cookie = cookieSpotArticleSecteurs(request,response);
+                    request.setAttribute("voirSaisieCommentaire",true);
+                    cookie = cookieSpotArticleSecteurs(request,response);
                     if (cookie != null) {
                         response.addCookie(cookie);
                     }
@@ -195,7 +203,21 @@ public class Svt_AcceuilSpot extends HttpServlet {
                         response.addCookie(cookie);
                     }
                     break;
+                case "/AcceuilCommenterSpot" :
+                    Object objGrimp = request.getSession().getAttribute("dbGrimpeur");
+                    DbGrimpeur dbGrimpeur = (objGrimp instanceof DbGrimpeur) ? (DbGrimpeur) objGrimp : null;
+                    if (dbGrimpeur != null) {
+                        Integer idSpot = gestionCookies.getValParamReqFromCookie(request, IDDUSPOT);
+                        if (idSpot != null && idSpot >=0) {
+                            String commentaireSpot = request.getParameter("inputcommentaire");
+                            String commentaireTitre = dbGrimpeur.getUserName() + ": " + new Date();
 
+                            if (commentaireSpot != null && ! commentaireSpot.equals("")) {
+                                ctrlMetierSpot.ajouterCommentaireCeSpot(commentaireSpot,commentaireTitre,idSpot);
+                            }
+                        }
+                    }
+                    break;
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
             }

@@ -150,13 +150,14 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
+
+                DbSpot dbSpot =  jpa.getEm().find(DbSpot.class, idSpot); //readSpot(idSpot) ;
+
                 DbCommentaire dbCommentaire = new DbCommentaire();
                 dbCommentaire.setEstVisible(true);
                 dbCommentaire.setTexte(texteCmt);
                 dbCommentaire.setNom(nomcmt);
-
-                DbSpot dbSpot = readSpot(idSpot) ;//jpa.getEm().find(DbSpot.class, (x.getIdspot()));
-                dbSpot.getCommentairesByIdspot().add(dbCommentaire);
+                dbCommentaire.setSpotBySpotIdspot(dbSpot);
 
                 jpa.getEm().persist(dbCommentaire);
                 jpa.getEm().getTransaction().commit();

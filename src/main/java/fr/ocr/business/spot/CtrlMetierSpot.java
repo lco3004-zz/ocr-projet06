@@ -2,7 +2,6 @@ package fr.ocr.business.spot;
 
 
 import fr.ocr.model.controllers.JpaCtrlSpot;
-import fr.ocr.model.entities.DbLongueur;
 import fr.ocr.model.entities.DbSecteur;
 import fr.ocr.model.entities.DbSpot;
 import fr.ocr.model.entities.DbVoie;
@@ -25,9 +24,8 @@ public interface CtrlMetierSpot {
     DbSpot consulterCeSpot(Integer idSpot) throws  Exception;
     DbSecteur consulterCeSecteur(int idSelectionSecteur) throws Exception;
     DbVoie consulterCetteVoie(int idVoie) throws Exception;
-
     List<DbSpot> chercherCeSpot(JpaCtrlRecherche recherche) throws Exception;
-
+    DbSpot ajouterCommentaireCeSpot(String commentaireSpot, String titre ,Integer idSpot) throws Exception;
 }
 
 class CtrlMetierSpot_impl implements CtrlMetierSpot {
@@ -59,7 +57,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
 
     @Override
     public DbSpot ajouterCeSpot(Integer idUser,DbSpot oldDbSpot) throws Exception {
-
+/*
         DbSpot dbSpot = new DbSpot();
 
         dbSpot.setLocalisation(oldDbSpot.getLocalisation());
@@ -84,6 +82,9 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
             dbSpot.getSecteursByIdspot().add(dbSecteur);
         }
         return jpaCtrlSpot.createSpot(idUser, dbSpot);
+
+ */
+        return jpaCtrlSpot.createSpot(idUser, oldDbSpot);
     }
 
     @Override
@@ -122,5 +123,10 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
             dbSpots = listerMesSpots(null);
         }
         return dbSpots;
+    }
+
+    @Override
+    public DbSpot ajouterCommentaireCeSpot(String commentaireSpot,String titre ,Integer idSpot) throws Exception {
+        return jpaCtrlSpot.addCommentaireSpot(idSpot,titre,commentaireSpot);
     }
 }

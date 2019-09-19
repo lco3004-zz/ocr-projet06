@@ -14,7 +14,8 @@ import java.util.Arrays;
 @WebFilter(filterName = "Filt_CtrlAcces",
         dispatcherTypes ={DispatcherType.FORWARD,DispatcherType.REQUEST,DispatcherType.ASYNC,DispatcherType.ERROR},
         servletNames = {"Svt_GestionDemandeResaTopo", "Svt_EnregistrerTopo", "Svt_PublierTopo", "Svt_DemanderResaTopo",
-                "Svt_AjouterSpot", "Svt_AdminSpot"})
+                "Svt_AjouterSpot", "Svt_AdminSpot"},
+        urlPatterns ={"/AcceuilCommenterSpot"} )
 
 public class Filt_CtrlAcces implements Filter {
 

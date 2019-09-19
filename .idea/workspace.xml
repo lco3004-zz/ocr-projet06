@@ -4,9 +4,14 @@
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/entities/DbCommentaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/entities/DbCommentaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/GestionCookies.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,6 +132,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
@@ -173,6 +182,7 @@
       <command value="mvn compile" />
       <command value="mvn  package" />
       <command value="mvn clean package" />
+      <command value="mvn clean  package" />
       <command value="mvn clean compile package" />
     </option>
   </component>
@@ -265,13 +275,10 @@
     </configuration>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView />
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -318,21 +325,8 @@
       <workItem from="1568704196080" duration="26535000" />
       <workItem from="1568739574523" duration="1912000" />
       <workItem from="1568790257433" duration="29610000" />
-      <workItem from="1568831812012" duration="4981000" />
-    </task>
-    <task id="LOCAL-00029" summary="creation (en cours ) ajouter un Spot">
-      <created>1568382410163</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1568382410163</updated>
-    </task>
-    <task id="LOCAL-00030" summary="ajout cookie et session pour secteur voie etc...">
-      <created>1568382960768</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1568382960768</updated>
+      <workItem from="1568831812012" duration="5074000" />
+      <workItem from="1568875714083" duration="13057000" />
     </task>
     <task id="LOCAL-00031" summary="suite ajout cookie et session pour secteur voie etc...">
       <created>1568385984629</created>
@@ -663,7 +657,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568834519389</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="ajout bouton commentaire - ajout bouton adminspot">
+      <created>1568836944271</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1568836944271</updated>
+    </task>
+    <task id="LOCAL-00079" summary="ajout saisie commentaire, test update en cours">
+      <created>1568888366595</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1568888366595</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,18 +706,10 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="correction radio btn creatiion Spot : mettre idvoie , idsecteur sur les requetes ajoutervoie, ajouter longueur&#10;ajout de if secteur choisie == idsecteur dans le foreach" />
-    <MESSAGE value="ajout info ${param.Idxxx} dans aside table (voit quel l'id selectionné)" />
-    <MESSAGE value="ajout filtre sur affichage longueur dans ajoutspot" />
     <MESSAGE value="modif log pour trouver erreur lors du switch de spot en creation longeur (non fixée)" />
     <MESSAGE value="refactor ajouterspot pour préparer arrivée de adminSpot" />
     <MESSAGE value="préparation valider dans ajoutspot" />
@@ -732,16 +732,66 @@
     <MESSAGE value="ok prep mise en forme (tout ok)" />
     <MESSAGE value="Fonctions recherche impémentées (à tester)" />
     <MESSAGE value="Recherche OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Recherche OK" />
+    <MESSAGE value="ajout bouton commentaire - ajout bouton adminspot" />
+    <MESSAGE value="ajout saisie commentaire, test update en cours" />
+    <MESSAGE value="Saisie Commentaire OK - todo : modération/suppression)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saisie Commentaire OK - todo : modération/suppression)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" />
+    <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/1920.1080" />
+    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.0.bottom" />
+    <state width="1865" height="253" key="GridCell.Tab.0.bottom/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.0.center" />
+    <state width="1865" height="253" key="GridCell.Tab.0.center/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.0.left" />
+    <state width="1865" height="253" key="GridCell.Tab.0.left/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.0.right" />
+    <state width="1865" height="253" key="GridCell.Tab.0.right/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.1.bottom" />
+    <state width="1865" height="253" key="GridCell.Tab.1.bottom/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.1.center" />
+    <state width="1865" height="253" key="GridCell.Tab.1.center/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.1.left" />
+    <state width="1865" height="253" key="GridCell.Tab.1.left/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.1.right" />
+    <state width="1865" height="253" key="GridCell.Tab.1.right/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.2.bottom" />
+    <state width="1865" height="253" key="GridCell.Tab.2.bottom/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.2.center" />
+    <state width="1865" height="253" key="GridCell.Tab.2.center/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.2.left" />
+    <state width="1865" height="253" key="GridCell.Tab.2.left/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.2.right" />
+    <state width="1865" height="253" key="GridCell.Tab.2.right/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.3.bottom" />
+    <state width="1865" height="253" key="GridCell.Tab.3.bottom/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.3.center" />
+    <state width="1865" height="253" key="GridCell.Tab.3.center/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.3.left" />
+    <state width="1865" height="253" key="GridCell.Tab.3.left/1920.1080" />
+    <state width="1865" height="253" key="GridCell.Tab.3.right" />
+    <state width="1865" height="253" key="GridCell.Tab.3.right/1920.1080" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2/1920.1080" />
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup" />
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup/1920.1080" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaCtrlSpot.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

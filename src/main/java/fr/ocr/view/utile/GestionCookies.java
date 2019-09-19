@@ -24,7 +24,7 @@ public class GestionCookies {
         return  cookie;
     }
 
-    public Integer getValParamReqFromCookie(HttpServletRequest request, String nomCookie, String nomParamRequest) throws RuntimeException {
+    public Integer getValParamReqFromCookie(HttpServletRequest request, String nomCookie) throws RuntimeException {
         Cookie cookie= getCookieByName(request,nomCookie);
         return  (cookie !=null)?Integer.valueOf(cookie.getValue()) : null;
     }

@@ -108,10 +108,17 @@
     font-style: italic;
 }
 /* ***************  MAIN  ************************** */
-.container  main section .divrecherche{
+.container  main section .divrecherche,
+.container  main section .divcommentaire{
     border: 1px solid black;
     padding: 0.2%;
     margin: 0.2%;
+}
+.container  main section .divcommentaire Textarea {
+    padding: 12px 20px 0px 20px;
+    margin: 0 0 20px 0;
+    background: lightblue;
+    border-radius: 5px;
 }
 .container  main header{
     text-align: center;
@@ -208,16 +215,16 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: end;
-    flex-basis: 20%;
+    flex-grow: 1;
 }
 .container .formSimple .inputs {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    flex-grow: 2;
+    flex-grow: 3;
 }
 .container   .formSimple .actions {
-    align-items: center;
+    display: flex;
 }
 .container   .formSimple .informations {
     justify-content: center;

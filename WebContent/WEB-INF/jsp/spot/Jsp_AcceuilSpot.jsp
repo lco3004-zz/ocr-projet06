@@ -71,7 +71,7 @@
                                     name="Cherche"
                                     form="formRecherche"
                                     type="submit"
-                                    formaction="RechercheSpot"
+                                    formaction="AcceuilRechercheSpot"
                                     formmethod="get"
                                     value="Cherche"
                                     formtarget="_self"> Cherche
@@ -89,7 +89,6 @@
                                 <th>Localisation</th>
                                 <th>Classification</th>
                                 <th>#</th>
-                                <th>Cmt</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -105,20 +104,10 @@
                                     <td>${dbSpot.getLocalisation()}</td>
                                     <td>${dbSpot.getClassification()}</td>
                                     <td >
-                                        <button style="${couleurFond} border-radius: 30%;"
+                                        <button style="${couleurFond}  border-radius: 30%; align-self: center;"
                                                 name="idValSpot"
                                                 type="submit"
                                                 formaction="AcceuilSelectionSpot"
-                                                formmethod="get"
-                                                value="${dbSpot.getIdspot()}"
-                                                formtarget="_self"> ${labelBoutton}
-                                        </button>
-                                    </td>
-                                    <td >
-                                        <button style="${couleurFond} border-radius: 30%;"
-                                                name="idValSpot"
-                                                type="submit"
-                                                formaction="AcceuilCommentSpot"
                                                 formmethod="get"
                                                 value="${dbSpot.getIdspot()}"
                                                 formtarget="_self"> ${labelBoutton}
@@ -130,12 +119,54 @@
                         </table>
                     </form>
                 </div>
+                <c:if test="${requestScope.voirSaisieCommentaire == true}" scope="page" var="nope">
+                    <div class="divcommentaire" id="divcommentaire">
+                        <label for="navSaisieCommentaire"><h3> Commenter </h3> </label>
+                        <form id="navSaisieCommentaire"  class="formSimple">
+                            <fieldset  class="labels">
+                                <label for="inputcommentaire" class="labels">Message:</label>
+                            </fieldset>
+                            <fieldset class="inputs">
+                                <textarea id="inputcommentaire" name="inputcommentaire" ></textarea>
+                            </fieldset>
+                            <fieldset class="actions">
+                                <button style="border-radius: 30%;"
+                                        class="boutonFormSimple"
+                                        name="commentaireSpot"
+                                        type="submit"
+                                        formaction="AcceuilCommenterSpot"
+                                        formmethod="get"
+                                        formtarget="_self"> Poster
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </c:if>
             </section>
             <footer>
                 .
             </footer>
         </main>
         <aside>
+            <article>
+                <label for="tableComments"  style="font-size: larger ">Commentaires</label>
+                <table id="tableComments" class="bordered">
+                    <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Commentaire</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="dbCommentaire" items="${requestScope.dbCommentaires}">
+                            <tr>
+                                <td>${dbCommentaire.getNom()}</td>
+                                <td>${dbCommentaire.getTexte()}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </article>
             <article>
                 <form id="navSelectionSecteur">
                     <label style="font-size: larger ">Secteurs : ${param.idValSecteur}</label>

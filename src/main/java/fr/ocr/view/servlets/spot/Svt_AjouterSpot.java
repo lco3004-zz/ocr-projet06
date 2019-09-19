@@ -203,7 +203,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/AjouterVoie":
-                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
+                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR);
 
                         if (idDuSecteur != null && idDuSecteur >= 0) {
 
@@ -228,8 +228,8 @@ public class Svt_AjouterSpot extends HttpServlet {
                     break;
 
                 case "/AjouterLongueur":
-                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
-                    idDeLaVoie = gestionCookies.getValParamReqFromCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
+                    idDuSecteur = gestionCookies.getValParamReqFromCookie(request, IDDUSECTEUR);
+                    idDeLaVoie = gestionCookies.getValParamReqFromCookie(request, IDDELAVOIE);
 
                     if (idDuSecteur != null && idDuSecteur >= 0) {
                         if (idDeLaVoie != null && idDeLaVoie >= 0) {
