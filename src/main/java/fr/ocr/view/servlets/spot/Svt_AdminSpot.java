@@ -2,7 +2,6 @@ package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
 import fr.ocr.model.entities.DbCommentaire;
-import fr.ocr.model.entities.DbGrimpeur;
 import fr.ocr.model.entities.DbSpot;
 import fr.ocr.view.utile.GestionCookies;
 import fr.ocr.view.utile.MsgExcpStd;
@@ -19,13 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import static fr.ocr.view.utile.ConstantesSvt.*;
 
 @WebServlet(name = "Svt_AdminSpot",
-        urlPatterns = {"/AdminSpot","/AdminSelectionSpot","/AdminSupprimerCmt"})
+        urlPatterns = {"/AdminSpot","/AdminSelectionSpot","/AdminSupprimerCmt","/AdminSelectModereCommentaire","/AdminModereCommentaire"})
 public class Svt_AdminSpot extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -54,6 +52,7 @@ public class Svt_AdminSpot extends HttpServlet {
             strings.add(IDDUSPOT);
             strings.add(IDDUSECTEUR);
             strings.add(IDDELAVOIE);
+            strings.add(IDDUCOMMENTAIRE);
 
             gestionCookies.supprimeCookies(req,resp,strings);
             gestionCookies.createCookies(resp,strings);
@@ -67,6 +66,24 @@ public class Svt_AdminSpot extends HttpServlet {
         }
 
         super.service(req, resp);
+    }
+    private Cookie cookieSelectCommentaire( HttpServletRequest request, HttpServletResponse response) throws Exception{
+        Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUCOMMENTAIRE, IDSELECTIONCOMMENTAIRE);
+
+        if (cookie != null) {
+            int idSelectionCommentaire = Integer.parseInt(cookie.getValue());
+            request.setAttribute(IDSELECTIONCOMMENTAIRE, idSelectionCommentaire);
+            DbCommentaire dbCommentaire= ctrlMetierSpot.consulterCeCommentaire(idSelectionCommentaire);
+
+            if (dbCommentaire != null ) {
+                request.setAttribute("dbCommentaire",dbCommentaire);
+            }
+
+        } else {
+            logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Commentaire est NULL" + request.getServletPath());
+        }
+        return cookie;
+
     }
 
     private  Cookie cookieSpotCommentaire(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -100,6 +117,15 @@ public class Svt_AdminSpot extends HttpServlet {
                         ctrlMetierSpot.supprimeCeCommentaire(Integer.valueOf(sidValCmt));
                     }
                     break;
+                case "/AdminModereCommentaire" :
+                    Integer idCommentaire = gestionCookies.getValParamReqFromCookie(request, IDDUCOMMENTAIRE);
+                    if (idCommentaire != null && idCommentaire >=0) {
+                        String commentaireSpot = request.getParameter("inputcommentaire");
+                        if (commentaireSpot != null && ! commentaireSpot.equals("")) {
+                            ctrlMetierSpot.modereCeCommentaire(idCommentaire,commentaireSpot);
+                        }
+                    }
+                    break;
 
                 default:
                     logger.error("Erreur : " + this.getClass().getSimpleName() + " Path incorrect " + natureRequete);
@@ -116,32 +142,22 @@ public class Svt_AdminSpot extends HttpServlet {
         try {
             String natureRequete = request.getServletPath();
             Cookie cookie;
+            request.setAttribute("voirSaisieCommentaire",false);
             switch (natureRequete) {
                 case "/AdminSpot":
-                    request.setAttribute("voirSaisieCommentaire",false);
                     break;
-
                 case "/AdminSelectionSpot":
-                    request.setAttribute("voirSaisieCommentaire",true);
                     cookie = cookieSpotCommentaire(request,response);
                     if (cookie != null) {
                         response.addCookie(cookie);
                     }
                     break;
 
-                case "/AdminModererCmtSpot" :
-                    Object objGrimp = request.getSession().getAttribute("dbGrimpeur");
-                    DbGrimpeur dbGrimpeur = (objGrimp instanceof DbGrimpeur) ? (DbGrimpeur) objGrimp : null;
-                    if (dbGrimpeur != null) {
-                        Integer idSpot = gestionCookies.getValParamReqFromCookie(request, IDDUSPOT);
-                        if (idSpot != null && idSpot >=0) {
-                            String commentaireSpot = request.getParameter("inputcommentaire");
-                            String commentaireTitre = dbGrimpeur.getUserName() + ": " + new Date();
-
-                            if (commentaireSpot != null && ! commentaireSpot.equals("")) {
-                                ctrlMetierSpot.ajouterCommentaireCeSpot(commentaireSpot,commentaireTitre,idSpot);
-                            }
-                        }
+                case "/AdminSelectModereCommentaire" :
+                    request.setAttribute("voirSaisieCommentaire",true);
+                    cookie = cookieSelectCommentaire(request,response);
+                    if (cookie != null) {
+                        response.addCookie(cookie);
                     }
                     break;
                 default:

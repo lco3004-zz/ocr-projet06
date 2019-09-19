@@ -85,11 +85,11 @@
                         <table id="tableComments" class="bordered">
                             <thead>
                             <tr>
-                                <c:set var="labelBouttonCmt" scope="page" value="-"/>
+                                <c:set var="labelBouttonModer" scope="page" value="Mod."/>
+                                <c:set var="labelBouttonSuppr" scope="page" value="Sup."/>
                                 <c:set var="couleurFondCmt" scope="page" value="background-color: slategray; color: black;  font-size: 18px;"/>
                                 <c:if test="${requestScope.idValSpot == dbSpot.getIdspot()}" var="nope">
                                     <c:set var="couleurFondCmt" scope="page" value="background-color: slategray; color: black; font-weight: bold; font-size: 20px;"/>
-                                    <c:set var="labelBouttonCmt" scope="page" value="+"/>
                                 </c:if>
 
                                 <th>Titre</th>
@@ -103,14 +103,24 @@
                                 <tr>
                                     <td>${dbCommentaire.getNom()}</td>
                                     <td>${dbCommentaire.getTexte()}</td>
-                                    <td >
+                                    <td>
                                         <button style="${couleurFondCmt}  border-radius: 30%; align-self: center;"
                                                 name="idValCmt"
                                                 type="submit"
                                                 formaction="AdminSupprimerCmt"
                                                 formmethod="post"
                                                 value="${dbCommentaire.getIdcommentaire()}"
-                                                formtarget="_self"> ${labelBouttonCmt}
+                                                formtarget="_self"> ${labelBouttonSuppr}
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button style="${couleurFondCmt}  border-radius: 30%; align-self: center;"
+                                                name="idValCommentaire"
+                                                type="submit"
+                                                formaction="AdminSelectModereCommentaire"
+                                                formmethod="get"
+                                                value="${dbCommentaire.getIdcommentaire()}"
+                                                formtarget="_self"> ${labelBouttonModer}
                                         </button>
                                     </td>
                                 </tr>
@@ -119,6 +129,29 @@
                     </table>
                     </form>
                 </div>
+                <c:if test="${requestScope.voirSaisieCommentaire == true}" scope="page" var="nope">
+                    <div class="divcommentaire" id="divcommentaire">
+                        <label for="navSaisieCommentaire"><h3> Commenter </h3> </label>
+                        <form id="navSaisieCommentaire"  class="formSimple">
+                            <fieldset  class="labels">
+                                <label for="inputcommentaire" class="labels">Message:</label>
+                            </fieldset>
+                            <fieldset class="inputs">
+                                <textarea id="inputcommentaire" name="inputcommentaire" >[Modération] : ${requestScope.dbCommentaire.texte}</textarea>
+                            </fieldset>
+                            <fieldset class="actions">
+                                <button style="border-radius: 30%;"
+                                        class="boutonFormSimple"
+                                        name="commentaireSpot"
+                                        type="submit"
+                                        formaction="AdminModereCommentaire"
+                                        formmethod="post"
+                                        formtarget="_self"> Poster
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </c:if>
             </section>
             <footer>
                 .

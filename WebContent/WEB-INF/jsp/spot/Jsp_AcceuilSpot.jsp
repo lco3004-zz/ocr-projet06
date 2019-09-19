@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -148,6 +149,7 @@
             </footer>
         </main>
         <aside>
+
             <article>
                 <label for="tableComments"  style="font-size: larger ">Commentaires</label>
                 <table id="tableComments" class="bordered">
@@ -158,12 +160,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="dbCommentaire" items="${requestScope.dbCommentaires}">
-                            <tr>
-                                <td>${dbCommentaire.getNom()}</td>
-                                <td>${dbCommentaire.getTexte()}</td>
-                            </tr>
-                        </c:forEach>
+                    <c:forEach var="dbCommentaire" items="${requestScope.dbCommentaires}">
+                        <tr>
+                            <td>${dbCommentaire.getNom()}</td>
+                            <td>${dbCommentaire.getTexte()}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </article>

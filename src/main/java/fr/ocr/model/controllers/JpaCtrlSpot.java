@@ -25,6 +25,8 @@ public interface JpaCtrlSpot {
     DbSpot addCommentaireSpot(Integer idSpot, String nomcmt, String texteCmt) throws Exception ;
     void updateCommentaire(Integer idCommentaire, Boolean estVisible,String txtCommentaire)  throws Exception;
 
+    DbCommentaire readCommentaire(int idSelectionCommentaire) throws Exception;
+
 }
 
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
@@ -190,6 +192,33 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);
             }
+        }
+    }
+
+    @Override
+    public DbCommentaire readCommentaire(int idSelectionCommentaire) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            DbCommentaire dbCommentaire ;
+
+            jpa.getEm().getTransaction().begin();
+            CriteriaBuilder criteriaBuilder = jpa.getEm().getCriteriaBuilder();
+            CriteriaQuery<DbCommentaire> criteriaQuery = criteriaBuilder.createQuery(DbCommentaire.class);
+
+            Root<DbCommentaire> root = criteriaQuery.from(DbCommentaire.class);
+            criteriaQuery.select(root);
+
+            Predicate predicate = criteriaBuilder.equal(root.get(DbCommentaire_.idcommentaire),idSelectionCommentaire);
+            criteriaQuery.where(predicate);
+
+            TypedQuery <DbCommentaire>  typedQuery = jpa.getEm().createQuery(criteriaQuery);
+
+            dbCommentaire =  typedQuery.getSingleResult();
+
+            jpa.getEm().getTransaction().commit();
+
+            return dbCommentaire;
+        } catch (Exception hex1) {
+            throw new Exception(hex1);
         }
     }
 

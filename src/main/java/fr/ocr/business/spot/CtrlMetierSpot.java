@@ -37,6 +37,9 @@ public interface CtrlMetierSpot {
     void supprimeCeCommentaire(Integer idCommentaire) throws Exception;
 
     void modereCeCommentaire(Integer idCommentaire, String txtCommentaire) throws Exception;
+
+    DbCommentaire consulterCeCommentaire(int idSelectionCommentaire) throws Exception;
+
 }
 
 class CtrlMetierSpot_impl implements CtrlMetierSpot {
@@ -174,5 +177,10 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     @Override
     public void modereCeCommentaire(Integer idCommentaire, String txtCommentaire) throws Exception {
         jpaCtrlSpot.updateCommentaire(idCommentaire,null, txtCommentaire);
+    }
+
+    @Override
+    public DbCommentaire consulterCeCommentaire(int idSelectionCommentaire) throws Exception {
+        return jpaCtrlSpot.readCommentaire(idSelectionCommentaire);
     }
 }
