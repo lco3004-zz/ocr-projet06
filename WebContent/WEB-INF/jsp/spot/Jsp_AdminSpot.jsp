@@ -25,7 +25,7 @@
                         name="tagger"
                         form="navSelectionSpot"
                         type="submit"
-                        formaction="TaggerSpot"
+                        formaction="AdminTaggerCeSpot"
                         formmethod="post"
                         value="tagger"
                         formtarget="_self"> Tagger

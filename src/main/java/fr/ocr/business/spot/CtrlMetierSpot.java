@@ -65,7 +65,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
     public DbSpot taggerCeSpot(Integer idSpot) throws Exception {
         DbSpot dbSpot = jpaCtrlSpot.readSpot(idSpot);
         dbSpot.setClassification(OFFICIEL.name());
-        return jpaCtrlSpot.updateSpot(dbSpot);
+        return jpaCtrlSpot.updateSpot(idSpot, OFFICIEL.name());
     }
 
     @Override

@@ -23,7 +23,9 @@ import java.util.List;
 import static fr.ocr.view.utile.ConstantesSvt.*;
 
 @WebServlet(name = "Svt_AdminSpot",
-        urlPatterns = {"/AdminSpot","/AdminSelectionSpot","/AdminSupprimerCmt","/AdminSelectModereCommentaire","/AdminModereCommentaire"})
+        urlPatterns = {"/AdminSpot","/AdminSelectionSpot","/AdminSupprimerCmt",
+                "/AdminSelectModereCommentaire","/AdminModereCommentaire",
+                "/AdminTaggerCeSpot"})
 public class Svt_AdminSpot extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -110,6 +112,14 @@ public class Svt_AdminSpot extends HttpServlet {
             Cookie cookie;
 
             switch (natureRequete) {
+                case "/AdminTaggerCeSpot" :
+                    Integer idSpot = gestionCookies.getValParamReqFromCookie(request, IDDUSPOT);
+                    if (idSpot != null && idSpot>=0) {
+                        ctrlMetierSpot.taggerCeSpot(idSpot);
+                        dbSpots = ctrlMetierSpot.listerTousSpots();
+                        request.setAttribute("dbSpots", dbSpots);
+                    }
+                    break;
                 case "/AdminSupprimerCmt":
                     request.setAttribute("voirSaisieCommentaire",false);
                     String sidValCmt = request.getParameter("idValCmt");

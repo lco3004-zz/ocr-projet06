@@ -16,7 +16,7 @@ public interface JpaCtrlSpot {
     DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception;
     List<DbSpot> findListeSpots(Integer idUser) throws  Exception;
     DbSpot readSpot(Integer idSpot) throws Exception;
-    DbSpot updateSpot(DbSpot dbSpot) throws Exception;
+    DbSpot updateSpot(Integer idSpot, String classifSpot) throws Exception;
     DbSecteur readSecteur(Integer idSecteur) throws Exception;
     DbVoie readVoie (Integer idVoie) throws Exception;
     List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
@@ -134,19 +134,23 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
     }
 
     @Override
-    public DbSpot updateSpot(DbSpot x) throws Exception {
+    public DbSpot updateSpot(Integer idSpot, String classifSpot) throws Exception {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
                 jpa.getEm().getTransaction().begin();
-                DbSpot dbSpot = readSpot(x.getIdspot()) ;//jpa.getEm().find(DbSpot.class, (x.getIdspot()));
-                dbSpot.setClassification(x.getClassification());
+                DbSpot dbSpot = jpa.getEm().find(DbSpot.class, idSpot);
+
+                dbSpot.setClassification(classifSpot);
+
                 jpa.getEm().getTransaction().commit();
+
             } catch (Exception ex) {
                 jpa.getEm().getTransaction().rollback();
                 throw new Exception(ex);
             }
         }
-        return readSpot(x.getIdspot());
+        DbSpot dbSpot = readSpot(idSpot);
+        return dbSpot;
     }
     @Override
     public DbSpot addCommentaireSpot(Integer idSpot, String nomcmt, String texteCmt) throws Exception {
