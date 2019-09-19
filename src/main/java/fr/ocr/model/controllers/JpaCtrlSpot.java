@@ -20,10 +20,10 @@ public interface JpaCtrlSpot {
         DbSpot updateSpot(DbSpot dbSpot) throws Exception;
         DbSecteur readSecteur(Integer idSecteur) throws Exception;
         DbVoie readVoie (Integer idVoie) throws Exception;
-        DbLongueur readLongueur (Integer idLongueur) throws Exception;
         List<DbSpot> findListeByLongeur(JpaCtrlRecherche recherche) throws Exception ;
         DbSpot findSpotByName(String name) throws Exception;
         List<DbSpot> findListSpotByClassification(String spotClassification) throws Exception;
+        DbSpot addCommentaireSpot(Integer idSpot, String nomcmt, String texteCmt) throws Exception ;
     }
 
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
@@ -105,6 +105,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
             dbSpot = (DbSpot) query.getSingleResult();
 
+            //Fetch Au Secours !!
             for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
                 for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
                     for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
@@ -114,6 +115,10 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
                      int l = dbLongueur.getIdlongueur();
                     }
                 }
+            }
+            //Du Fetch
+            for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
+                int m = dbCommentaire.getIdcommentaire();
             }
 
             jpa.getEm().getTransaction().commit();
@@ -126,8 +131,41 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
     }
 
     @Override
-    public DbSpot updateSpot(DbSpot dbSpot)  {
-        return null;
+    public DbSpot updateSpot(DbSpot x) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            try {
+                jpa.getEm().getTransaction().begin();
+                DbSpot dbSpot = readSpot(x.getIdspot()) ;//jpa.getEm().find(DbSpot.class, (x.getIdspot()));
+                dbSpot.setClassification(x.getClassification());
+                jpa.getEm().getTransaction().commit();
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        }
+        return readSpot(x.getIdspot());
+    }
+    @Override
+    public DbSpot addCommentaireSpot(Integer idSpot, String nomcmt, String texteCmt) throws Exception {
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            try {
+                jpa.getEm().getTransaction().begin();
+                DbCommentaire dbCommentaire = new DbCommentaire();
+                dbCommentaire.setEstVisible(true);
+                dbCommentaire.setTexte(texteCmt);
+                dbCommentaire.setNom(nomcmt);
+
+                DbSpot dbSpot = readSpot(idSpot) ;//jpa.getEm().find(DbSpot.class, (x.getIdspot()));
+                dbSpot.getCommentairesByIdspot().add(dbCommentaire);
+
+                jpa.getEm().persist(dbCommentaire);
+                jpa.getEm().getTransaction().commit();
+            } catch (Exception ex) {
+                jpa.getEm().getTransaction().rollback();
+                throw new Exception(ex);
+            }
+        }
+        return readSpot(idSpot);
     }
 
     @Override
@@ -191,15 +229,6 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
         } catch (Exception hex1) {
             throw new Exception(hex1);
         }
-    }
-
-    @Override
-    public DbLongueur readLongueur(Integer idLongueur) throws Exception {
-        DbLongueur dbLongueur ;
-        try (JpaEntityManager jpa = new JpaEntityManager()) {
-            dbLongueur = jpa.getEm().find(DbLongueur.class,idLongueur);
-        }
-        return dbLongueur;
     }
 
     @Override
@@ -274,7 +303,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
             Query query = jpa.getEm().createQuery(criteriaQuery);
 
             dbSpot = (DbSpot) query.getSingleResult();
-
+            //Fetch encore au secours !!
             for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
                 for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
                     for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
@@ -285,6 +314,10 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
                     }
                 }
             }
+            for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
+                int m = dbCommentaire.getIdcommentaire();
+            }
+
 
             jpa.getEm().getTransaction().commit();
 
@@ -314,6 +347,7 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
             TypedQuery<DbSpot>  typedQuery = jpa.getEm().createQuery(criteriaQuery);
 
             List<DbSpot> dbSpotArrayList = typedQuery.getResultList();
+            //Fetch encore (à voir avec jpa/JPQL/criteria ... FETCH ou ..eager
             for (DbSpot dbSpot :dbSpotArrayList) {
                 for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
                     for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
@@ -325,8 +359,10 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
                         }
                     }
                 }
+                for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
+                    int m = dbCommentaire.getIdcommentaire();
+                }
             }
-
             jpa.getEm().getTransaction().commit();
 
             return dbSpotArrayList;
