@@ -1,3 +1,10 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ * ************************************************************
+ */
+
 package fr.ocr.view.servlets.acceuil;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
@@ -20,7 +27,7 @@ import java.util.List;
 @WebServlet(name = "Svt_AcceuilSite", urlPatterns = {"/home"})
 public class Svt_AcceuilSite extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    final Logger logger;
+    private final Logger logger;
 
     public Svt_AcceuilSite() {
         super();

@@ -1,3 +1,10 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ *  gère la fonction "restitution" du Topo emprunté
+ * ************************************************************
+ */
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
@@ -26,8 +33,16 @@ public class Svt_RestituerTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    /**
+     * renseigne l'attribut ctrlMetierTopo à chaque appel (GET ou POST ,...)
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
+    protected void service( HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
         ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;
@@ -35,11 +50,26 @@ public class Svt_RestituerTopo extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     * traitement des appels Post
+     * Si le paramètre d'appel idValTopo est vide, ne rien faire
+     * Sinon , appel méthode "business" pour modifier statut de ce topo (=> de nouveau dispo pour prêt)
+     *
+     * L'utilisateur doit être connecté (pas de contrôle car passe par filter qui contrôle cela)
+     * si erreur , il ya aura une exception de levée par "Business" et "Model"
+     *
+     * Forward vers la JSP "Svt_AcceuilTopo"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String msgResultat = " Demande envoyée ";
             if (request.getParameter("idValTopo") != null) {
-                Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+                int idDuTopo = Integer.parseInt(request.getParameter("idValTopo"));
 
                 Object o = request.getSession().getAttribute("dbGrimpeur");
 
@@ -61,6 +91,14 @@ public class Svt_RestituerTopo extends HttpServlet {
         }
     }
 
+    /**
+     * rien - pourra être supprimé
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }

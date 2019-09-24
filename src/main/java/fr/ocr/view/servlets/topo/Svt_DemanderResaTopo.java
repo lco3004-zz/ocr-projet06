@@ -1,3 +1,10 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ * ************************************************************
+ */
+
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
@@ -45,13 +52,19 @@ public class Svt_DemanderResaTopo extends HttpServlet {
             String msgResultat = " Demande envoyée ";
 
             if (request.getParameter("idValTopo") != null) {
-                Integer idDuTopo = Integer.valueOf(request.getParameter("idValTopo"));
+                int idDuTopo = Integer.parseInt(request.getParameter("idValTopo"));
 
                 Object o = request.getSession().getAttribute("dbGrimpeur");
 
                 DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
+                if (grimpeurDemandeur !=null) {
+                    ctrlMetierTopo.demanderResaCeTopo(idDuTopo, grimpeurDemandeur.getIdgrimpeur());
+                }
+                else {
+                    logger.debug("Hello from :" + this.getClass().getSimpleName()+" Dbgrimpeur = NULL");
+                    throw  new ServletException("dbGrimpeur est null");
+                }
 
-                ctrlMetierTopo.demanderResaCeTopo(idDuTopo, grimpeurDemandeur.getIdgrimpeur());
             } else {
                 msgResultat = "Rien à réserver !";
             }

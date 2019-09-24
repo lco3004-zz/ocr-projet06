@@ -7,7 +7,7 @@
     <meta content="text/html; charset=iso-8859-15" http-equiv="content-type">
     <link href="${pageContext.request.contextPath}/css/stl_projet.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-    <meta content="width=device-width" name="viewport"/>
+    <meta content="width=device-width , initial-scale=1.0 , user-scalable=1 , minimum-scale=0.5 , maximum-scale=1.5" name="viewport"/>
     <title>Le Site de L'escalade</title>
 </head>
 <body>
@@ -41,7 +41,8 @@
         </main>
         <aside>
             <article>
-                <table id="tableSelectionSpot"  class="bordered">
+                <label for="nosspots">Nos Topos</label>
+                <table id="nosspots" class="bordered">
                     <thead>
                     <tr>
                         <th>Nom</th>
@@ -61,8 +62,8 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Nos Topos</label>
-                <table class="bordered">
+                <label for="nostopos">Nos Topos</label>
+                <table id="nostopos" class="bordered">
                     <thead>
                     <tr>
                         <th> nom</th>

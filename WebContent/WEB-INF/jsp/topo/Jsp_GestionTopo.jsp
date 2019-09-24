@@ -109,7 +109,7 @@
         </main>
         <aside>
             <article>
-                <label style="font-size: larger ">Tous Mes Topos</label>
+                <label>Tous Mes Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -132,7 +132,7 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Les Dmde de Résa</label>
+                <label>Les Dmde de Résa</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -155,7 +155,7 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Mes Topos Réservés</label>
+                <label>Mes Topos Réservés</label>
                 <table class="bordered">
                     <thead>
                     <tr>

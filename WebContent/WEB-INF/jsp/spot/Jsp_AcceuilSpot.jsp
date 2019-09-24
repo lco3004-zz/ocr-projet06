@@ -105,7 +105,7 @@
                                     <td>${dbSpot.getLocalisation()}</td>
                                     <td>${dbSpot.getClassification()}</td>
                                     <td >
-                                        <button style="${couleurFond}  border-radius: 30%; align-self: center;"
+                                        <button style="${couleurFond}"
                                                 name="idValSpot"
                                                 type="submit"
                                                 formaction="AcceuilSelectionSpot"
@@ -131,7 +131,7 @@
                                 <textarea id="inputcommentaire" name="inputcommentaire" ></textarea>
                             </fieldset>
                             <fieldset class="actions">
-                                <button style="border-radius: 30%;"
+                                <button
                                         class="boutonFormSimple"
                                         name="commentaireSpot"
                                         type="submit"
@@ -151,7 +151,7 @@
         <aside>
 
             <article>
-                <label for="tableComments"  style="font-size: larger ">Commentaires</label>
+                <label for="tableComments" >Commentaires</label>
                 <table id="tableComments" class="bordered">
                     <thead>
                     <tr>
@@ -171,7 +171,7 @@
             </article>
             <article>
                 <form id="navSelectionSecteur">
-                    <label style="font-size: larger ">Secteurs : ${param.idValSecteur}</label>
+                    <label>Secteurs : ${param.idValSecteur}</label>
                     <table class="bordered">
                         <thead>
                         <tr>
@@ -207,7 +207,7 @@
             </article>
             <article>
                 <form id="navSelectionVoie">
-                    <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
+                    <label>Voies : ${param.idValVoie}</label>
                     <table class="bordered">
                         <thead>
                         <tr>
@@ -242,7 +242,7 @@
             </article>
             <article>
                 <form id="navSelectionLongueur">
-                    <label style="font-size: larger ">Longeurs</label>
+                    <label >Longeurs</label>
                     <table class="bordered">
                         <thead>
                         <tr>

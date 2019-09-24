@@ -4,8 +4,11 @@
 
 <html>
 <head>
-    <%@include file="/WEB-INF/fragments/Html_EntetePourHtml.html" %>
-</head>
+    <meta charset="ISO-8859-15">
+    <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <meta content="width=device-width" name="viewport"/>
+    <title>Le Site de L'escalade</title></head>
 <body>
     <br/>
     <br/>

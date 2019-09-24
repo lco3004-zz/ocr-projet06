@@ -190,7 +190,7 @@
         </main>
         <aside>
             <article>
-                <label style="font-size: larger ">Spots</label>
+                <label>Spots</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -212,7 +212,7 @@
             </article>
             <article>
                 <form id="navSelectionSecteur">
-                    <label style="font-size: larger ">Secteurs : ${param.idValSecteur}</label>
+                    <label>Secteurs : ${param.idValSecteur}</label>
                     <table class="bordered">
                         <thead>
                         <tr>
@@ -243,7 +243,7 @@
 
             <article>
                 <form id="navSelectionVoie">
-                    <label style="font-size: larger ">Voies : ${param.idValVoie}</label>
+                    <label>Voies : ${param.idValVoie}</label>
                     <table class="bordered">
                         <thead>
                         <tr>
@@ -281,7 +281,7 @@
             </article>
             <article>
                 <form id="navSelectionLongueur">
-                    <label style="font-size: larger ">Longeurs</label>
+                    <label>Longeurs</label>
                     <table class="bordered">
                         <thead>
                         <tr>

@@ -2,8 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/ConstantesPgm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/fragments/Html_EntetePourHtml.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/css/ttformeslogin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/RecueildesbesoinsclientAmisdeEscalade.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/SCHEMA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" beforeDir="false" afterPath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/sql/prepdb.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/sql/runpsql06.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/BusinessMgmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/BusinessMgmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/commentaire/CtrlMetierCommentaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/grimpeur/CtrlMetierGrimpeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/grimpeur/CtrlMetierGrimpeur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/topo/CtrlMetierTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/topo/CtrlMetierTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/MessageDeBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/Messages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaEntityManagerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaEntityManagerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/listeners/List_ApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/listeners/List_ApplicationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_Commenter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_ListerCommentaires.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_ModererCommentaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_VoirDetailCommentaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Inscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_EnregistrerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_EnregistrerTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/ConstantesSvt.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +185,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -153,18 +200,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\src\main\resources" />
-      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\topo" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\css" />
       <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\html" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\spot" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent\WEB-INF\jsp\home" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\src\main\resources" />
+      <recent name="C:\Users\cordier\Documents\leD\OpenClassRooms\ocr-projet06\WebContent" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -270,7 +317,9 @@
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
-        <serviceView />
+        <serviceView>
+          <option name="contentProportion" value="0.16739607" />
+        </serviceView>
       </list>
     </option>
   </component>
@@ -322,14 +371,9 @@
       <workItem from="1568875714083" duration="13057000" />
       <workItem from="1568889224849" duration="300000" />
       <workItem from="1568896310555" duration="16059000" />
-      <workItem from="1568916511459" duration="599000" />
-    </task>
-    <task id="LOCAL-00036" summary="revue css ajout spot (non ok)">
-      <created>1568397643492</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1568397643492</updated>
+      <workItem from="1568916511459" duration="680000" />
+      <workItem from="1569242250357" duration="8309000" />
+      <workItem from="1569312267434" duration="7017000" />
     </task>
     <task id="LOCAL-00037" summary="ajout table/forme secteur&#10;refonte ajouterSpot">
       <created>1568403496611</created>
@@ -667,7 +711,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568916357911</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Readme">
+      <created>1568917127660</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1568917127660</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,8 +757,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="dernier commit branche_V6" />
-    <MESSAGE value="premier commit" />
     <MESSAGE value="ajout stream sur collection voie dans ajouter longueur" />
     <MESSAGE value="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme" />
     <MESSAGE value="reformatage des jsp contenant table + forme (topo et spot)" />
@@ -731,63 +780,126 @@
     <MESSAGE value="En cours :  modèration commentaire (read/update/selection,jsp,cookie :ok) - ko url en entete de Svt_AdminSpot (fixé mais à tester)" />
     <MESSAGE value="Fonctions sur Commentaires : OK (reste le tag du spot à faire)" />
     <MESSAGE value="Toutes Fonctions Projet 06 : OK&#10;TODO : responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="Toutes Fonctions Projet 06 : OK&#10;TODO : responsive" />
+    <MESSAGE value="Readme" />
+    <MESSAGE value="refactoring et commentaires code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring et commentaires code" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" />
-    <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/1920.1080" />
-    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser" />
-    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser/1920.1080" />
-    <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
-    <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.0.bottom" />
-    <state width="1865" height="49" key="GridCell.Tab.0.bottom/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.0.center" />
-    <state width="1865" height="49" key="GridCell.Tab.0.center/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.0.left" />
-    <state width="1865" height="49" key="GridCell.Tab.0.left/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.0.right" />
-    <state width="1865" height="49" key="GridCell.Tab.0.right/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.1.bottom" />
-    <state width="1865" height="49" key="GridCell.Tab.1.bottom/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.1.center" />
-    <state width="1865" height="49" key="GridCell.Tab.1.center/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.1.left" />
-    <state width="1865" height="49" key="GridCell.Tab.1.left/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.1.right" />
-    <state width="1865" height="49" key="GridCell.Tab.1.right/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.2.bottom" />
-    <state width="1865" height="49" key="GridCell.Tab.2.bottom/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.2.center" />
-    <state width="1865" height="49" key="GridCell.Tab.2.center/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.2.left" />
-    <state width="1865" height="49" key="GridCell.Tab.2.left/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.2.right" />
-    <state width="1865" height="49" key="GridCell.Tab.2.right/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.3.bottom" />
-    <state width="1865" height="49" key="GridCell.Tab.3.bottom/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.3.center" />
-    <state width="1865" height="49" key="GridCell.Tab.3.center/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.3.left" />
-    <state width="1865" height="49" key="GridCell.Tab.3.left/1920.1080" />
-    <state width="1865" height="49" key="GridCell.Tab.3.right" />
-    <state width="1865" height="49" key="GridCell.Tab.3.right/1920.1080" />
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2" />
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2/1920.1080" />
-    <state x="326" y="88" width="1231" height="864" key="find.popup" />
-    <state x="326" y="88" width="1231" height="864" key="find.popup/1920.1080" />
-    <state x="532" y="236" width="840" height="1034" key="run.anything.popup" />
-    <state x="532" y="236" width="840" height="1034" key="run.anything.popup/1920.1080" />
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" />
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/1920.1080" />
+    <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1569242426433" />
+    <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/1920.1080" timestamp="1569242426434" />
+    <state x="654" y="296" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1569242428883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="654" y="296" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1569242428883" />
+    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1569313512114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1569313512114" />
+    <state x="721" y="146" key="#com.intellij.ide.util.MemberChooser/1920.1080" timestamp="1569242426434" />
+    <state x="701" y="375" width="517" height="303" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1569315241990">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="701" y="375" width="517" height="303" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1569315241990" />
+    <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1569242712239">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1569242712239" />
+    <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.1080" timestamp="1569242426434" />
+    <state x="690" y="210" key="FileChooserDialogImpl" timestamp="1569242426434" />
+    <state x="690" y="210" key="FileChooserDialogImpl/1920.1080" timestamp="1569242426434" />
+    <state width="0" height="0" key="GridCell.Tab.0.bottom" timestamp="1569312275487">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="0" height="0" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569312275487" />
+    <state width="1865" height="49" key="GridCell.Tab.0.bottom/1920.1080" timestamp="1569242426434" />
+    <state width="0" height="0" key="GridCell.Tab.0.center" timestamp="1569312275487">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="0" height="0" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569312275487" />
+    <state width="1865" height="49" key="GridCell.Tab.0.center/1920.1080" timestamp="1569242426434" />
+    <state width="0" height="0" key="GridCell.Tab.0.left" timestamp="1569312275487">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="0" height="0" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569312275487" />
+    <state width="1865" height="49" key="GridCell.Tab.0.left/1920.1080" timestamp="1569242426434" />
+    <state width="0" height="0" key="GridCell.Tab.0.right" timestamp="1569312275487">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="0" height="0" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569312275487" />
+    <state width="1865" height="49" key="GridCell.Tab.0.right/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.1.bottom" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.1.bottom/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.1.center" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.1.center/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.1.left" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.1.left/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.1.right" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.1.right/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.2.bottom" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.2.bottom/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.2.center" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.2.center/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.2.left" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.2.left/1920.1080" timestamp="1569242426434" />
+    <state width="1522" height="197" key="GridCell.Tab.2.right" timestamp="1569252088381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1522" height="197" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569252088381" />
+    <state width="1865" height="49" key="GridCell.Tab.2.right/1920.1080" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.bottom" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.bottom/1920.1080" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.center" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.center/1920.1080" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.left" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.left/1920.1080" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.right" timestamp="1569242426434" />
+    <state width="1865" height="49" key="GridCell.Tab.3.right/1920.1080" timestamp="1569242426434" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569242426434" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2/1920.1080" timestamp="1569242426434" />
+    <state x="326" y="88" width="1231" height="864" key="find.popup" timestamp="1569317307376">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="326" y="88" width="1231" height="864" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569317307376" />
+    <state x="326" y="88" width="1231" height="864" key="find.popup/1920.1080" timestamp="1569242426434" />
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup" timestamp="1569317443701">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569317443701" />
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup/1920.1080" timestamp="1569242426434" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1569313526887">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569313526887" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/1920.1080" timestamp="1569242426434" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>124</line>
+          <line>131</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

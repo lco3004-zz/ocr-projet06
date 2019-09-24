@@ -1,14 +1,20 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Contrôleur : méthode en lien EntityManagerFactory
+ *
+ * Le nom de chaque méthode suffit à comprendre sa fonction
+ * ************************************************************
+ */
+
 package fr.ocr.business;
 
-
-import fr.ocr.model.controllers.JpaCtrlSpot;
 import fr.ocr.model.controllers.JpaEntityManagerFactory;
 
 /**
  *
  */
 public class BusinessMgmt {
-    private JpaCtrlSpot jpaCtrl;
     private JpaEntityManagerFactory jpaEmf;
 
     /* ************************************************************************************************
@@ -17,7 +23,6 @@ public class BusinessMgmt {
      */
 
     public BusinessMgmt()  {
-        jpaCtrl = JpaCtrlSpot.JPA_CTRL_SPOT;
 
         jpaEmf = JpaEntityManagerFactory.getJpaEntityManagerFactory();
     }

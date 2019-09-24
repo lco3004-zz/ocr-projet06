@@ -1,3 +1,10 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ * ************************************************************
+ */
+
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
@@ -19,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static fr.ocr.constantes.ConstantesSvt.*;
 import static fr.ocr.model.constantes.SpotClassification.STANDARD;
-import static fr.ocr.view.utile.ConstantesSvt.*;
 
 
 @WebServlet(name = "Svt_AjouterSpot",
@@ -252,7 +259,7 @@ public class Svt_AjouterSpot extends HttpServlet {
                             // STREAM . What ELSE ?
                             //
                             if (dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).count() == 1) {
-                                dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).forEach((z) -> {z.getLongueursByIdvoie().add(dbLongueur);});
+                                dbSecteur.getVoiesByIdsecteur().stream().filter(w-> w.getIdvoie() == idDeLaVoie).forEach((z) -> z.getLongueursByIdvoie().add(dbLongueur));
                                 request.setAttribute("activerValider", true);
                             }
                             else {

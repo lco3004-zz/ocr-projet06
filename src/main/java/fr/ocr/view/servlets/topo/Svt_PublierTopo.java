@@ -1,3 +1,10 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ *  gère la fonction "publication (alias partage)" du Topo créé
+ * ************************************************************
+ */
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
@@ -31,6 +38,14 @@ public class Svt_PublierTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    /**
+     * renseigne l'attribut ctrlMetierTopo à chaque appel (GET ou POST ,...)
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -40,15 +55,26 @@ public class Svt_PublierTopo extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     * traitement des appels Post
+     * Si le paramètre d'appel idValTopo est vide, ne rien faire
+     * Sinon , appel méthode "business" pour modifier statut de ce topo (=> de nouveau dispo pour prêt)
+     *
+     * Forward vers la JSP "Svt_AcceuilTopo"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
             String s = request.getParameter("idValTopo");
             String msgResultat = " Demande envoyée ";
 
-
             if (s != null) {
-                Integer idDuTopo = Integer.valueOf(s);
+                int idDuTopo = Integer.parseInt(s);
                 ctrlMetierTopo.publierCeTopo(idDuTopo);
             } else {
                 msgResultat = " Rien à publier ";
@@ -63,6 +89,13 @@ public class Svt_PublierTopo extends HttpServlet {
         }
     }
 
+    /**
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 

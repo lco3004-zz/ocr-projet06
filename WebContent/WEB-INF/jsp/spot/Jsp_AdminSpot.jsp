@@ -64,7 +64,7 @@
                                     <td>${dbSpot.getLocalisation()}</td>
                                     <td>${dbSpot.getClassification()}</td>
                                     <td >
-                                        <button style="${couleurFondSpot}  border-radius: 30%; align-self: center;"
+                                        <button style="${couleurFondSpot}  "
                                                 name="idValSpot"
                                                 type="submit"
                                                 formaction="AdminSelectionSpot"
@@ -104,7 +104,7 @@
                                     <td>${dbCommentaire.getNom()}</td>
                                     <td>${dbCommentaire.getTexte()}</td>
                                     <td>
-                                        <button style="${couleurFondCmt}  border-radius: 30%; align-self: center;"
+                                        <button style="${couleurFondCmt}"
                                                 name="idValCmt"
                                                 type="submit"
                                                 formaction="AdminSupprimerCmt"
@@ -114,7 +114,7 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <button style="${couleurFondCmt}  border-radius: 30%; align-self: center;"
+                                        <button style="${couleurFondCmt}"
                                                 name="idValCommentaire"
                                                 type="submit"
                                                 formaction="AdminSelectModereCommentaire"
@@ -140,7 +140,7 @@
                                 <textarea id="inputcommentaire" name="inputcommentaire" >[Modération] : ${requestScope.dbCommentaire.texte}</textarea>
                             </fieldset>
                             <fieldset class="actions">
-                                <button style="border-radius: 30%;"
+                                <button
                                         class="boutonFormSimple"
                                         name="commentaireSpot"
                                         type="submit"
@@ -159,7 +159,7 @@
         </main>
         <aside>
             <article>
-                <label for="tableAsideComments"  style="font-size: larger ">Commentaires</label>
+                <label for="tableAsideComments" >Commentaires</label>
                 <table id="tableAsideComments" class="bordered">
                     <thead>
                     <tr>

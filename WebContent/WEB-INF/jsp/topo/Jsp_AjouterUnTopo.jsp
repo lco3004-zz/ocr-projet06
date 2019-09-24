@@ -1,5 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -59,7 +60,7 @@
         </main>
         <aside>
             <article>
-                <label style="font-size: larger ">Mes Topos</label>
+                <label >Mes Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -82,7 +83,7 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Mes Topos en Wait Resa</label>
+                <label >Mes Topos en Wait Resa</label>
                 <table class="bordered">
                     <thead>
                     <tr>

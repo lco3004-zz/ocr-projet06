@@ -1,4 +1,4 @@
-package fr.ocr.view.utile;
+package fr.ocr.constantes;
 
 public class ConstantesSvt {
     public static final long serialVersionUID = 1L;

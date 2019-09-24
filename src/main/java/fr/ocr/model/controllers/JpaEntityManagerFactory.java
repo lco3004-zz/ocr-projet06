@@ -6,9 +6,7 @@ import javax.persistence.Persistence;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static fr.ocr.constantes.Messages.ConstantesPgm.UNITE_DE_PERSISTANCE;
-
-
+import static fr.ocr.constantes.ConstantesPgm.UNITE_DE_PERSISTANCE;
 
 public class JpaEntityManagerFactory  {
 
@@ -40,14 +38,14 @@ public class JpaEntityManagerFactory  {
     }
 
 
-    public synchronized EntityManagerFactory getEmf()   {
+    synchronized EntityManagerFactory getEmf()   {
         if (emf == null) {
             emf = Persistence.createEntityManagerFactory(persistenceUnitName);
         }
         return emf;
     }
 
-    public synchronized void closeEmf()  {
+    private synchronized void closeEmf()  {
         if (emf != null) {
             emf.close();
             emf = null;

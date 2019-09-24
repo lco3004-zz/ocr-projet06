@@ -73,7 +73,7 @@
         </main>
         <aside>
             <article>
-                <label style="font-size: larger ">Mes Topos</label>
+                <label >Mes Topos</label>
                 <table class="bordered">
                     <thead>
                     <tr>
@@ -96,7 +96,7 @@
                 </table>
             </article>
             <article>
-                <label style="font-size: larger ">Mes Topos en Wait Resa</label>
+                <label >Mes Topos en Wait Resa</label>
                 <table class="bordered">
                     <thead>
                     <tr>

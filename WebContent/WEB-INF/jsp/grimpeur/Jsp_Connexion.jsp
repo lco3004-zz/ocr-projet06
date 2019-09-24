@@ -64,7 +64,6 @@
             </footer>
         </main>
         <aside>
-            <aside>
                 <article>
                     <table id="tableSelectionSpot"  class="bordered">
                         <thead>
@@ -108,7 +107,6 @@
                         </tbody>
                     </table>
                 </article>
-            </aside>
          </aside>
     </div>
     <footer>

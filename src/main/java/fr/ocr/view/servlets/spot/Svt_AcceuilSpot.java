@@ -1,3 +1,11 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ * ************************************************************
+ */
+
+
 package fr.ocr.view.servlets.spot;
 
 import fr.ocr.business.spot.CtrlMetierSpot;
@@ -25,7 +33,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import static fr.ocr.view.utile.ConstantesSvt.*;
+import static fr.ocr.constantes.ConstantesSvt.*;
 
 @WebServlet(name = "Svt_AcceuilSpot", urlPatterns = {"/AcceuilSpot",
         "/AcceuilSelectionSecteur",

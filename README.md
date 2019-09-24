@@ -15,13 +15,12 @@
 ## Model :  (Jpa/Hibernate) - fournit des controleurs Entitées pour gérer CRUD
 ## Business : (appel controleurs du Model selon la table/Entité concernée) 
 ## View  : Presentation (JSP) et Controller webapp (servlets)
-### aucune JSP accesible via un client (tous sous WEB-INF)
-### aucune page html accesible depuis un client
-### Page statique (sauf formulaire qui est nativement dynamique via les contrôles (expression régulière))
+### aucune JSP accesible via un client (toutes sous WEB-INF)
+### Page statique 
 
 
 # Séquence (servlet/jsp:
-## Depuis un "Client" (href, submit) : traitement exclusif via servlet
+## Depuis un "Client" (href, submit) : 
 ### "get"-> servlet(doget) {traitement[DAO, session] forward{[Jsp,Servlet]}}
 ### "post"-> servlet(dopost) {traitement[DAO, session] forward{[Jsp,Servlet]}}
 
@@ -29,10 +28,10 @@
 ## L'accès aux  ressources (servlet) qui sont réservés aux Grimpeurs et aux membres est "filtré"
 ### "get"-> filter(?connecté) -> servlet(doget)....
 ### "post"-> filter(?connecté) -> servlet(dopost)....
-## Deux niveaux d'accsè  Grimpeur (user droit restrein ), Membre (admin : tager, modérer, supprimer)
+## Deux niveaux d'accsè  Grimpeur (créer, partager, commenter), Membre ( tager, modérer, supprimer)
  
 # DAO (listener) :
-## Listener  déclenché :
+## Listener :
 ### au déploiement : "Open DAO" -> Entity Manager Factory est initialisé
 ### au retrait : "CLose DAO" -> Entity Manager Factory est fermé
 
@@ -48,7 +47,7 @@
 # Maven
 ## filtering
 ### Properties : nom de l'unité de persistance 
-## mutli-modules : aucun intérêt  pour projet 06 (sera utilisé en projet 07)
+## multi-modules : aucun intérêt  pour projet 06 (sera utilisé en projet 07)
 ## méta-modèle statique (mavenisé) 
 
 # Sécurité

@@ -1,3 +1,15 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Listener"
+ *      déploiement application : ouverture accès database
+ *      retrait applicaiton : cloture accès database
+ *
+ * Le nom de chaque méthode suffit à comprendre sa fonction
+ * méthodes auto générées par IDE
+ * ************************************************************
+ */
+
 package fr.ocr.view.listeners;
 
 import fr.ocr.business.BusinessMgmt;

@@ -1,3 +1,9 @@
+/*
+ * **********************************************************
+ * Projet 06
+ * Vue : "Servlet"
+ * ************************************************************
+ */
 package fr.ocr.view.servlets.topo;
 
 import fr.ocr.business.topo.CtrlMetierTopo;
@@ -45,7 +51,7 @@ public class Svt_GestionDemandeResaTopo extends HttpServlet {
             String s = request.getParameter("idValTopo");
 
             if (s != null) {
-                Integer idDuTopo = Integer.valueOf(s);
+                int idDuTopo = Integer.parseInt(s);
                 ctrlMetierTopo.accepterResaCeTopo(idDuTopo);
             } else {
                 msgResultat = "Rien à Accepter";
