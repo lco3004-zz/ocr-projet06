@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * utilise la "session" et "les cookies"
  * ************************************************************
  */
 
@@ -59,6 +60,19 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
     private CtrlMetierSpot ctrlMetierSpot;
 
+
+    /**
+     * renseigne l'attribut ctrlMetierSpot à chaque appel (GET ou POST ,...)
+     *
+     * récupère tous les spots pour affichage
+     *
+     * Sur appel URL  "/AcceuilSpot" (point d'entrée) , reset/création cookies
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -84,6 +98,15 @@ public class Svt_AcceuilSpot extends HttpServlet {
         }
         super.service(req, resp);
     }
+
+    /**
+     * à partir id Spot sélectionné, récupère la liste des secteurs de ce spot
+     *
+     * @return Cookie valorisé avec id du secteur sélectionné
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws Exception  levée sur erreur appel business
+     */
     private  Cookie cookieSpotArticleSecteurs(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSPOT, IDSELECTIONSPOT);
         if (cookie != null) {
@@ -106,6 +129,15 @@ public class Svt_AcceuilSpot extends HttpServlet {
         }
         return cookie;
     }
+
+    /**
+     * à partir id Secteur sélectionné, récupère la liste des voies de ce secteur
+     *
+     * @return Cookie valorisé avec id du secteur sélectionné
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws Exception  levée sur erreur appel business
+     */
     private  Cookie cookieSecteurArticleVoies(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSECTEUR, IDSELECTIONSECTEUR);
         if (cookie != null) {
@@ -124,6 +156,14 @@ public class Svt_AcceuilSpot extends HttpServlet {
         return cookie;
     }
 
+    /**
+     * à partir id Voie sélectionnée, récupère la liste des longeurs  de cette voie
+     *
+     * @return Cookie valorisé avec id de la voie sélectionnée
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws Exception  levée sur erreur appel business
+     */
     private  Cookie cookieVoieArticleLongueurs(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDELAVOIE, IDSELECTIONVOIE);
         if (cookie != null) {
@@ -143,6 +183,15 @@ public class Svt_AcceuilSpot extends HttpServlet {
         return cookie;
     }
 
+    /**
+     *
+     * Forward "Jsp_GestionSpot"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_GestionSpot");
@@ -151,6 +200,39 @@ public class Svt_AcceuilSpot extends HttpServlet {
             (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
     }
+
+    /**
+     *Gère URL :
+     *   "/AcceuilRechercheSpot",
+     *          * charge l'instance de JpaCtrlRecherche avec les éléments de recherche saisis
+     *          * appel méthode business "chercherCeSpot"
+     *
+     *   "/AcceuilSpot" , inhibe l'affichage de la forme de saisie de commentaire
+     *
+     *   "/AcceuilSelectionSpot" ,
+     *          * reset des cookies de selection (id) voies , secteur
+     *          * valorise le cookie avec id du spot sélectionné
+     *          * autorise l'affichage de la forme de saisie de commentaire
+     *
+     *   "/AcceuilSelectionSecteur"
+     *          * reset du cookie de selection (id) voies
+     *          * valorise le cookie avec id du secteur sélectionné
+     *          * autorise l'affichage de la forme de saisie de commentaire
+     *
+     *    "/AcceuilSelectionVoie"
+     *          * valorise le cookie avec id de la voie sélectionnée
+     *          * autorise l'affichage de la forme de saisie de commentaire
+     *
+     *    "/AcceuilCommenterSpot"
+     *          * récupère l'id du Spot dans cookie "spot"
+     *          * ajoute un titre au commentaire "nom du grimpeur + date courante"
+     *          * enregistre le commentaire saisie - appel business  ajouterCommentaireCeSpot
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();
@@ -176,8 +258,8 @@ public class Svt_AcceuilSpot extends HttpServlet {
                     List<DbSpot> dbSpots = ctrlMetierSpot.chercherCeSpot(recherche);
 
                     request.setAttribute("dbSpots", dbSpots);
-
                     break;
+
                 case "/AcceuilSpot":
                     request.setAttribute("voirSaisieCommentaire",false);
                     break;
@@ -190,26 +272,27 @@ public class Svt_AcceuilSpot extends HttpServlet {
                     if (cookie != null) {
                         response.addCookie(cookie);
                     }
-
                     break;
 
                 case "/AcceuilSelectionSecteur":
                     gestionCookies.resetThisCookie(request, IDDELAVOIE);
+                    request.setAttribute("voirSaisieCommentaire",true);
 
                     cookie =  cookieSecteurArticleVoies(request,response);
                     if (cookie != null) {
                         response.addCookie(cookie);
                     }
-
                    break;
 
                 case "/AcceuilSelectionVoie":
+                    request.setAttribute("voirSaisieCommentaire",true);
 
                     cookie =  cookieVoieArticleLongueurs(request,response);
                     if (cookie != null) {
                         response.addCookie(cookie);
                     }
                     break;
+
                 case "/AcceuilCommenterSpot" :
                     Object objGrimp = request.getSession().getAttribute("dbGrimpeur");
                     DbGrimpeur dbGrimpeur = (objGrimp instanceof DbGrimpeur) ? (DbGrimpeur) objGrimp : null;

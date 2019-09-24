@@ -60,7 +60,7 @@ public class Svt_PublierTopo extends HttpServlet {
      * Si le paramètre d'appel idValTopo est vide, ne rien faire
      * Sinon , appel méthode "business" pour modifier statut de ce topo (=> de nouveau dispo pour prêt)
      *
-     * Forward vers la JSP "Svt_AcceuilTopo"
+     * Forward vers la servlet "Svt_AcceuilTopo"
      *
      * @param request HttpServletRequest
      * @param response HttpServletResponse
@@ -73,7 +73,7 @@ public class Svt_PublierTopo extends HttpServlet {
             String s = request.getParameter("idValTopo");
             String msgResultat = " Demande envoyée ";
 
-            if (s != null) {
+            if (s != null && !s.equals("")) {
                 int idDuTopo = Integer.parseInt(s);
                 ctrlMetierTopo.publierCeTopo(idDuTopo);
             } else {
@@ -90,6 +90,11 @@ public class Svt_PublierTopo extends HttpServlet {
     }
 
     /**
+     * Prépare paramètre pour affichage de "MesToposNonPubliés", de "MesTopos", de "Demande"DeResaReçues"
+     *
+     *  Concerne utilisateur connecté (sinon, exception est levée)
+     *
+     * Forward vers la JSP "Jsp_PublierUnTopo"
      *
      * @param request HttpServletRequest
      * @param response HttpServletResponse

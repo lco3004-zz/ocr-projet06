@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère la page d'acceuil
  * ************************************************************
  */
 
@@ -35,10 +36,16 @@ public class Svt_AcceuilSite extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-
+    /**
+     * prépare affichage de "tous les spots" et de "tous les topos dispos à la réservation"
+     *
+     * Forward vers la JSP "Jsp_LandingPage"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             CtrlMetierTopo ctrlMetierTopo = CtrlMetierTopo.CTRL_METIER_TOPO;

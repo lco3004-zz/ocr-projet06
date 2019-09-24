@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère la demande de réservation d'un topo
  * ************************************************************
  */
 package fr.ocr.view.servlets.topo;
@@ -35,6 +36,14 @@ public class Svt_GestionDemandeResaTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    /**
+     * renseigne l'attribut ctrlMetierTopo à chaque appel (GET ou POST ,...)
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -44,13 +53,26 @@ public class Svt_GestionDemandeResaTopo extends HttpServlet {
         super.service(req, resp);
     }
 
+
+    /**
+     *  traitement des appels Post
+     *  Si le paramètre d'appel idValTopo est vide, ne rien faire
+     *  Sinon , appel méthode "business" pour accepter demande de réservation
+     *
+     *  Forward vers la servlet "Svt_AcceuilTopo"
+     *
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String msgResultat = " Demande envoyée ";
 
             String s = request.getParameter("idValTopo");
-
-            if (s != null) {
+            if (s != null && !s.equals("")) {
                 int idDuTopo = Integer.parseInt(s);
                 ctrlMetierTopo.accepterResaCeTopo(idDuTopo);
             } else {
@@ -65,13 +87,24 @@ public class Svt_GestionDemandeResaTopo extends HttpServlet {
         }
     }
 
+    /**
+     *
+     * Prépare paramètre pour affichage de "MesTopos", de "Demande"DeResaReçues" (en section main et section aside)
+     *
+     * Concerne utilisateur connecté (sinon, exception est levée)
+     *
+     * Forward vers la JSP "Jsp_ListerDemandeDeResa"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 
             Object o = request.getSession().getAttribute("dbGrimpeur");
-
             DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
-
             if (dbGrimpeur != null) {
                 Integer idGrimpeur = dbGrimpeur.getIdgrimpeur();
 

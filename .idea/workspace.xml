@@ -2,43 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/ConstantesPgm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/fragments/Html_EntetePourHtml.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/erreur/Jsp_ErrInterne.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/home/Jsp_LandingPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_GestionTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_ListerDemandeDeResa.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_PublierUnTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/ttformeslogin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/RecueildesbesoinsclientAmisdeEscalade.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/SCHEMA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" beforeDir="false" afterPath="$PROJECT_DIR$/creation_asta_mysql/UMLDiagrams.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/sql/prepdb.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/creation_asta_mysql/sql/runpsql06.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/BusinessMgmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/BusinessMgmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/commentaire/CtrlMetierCommentaire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/grimpeur/CtrlMetierGrimpeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/grimpeur/CtrlMetierGrimpeur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/spot/CtrlMetierSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/business/topo/CtrlMetierTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/business/topo/CtrlMetierTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/MessageDeBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/Messages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaEntityManagerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/model/controllers/JpaEntityManagerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAcces.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/filters/Filt_CtrlAccesMembre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/listeners/List_ApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/listeners/List_ApplicationListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_Commenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_ListerCommentaires.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_ModererCommentaire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/commentaire/Svt_VoirDetailCommentaire.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Inscription.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AcceuilSpot.java" afterDir="false" />
@@ -50,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_GestionDemandeResaTopo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_PublierTopo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_RestituerTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/utile/ConstantesSvt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/constantes/ConstantesSvt.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,14 +337,7 @@
       <workItem from="1568896310555" duration="16059000" />
       <workItem from="1568916511459" duration="680000" />
       <workItem from="1569242250357" duration="8309000" />
-      <workItem from="1569312267434" duration="7017000" />
-    </task>
-    <task id="LOCAL-00037" summary="ajout table/forme secteur&#10;refonte ajouterSpot">
-      <created>1568403496611</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1568403496611</updated>
+      <workItem from="1569312267434" duration="13488000" />
     </task>
     <task id="LOCAL-00038" summary="correction ajoutspot - placement tables coté aside">
       <created>1568409773730</created>
@@ -718,7 +675,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568917127660</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="refactoring et commentaires code">
+      <created>1569319449765</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1569319449765</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -876,33 +840,29 @@
     <state width="1865" height="49" key="GridCell.Tab.3.left/1920.1080" timestamp="1569242426434" />
     <state width="1865" height="49" key="GridCell.Tab.3.right" timestamp="1569242426434" />
     <state width="1865" height="49" key="GridCell.Tab.3.right/1920.1080" timestamp="1569242426434" />
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569242426434" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569319452140">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1569319452140" />
     <state x="452" y="170" key="Vcs.Push.Dialog.v2/1920.1080" timestamp="1569242426434" />
-    <state x="326" y="88" width="1231" height="864" key="find.popup" timestamp="1569317307376">
+    <state x="424" y="32" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1569330043555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="326" y="88" width="1231" height="864" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569317307376" />
+    <state x="424" y="32" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1569330043555" />
+    <state x="326" y="88" width="1231" height="864" key="find.popup" timestamp="1569327354288">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="326" y="88" width="1231" height="864" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569327354288" />
     <state x="326" y="88" width="1231" height="864" key="find.popup/1920.1080" timestamp="1569242426434" />
-    <state x="532" y="236" width="840" height="1034" key="run.anything.popup" timestamp="1569317443701">
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup" timestamp="1569327227088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="532" y="236" width="840" height="1034" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569317443701" />
+    <state x="532" y="236" width="840" height="1034" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569327227088" />
     <state x="532" y="236" width="840" height="1034" key="run.anything.popup/1920.1080" timestamp="1569242426434" />
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1569313526887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1569313526887" />
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/1920.1080" timestamp="1569242426434" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AjouterSpot.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

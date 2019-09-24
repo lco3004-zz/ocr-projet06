@@ -28,6 +28,7 @@ public class Svt_AcceuilTopo extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private final Logger logger;
+
     public Svt_AcceuilTopo() {
         super();
         logger = LogManager.getLogger(this.getClass());
@@ -36,6 +37,14 @@ public class Svt_AcceuilTopo extends HttpServlet {
 
     private CtrlMetierTopo ctrlMetierTopo;
 
+    /**
+     * renseigne l'attribut ctrlMetierTopo à chaque appel (GET ou POST ,...)
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -44,10 +53,20 @@ public class Svt_AcceuilTopo extends HttpServlet {
 
         super.service(req, resp);
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 
+    /**
+     * Prépare affichage de "les topos dispos pour résa", "mes topos" , "mes demandes de resa reçues"
+     * "mes réservations", "mes topos réservés"
+     *
+     * concerne user connecté sinon une exception est levée
+     *
+     * Forward vers Jsp "Jsp_GestionTopo"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
@@ -56,7 +75,6 @@ public class Svt_AcceuilTopo extends HttpServlet {
             request.setAttribute("dbTopos", dbTopos);
 
             Object o = request.getSession().getAttribute("dbGrimpeur");
-
             DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
 
             if (dbGrimpeur != null) {

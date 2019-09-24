@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère l'enregistrement d'un topo
  * ************************************************************
  */
 package fr.ocr.view.servlets.topo;
@@ -36,6 +37,14 @@ public class Svt_EnregistrerTopo extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    /**
+     * renseigne l'attribut ctrlMetierTopo à chaque appel (GET ou POST ,...)
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -45,17 +54,30 @@ public class Svt_EnregistrerTopo extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     *
+     * Récupère les infos saisie par le Grimpeur (nom, lieu, résumé)
+     *
+     * appel la méthode "business" d'enregistrement du Topo
+     *
+     * Concerne user connecté (grimpeur, membre) sinon une exception est levée
+     *
+     * Forward vers la servlet "Svt_AcceuilTopo"
+     *
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String nomTopo = request.getParameter("nomTopo");
-
             String lieuTopo   = request.getParameter("lieuTopo");
             String resumeTopo = request.getParameter("resumeTopo");
 
             Object o =  request.getSession().getAttribute("dbGrimpeur");
-
             DbGrimpeur dbGrimpeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
-
             if (dbGrimpeur !=null) {
 
                 logger.debug("Hello from :" + this.getClass().getSimpleName()+" Dbgrimpeur = " +dbGrimpeur.getUserName());
@@ -74,6 +96,15 @@ public class Svt_EnregistrerTopo extends HttpServlet {
         }
     }
 
+    /**
+     *
+     * Forward vers la JSP "Jsp_AjouterUnTopo"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_AjouterUnTopo");

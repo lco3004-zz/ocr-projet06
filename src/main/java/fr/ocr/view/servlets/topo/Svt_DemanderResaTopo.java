@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère la demande de réservation d'un topo
  * ************************************************************
  */
 
@@ -37,6 +38,15 @@ public class Svt_DemanderResaTopo extends HttpServlet {
     }
 
     private CtrlMetierTopo ctrlMetierTopo;
+
+    /**
+     * renseigne l'attribut ctrlMetierTopo à chaque appel (GET ou POST ,...)
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -46,16 +56,27 @@ public class Svt_DemanderResaTopo extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     * appel la méthode business de changement de statut "demande résa" d'un topo
+     * si le paramètre "idValTopo", id du topo objet de la demande", est null ou vide . pas d'action
+     *
+     * Forward vers la JSP "Jsp_AjouterUnTopo"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
             String msgResultat = " Demande envoyée ";
+            String s = request.getParameter("idValTopo");
 
-            if (request.getParameter("idValTopo") != null) {
-                int idDuTopo = Integer.parseInt(request.getParameter("idValTopo"));
+            if ( s != null && !s.equals("")) {
+                int idDuTopo = Integer.parseInt(s);
 
                 Object o = request.getSession().getAttribute("dbGrimpeur");
-
                 DbGrimpeur grimpeurDemandeur = (o instanceof DbGrimpeur) ? (DbGrimpeur) o : null;
                 if (grimpeurDemandeur !=null) {
                     ctrlMetierTopo.demanderResaCeTopo(idDuTopo, grimpeurDemandeur.getIdgrimpeur());
@@ -64,7 +85,6 @@ public class Svt_DemanderResaTopo extends HttpServlet {
                     logger.debug("Hello from :" + this.getClass().getSimpleName()+" Dbgrimpeur = NULL");
                     throw  new ServletException("dbGrimpeur est null");
                 }
-
             } else {
                 msgResultat = "Rien à réserver !";
             }
@@ -76,9 +96,5 @@ public class Svt_DemanderResaTopo extends HttpServlet {
         } catch (Exception e) {
             (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        doPost(request, response);
     }
 }

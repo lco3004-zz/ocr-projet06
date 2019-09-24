@@ -2,6 +2,12 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère les fonctions disponibles pour un Membre :
+ *  Modération suppression Commentaires
+ * et
+ *  tag du Spot ("amis de l'escalade")
+ *
+ * utilise la "session" et "les cookies"
  * ************************************************************
  */
 
@@ -30,8 +36,12 @@ import java.util.List;
 import static fr.ocr.constantes.ConstantesSvt.*;
 
 @WebServlet(name = "Svt_AdminSpot",
-        urlPatterns = {"/AdminSpot","/AdminSelectionSpot","/AdminSupprimerCmt",
-                "/AdminSelectModereCommentaire","/AdminModereCommentaire",
+        urlPatterns = {
+                "/AdminSpot",
+                "/AdminSelectionSpot",
+                "/AdminSupprimerCmt",
+                "/AdminSelectModereCommentaire",
+                "/AdminModereCommentaire",
                 "/AdminTaggerCeSpot"})
 public class Svt_AdminSpot extends HttpServlet {
 
@@ -49,6 +59,18 @@ public class Svt_AdminSpot extends HttpServlet {
         gestionCookies = new GestionCookies();
     }
 
+    /**
+     * renseigne l'attribut ctrlMetierSpot à chaque appel (GET ou POST ,...)
+     *
+     * récupère tous les spots pour affichage
+     *
+     * Sur appel URL  "/AdminSpot" (point d'entrée) , reset/création cookies
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -76,6 +98,16 @@ public class Svt_AdminSpot extends HttpServlet {
 
         super.service(req, resp);
     }
+
+    /**
+     * récupère paramètre idCommentaire depuis JSP et valorise le cookie
+     *
+     * @return Cookie valorisé avec l'id du commentaire sélectionné
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     private Cookie cookieSelectCommentaire( HttpServletRequest request, HttpServletResponse response) throws Exception{
         Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUCOMMENTAIRE, IDSELECTIONCOMMENTAIRE);
 
@@ -92,11 +124,22 @@ public class Svt_AdminSpot extends HttpServlet {
             logger.error("Erreur : " + this.getClass().getSimpleName() + " Cookie Commentaire est NULL" + request.getServletPath());
         }
         return cookie;
-
     }
 
+    /**
+     * récupère paramètre idSpot depuis JSP et valorise le cookie
+     * récupère les infos de ce Spot depuis DataBase,
+     * récupère la liste des commentaires de ce spot
+     *
+     * @return Cookie valorisé avec l'id du Spot  sélectionné
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     private  Cookie cookieSpotCommentaire(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Cookie cookie = gestionCookies.setValParamReqIntoCookie(request, IDDUSPOT, IDSELECTIONSPOT);
+
         if (cookie != null) {
             int idSelectionSpot = Integer.parseInt(cookie.getValue());
             request.setAttribute(IDSELECTIONSPOT, idSelectionSpot);
@@ -113,6 +156,17 @@ public class Svt_AdminSpot extends HttpServlet {
         return cookie;
     }
 
+    /**
+     * gère les URLS :
+     *  "/AdminTaggerCeSpot", appel méthode business "taggerCeSpot" , idSpot lu depuis Cookie
+     *  "/AdminSupprimerCmt"  appel méthode business "supprimeCeCommentaire" , idCommentaire lu depuis Cookie
+     *  "/AdminModereCommentaire" appel méthode business "modereCeCommentaire" , idCommentaire lu depuis Cookie
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();
@@ -155,6 +209,17 @@ public class Svt_AdminSpot extends HttpServlet {
         }
     }
 
+    /**
+     * gère les URLS :
+     *  "/AdminSpot",
+     *  "/AdminSelectionSpot",  valorise le cookie avec idSpot sélectionné
+     *  "/AdminSelectModereCommentaire"  valorise le cookie avec idCommentaire sélectionné.
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();

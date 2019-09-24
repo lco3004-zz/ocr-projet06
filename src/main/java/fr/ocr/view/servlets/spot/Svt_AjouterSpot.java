@@ -2,6 +2,13 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère l'ajout d'un spot après avoir construit un arbre spot/secteurs/voies/longeurs en mémoire
+ * Gestion index/id des tables  secteurs[], voies[] :
+ *  utilise la "session"  pour objet dbSpot et index des tables
+ *   et
+ * "les cookies" pour les id sélectionnés dans la Jsp
+ *
+ * fonctionne avec un switch sur URL (++ URL pour la même servlet)
  * ************************************************************
  */
 
@@ -31,9 +38,14 @@ import static fr.ocr.model.constantes.SpotClassification.STANDARD;
 
 
 @WebServlet(name = "Svt_AjouterSpot",
-        urlPatterns = {"/CreerSpot", "/AjouterSpot", "/AjouterSecteur",
-               "/AjouterSelectionSecteur","/AjouterVoie",
-                "/AjouterSelectionVoie","/AjouterLongueur",
+        urlPatterns = {
+                "/CreerSpot",
+                "/AjouterSpot",
+                "/AjouterSecteur",
+                "/AjouterSelectionSecteur",
+                "/AjouterVoie",
+                "/AjouterSelectionVoie",
+                "/AjouterLongueur",
                 "/Valider"})
 
 public class Svt_AjouterSpot extends HttpServlet {
@@ -47,8 +59,14 @@ public class Svt_AjouterSpot extends HttpServlet {
     private GestionCookies gestionCookies;
 
 
+    /**
+     * instance de DataSession utilisé lors du partage d'infos durant  la Session
+     */
     private class DataSession {
 
+        /**
+         * nécessaire à la création en mémoire de l'arborescence Spot/secteurS/VoieS/LongeurS
+         */
         private int indexSecteur;
         private int indexVoie;
         private int idGrimpeur;
@@ -64,6 +82,9 @@ public class Svt_AjouterSpot extends HttpServlet {
         }
     }
 
+    /**
+     * initialise les cookies
+     */
     public Svt_AjouterSpot() {
         super();
         logger = LogManager.getLogger(this.getClass());
@@ -71,11 +92,34 @@ public class Svt_AjouterSpot extends HttpServlet {
         gestionCookies = new GestionCookies();
     }
 
+    /**
+     *
+     * centralise le code lors la levée d'exception
+     *
+     * @param e Exception
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     private void tr_ExceptionGenerique(Exception e, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().removeAttribute(DATASESSION);
         (new MsgExcpStd()).execute(this,e,logger,request,response);
     }
 
+    /**
+     * renseigne l'attribut ctrlMetierSpot à chaque appel (GET ou POST ,...)
+     *
+     * enregistre une instance de DataSession en Session si l'URL est "/CreerSpot" : point d'entrée de la suite de fonctions
+     *  nécessaires à la création d'un spot (hors commentaire)
+     *
+     *  sinon, récupère l'objet dBSpot , membre de l'instance de DataSession  depuis l'objet Session
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -85,12 +129,16 @@ public class Svt_AjouterSpot extends HttpServlet {
         String natureRequete = req.getServletPath();
         Object objDtaSess = req.getSession().getAttribute(DATASESSION);
 
+        // début de la séquence de création d'un Spot : reset cookie et session
         if (natureRequete.equals("/CreerSpot")) {
+
+            //reset session
             if (objDtaSess != null) {
                 req.getSession().removeAttribute(DATASESSION);
                 objDtaSess=null;
             }
 
+            // création Session
             pourDataSession = new DataSession();
             Object objGrimp = req.getSession().getAttribute("dbGrimpeur");
             DbGrimpeur dbGrimpeur = (objGrimp instanceof DbGrimpeur) ? (DbGrimpeur) objGrimp : null;
@@ -101,14 +149,16 @@ public class Svt_AjouterSpot extends HttpServlet {
             } else {
                 logger.error("Erreur : " + this.getClass().getSimpleName() + " DbGrimpeur est NULL" + natureRequete);
             }
+
+            // reset / création Cookies
             ArrayList<String> strings = new ArrayList<>();
             strings.add(IDDUSECTEUR);
             strings.add(IDDELAVOIE);
-
             gestionCookies.supprimeCookies(req,resp,strings);
             gestionCookies.createCookies(resp,strings);
 
         } else {
+            // sinon récupère l'instance de DataSession
             if (objDtaSess != null) {
                 pourDataSession = (objDtaSess instanceof DataSession) ? (DataSession) objDtaSess : null;
             } else {
@@ -118,6 +168,24 @@ public class Svt_AjouterSpot extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     * traite la validation de la saisie - appel méthode business ajout spot (forward "Svt_AcceuilSpot")
+     * Recupére l'id du Secteur ou de la Voie selectionné dans la JSP
+     *
+     * gère les flags d'affichage et valorise les cookies suite saisie user, sur appel URL :
+     *   "/CreerSpot"
+     *   "/AjouterSelectionSecteur"
+     *   "/AjouterSelectionVoie"
+     *   "/Valider" : le lien n'est actif que si un spot contient au moins un secteur qui contient au moins une voie
+     *   qui contient au moins une longueur
+     *
+     * Forward "Jsp_AjouterUnSpot" ou "Svt_AcceuilSpot" sur choix URL "/Valider"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             String natureRequete = request.getServletPath();
@@ -178,6 +246,23 @@ public class Svt_AjouterSpot extends HttpServlet {
         }
     }
 
+    /**
+     *Traite les appels :
+     *   "/AjouterSpot", par défaut le Spot est classifier "Standard", les infos saisies sont mise dans l'instance
+     *   de DataSession.dbSpot
+     *   "/AjouterSecteur" : les infos saisies sont mises dans DataSession.dbSpot."Collection de Secteurs"
+     *   "/AjouterVoie" : récupére l'id du secteur qui va contenir cette voie dans le cookie "index secteur"
+     *   "/AjouterLongueur" : récupére l'id de la voie qui va contenir  cette longueur dans le cookie "index voie"
+     *
+     * L'ensemble contruit l'arbre de racine DbSpot et de feuille DbLongeur
+     *
+     * Forward "Jsp_AjouterUnSpot"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String natureRequete = request.getServletPath();
@@ -286,6 +371,4 @@ public class Svt_AjouterSpot extends HttpServlet {
             tr_ExceptionGenerique(ex, request, response);
         }
     }
-
-
 }

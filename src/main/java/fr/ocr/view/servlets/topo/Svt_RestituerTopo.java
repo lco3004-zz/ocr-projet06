@@ -58,7 +58,7 @@ public class Svt_RestituerTopo extends HttpServlet {
      * L'utilisateur doit être connecté (pas de contrôle car passe par filter qui contrôle cela)
      * si erreur , il ya aura une exception de levée par "Business" et "Model"
      *
-     * Forward vers la JSP "Svt_AcceuilTopo"
+     * Forward vers la Servlet "Svt_AcceuilTopo"
      *
      * @param request HttpServletRequest
      * @param response HttpServletResponse
@@ -68,7 +68,9 @@ public class Svt_RestituerTopo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String msgResultat = " Demande envoyée ";
-            if (request.getParameter("idValTopo") != null) {
+            String s = request.getParameter("idValTopo");
+
+            if ( s != null && !s.equals("")) {
                 int idDuTopo = Integer.parseInt(request.getParameter("idValTopo"));
 
                 Object o = request.getSession().getAttribute("dbGrimpeur");
@@ -91,15 +93,4 @@ public class Svt_RestituerTopo extends HttpServlet {
         }
     }
 
-    /**
-     * rien - pourra être supprimé
-     *
-     * @param request HttpServletRequest
-     * @param response HttpServletResponse
-     * @throws ServletException levée sur erreur Servlet
-     * @throws IOException  levée sur erreur logger
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-    }
 }
