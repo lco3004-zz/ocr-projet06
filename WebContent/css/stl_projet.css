@@ -60,17 +60,17 @@
     margin: 0.2%;
 }
 /* *************** NAV ************************** */
-.container  nav header {
+.container .corpsDePage nav header {
     color: black;
     text-align: center;
     border: 1px dotted black;
 }
-.container nav footer {
+.container  .corpsDePage nav footer {
     color: black;
     text-align: center;
     border: 1px dotted black;
 }
-.container nav section {
+.container .corpsDePage nav section {
     list-style: none;
     border: 1px dotted black;
     flex-direction: column;
@@ -80,7 +80,7 @@
     flex-grow: 3;
 }
 
-.container  nav section .boutonLateral {
+.container .corpsDePage nav section .boutonLateral {
     border: 0;
     line-height: 2.5;
     padding: 0 5%;
@@ -97,33 +97,33 @@
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
-.container  nav section .boutonLateral:hover {
+.container .corpsDePage nav section .boutonLateral:hover {
     background-color: rgba(255, 0, 0, 1);
     color: white;
 }
-.container  nav section .boutonLateral:disabled {
+.container .corpsDePage nav section .boutonLateral:disabled {
     background-color: dimgray;
     color: darkgray;
     font-style: italic;
 }
 /* ***************  MAIN  ************************** */
-.container  main section .divrecherche,
-.container  main section .divcommentaire{
+.container .corpsDePage main section .divrecherche,
+.container .corpsDePage main section .divcommentaire{
     border: 1px solid black;
     padding: 0.2%;
     margin: 0.2%;
 }
-.container  main section .divcommentaire Textarea {
+.container .corpsDePage main section .divcommentaire Textarea {
     margin: 0 0 10% 0;
     background: lightblue;
     border-radius: 2%;
 }
-.container  main header{
+.container .corpsDePage  main header{
     text-align: center;
 }
 
 /* ***************  ASIDE **************************  */
-.container  aside article {
+.container .corpsDePage aside article {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -192,14 +192,6 @@
     font-style: italic;
 }
 
-.container .formSimple .labels {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: end;
-    flex-grow: 1;
-}
 .container .formSimple .inputs {
     display: flex;
     flex-direction: column;
@@ -214,18 +206,11 @@
     align-items: center;
 }
 /* ********************  formSimpleLogin ********************************** */
-.container   .formSimpleLogin {
+.container .formSimpleLogin {
     border: solid #ccc 1px;
     display: flex;
 }
-.container .formSimpleLogin .labels {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: end;
-    flex-basis: 20%;
-}
+
 .container .formSimpleLogin .inputs {
     display: flex;
     flex-direction: column;
@@ -273,28 +258,27 @@
         border: 2px dotted black;
         margin-bottom: 0.5%;
     }
-    .container .formSimple .labels {
+    .container .formSimple {
+        border: solid #ccc 1px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: end;
-        flex-grow: 1;
+        justify-content: center;
     }
+
     .container .formSimple .inputs {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         flex-grow: 3;
     }
-    .container .formSimpleLogin .labels {
+    .container .formSimpleLogin {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: end;
-        flex-basis: 20%;
+        justify-content: center;
     }
+
     .container .formSimpleLogin .inputs {
         display: flex;
         flex-direction: column;
@@ -307,5 +291,21 @@
         flex-direction: column;
         border: 1px solid black;
         flex: 1;
+    }
+    .container .corpsDePage nav header {
+        display: none;
+    }
+    .container .corpsDePage nav footer {
+        display: none;
+    }
+    .container .corpsDePage nav section {
+        list-style: none;
+        border: 1px dotted black;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        min-width: 100%;
+        display: flex;
+        flex-grow: 3;
     }
 }

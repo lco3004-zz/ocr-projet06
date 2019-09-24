@@ -162,6 +162,8 @@ public class Svt_AdminSpot extends HttpServlet {
      *  "/AdminSupprimerCmt"  appel méthode business "supprimeCeCommentaire" , idCommentaire lu depuis Cookie
      *  "/AdminModereCommentaire" appel méthode business "modereCeCommentaire" , idCommentaire lu depuis Cookie
      *
+     * Forward "Jsp_AdminSpot"
+     *
      * @param request HttpServletRequest
      * @param response HttpServletResponse
      * @throws ServletException levée sur erreur Servlet
@@ -214,6 +216,8 @@ public class Svt_AdminSpot extends HttpServlet {
      *  "/AdminSpot",
      *  "/AdminSelectionSpot",  valorise le cookie avec idSpot sélectionné
      *  "/AdminSelectModereCommentaire"  valorise le cookie avec idCommentaire sélectionné.
+     *
+     * Forward "Jsp_AdminSpot"
      *
      * @param request HttpServletRequest
      * @param response HttpServletResponse

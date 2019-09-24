@@ -34,13 +34,9 @@
             </header>
             <section>
                 <form id="login" class="formSimpleLogin">
-                    <fieldset class="labels">
-                        <label for="username">Nom :</label>
-                        <label for="password">MdP :</label>
-                    </fieldset>
                     <fieldset class="inputs">
-                        <input id="username" name="nomGrimpeur" type="text" placeholder="Nom" autofocus required>
-                        <input id="password" name="mdpGrimpeur" type="password" placeholder="Mot de Passe"
+                        <input name="nomGrimpeur" type="text" placeholder="Nom" autofocus required>
+                        <input name="mdpGrimpeur" type="password" placeholder="Mot de Passe"
                                required>
                     </fieldset>
                     <fieldset class="actions">

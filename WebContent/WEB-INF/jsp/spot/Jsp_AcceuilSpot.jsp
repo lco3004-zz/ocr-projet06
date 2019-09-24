@@ -35,18 +35,12 @@
                 <div class="divrecherche" id="divrecherche">
                     <label for="divrecherche"><h3>Recherche</h3></label>
                     <form id="formRecherche" class="formSimple">
-                        <fieldset class="labels">
-                            <label for="inputNomSpot">NomSpot</label>
-                            <label for="inputNbreDeSpits">Spits</label>
-                            <label for="inputClassification">Classification</label>
-                            <label for="inputCotation">Cotation</label>
-                        </fieldset>
                         <fieldset class="inputs">
-                            <input id="inputNomSpot" type="text" size="8" name="inputNomSpot">
+                            <input  placeholder="NomSpot" type="text" size="8" name="inputNomSpot">
 
-                            <input id="inputNbreDeSpits" name="inputNbreDeSpits" size="2" type="number" min="1" max="10"/>
+                            <input placeholder="NbreSpits" name="inputNbreDeSpits" size="2" type="number" min="1" max="10"/>
 
-                            <select id="inputClassification" name="inputClassification">
+                            <select  name="inputClassification">
                                 <optgroup label="Classification">
                                     <option disabled selected value> -- Choisir Classification -- </option>
                                     <option value="STANDARD">STANDARD</option>
@@ -54,7 +48,7 @@
                                 </optgroup>
                             </select>
 
-                            <select id="inputCotation" name="inputCotation">
+                            <select name="inputCotation">
                                 <optgroup label="Cotation">
                                     <option disabled selected value> -- Choisir Cotation -- </option>
                                     <option value="QUATRE_A">QUATRE_A</option>
@@ -124,11 +118,8 @@
                     <div class="divcommentaire" id="divcommentaire">
                         <label for="navSaisieCommentaire"><h3> Commenter </h3> </label>
                         <form id="navSaisieCommentaire"  class="formSimple">
-                            <fieldset  class="labels">
-                                <label for="inputcommentaire" class="labels">Message:</label>
-                            </fieldset>
-                            <fieldset class="inputs">
-                                <textarea id="inputcommentaire" name="inputcommentaire" ></textarea>
+                             <fieldset class="inputs">
+                                <textarea placeholder="Commentez" name="inputcommentaire" ></textarea>
                             </fieldset>
                             <fieldset class="actions">
                                 <button

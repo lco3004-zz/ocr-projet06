@@ -83,13 +83,9 @@
 
                 <label for="formEnregistrerSpot">Saisir infos Spot</label>
                 <form id="formEnregistrerSpot" class="formSimple">
-                    <fieldset class="labels">
-                        <label for="nomSpot"> Nom : </label>
-                        <label for="localisationSpot"> Lieu : </label>
-                    </fieldset>
                     <fieldset class="inputs">
-                        <input id="nomSpot" name="nomSpot" required size="16" type="text"/>
-                        <input id="localisationSpot" name="localisationSpot" required size="16" type="text"/>
+                        <input placeholder="nomSpot" name="nomSpot" required size="16" type="text"/>
+                        <input placeholder="localisationSpot" name="localisationSpot" required size="16" type="text"/>
                     </fieldset>
                     <fieldset class="actions">
                         <button class="boutonFormSimple"
@@ -107,11 +103,8 @@
                 <c:if test="${requestScope.afficheFormeSpot == false}" scope="request" var="none">
                     <label for="formEnregistrerSecteur">Saisir infos Secteur</label>
                     <form id="formEnregistrerSecteur" class="formSimple">
-                        <fieldset class="labels">
-                            <label for="nomSecteur"> Nom : </label>
-                        </fieldset>
                         <fieldset class="inputs">
-                            <input id="nomSecteur" name="nomSecteur" required size="16" type="text"/>
+                            <input placeholder="nomSecteur" name="nomSecteur" required size="16" type="text"/>
                         </fieldset>
                         <fieldset class="actions">
                             <button class="boutonFormSimple"
@@ -128,11 +121,8 @@
 
                     <label for="formEnregistrerVoie">Saisir infos Voies</label>
                     <form id="formEnregistrerVoie" class="formSimple">
-                        <fieldset class="labels">
-                            <label for="nomVoie"> Nom : </label>
-                        </fieldset>
                         <fieldset class="inputs">
-                            <input id="nomVoie" name="nomVoie" required size="16" type="text"/>
+                            <input placeholder="nomVoie" name="nomVoie" required size="16" type="text"/>
                         </fieldset>
                         <fieldset class="actions">
                             <button class="boutonFormSimple"
@@ -149,15 +139,10 @@
 
                     <label for="formEnregistrerLongueur">Saisir infos Longueur</label>
                     <form id="formEnregistrerLongueur" class="formSimple">
-                        <fieldset class="labels">
-                            <label for="nomLongueur"> Nom : </label>
-                            <label for="nombreDeSpits"> Spits : </label>
-                            <label for="cotationLongueur"> Cotation : </label>
-                        </fieldset>
                         <fieldset class="inputs">
-                            <input id="nomLongueur" name="nomLongueur" required size="16" type="text"/>
-                            <input id="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="number" min="1" max="10" value="1"/>
-                            <select id="cotationLongueur" required name="cotationLongueur">
+                            <input placeholder="nomLongueur" name="nomLongueur" required size="16" type="text"/>
+                            <input placeholder="nombreDeSpits" name="nbreSpitsLongueur" required size="2" type="number" min="1" max="10" value="1"/>
+                            <select required name="cotationLongueur">
                                 <optgroup label="Cotation">
                                     <option disabled selected value> -- Choisir Cotation -- </option>
                                     <option value="QUATRE_A">QUATRE_A</option>

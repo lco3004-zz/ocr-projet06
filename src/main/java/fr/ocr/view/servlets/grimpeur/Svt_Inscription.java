@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère l'inscription d'un utilisateur
  * utilise la "session"
  * ************************************************************
  */
@@ -39,6 +40,15 @@ public class Svt_Inscription extends HttpServlet {
         logger = LogManager.getLogger(this.getClass());
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
+
+    /**
+     * Liste les topos dispos à la résa et les spots - pour affichage "aside"
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -58,6 +68,16 @@ public class Svt_Inscription extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     * Traite inscription
+     * Si données ok et enregistrment Database ok, forward vers connexion ("Svt_Connexion")
+     * Sinon Forward vers "Jsp_ErrCnxOuIns"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
@@ -85,6 +105,15 @@ public class Svt_Inscription extends HttpServlet {
         }
     }
 
+    /**
+     *
+     * Forward vers "Jsp_Inscription" ou "Jsp_ErrInterne" si erreur
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_Inscription");

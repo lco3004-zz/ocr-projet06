@@ -66,4 +66,9 @@ public class Svt_AcceuilSite extends HttpServlet {
             (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
 }

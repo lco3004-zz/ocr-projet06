@@ -99,4 +99,9 @@ public class Svt_AcceuilTopo extends HttpServlet {
             (new MsgExcpStd()).execute(this,e,logger,request,response);
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
 }

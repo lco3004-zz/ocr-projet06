@@ -2,6 +2,7 @@
  * **********************************************************
  * Projet 06
  * Vue : "Servlet"
+ * gère la connexion d'un utilisateur
  * utilise la "session"
  * ************************************************************
  */
@@ -41,6 +42,14 @@ public class Svt_Connexion extends HttpServlet {
         logger.debug("Hello from :" + this.getClass().getSimpleName());
     }
 
+    /**
+     * Liste les topos dispos à la résa et les spots - pour affichage "aside"
+     *
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
@@ -60,6 +69,20 @@ public class Svt_Connexion extends HttpServlet {
         super.service(req, resp);
     }
 
+    /**
+     * Supprime l'attribut de session qui contient l'id Grimpeur, si existe (ne devrait se produire)
+     *
+     *  appel la méthode connecterCeGrimpeur du "business"
+     *
+     * Forward "Svt_AcceuilSite" si cnx réussie (avec mise en Session de l'id du grimepur)
+     *
+     * Forward ves "Jsp_Connexion" si erreur avec msg "erreur cnx"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 
@@ -70,7 +93,7 @@ public class Svt_Connexion extends HttpServlet {
                 request.getSession().invalidate();
 
             } catch (IllegalStateException ex) {
-                //pas grave, on fera un log pour info
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " invalidation session : excpetion" + ex.getLocalizedMessage() );
             }
 
             CtrlMetierGrimpeur ctrlMetierGrimpeur =  CtrlMetierGrimpeur.CTRL_METIER_GRIMPEUR;
@@ -105,6 +128,17 @@ public class Svt_Connexion extends HttpServlet {
 
     }
 
+    /**
+     * Supprime l'attribut de session qui contient l'id Grimpeur, si existe
+     * (utile pour se déconnecter)
+     *
+     * Forward ves "Jsp_Connexion"
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException levée sur erreur Servlet
+     * @throws IOException  levée sur erreur logger
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             try {
@@ -114,8 +148,9 @@ public class Svt_Connexion extends HttpServlet {
                 request.getSession().invalidate();
 
             } catch (IllegalStateException ex) {
-                //pas grave, on fera un log pour info
+                logger.debug("Hello from :" + this.getClass().getSimpleName() + " invalidation session : excpetion" + ex.getLocalizedMessage() );
             }
+
             RequestDispatcher requestDispatcher = this.getServletContext().getNamedDispatcher("Jsp_Connexion");
             requestDispatcher.forward(request, response);
         } catch (Exception e) {

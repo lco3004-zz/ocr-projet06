@@ -31,15 +31,10 @@
             </header>
             <section>
                 <form id="formEnregistrerData" class="formSimple">
-                    <fieldset class="labels">
-                        <label for="nomTopo">Nom :</label>
-                        <label for="lieuTopo">Lieu :</label>
-                        <label for="resumeTopo">Résumé :</label>
-                    </fieldset>
                     <fieldset class="inputs">
-                        <input id="nomTopo" name="nomTopo" required size="40%" type="text"/>
-                        <input id="lieuTopo" name="lieuTopo" required size="40%" type="text"/>
-                        <input id="resumeTopo" name="resumeTopo" required size="40%" type="text"/>
+                        <input placeholder="nomTopo" name="nomTopo" required size="40%" type="text"/>
+                        <input placeholder="lieuTopo" name="lieuTopo" required size="40%" type="text"/>
+                        <input placeholder="resumeTopo" name="resumeTopo" required size="40%" type="text"/>
                     </fieldset>
                     <fieldset class="actions">
                         <button class="boutonFormSimple"

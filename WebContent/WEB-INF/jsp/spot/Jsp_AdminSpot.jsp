@@ -133,11 +133,8 @@
                     <div class="divcommentaire" id="divcommentaire">
                         <label for="navSaisieCommentaire"><h3> Commenter </h3> </label>
                         <form id="navSaisieCommentaire"  class="formSimple">
-                            <fieldset  class="labels">
-                                <label for="inputcommentaire" class="labels">Message:</label>
-                            </fieldset>
                             <fieldset class="inputs">
-                                <textarea id="inputcommentaire" name="inputcommentaire" >[Modération] : ${requestScope.dbCommentaire.texte}</textarea>
+                                <textarea placeholder="Message:" name="inputcommentaire" >[Modération] : ${requestScope.dbCommentaire.texte}</textarea>
                             </fieldset>
                             <fieldset class="actions">
                                 <button
