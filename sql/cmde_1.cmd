@@ -1,0 +1,1 @@
+D:/programfiles/PostgreSQL/11/bin/psql -h localhost -p 5432 -U postgres -f D:/OpenClassRooms/ocr-projet06/sql/prep_projet06.sql

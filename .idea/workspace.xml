@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/creation_asta_mysql/sql/prep_projet06.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Connexion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/grimpeur/Jsp_Inscription.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AcceuilSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AdminSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/spot/Jsp_AjouterUnSpot.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/topo/Jsp_AjouterUnTopo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/css/stl_projet.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/css/stl_projet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/acceuil/Svt_AcceuilSite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Connexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/grimpeur/Svt_Inscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/spot/Svt_AdminSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_AcceuilTopo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ocr/view/servlets/topo/Svt_DemanderResaTopo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,47 +22,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="projet06" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="projet06" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="projet06" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="db_projet06: database" type="162271b6:PgImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="projet06" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="db_projet06: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="projet06" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="db_projet06: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="projet06" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="db_projet06: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FavoritesManager">
@@ -338,14 +287,8 @@
       <workItem from="1568896310555" duration="16059000" />
       <workItem from="1568916511459" duration="680000" />
       <workItem from="1569242250357" duration="8309000" />
-      <workItem from="1569312267434" duration="19053000" />
-    </task>
-    <task id="LOCAL-00039" summary="revoir gestiondbSpot - à mettre en cookie, en session ou persister direct">
-      <created>1568413594120</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1568413594120</updated>
+      <workItem from="1569312267434" duration="19714000" />
+      <workItem from="1569418818696" duration="733000" />
     </task>
     <task id="LOCAL-00040" summary="remise en session d'un objet avec index, idse et id voire et dpspot">
       <created>1568441032573</created>
@@ -683,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569331269106</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="responsive OK">
+      <created>1569336905897</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1569336905897</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +672,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ajout bouton détail sur gestionSpot -reformatage des jsp contenant table + forme" />
     <MESSAGE value="reformatage des jsp contenant table + forme (topo et spot)" />
     <MESSAGE value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
     <MESSAGE value="ecriture doget de acceuilSpot" />
@@ -747,12 +696,17 @@
     <MESSAGE value="Readme" />
     <MESSAGE value="refactoring et commentaires code" />
     <MESSAGE value="commentaires  sur Topo et Spot" />
-    <option name="LAST_COMMIT_MESSAGE" value="commentaires  sur Topo et Spot" />
+    <MESSAGE value="responsive OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="responsive OK" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1569242426433" />
     <state x="627" y="210" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/1920.1080" timestamp="1569242426434" />
+    <state x="552" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1569418877920">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1569418877920" />
     <state x="654" y="296" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1569242428883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -773,45 +727,45 @@
     <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.1080" timestamp="1569242426434" />
     <state x="690" y="210" key="FileChooserDialogImpl" timestamp="1569242426434" />
     <state x="690" y="210" key="FileChooserDialogImpl/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.bottom" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.0.bottom" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.0.bottom/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.center" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.0.center" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.0.center/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.left" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.0.left" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.0.left/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.right" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.0.right" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.0.right/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.1.bottom" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.1.bottom" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.1.bottom/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.1.center" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.1.center" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.1.center/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.1.left" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.1.left" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.1.left/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.1.right" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.1.right" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.1.right/1920.1080" timestamp="1569242426434" />
     <state width="1522" height="418" key="GridCell.Tab.10.bottom" timestamp="1569333069948">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -829,25 +783,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1522" height="418" key="GridCell.Tab.10.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569333069948" />
-    <state width="1522" height="318" key="GridCell.Tab.2.bottom" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.2.bottom" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.2.bottom/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.2.center" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.2.center" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.2.center/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.2.left" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.2.left" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.2.left/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.2.right" timestamp="1569336859240">
+    <state width="1522" height="318" key="GridCell.Tab.2.right" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569336859240" />
+    <state width="1522" height="318" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
     <state width="1865" height="49" key="GridCell.Tab.2.right/1920.1080" timestamp="1569242426434" />
     <state width="1522" height="418" key="GridCell.Tab.3.bottom" timestamp="1569333206194">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -901,10 +855,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1522" height="418" key="GridCell.Tab.9.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569333068995" />
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569331270734">
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569336908339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1569331270734" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1569336908339" />
     <state x="452" y="170" key="Vcs.Push.Dialog.v2/1920.1080" timestamp="1569242426434" />
     <state x="424" y="32" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1569330043555">
       <screen x="0" y="0" width="1920" height="1040" />
