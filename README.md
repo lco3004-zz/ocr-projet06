@@ -7,23 +7,23 @@
 ## Windows 10Pro v1903 - build 18362.356
 ## JDK 11.0.4
 
-# Généralités : 
-## Architecture
-### Model :  Jpa/Hibernate / Api Criteria avec métamodèle statique (Mavenisé)
-### Business : lien entre View et Model
-### View  : JEE : Presentation = JSP placé dans WEB-INF ,  Controller webapp = servlets,listener,filter
-## Contrôle Accès (filter):
-### L'accès aux  ressources (servlet) qui sont réservés aux Grimpeurs et aux membres est "filtré"
-### Deux niveaux d'accès  Grimpeur (créer, partager, commenter), Membre ( tager, modérer, supprimer)
-## Entity Manager, via un listener :
-### au déploiement -> Entity Manager Factory est ouvert
-### au retrait  -> Entity Manager Factory est fermé
-## Persistence
-### Validation du modèle : hibernate.hbm2ddl.auto" value="validate
-## Makefile : sous Maven
-### filtering: Properties - nom de l'unité de persistance 
-### mono-module
-
+# Architecture
+## Model :  Jpa/Hibernate 
+## Business : lien entre View et Model
+## View  : JEE : Presentation = JSP placé dans WEB-INF ,  Controller webapp = servlets,listener,filter
+# Contrôle Accès (filter):
+## L'accès aux  ressources (servlet) qui sont réservés aux Grimpeurs et aux membres est "filtré"
+## Deux niveaux d'accès  Grimpeur (créer, partager, commenter), Membre ( tager, modérer, supprimer)
+# Entity Manager, via un listener application:
+## au déploiement appli -> Entity Manager Factory est ouvert
+## au retrait appli -> Entity Manager Factory est fermé
+# Persistence
+## Validation du modèle : hibernate.hbm2ddl.auto" value="validate
+## Mode eager/lazy par défaut 
+## Api Criteria avec métamodèle statique (Mavenisé) 
+# Makefile : sous Maven
+## filtering: Properties - nom de l'unité de persistance 
+## mono-module
 # Installation Database - tables
 ## installation PostgreSql par défaut, 
 ## Prérequis : le répertoire 'c:\bd_data' doit exister - controle total pour admin, system,
