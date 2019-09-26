@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="081d3406-2e20-43f8-bde4-88d9983f805d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/creation_asta_mysql/sql/prep_projet06.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,13 +290,8 @@
       <workItem from="1569242250357" duration="8309000" />
       <workItem from="1569312267434" duration="19714000" />
       <workItem from="1569418818696" duration="733000" />
-    </task>
-    <task id="LOCAL-00040" summary="remise en session d'un objet avec index, idse et id voire et dpspot">
-      <created>1568441032573</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1568441032573</updated>
+      <workItem from="1569427650992" duration="269000" />
+      <workItem from="1569488713053" duration="651000" />
     </task>
     <task id="LOCAL-00041" summary="correction dans methode service">
       <created>1568443922908</created>
@@ -633,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569336905897</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="modification readme">
+      <created>1569427871434</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1569427871434</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +675,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="reformatage des jsp contenant table + forme (topo et spot)" />
     <MESSAGE value="preparation gestion cookie dans AcceuilSpot (refonte cookie, correction bug dans ajouterSpot)" />
     <MESSAGE value="ecriture doget de acceuilSpot" />
     <MESSAGE value="pb avec Lazzy - modif ctrlreadSpot - accès par boucle aux descendant (sinon...je mettrai eager)" />
@@ -697,7 +699,8 @@
     <MESSAGE value="refactoring et commentaires code" />
     <MESSAGE value="commentaires  sur Topo et Spot" />
     <MESSAGE value="responsive OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsive OK" />
+    <MESSAGE value="modification readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification readme" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -727,25 +730,25 @@
     <state x="627" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.1080" timestamp="1569242426434" />
     <state x="690" y="210" key="FileChooserDialogImpl" timestamp="1569242426434" />
     <state x="690" y="210" key="FileChooserDialogImpl/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.bottom" timestamp="1569338347051">
+    <state width="1522" height="153" key="GridCell.Tab.0.bottom" timestamp="1569427668530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
+    <state width="1522" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1569427668530" />
     <state width="1865" height="49" key="GridCell.Tab.0.bottom/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.center" timestamp="1569338347051">
+    <state width="1522" height="153" key="GridCell.Tab.0.center" timestamp="1569427668530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
+    <state width="1522" height="153" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1569427668530" />
     <state width="1865" height="49" key="GridCell.Tab.0.center/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.left" timestamp="1569338347051">
+    <state width="1522" height="153" key="GridCell.Tab.0.left" timestamp="1569427668530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
+    <state width="1522" height="153" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1569427668530" />
     <state width="1865" height="49" key="GridCell.Tab.0.left/1920.1080" timestamp="1569242426434" />
-    <state width="1522" height="318" key="GridCell.Tab.0.right" timestamp="1569338347051">
+    <state width="1522" height="153" key="GridCell.Tab.0.right" timestamp="1569427668530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1522" height="318" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569338347051" />
+    <state width="1522" height="153" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569427668530" />
     <state width="1865" height="49" key="GridCell.Tab.0.right/1920.1080" timestamp="1569242426434" />
     <state width="1522" height="318" key="GridCell.Tab.1.bottom" timestamp="1569338347051">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -855,10 +858,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1522" height="418" key="GridCell.Tab.9.right/0.0.1920.1040@0.0.1920.1040" timestamp="1569333068995" />
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569336908339">
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2" timestamp="1569427875520">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1569336908339" />
+    <state x="452" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1569427875520" />
     <state x="452" y="170" key="Vcs.Push.Dialog.v2/1920.1080" timestamp="1569242426434" />
     <state x="424" y="32" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1569330043555">
       <screen x="0" y="0" width="1920" height="1040" />

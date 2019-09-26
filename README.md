@@ -1,12 +1,11 @@
 #  MODEL_V7 - au 19/09/2019
 
-# Prérequis :
+# Prérequis au bon fct de la maquette:
 ## Firefox Quantum V69
 ## PostgreSql V11, JDBC Driver JDBC42
-## Apache Tomcat Version 9
-## Windows 10Pro 64bits - v1903 - build 18362.356
-## Windows Defender (4.18.1908.7, 1.1.16400.2, 1.303.119.0, 1.303.119.0)
-## être adminsitrateur de la machine où est installé Tomcat/PostgreSql
+## Apache Tomcat V9
+## Windows 10Pro v1903 - build 18362.356
+## JDK 11.0.4
 
 # Généralités : 
 ## Architecture
@@ -25,21 +24,18 @@
 ### filtering: Properties - nom de l'unité de persistance 
 ### mono-module
 
-# Installation PostgreSql + jDBC + database/tables
-## installation par défaut : service démarrage auto - compte : "Service réseau", 
-## Path modifié pour  {rép. instal Postgres}/bin,
-### Prérequis : le répertoire 'c:\bd_data' doit exister (mkdir 'c:\bd_data') - controle total pour admin, system,
-## lancer la commande suivante , les chemins dépendent de l'installation PostgreSql et Projet06:
-### {Rép. PostgreSql}/bin/psql -h localhost -p 5432 -U postgres -f {Rép. Projet06}/sql/prep_projet06.sql
-### le mot de passe de postgres est celui saisi lors de l'installation 
-### le role rl_projet06, le tablespace ts_projet06 et la base db_projet06 sont créés.
-## lancer pgadmin V4 , 
-### modifier le password de rl_projet 06 : password = projet06
-### depuis tools/query tools , ouvrez {Rép. Projet06}/sql/create_tbl.sql et exécuter le 
-### vérifier que 7 tables sont crées
-## la table grimpeur contient un tupple qui est un grimpeur membre  
+# Installation Database - tables
+## installation PostgreSql par défaut, 
+## Prérequis : le répertoire 'c:\bd_data' doit exister - controle total pour admin, system,
+## Création : rôle rl_projet06, base db_projet06 et tablespace ts_projet06 :
+### psql -h localhost -p 5432 -U postgres -f {repertoire projet06}/sql/prep_projet06.sql
+## modif mdp du rôle rl_projet06 
+### Sous pgadmin V4,  modifier le password de rl_projet 06 : password = projet06
+## Création tables
+### Sous pgadmin V4/tools/query tools , exécuter {repertoire projet06}/sql/create_tbl.sql  
+## Utilisateur fourni par défaut
 ### nom = laurent , passwd = laurent ,role =MEMBRE
-### le mdp est hashé 
+### Note : le mdp est hashé. 
 # fin
 
 
