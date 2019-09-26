@@ -3,7 +3,7 @@
 # Prérequis au bon fct de la maquette:
 ## Firefox Quantum V69
 ## PostgreSql V11, JDBC Driver JDBC42
-## Apache Tomcat V9
+## Apache Tomcat/9.0.24 - JVM 11.0.4+10-LTS  (!!!)
 ## Windows 10Pro v1903 - build 18362.356
 ## JDK 11.0.4
 

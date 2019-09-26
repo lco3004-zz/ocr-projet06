@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="escalade.war">
+    <root id="archive" name="projet06.war">
       <element id="artifact" artifact-name="projet06:war exploded" />
     </root>
   </artifact>
