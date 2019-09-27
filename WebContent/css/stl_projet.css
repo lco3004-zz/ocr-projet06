@@ -1,5 +1,8 @@
-
 /* ***************  CONTAINER ************************** */
+body{
+    margin: 2px;
+    display: block;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -82,8 +85,8 @@
 
 .container .corpsDePage nav section .boutonLateral {
     border: 0;
-    line-height: 2.5;
-    padding: 0 5%;
+    line-height: normal;
+    padding: 0.2%;
     font-size: 1rem;
     text-align: center;
     color: whitesmoke;
@@ -163,8 +166,8 @@
 }
 .container   .formSimple .boutonFormSimple {
     border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
+    line-height:normal;
+    padding: 0.2%;
     font-size: 1rem;
     text-align: center;
     color: whitesmoke;
@@ -227,7 +230,7 @@
 .container   .formSimpleLogin .boutonFormSimple {
     border: 0;
     line-height: 2.5;
-    padding: 0 20px;
+    padding: 0.2%;
     font-size: 1rem;
     text-align: center;
     color: greenyellow;
@@ -251,7 +254,19 @@
 }
 
 /* ******************************** */
+/* ******************************** */
+/* ******************************** */
+/* ******************************** */
+/* ******************************** */
+/* ******************************** */
+
+
 @media screen and (max-width: 800px){
+
+    body{
+        margin: 1px;
+    }
+
     .container  aside article {
         display: flex;
         flex-wrap: wrap;
@@ -301,11 +316,19 @@
     .container .corpsDePage nav section {
         list-style: none;
         border: 1px dotted black;
-        flex-direction: row;
+        /*flex-direction: row;*/
         justify-content: space-around;
         flex-wrap: wrap;
         min-width: 100%;
         display: flex;
         flex-grow: 3;
     }
+
+    .container header , .container footer {
+        display: none;
+    }
+    .container header h1, .container footer h1 {
+        display: none;
+    }
+
 }

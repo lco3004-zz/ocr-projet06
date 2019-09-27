@@ -119,9 +119,9 @@ ALTER SEQUENCE public.voie_idvoie_seq
 CREATE TABLE public.grimpeur
 (
     idgrimpeur integer NOT NULL DEFAULT nextval('grimpeur_idgrimpeur_seq'::regclass),
-    user_pass character varying(64)   COLLATE pg_catalog."default" NOT NULL,
+    user_pass character varying(256)   COLLATE pg_catalog."default" NOT NULL,
     user_name character varying(256)  COLLATE pg_catalog."default" NOT NULL,
-    role_name character varying(256) DEFAULT 'GRIMPEUR'  COLLATE pg_catalog."default" NOT NULL,
+    role_name character varying(64) DEFAULT 'GRIMPEUR'  COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT grimpeur_pkey PRIMARY KEY (idgrimpeur)
 )
     WITH (

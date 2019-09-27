@@ -9,6 +9,7 @@
 
 package fr.ocr.business.grimpeur;
 
+import fr.ocr.business.utile.HashMdp;
 import fr.ocr.model.constantes.UserProfile;
 import fr.ocr.model.controllers.JpaCtrlGrimpeur;
 import fr.ocr.model.entities.DbGrimpeur;
@@ -47,7 +48,7 @@ class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
     public DbGrimpeur ajouterGrimpeur(String NomGrimpeur, String mdpGrimpeur) throws Exception {
         DbGrimpeur dbGrimpeur = new DbGrimpeur();
         dbGrimpeur.setUserName(NomGrimpeur);
-        dbGrimpeur.setUserPass(mdpGrimpeur);
+        dbGrimpeur.setUserPass((new HashMdp(mdpGrimpeur)).getStrMdp());
         dbGrimpeur.setRoleName(UserProfile.GRIMPEUR);
         return  jpaCtrlGrimpeur.createGrimpeur(dbGrimpeur);
     }
@@ -63,9 +64,8 @@ class  CtrlMetierGrimpeur_impl implements CtrlMetierGrimpeur{
     public DbGrimpeur connecterCeGrimpeur(String NomGrimpeur, String mdpGrimpeur) throws Exception {
         List<DbGrimpeur> dbGrimpeurs = jpaCtrlGrimpeur.findGrimpeurByName(NomGrimpeur);
         DbGrimpeur dbGrimpeur = null;
-
         if (dbGrimpeurs.size() == 1) {
-            if (dbGrimpeurs.get(0).getUserPass().contentEquals(new StringBuffer(mdpGrimpeur))) {
+            if (dbGrimpeurs.get(0).getUserPass().equals((new HashMdp(mdpGrimpeur)).getStrMdp())) {
                 dbGrimpeur = dbGrimpeurs.get(0);
             }
         }
