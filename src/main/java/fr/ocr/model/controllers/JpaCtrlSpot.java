@@ -32,16 +32,42 @@ public interface JpaCtrlSpot {
 class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
-    public DbSpot createSpot(Integer idUser, DbSpot dbSpot) throws Exception {
+    public DbSpot createSpot(Integer idUser, DbSpot olddbSpot) throws Exception {
         try (JpaEntityManager jpa = new JpaEntityManager()) {
             try {
 
                 jpa.getEm().getTransaction().begin();
 
+                DbSpot dbSpot = new DbSpot();
+
                 dbSpot.setGrimpeurByGrimpeurIdgrimpeur(jpa.getEm().find(DbGrimpeur.class, idUser));
 
-                jpa.getEm().persist(dbSpot);
+                dbSpot.setClassification(olddbSpot.getClassification());
+                dbSpot.setLocalisation(olddbSpot.getLocalisation());
+                dbSpot.setNom(olddbSpot.getNom());
 
+                for (DbSecteur olddbSecteur  : olddbSpot.getSecteursByIdspot()) {
+                    DbSecteur dbSecteur = new DbSecteur();
+                    dbSecteur.setNom(olddbSecteur.getNom());
+
+                    for (DbVoie olddbVoie : olddbSecteur.getVoiesByIdsecteur()) {
+                        DbVoie dbVoie = new DbVoie();
+                        dbVoie.setNom(olddbVoie.getNom());
+
+                        for (DbLongueur olddbLongueur :  olddbVoie.getLongueursByIdvoie()) {
+                            DbLongueur dbLongueur = new DbLongueur();
+                            dbLongueur.setCotation(olddbLongueur.getCotation());
+                            dbLongueur.setNom(olddbLongueur.getNom());
+                            dbLongueur.setNombreDeSpits(olddbLongueur.getNombreDeSpits());
+
+                            dbVoie.getLongueursByIdvoie().add(dbLongueur);
+                        }
+                        dbSecteur.getVoiesByIdsecteur().add(dbVoie);
+                    }
+                    dbSpot.getSecteursByIdspot().add(dbSecteur);
+                }
+
+                jpa.getEm().persist(dbSpot);
                 jpa.getEm().getTransaction().commit();
 
                 return dbSpot;
