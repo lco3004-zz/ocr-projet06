@@ -32,7 +32,9 @@
 ## modif mdp du rôle rl_projet06 
 ### Sous pgadmin V4,  modifier le password de rl_projet 06 : password = projet06
 ## Création tables
-### Sous pgadmin V4/tools/query tools , exécuter {repertoire projet06}/sql/create_tbl.sql  
+### Sous pgadmin V4/tools/query tools , exécuter {repertoire projet06}/sql/create_tbl.sql
+## Jeu De test
+### Sous pgadmin V4, selection de db_projet06 puis choisir "restore" : fichier {repertoire projet06}/sql/dump_data.sql 
 ## Utilisateur fourni par défaut
 ### nom = laurent , passwd = laurent ,role =MEMBRE
 ### Note : le mdp est hashé. 
