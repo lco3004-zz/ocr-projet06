@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="DEBUG" monitorInterval="30" name="OCR-Projet06">
     <Properties>
-        <Property name="framework_logs">../logs/project06/frameworks.log</Property>
-        <Property name="projet06_logs">../logs/project06/project.log</Property>
+        <Property name="framework_logs">c:/project06/logs/frameworks.log</Property>
+        <Property name="projet06_logs">c:/project06/logs/project.log</Property>
         <Property name="filtreSurProjet"> ${project.build.finalName} </Property>
 
         log4j.logger.org.thymeleaf
