@@ -41,7 +41,7 @@
         </main>
         <aside>
             <article>
-                <label for="nosspots">Nos Topos</label>
+                <label for="nosspots">Nos Spots</label>
                 <table id="nosspots" class="bordered">
                     <thead>
                     <tr>

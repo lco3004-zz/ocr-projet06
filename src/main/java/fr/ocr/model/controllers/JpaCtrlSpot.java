@@ -3,6 +3,7 @@ package fr.ocr.model.controllers;
 import fr.ocr.model.entities.*;
 import fr.ocr.model.utile.JpaCtrlRecherche;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
@@ -368,9 +369,9 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
 
     @Override
     public DbSpot findSpotByName(String name) throws Exception {
-        try (JpaEntityManager jpa = new JpaEntityManager()) {
 
-            DbSpot dbSpot ;
+        try (JpaEntityManager jpa = new JpaEntityManager()) {
+            DbSpot dbSpot;
 
             jpa.getEm().getTransaction().begin();
 
@@ -381,30 +382,31 @@ class  JpaCtrlSpot_impl implements JpaCtrlSpot {
             Root<DbSpot> root = criteriaQuery.from(DbSpot.class);
             criteriaQuery.select(root);
 
-            Predicate predicate = criteriaBuilder.equal(root.get(DbSpot_.NOM),name);
+            Predicate predicate = criteriaBuilder.equal(root.get(DbSpot_.NOM), name);
             criteriaQuery.where(predicate);
 
             Query query = jpa.getEm().createQuery(criteriaQuery);
-
-            dbSpot = (DbSpot) query.getSingleResult();
-            //Fetch encore au secours !!
-            for (DbSecteur dbSecteur: dbSpot.getSecteursByIdspot()) {
-                for (DbVoie dbVoie:dbSecteur.getVoiesByIdsecteur()) {
-                    for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
-                        int j = dbSpot.getIdspot();
-                        int i = dbSecteur.getIdsecteur();
-                        int k = dbVoie.getIdvoie();
-                        int l = dbLongueur.getIdlongueur();
+            try {
+                dbSpot = (DbSpot) query.getSingleResult();
+                //Fetch encore au secours !!
+                for (DbSecteur dbSecteur : dbSpot.getSecteursByIdspot()) {
+                    for (DbVoie dbVoie : dbSecteur.getVoiesByIdsecteur()) {
+                        for (DbLongueur dbLongueur : dbVoie.getLongueursByIdvoie()) {
+                            int j = dbSpot.getIdspot();
+                            int i = dbSecteur.getIdsecteur();
+                            int k = dbVoie.getIdvoie();
+                            int l = dbLongueur.getIdlongueur();
+                        }
                     }
                 }
+                for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
+                    int m = dbCommentaire.getIdcommentaire();
+                }
             }
-            for (DbCommentaire dbCommentaire : dbSpot.getCommentairesByIdspot()) {
-                int m = dbCommentaire.getIdcommentaire();
-            }
-
-
-            jpa.getEm().getTransaction().commit();
-
+             catch (NoResultException s) {
+                dbSpot = null;
+             }
+             jpa.getEm().getTransaction().commit();
             return dbSpot;
 
         } catch (Exception hex1) {

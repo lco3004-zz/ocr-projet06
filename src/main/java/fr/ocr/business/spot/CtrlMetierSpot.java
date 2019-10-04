@@ -153,9 +153,6 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
              if (dbSpot != null) {
                  dbSpots.add(dbSpot);
              }
-             else {
-                 dbSpots = null;
-             }
         } else if (recherche.getSpotClassification() != null) {
             dbSpots = jpaCtrlSpot.findListSpotByClassification(recherche.getSpotClassification().name());
         } else if (recherche.getNombreSpitsLongeur() != null ||
@@ -164,6 +161,10 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
 
         // si la liste des critères est vide, renvoie tous les spots
         } else {
+            dbSpots =  jpaCtrlSpot.findListeSpots(null);
+        }
+        // si rien trouvé renvoie tout
+        if (dbSpots == null || dbSpots.isEmpty() ) {
             dbSpots =  jpaCtrlSpot.findListeSpots(null);
         }
         return dbSpots;
