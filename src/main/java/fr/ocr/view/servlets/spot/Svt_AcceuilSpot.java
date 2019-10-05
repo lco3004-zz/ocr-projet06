@@ -81,21 +81,25 @@ public class Svt_AcceuilSpot extends HttpServlet {
 
         String natureRequete = req.getServletPath();
 
-        if (natureRequete.equals("/AcceuilSpot")) {
+        if (natureRequete.equals("/AcceuilSpot") || natureRequete.equals("/AcceuilRechercheSpot")) {
             ArrayList<String> strings = new ArrayList<>();
             strings.add(IDDUSPOT);
             strings.add(IDDUSECTEUR);
             strings.add(IDDELAVOIE);
 
-            gestionCookies.supprimeCookies(req,resp,strings);
-            gestionCookies.createCookies(resp,strings);
+            gestionCookies.supprimeCookies(req, resp, strings);
+            gestionCookies.createCookies(resp, strings);
         }
-        try {
-            dbSpots = ctrlMetierSpot.listerTousSpots();
-            req.setAttribute("dbSpots", dbSpots);
-        } catch (Exception e) {
-            (new MsgExcpStd()).execute(this,e,logger,req,resp);
+
+        if ( ! natureRequete.equals("/AcceuilRechercheSpot")) {
+            try {
+                dbSpots = ctrlMetierSpot.listerTousSpots();
+                req.setAttribute("dbSpots", dbSpots);
+            } catch (Exception e) {
+                (new MsgExcpStd()).execute(this,e,logger,req,resp);
+            }
         }
+
         super.service(req, resp);
     }
 
@@ -240,6 +244,7 @@ public class Svt_AcceuilSpot extends HttpServlet {
             switch (natureRequete) {
                 case "/AcceuilRechercheSpot" :
                     JpaCtrlRecherche recherche = JpaCtrlRecherche.JPA_CTRL_RECHERCHE;
+                    recherche.clearRecherche();
 
                     recherche.setNomSpot(request.getParameter("inputNomSpot"));
 

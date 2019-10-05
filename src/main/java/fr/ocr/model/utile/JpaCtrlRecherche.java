@@ -6,6 +6,8 @@ import fr.ocr.model.constantes.SpotClassification;
 public interface JpaCtrlRecherche {
     JpaCtrlRecherche JPA_CTRL_RECHERCHE = new JpaCtrlClassRecherche_impl();
 
+    void clearRecherche();
+
      String getNomSpot() ;
      void setNomSpot(String nomSpot) ;
 
@@ -24,6 +26,18 @@ class JpaCtrlClassRecherche_impl implements JpaCtrlRecherche {
         private Integer nombreSpitsLongeur;
         private CotationLongueur cotationLongueur;
         private SpotClassification spotClassification;
+
+        public JpaCtrlClassRecherche_impl () {
+            clearRecherche();
+        }
+
+    @Override
+    public void clearRecherche() {
+        nomSpot=null;
+        nombreSpitsLongeur=null;
+        cotationLongueur=null;
+        spotClassification=null;
+    }
 
     @Override
     public String getNomSpot() {

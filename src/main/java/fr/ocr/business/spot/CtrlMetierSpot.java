@@ -164,7 +164,7 @@ class CtrlMetierSpot_impl implements CtrlMetierSpot {
             dbSpots =  jpaCtrlSpot.findListeSpots(null);
         }
         // si rien trouvé renvoie tout
-        if (dbSpots == null || dbSpots.isEmpty() ) {
+        if (dbSpots == null || dbSpots.isEmpty()) {
             dbSpots =  jpaCtrlSpot.findListeSpots(null);
         }
         return dbSpots;
